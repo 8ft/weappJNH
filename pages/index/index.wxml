@@ -10,7 +10,7 @@
     </swiper-item>
   </swiper>
 
-  <yt-tabs tabs="{{['标签1','标签22','标签333']}}" fixed="{{fixTab}}"></yt-tabs>
+  <yt-tabs tabs="{{['全部','开发','设计','市场/运营','产品']}}" fixed="{{fixTab}}"></yt-tabs>
 
 
   <view class='project' wx:for="{{projects}}" wx:for-item="project">
