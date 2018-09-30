@@ -1,0 +1,34 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/mine/index/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#0083FF",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "backgroundColor":"#fff",
+    "color": "#000000",
+    "selectedColor": "#000000",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/index",
+        "iconPath":"./assets/img/icon_find_bottom_nor@3x.png",
+        "selectedIconPath":"./assets/img/icon_find_bottom_sel@3x.png"
+      },
+      {
+        "text": "日志",
+        "pagePath": "pages/logs/logs",
+        "iconPath": "./assets/img/icon_find_bottom_nor@3x.png",
+        "selectedIconPath": "./assets/img/icon_find_bottom_nor@3x.png"
+      }
+    ]
+  },
+  "networkTimeout":{
+    "request":60000
+  }
+}

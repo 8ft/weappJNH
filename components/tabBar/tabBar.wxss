@@ -1,0 +1,53 @@
+/* components/tabBar/tabBar.wxss */
+@import "../../assets/iconfont/icon.wxss";
+
+.yt-tabBar{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index: 9999;
+  display:flex;
+  flex-wrap:wrap;
+  border-top:1px solid hsla(0,0%,93%,.8);
+  height:100rpx; 
+  padding:10rpx;
+  background:#fff;
+  box-sizing:border-box;
+}
+
+.iconfont{
+  font-size:40rpx;
+}
+
+navigator,.publish {
+  display:block;
+  flex:1;
+  text-align:center;
+}
+
+.yt-tabBar text{
+  display: block;
+  line-height: 20rpx;
+  font-size:20rpx;
+  margin-top:10rpx;
+}
+
+.publish-btn{
+  position:absolute;
+  bottom:10rpx;
+  left:50%;
+  margin-left:-50rpx;
+}
+
+.publish-btn view{
+  font-size:100rpx;
+  line-height: 100rpx;
+  border:2rpx solid #fff;
+  border-radius:50%;
+  color:#0083FF;
+}
+
+.publish text{
+  margin-top:0;
+}

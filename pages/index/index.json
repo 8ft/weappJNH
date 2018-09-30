@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "巨牛汇",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance":true,
+  "usingComponents": {
+    "yt-tabs": "../../components/tabs/tabs"
+  }
+}

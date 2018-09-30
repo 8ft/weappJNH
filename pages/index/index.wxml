@@ -1,0 +1,26 @@
+<!--index.wxml-->
+<view>
+
+  <swiper id="banner" indicator-dots="true" indicator-color="rgba(255,255,255,.6)" indicator-active-color="#fff" autoplay="true" circular="true">
+    <swiper-item>
+      <image src='../../assets/img/banner1.png'></image>
+    </swiper-item>
+    <swiper-item>
+      <image src='../../assets/img/banner2.png'></image>
+    </swiper-item>
+  </swiper>
+
+  <yt-tabs tabs="{{['标签1','标签22','标签333']}}" fixed="{{fixTab}}"></yt-tabs>
+
+
+  <view class='project' wx:for="{{projects}}" wx:for-item="project">
+    <text class='title'>{{project.projectName}}</text>
+    <text class='price'>{{project.projectBudget}}</text>
+    <view class='tags'>
+      <label class='type'>{{project.projectSubtype}}</label>
+      <label wx:if="{{skill!==''}}" wx:for="{{skills[index]}}" wx:for-item="skill">{{skill}}</label>
+    </view>
+    <text class='hot'>已申请：{{project.applyNum}}  |  已浏览：{{project.viewNum}}</text>
+  </view>
+
+</view>
