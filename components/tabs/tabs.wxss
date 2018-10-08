@@ -3,10 +3,10 @@
 .yt-tabs{
   position: relative;
   display:flex;
-  flex-wrap:wrap;
   border-bottom:1px solid hsla(0,0%,93%,1);
   height:100rpx; 
   padding:10rpx;
+  line-height: 80rpx;
   background:#fff;
   box-sizing:border-box;
   align-items: center;
@@ -23,6 +23,11 @@
 .yt-tab{
   flex:1;
   text-align: center;
+}
+
+.yt-tab text{
+  display: inline-block;
+  height: 100%;
 }
 
 .yt-tab text.active{

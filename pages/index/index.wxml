@@ -10,17 +10,18 @@
     </swiper-item>
   </swiper>
 
-  <yt-tabs tabs="{{['全部','开发','设计','市场/运营','产品']}}" fixed="{{fixTab}}"></yt-tabs>
+  <yt-tabs wx:if="{{types.length>1}}" tabs="{{types}}" fixed="{{fixTab}}" bindchange="onTabChange"></yt-tabs>
 
-
-  <view class='project' wx:for="{{projects}}" wx:for-item="project">
-    <text class='title'>{{project.projectName}}</text>
-    <text class='price'>{{project.projectBudget}}</text>
-    <view class='tags'>
-      <label class='type'>{{project.projectSubtype}}</label>
-      <label wx:if="{{skill!==''}}" wx:for="{{skills[index]}}" wx:for-item="skill">{{skill}}</label>
+  <block wx:if="{{curPage===index}}" wx:for="{{pages}}" wx:for-item="page">
+    <view class='project' wx:for="{{page.data}}" wx:for-item="project">
+      <text class='title'>{{project.projectName}}</text>
+      <text class='price'>{{project.projectBudget}}</text>
+      <view class='tags'>
+        <label class='type'>{{project.projectSubtype}}</label>
+        <label wx:if="{{project.projectSkill.length>0}}" wx:for="{{project.projectSkill}}" wx:for-item="skill">{{skill}}</label>
+      </view>
+      <text class='hot'>已申请：{{project.applyNum}}  |  已浏览：{{project.viewNum}}</text>
     </view>
-    <text class='hot'>已申请：{{project.applyNum}}  |  已浏览：{{project.viewNum}}</text>
-  </view>
+  </block>
 
 </view>

@@ -1,16 +1,15 @@
 // components/tabs/tabs.js
 Component({
-  ready:function(){
-    let animation = wx.createAnimation({
+  ready: function () {
+    const animation = wx.createAnimation({
       duration: 300,
       timingFunction: 'ease',
     })
-    this.animation = animation;
+    this.animation = animation
 
     const query = wx.createSelectorQuery().in(this)
-    this.setData({
-      query: query
-    })
+    this.query = query
+
     this.selectTab('tab0')
   },
   properties: {
@@ -21,16 +20,19 @@ Component({
     }
   },
   data: {
-    query:null,
-    currentTarget:'tab0',
+    currentTarget:'',
     animationData:{}
   },
   methods: {
     tabClick: function (e) {
-      this.selectTab(e.currentTarget.id)
+      let tabId = e.currentTarget.id
+      if(tabId!==this.data.currentTarget){
+        this.selectTab(tabId)
+        this.triggerEvent('change', { index: parseInt(tabId.split('tab')[1]) })
+      }
     },
     selectTab:function(id){
-      this.data.query.select(`#${id}`).fields({
+      this.query.select(`#${id}`).fields({
         size: true,
         rect:true
       }, (res) => {
