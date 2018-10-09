@@ -1,10 +1,10 @@
-// components/navBar/navBar.js
+// components/project/card/card.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-
+    project:Object
   },
 
   /**

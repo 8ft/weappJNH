@@ -1,27 +1,14 @@
 <!--index.wxml-->
 <view>
 
-  <swiper id="banner" indicator-dots="true" indicator-color="rgba(255,255,255,.6)" indicator-active-color="#fff" autoplay="true" circular="true">
-    <swiper-item>
-      <image src='../../assets/img/banner1.png'></image>
-    </swiper-item>
-    <swiper-item>
-      <image src='../../assets/img/banner2.png'></image>
+  <swiper id="banner" wx:if="{{banners}}" indicator-dots="true" indicator-color="rgba(255,255,255,.6)" indicator-active-color="#fff" autoplay="true" circular="true">
+    <swiper-item wx:for="{{banners}}" wx:for-item="banner" bindtab="bannerJump(banner)">
+      <image src="{{banner.bgImageUrl}}"></image>
     </swiper-item>
   </swiper>
 
-  <yt-tabs wx:if="{{types.length>1}}" tabs="{{types}}" fixed="{{fixTab}}" bindchange="onTabChange"></yt-tabs>
-
-  <block wx:if="{{curPage===index}}" wx:for="{{pages}}" wx:for-item="page">
-    <view class='project' wx:for="{{page.data}}" wx:for-item="project">
-      <text class='title'>{{project.projectName}}</text>
-      <text class='price'>{{project.projectBudget}}</text>
-      <view class='tags'>
-        <label class='type'>{{project.projectSubtype}}</label>
-        <label wx:if="{{project.projectSkill.length>0}}" wx:for="{{project.projectSkill}}" wx:for-item="skill">{{skill}}</label>
-      </view>
-      <text class='hot'>已申请：{{project.applyNum}}  |  已浏览：{{project.viewNum}}</text>
-    </view>
-  </block>
+  <view class='projects'>
+    <project-card wx:if="{{projects.length>0}}" wx:for="{{projects}}" wx:for-item="project" project="{{project}}"></project-card>
+  </view>
 
 </view>

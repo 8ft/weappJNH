@@ -1,6 +1,16 @@
 /**index.wxss**/
 swiper{
-  height: 360rpx;
+  width:670rpx;
+  height: 260rpx;
+  margin:24rpx auto;
+  background:rgba(42,121,251,1);
+  border-radius:10rpx;
+}
+
+swiper navigator{
+  display: block;
+  width:100%;
+  height: 100%;
 }
 
 swiper image{
@@ -8,53 +18,8 @@ swiper image{
   height: 100%;
 }
 
-.project{
-  position:relative;
-  padding:35rpx 5.4% 29rpx;
-  margin-bottom:20rpx;
-  background:#fff;
-}
-
-.title{
-  display:block;
-  width:70%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.price{
-  position: absolute;
-  top:35rpx;
-  right:5.4%;
-  line-height:32rpx;
-  color: #FC5B31;
-}
-
-.tags{
-  margin:20rpx 0 10rpx;
-}
-
-.tags label{
-  display: inline-block;
-  padding:8rpx;
-  margin-bottom: 10rpx;
-  font-size:24rpx;
-  line-height: 24rpx;
-  color: #999;
-  background: #F5F5F5;
-  margin-right: 2%;
-}
-
-.tags .type{
-    color: #0083FF;
-    background: rgba(0, 131, 255, 0.1);
-}
-
-.hot{
-  font-size:24rpx;
-  line-height: 24rpx;
-  color:#999;
+.projects{
+  padding: 0 40rpx;
 }
 
 

@@ -2,33 +2,40 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/mine/index/index"
+    "pages/mine/index/index",
+    "pages/publish/publish"
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#0083FF",
-    "navigationBarTextStyle": "white"
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "backgroundColor":"#fff",
+    "backgroundColor": "#fff",
     "color": "#000000",
     "selectedColor": "#000000",
     "list": [
       {
-        "text": "首页",
+        "text": "项目",
         "pagePath": "pages/index/index",
-        "iconPath":"./assets/img/icon_find_bottom_nor@3x.png",
-        "selectedIconPath":"./assets/img/icon_find_bottom_sel@3x.png"
+        "iconPath": "./assets/img/tabbar/xm1.png",
+        "selectedIconPath": "./assets/img/tabbar/xm2.png"
       },
       {
-        "text": "日志",
-        "pagePath": "pages/logs/logs",
-        "iconPath": "./assets/img/icon_find_bottom_nor@3x.png",
-        "selectedIconPath": "./assets/img/icon_find_bottom_nor@3x.png"
+        "text": "发布",
+        "pagePath": "pages/publish/publish",
+        "iconPath": "./assets/img/tabbar/fb.png",
+        "selectedIconPath": "./assets/img/tabbar/fb.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/mine/index/index",
+        "iconPath": "./assets/img/tabbar/wd1.png",
+        "selectedIconPath": "./assets/img/tabbar/wd2.png"
       }
     ]
   },
-  "networkTimeout":{
-    "request":60000
+  "networkTimeout": {
+    "request": 60000
   }
 }

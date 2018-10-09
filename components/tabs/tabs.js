@@ -6,10 +6,6 @@ Component({
       timingFunction: 'ease',
     })
     this.animation = animation
-
-    const query = wx.createSelectorQuery().in(this)
-    this.query = query
-
     this.selectTab('tab0')
   },
   properties: {
@@ -20,8 +16,8 @@ Component({
     }
   },
   data: {
-    currentTarget:'',
-    animationData:{}
+    currentTarget:'tab0',
+    animationData:null
   },
   methods: {
     tabClick: function (e) {
@@ -32,13 +28,14 @@ Component({
       }
     },
     selectTab:function(id){
-      this.query.select(`#${id}`).fields({
+      const query = wx.createSelectorQuery().in(this)
+      query.select(`#${id}`).fields({
         size: true,
         rect:true
       }, (res) => {
         this.setData({
           currentTarget:id,
-          animationData: this.animation.width(res.width).translate(res.left).step().export()
+          animationData: this.animation.width(res.width).translateX(res.left).step().export()
         })
       }).exec()
     }

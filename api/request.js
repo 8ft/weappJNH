@@ -1,4 +1,5 @@
-const host ='https://api.dev.juniuhui.com'
+const host ='https://api.dev.juniuhui.com' //测试环境
+// const host = 'https://api.juniuhui.com' //正式环境
 const requestArr=[]
 
 const request =(url, options) => {

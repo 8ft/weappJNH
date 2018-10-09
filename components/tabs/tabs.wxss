@@ -3,13 +3,15 @@
 .yt-tabs{
   position: relative;
   display:flex;
-  border-bottom:1px solid hsla(0,0%,93%,1);
+  align-items: center;
+  border-bottom:1px solid rgba(229,229,229,.5);
   height:100rpx; 
   padding:10rpx;
   line-height: 80rpx;
   background:#fff;
   box-sizing:border-box;
-  align-items: center;
+  font-size:28rpx;
+  color:#666666;
 }
 
 .yt-tabs.fixed{
@@ -28,16 +30,19 @@
 .yt-tab text{
   display: inline-block;
   height: 100%;
+  transition:all .3s;
+  -webkit-transition:all .3s;
 }
 
 .yt-tab text.active{
-  color: red;
+  color:black;
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
 }
 
 .yt-tab-underline{
   position:absolute;
   left:0;
   bottom:0rpx;
-  height: 6rpx;
-  background:red;  
+  border-bottom:6rpx solid black;
 }

@@ -1,0 +1,16 @@
+<!--components/project/card/card.wxml-->
+<navigator class='project'>
+  <view class='info'>
+    <text class='title'>{{project.projectName}}</text>
+    <view class='tags'>
+      <label class='type'>{{project.projectSubtype}}</label>
+      <label wx:if="{{project.projectSkill.length>0}}" wx:for="{{project.projectSkill}}" wx:for-item="skill">{{skill}}</label>
+    </view>
+    <text class='price'>{{project.projectBudget}}</text>
+    <text class='read'>已浏览：{{project.viewNum}}</text>
+  </view>
+  <view class='apply'>
+    <button>马上申请</button>
+    <text class='hot'>已有{{project.applyNum}}人申请</text>
+  </view>
+</navigator>

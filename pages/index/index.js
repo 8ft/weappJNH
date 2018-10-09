@@ -6,121 +6,96 @@ const regeneratorRuntime = require('../../libs/regenerator-runtime.js')
 
 Page({
   data: {
-   types:['全部'],
-   curPage:0,
-   pages:[{
-     id:'',
-     name:'全部',
-     scrollTop: 0,
-     pageIndex: 1,
-     pageSize: 10,
-     data:[]
-   }],
-   scrollTop:0,
-   swiperHeight:0,
-   fixTab:false
+   banners:null,
+   types: ['全部'],
+   pageIndex: 1,
+   projects:[],
+   nomore: false
   },
+
   onLoad:async function () {
+    this.getBanner()
     await this.getProjectTypes()
     await this.getProjects()
+  },
 
-    wx.createSelectorQuery().select('#banner').fields({
-      size: true
-    }, (res) => {
-      this.setData({
-        swiperHeight: res.height
-      })
-    }).exec()
-  },
-  onPageScroll:function(obj){
-    this.setData({
-      scrollTop: obj.scrollTop
-    })
-    if(obj.scrollTop>=this.data.swiperHeight){
-      this.setData({
-        fixTab: true
-      })
-    }else{
-      this.setData({
-        fixTab: false
-      })
-    }
-  },
   onPullDownRefresh:function(){
-    let page = this.data.pages[this.data.curPage]
-    page.pageIndex=1
-    page.scrollTop=0
-    page.data=[]
-    
     this.setData({
-      pages:this.data.pages
+      pageIndex:1,
+      projects:[]
     })
     this.getProjects()
   },
+
   onReachBottom:function(){
     this.getProjects()
   },
+
+  getBanner:async function(){
+    let res = await app.request.post('/public/appActivityMenu/getList', {
+      menuClass: 'home_banner',
+      clientVersion: '1.0.0'
+    })
+
+    this.setData({
+      banners:res
+    })
+  },
+
   getProjectTypes:async function(){
     let res = await app.request.post('/dict/dictCommon/getDicts', {
       dictType: 'project_type', 
       resultType: '1'
     })
+
     let list=res.data[0].dictList
     let types = list.map((item) => {
       return item.dictName
     })
-    let pages=list.map((item)=>{
-      return {
-        id:item.dictValue,
-        name:item.dictName,
-        scrollTop:0,
-        pageIndex: 1,
-        pageSize: 10,
-        data:[]
-      }
-    })
     
     this.setData({
-      types: this.data.types.concat(types),
-      pages: this.data.pages.concat(pages)
+      types: this.data.types.concat(types)
     })
   },
-  getProjects: async function (){
-    let page=this.data.pages[this.data.curPage]
-    let res = await app.request.post('/project/projectInfo/getList',{
-      pageIndex:page.pageIndex,
-      pageSize:page.pageSize,
-      projectType:page.id
-    })
 
+  getProjects: async function (){
+    let nomore = this.data.nomore
+    if (nomore)return
+
+    let pIndex = this.data.pageIndex
+    let res = await app.request.post('/project/projectInfo/getList',{
+      pageIndex:pIndex,
+      pageSize:10
+    })
     let list = res.list.map((project) => {
       project.projectSkill = project.projectSkill.split('|')
       return project
     })
 
-    page.data=page.data.concat(list)
-    page.pageIndex +=1
+    if (res.page > pIndex){
+      pIndex++
+    }else{
+     nomore=true
+    }
     
     this.setData({
-      pages: this.data.pages
+      projects: this.data.projects.concat(list),
+      pageIndex:pIndex,
+      nomore:nomore
     })
 
     wx.stopPullDownRefresh()
   },
-  onTabChange:function(e){
-    let index = e.detail.index
-    this.data.pages[this.data.curPage].scrollTop=this.data.scrollTop
-    this.setData({
-      curPage: index,
-      pages:this.data.pages
-    })
-    if (this.data.pages[index].data.length===0){
-      this.getProjects()
-    }else{
-      wx.pageScrollTo({
-        scrollTop: this.data.pages[index].scrollTop,
-        duration:0
-      })
+  bannerJump:function(obj){
+    switch (obj.menuType){
+      case 'view':
+
+      break;
+      case 'click':
+        wx.navigateTo({
+          url: obj.menuUrl
+        })
+      break;
     }
   }
 })

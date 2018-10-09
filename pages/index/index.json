@@ -3,6 +3,6 @@
   "enablePullDownRefresh": true,
   "onReachBottomDistance":true,
   "usingComponents": {
-    "yt-tabs": "../../components/tabs/tabs"
+    "project-card":"../../components/project/card/card"
   }
 }
