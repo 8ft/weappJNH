@@ -1,0 +1,42 @@
+<!--index.wxml-->
+<view>
+
+  <swiper id="banner" wx:if="{{banners}}" indicator-dots="true" indicator-color="rgba(255,255,255,.6)" indicator-active-color="#fff" autoplay="true" circular="true">
+    <swiper-item wx:for="{{banners}}" wx:for-item="banner" bindtab="bannerJump(banner)">
+      <image src="{{banner.iconImageUrl}}"></image>
+    </swiper-item>
+  </swiper>
+
+  <view class='types clearfix'>
+    <view>
+      <image src='/assets/img/project/qb.png'></image>
+      <text>全部</text>
+    </view>
+    <view>
+      <image src='/assets/img/project/cp.png'></image>
+      <text>产品</text>
+    </view>
+    <view>
+      <image src='/assets/img/project/kf.png'></image>
+      <text>开发</text>
+    </view>
+    <view>
+      <image src='/assets/img/project/sj.png'></image>
+      <text>设计</text>
+    </view>
+    <view>
+      <image src='/assets/img/project/yy.png'></image>
+      <text>市场/运营</text>
+    </view>
+  </view>
+
+  <view class='projects'>
+    <view class='title'>
+      <image src="/assets/img/icon/project.png"></image>
+      <text>项目库</text>
+      <navigator class='arrow-right' url='/pages/index/projects/index' hover-class="none">更多</navigator>
+    </view>
+    <project-card wx:if="{{projects.length>0}}" wx:for="{{projects}}" wx:for-item="project" project="{{project}}"></project-card>
+  </view>
+
+</view>

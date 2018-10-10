@@ -1,0 +1,28 @@
+<!--pages/project/detail/index.wxml-->
+<view class='part'>
+  <text class='name'>{{detail.projectName}}</text>
+  <text class='price'>{{detail.projectBudgetCn}}</text>
+  <text class='lead-times'>{{detail.projectCycleCn}}</text>
+  <view class='hot'>
+    <text class='applied'>已申请：{{detail.applyNum}}</text>
+    <text class='read'>已阅读：{{detail.viewNum}}</text>
+  </view>
+</view>
+
+<view class='part base'>
+  <view class='title'>基本信息</view>
+  <view><text>{{detail.projectSubtypeCn}}</text></view>
+  <view><text>{{detail.projectSkillCn}}</text></view>
+  <view><text>{{detail.publisherName}}</text></view>
+  <view><text>{{detail.cooperaterCn}}</text></view>
+  <view><text>{{detail.createTime}}</text></view>
+</view>
+
+<view class='part desc'>
+  <view class='title'>项目描述</view>
+  <text>{{detail.projectDesc}}</text>
+</view>
+
+<view class='action-bar'>
+  <button>发送申请</button>
+</view>

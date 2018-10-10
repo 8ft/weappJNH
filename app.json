@@ -1,9 +1,12 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/logs/logs",
+    "pages/project/index/index",
+    "pages/common/logs/index",
     "pages/mine/index/index",
-    "pages/publish/publish"
+    "pages/publish/index/index",
+    "pages/project/projects/index",
+    "pages/project/detail/index",
+    "pages/project/apply/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -17,13 +20,13 @@
     "list": [
       {
         "text": "项目",
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/project/index/index",
         "iconPath": "./assets/img/tabbar/xm1.png",
         "selectedIconPath": "./assets/img/tabbar/xm2.png"
       },
       {
         "text": "发布",
-        "pagePath": "pages/publish/publish",
+        "pagePath": "pages/publish/index/index",
         "iconPath": "./assets/img/tabbar/fb.png",
         "selectedIconPath": "./assets/img/tabbar/fb.png"
       },

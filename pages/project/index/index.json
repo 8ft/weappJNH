@@ -3,6 +3,6 @@
   "enablePullDownRefresh": true,
   "onReachBottomDistance":true,
   "usingComponents": {
-    "project-card":"../../components/project/card/card"
+    "project-card":"/components/project/card/index"
   }
 }

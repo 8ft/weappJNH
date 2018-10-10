@@ -1,10 +1,45 @@
 /**app.wxss**/
 page{
   font-size:30rpx;
+  color: #666666;
+  background: #F2F2F2;
+}
+
+text{
+  word-break:break-all;
 }
 
 button{
   -webkit-appearance: none;
   padding: 0;
   margin:0;
+}
+
+.clearfix{
+  overflow: hidden;
+  zoom:1;
+}
+
+.arrow-right{
+  position: relative;
+  padding-right: 27rpx;
+}
+.arrow-right::before,.arrow-right::after{
+  position:absolute;
+  content:'';
+  width:0;
+  height:0;
+  top:50%;
+  margin-top:-12rpx;
+  border:12rpx solid transparent;
+}
+.arrow-right::before{
+  right:0;
+  border-right:0;
+  border-left-color:#666666;
+}
+.arrow-right::after{
+  right:3rpx;
+  border-right:0;
+  border-left-color:#fff;
 }

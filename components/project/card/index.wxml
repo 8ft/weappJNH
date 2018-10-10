@@ -1,5 +1,5 @@
 <!--components/project/card/card.wxml-->
-<navigator class='project'>
+<navigator class='project' hover-class="none" url="/pages/project/detail/index?no={{project.projectNo}}">
   <view class='info'>
     <text class='title'>{{project.projectName}}</text>
     <view class='tags'>
@@ -10,7 +10,7 @@
     <text class='read'>已浏览：{{project.viewNum}}</text>
   </view>
   <view class='apply'>
-    <button>马上申请</button>
+    <navigator url="/pages/project/apply/index?no={{project.projectNo}}">马上申请</navigator>
     <text class='hot'>已有{{project.applyNum}}人申请</text>
   </view>
 </navigator>

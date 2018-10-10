@@ -1,0 +1,80 @@
+/* pages/project/detail/index.wxss */
+page{
+  padding-bottom:151rpx;
+}
+
+.part{
+  padding:0 40rpx 37rpx;
+  position: relative;
+  background: #fff;
+  margin-bottom:22rpx;
+}
+
+.name,.price{display: block;font-size:40rpx;}
+.name{
+  color:#333333;
+  padding:30rpx 0;
+}
+.price{
+  color:#FC5B32;
+  margin-bottom:27rpx;
+}
+.lead-times{
+  font-size: 28rpx;
+  color: #666666;
+}
+.hot{
+  position:absolute;
+  right:40rpx;
+  bottom:37rpx;
+  font-size: 24rpx;
+  color:#999999;
+}
+.read{
+  margin-left:20rpx;
+  padding-left:20rpx;
+  display: inline-block;
+  line-height: 17rpx;
+  border-left:1px solid rgba(204,204,204,1);
+}
+
+.title{
+  line-height: 78rpx;
+  color:#333333;
+  border-bottom: 1px solid rgba(229,229,229,.5);
+  margin-bottom:46rpx;
+}
+
+.base view:not(.title){
+  font-size:28rpx;
+  color:#999999;
+  margin-top:26rpx;
+}
+
+.desc text{
+  color:#666666;
+}
+
+.action-bar{
+  position: fixed;
+  background:#fff;
+  bottom:0;
+  left:0;
+  right:0;
+  width:100%;
+  height: 150rpx;
+  border-top:1px solid rgba(229,229,229,.5);
+  display: flex;
+  align-items: center;
+}
+.action-bar button{
+  margin:0 auto;
+  width:630rpx;
+  height:96rpx;
+  background:rgba(0,131,255,1);
+  border-radius:4rpx;
+  color:#fff;
+  font-size: 32rpx;
+  line-height: 96rpx;
+}
+

@@ -2,7 +2,7 @@
 //获取应用实例
 const app = getApp()
 //引入async await依赖库
-const regeneratorRuntime = require('../../libs/regenerator-runtime.js')
+const regeneratorRuntime = require('../../../libs/regenerator-runtime.js')
 
 Page({
   data: {
@@ -86,6 +86,7 @@ Page({
 
     wx.stopPullDownRefresh()
   },
+  
   bannerJump:function(obj){
     switch (obj.menuType){
       case 'view':

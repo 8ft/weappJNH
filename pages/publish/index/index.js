@@ -1,4 +1,4 @@
-// pages/publish/publish.js
+// pages/publish/index/index.js
 Page({
 
   /**
