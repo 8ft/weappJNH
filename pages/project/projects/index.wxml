@@ -1,2 +1,7 @@
 <!--pages/index/projects/index.wxml-->
-<text>pages/index/projects/index.wxml</text>
+
+
+
+  <view class='projects'>
+    <project-card wx:if="{{projects.length>0}}" wx:for="{{projects}}" wx:for-item="project" project="{{project}}"></project-card>
+  </view>

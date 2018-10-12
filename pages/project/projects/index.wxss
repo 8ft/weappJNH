@@ -1,1 +1,9 @@
 /* pages/index/projects/index.wxss */
+
+page{
+  background:#fff;
+}
+
+.projects{
+  padding: 0 40rpx;
+}

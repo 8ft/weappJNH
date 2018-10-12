@@ -22,7 +22,8 @@ Page({
   onPullDownRefresh:function(){
     this.setData({
       pageIndex:1,
-      projects:[]
+      projects:[],
+      nomore:false
     })
     this.getProjects()
   },

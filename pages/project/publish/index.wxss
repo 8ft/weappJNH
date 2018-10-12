@@ -1,0 +1,95 @@
+/* pages/project/publish/index.wxss */
+@import "/assets/iconfont/icons.wxss";
+
+page{
+  background:#fff;
+  padding:0 40rpx;
+  box-sizing: border-box;
+}
+
+.title{
+  font-size:64rpx;
+  color:#333333;
+  margin-bottom:43rpx;
+}
+
+.info{
+  display: flex;
+  align-items: center;
+  padding:46rpx 0 42rpx;
+  border-bottom:1px solid rgba(229,229,229,.5);
+}
+.types{
+  display: block;
+  border-bottom: none;
+}
+.types .name{
+  display: block;
+  margin-bottom:30rpx;
+}
+
+.types{
+  margin-top:30rpx;
+}
+.type{
+  float: left;
+  width:126rpx;
+  height:126rpx;
+  background: #F5F5F5;
+  text-align: center;
+  padding-top:20rpx;
+  box-sizing: border-box;
+}
+.type:nth-of-type(n+2){margin-left: 55rpx;}
+.type.active{
+  background:#0083FF;
+  color:#fff;
+}
+.type .iconfont{
+  font-size:50rpx;
+  height: 50rpx;
+}
+.type text{
+  font-size:24rpx;
+}
+
+.name{
+  font-size:32rpx;
+  color:#666666;
+}
+.info.need .name::after{
+  content:'*';
+  color:red;
+  font-size:40rpx;
+}
+.input{
+  flex:1;
+  text-align: right;
+}
+
+.input-placeholder{
+  color:#CCCCCC;
+}
+
+.arrow-right::before{
+  border-left-color:#CCCCCC;
+}
+
+.action-bar{
+  background:#fff;
+  width:100%;
+  height: 150rpx;
+  display: flex;
+  align-items: center;
+}
+.action-bar button{
+  margin:0 auto;
+  width:630rpx;
+  height:96rpx;
+  background:rgba(0,131,255,1);
+  border-radius:4rpx;
+  color:#fff;
+  font-size: 32rpx;
+  line-height: 96rpx;
+}
+

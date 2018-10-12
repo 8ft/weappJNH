@@ -1,5 +1,5 @@
 /* components/tabBar/tabBar.wxss */
-@import "../../assets/iconfont/icon.wxss";
+@import "/assets/iconfont/icon.wxss";
 
 .yt-tabBar{
   position:fixed;

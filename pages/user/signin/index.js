@@ -1,4 +1,4 @@
-// pages/publish/index/index.js
+// pages/user/signin/index.js
 Page({
 
   /**

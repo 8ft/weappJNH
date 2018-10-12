@@ -34,7 +34,7 @@
     <view class='title'>
       <image src="/assets/img/icon/project.png"></image>
       <text>项目库</text>
-      <navigator class='arrow-right' url='/pages/index/projects/index' hover-class="none">更多</navigator>
+      <navigator class='arrow-right' url='/pages/project/projects/index' hover-class="none">更多</navigator>
     </view>
     <project-card wx:if="{{projects.length>0}}" wx:for="{{projects}}" wx:for-item="project" project="{{project}}"></project-card>
   </view>

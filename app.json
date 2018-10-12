@@ -3,10 +3,13 @@
     "pages/project/index/index",
     "pages/common/logs/index",
     "pages/mine/index/index",
-    "pages/publish/index/index",
     "pages/project/projects/index",
     "pages/project/detail/index",
-    "pages/project/apply/index"
+    "pages/project/apply/index",
+    "pages/project/publish/index",
+    "pages/user/login/index",
+    "pages/user/signin/signin",
+    "pages/user/signin/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -26,7 +29,7 @@
       },
       {
         "text": "发布",
-        "pagePath": "pages/publish/index/index",
+        "pagePath": "pages/project/publish/index",
         "iconPath": "./assets/img/tabbar/fb.png",
         "selectedIconPath": "./assets/img/tabbar/fb.png"
       },

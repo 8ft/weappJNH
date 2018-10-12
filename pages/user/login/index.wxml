@@ -1,0 +1,20 @@
+<!--pages/user/login/index.wxml-->
+<view class='title'>HI，欢迎登录</view>
+
+<view class='input'>
+  <text>手机</text>
+  <input placeholder='在这里输入手机号'></input>
+</view>
+
+<view class='input'>
+  <text>密码</text>
+  <input placeholder='请输入密码'></input>
+</view>
+
+<button class='submit'>登录</button>
+
+<view class='others'>
+  <navigator>忘记密码？</navigator>
+  <navigator>账号注册</navigator>
+</view>
+
