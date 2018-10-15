@@ -1,66 +1,76 @@
 // pages/user/signin/index.js
+
+//获取应用实例
+const app = getApp()
+//引入async await依赖库
+const regeneratorRuntime = require('../../../libs/regenerator-runtime.js')
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    phone:'',
+    code:'',
+    pwd:'',
+    getCodeTxt:'获取验证码',
+    countDown:60,
+    disagree:false
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  input:function(e){
+    let inputName=e.currentTarget.dataset.name
+    let val=e.detail.value
+    switch (inputName){
+      case 'phone':
+        this.setData({
+          phone:val
+        })
+      break;
+      case 'code':
+        this.setData({
+          code: val
+        })
+        break;
+      case 'pwd':
+        this.setData({
+          phone: val
+        })
+        break;
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+  getCode:async function(){
+    let phone=this.data.phone
+    
+    let res = await app.request.post('/public/validateCode/sendValidateCode', {
+      userMobile: phone,
+      type: '0'
+    })
 
+    this.countDown()
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  countDown:function(){
+    let tid=setTimeout(()=>{
+      let countDown = this.data.countDown
+      if (countDown > 1) {
+        countDown--
+        this.setData({
+          getCodeTxt: countDown + 's后重新获取',
+          countDown: countDown
+        })
+        this.countDown()
+      } else {
+        this.setData({
+          getCodeTxt: '重新获取',
+          countDown: 60
+        })
+        clearTimeout(tid)
+      }
+    },1000)
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  setAgree:function(e){
+    this.setData({
+      disagree: !this.data.disagree
+    })
   }
 })

@@ -14,6 +14,24 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const validatePhone = (phone) =>{
+  if (!phone) {
+    wx.showToast({
+      title: '请输入手机号码',
+      icon: 'none'
+    })
+    return
+  }
+  if (!/^0?1[3|4|5|8|7][0-9]\d{8}$/.test(phone)){
+    wx.showToast({
+      title: '手机号码格式有误',
+      icon: 'none'
+    })
+    return
+  }
+}
+
 module.exports = {
+  validatePhone:validatePhone,
   formatTime: formatTime
 }

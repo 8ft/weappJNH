@@ -1,4 +1,10 @@
 // pages/project/apply/index.js
+
+//获取应用实例
+const app = getApp()
+//引入async await依赖库
+const regeneratorRuntime = require('../../../libs/regenerator-runtime.js')
+
 Page({
 
   /**
@@ -26,7 +32,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    app.checkLogin()
   },
 
   /**

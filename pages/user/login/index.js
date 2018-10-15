@@ -1,66 +1,34 @@
 // pages/user/login/index.js
-Page({
 
-  /**
-   * 页面的初始数据
-   */
+//获取应用实例
+//引入async await依赖库
+const regeneratorRuntime = require('../../../libs/regenerator-runtime.js')
+
+const util = require('../../../utils/util.js')
+
+Page({
   data: {
 
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  submit:async function(e){
+    let val=e.detail.value
+    util.validatePhone(val.phone)
+    // if(!val.phone){
+    //   wx.showToast({
+    //     title: '请输入手机号码',
+    //     icon:'none'
+    //   })
+    //   return
+    // }
+    
+    // if (!val.pwd) {
+    //   wx.showToast({
+    //     title: '请输入密码',
+    //     icon: 'none'
+    //   })
+    //   return
+    // }
+    
   }
 })

@@ -67,10 +67,6 @@ page{
   text-align: right;
 }
 
-.input-placeholder{
-  color:#CCCCCC;
-}
-
 .arrow-right::before{
   border-left-color:#CCCCCC;
 }

@@ -16,7 +16,8 @@ const request =(url, options) => {
       header: {
         'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
         'client_type':'30',
-        'api_version':'1.0.0000'
+        'api_version':'1.0.0000',
+        'token': wx.getStorageSync('token')
       },
       success(res) {
         requestArr.pop()

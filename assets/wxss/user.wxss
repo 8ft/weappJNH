@@ -1,5 +1,77 @@
+page{
+  background:#fff;
+  padding:40rpx 60rpx;
+  box-sizing: border-box;
+}
+
 .title{
   font-size: 48rpx;
   color:#000000;
   font-weight: 400;
+  padding-bottom:100rpx;
+}
+
+.input-title{
+  font-size:28rpx;
+}
+
+.input{
+  display: flex;
+  height: 78rpx;
+  border-bottom:1px solid rgba(229,229,229,.5);
+  margin-bottom:50rpx;
+}
+.input input{
+  flex: 1;
+  height: 100%;
+}
+
+.submit{
+  width:630rpx;
+  height:96rpx;
+  line-height: 96rpx;
+  background:#0080FF;
+  border-radius:4rpx;
+  color:#fff;
+  font-size:32rpx;
+  margin-bottom:30rpx;
+}
+
+navigator{
+  display: inline-block;
+}
+
+.signin{
+  float:right;
+  color:#0080FF;
+  text-decoration: underline;
+}
+
+checkbox .wx-checkbox-input{  
+  width:24rpx;
+  height: 24rpx;
+}
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+  border-color:#0080FF;
+  background:#0080FF;
+}
+
+.agree{
+  text-align: center;
+  font-size:24rpx;
+  color:#999999;
+}
+.agree navigator{
+  color:#0080FF;
+}
+
+.btn-code{
+  padding:0 15rpx;
+  height: 54rpx;
+  line-height: 54rpx;
+  font-size:24rpx;
+  color:#CCCCCC;
+  border:1px solid rgba(229,229,229,.5);
+  border-radius:4rpx;
 }

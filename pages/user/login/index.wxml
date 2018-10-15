@@ -1,20 +1,20 @@
 <!--pages/user/login/index.wxml-->
 <view class='title'>HI，欢迎登录</view>
 
-<view class='input'>
-  <text>手机</text>
-  <input placeholder='在这里输入手机号'></input>
-</view>
+<form bindsubmit="submit">
+  <text class='input-title'>手机</text>
+  <view class='input'>
+    <input name="phone" focus="true" type='number' placeholder='在这里输入手机号'></input>
+  </view>
 
-<view class='input'>
-  <text>密码</text>
-  <input placeholder='请输入密码'></input>
-</view>
+  <text class='input-title'>密码</text>
+  <view class='input'>
+    <input name="pwd" password="true" placeholder='请输入密码'></input>
+  </view>
 
-<button class='submit'>登录</button>
+  <button class='submit' formType="submit">登录</button>
+</form>
 
-<view class='others'>
-  <navigator>忘记密码？</navigator>
-  <navigator>账号注册</navigator>
-</view>
+<!-- <navigator>忘记密码？</navigator> -->
+<navigator class='signin' url='/pages/user/signin/index'>账号注册</navigator>
 
