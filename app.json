@@ -8,7 +8,8 @@
     "pages/project/apply/index",
     "pages/project/publish/index",
     "pages/user/login/index",
-    "pages/user/signin/index"
+    "pages/user/signin/index",
+    "pages/common/webview/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

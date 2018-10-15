@@ -23,5 +23,5 @@
 <view class='agree'>
   <checkbox color='#fff' checked="true" bindtap="setAgree"/>
   注册代表你已阅读并同意
-  <navigator>《用户协议》</navigator>
+  <navigator url='/pages/common/webview/index?url=http://5100.juniuhui.com/useAgreement'>《用户协议》</navigator>
 </view>
