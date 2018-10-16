@@ -9,6 +9,18 @@ Page({
   data: {
 
   },
+  onLoad:function(){
+    // 登录
+    if (!wx.getStorageSync('openId')) {
+      wx.login({
+        success:async res => {
+          await app.request.get('/weixin/mini/getOpenId', {
+            code: res.code
+          })
+        }
+      })
+    }
+  },
 
   submit:async function(e){
     let val=e.detail.value
