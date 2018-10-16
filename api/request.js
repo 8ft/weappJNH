@@ -25,16 +25,20 @@ const request =(url, options) => {
           wx.hideLoading()
         }
 
-        if (res.data.code === 0) {
-          resolve(res.data.data)
-        } else {
-          wx.showModal({
-            title:`${res.data.code}`,
-            content: res.data.message,
-            showCancel:false,
-            confirmText:'好的'
-          })
-          reject()
+        if(res.data.code!==undefined){
+          if (res.data.code === 0) {
+            resolve(res.data.data)
+          } else {
+            wx.showModal({
+              title: `${res.data.code}`,
+              content: res.data.message,
+              showCancel: false,
+              confirmText: '好的'
+            })
+            reject()
+          }
+        }else{
+          resolve(res.data)
         }
       },
       fail(error) {

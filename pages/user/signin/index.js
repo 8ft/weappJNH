@@ -72,7 +72,7 @@ Page({
     let phone = this.data.phone
     if(!app.util.validatePhone(phone))return
     
-    let code=thid.data.code
+    let code=this.data.code
     if(!this.data.code){
       wx.showToast({
         title: '请输入验证码',
@@ -90,12 +90,13 @@ Page({
       type: '0'
     })
     if (validateCode){
-      let res = await app.request.post('/user/userAuth/register', {
+      await app.request.post('/user/userAuth/register', {
         userMobile: phone,
         userPassword:pwd,
         validateCode:code,
-        // openId：,
+        openId:wx.getStorageSync('openId')
       })
+      wx.navigateBack()
     }else{
       wx.showToast({
         title: '验证码不正确，请检查',

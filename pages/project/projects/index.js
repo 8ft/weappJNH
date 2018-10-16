@@ -93,13 +93,26 @@ Page({
     switch(data.type){
       case 'type':
         this.setData({
-          typeCode:data.code,
-          nomore:false,
-          pageIndex:1,
-          projects:[]
+          typeCode:data.code
         })
       break;
+      case 'budget':
+        this.setData({
+          budgetCode: data.code
+        })
+        break;
+      case 'cycle':
+        this.setData({
+          cycleCode: data.code
+        })
+        break;
     }
+
+    this.setData({
+      nomore: false,
+      pageIndex: 1,
+      projects: []
+    })
     this.getProjects()
     this.close()
   },

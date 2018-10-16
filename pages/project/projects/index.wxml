@@ -9,22 +9,20 @@
 
   <popup active="{{filter==='type'}}" top="80" bindhide='close'>
     <view class='types'>
-       <list-item data-code="" data-type="type" bindtap="filter" name="全部" active="{{typeCode===''}}"></list-item>
+      <list-item data-code="" data-type="type" bindtap="filter" name="全部" active="{{typeCode===''}}"></list-item>
       <list-item wx:for="{{dicts[0].dictList}}" data-code="{{item.dictValue}}" data-type="type" bindtap="filter" name="{{item.dictName}}" active="{{typeCode===item.dictValue}}"></list-item>
     </view>
   </popup>
 
   <popup active="{{filter==='budget'}}" top="80" bindhide='close'>
     <view class='types'>
-      <view>222222222222</view>
-      <view>222222222222</view>
+      <list-item wx:for="{{dicts[1].dictList}}" data-code="{{item.dictValue}}" data-type="budget" bindtap="filter" name="{{item.dictName}}" active="{{budgetCode===item.dictValue}}"></list-item>
     </view>
   </popup>
 
   <popup active="{{filter==='cycle'}}" top="80" bindhide='close'>
     <view class='types'>
-      <view>3333333333333</view>
-      <view>333333333333333333</view>
+      <list-item wx:for="{{dicts[2].dictList}}" data-code="{{item.dictValue}}" data-type="cycle" bindtap="filter" name="{{item.dictName}}" active="{{cycleCode===item.dictValue}}"></list-item>
     </view>
   </popup>
 

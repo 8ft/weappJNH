@@ -14,9 +14,10 @@ Page({
     if (!wx.getStorageSync('openId')) {
       wx.login({
         success:async res => {
-          await app.request.get('/weixin/mini/getOpenId', {
+          let data=await app.request.get('/weixin/mini/getOpenId', {
             code: res.code
           })
+          wx.setStorageSync('openId', data.openid)
         }
       })
     }
@@ -24,22 +25,14 @@ Page({
 
   submit:async function(e){
     let val=e.detail.value
-    app.util.validatePhone(val.phone)
-    // if(!val.phone){
-    //   wx.showToast({
-    //     title: '请输入手机号码',
-    //     icon:'none'
-    //   })
-    //   return
-    // }
-    
-    // if (!val.pwd) {
-    //   wx.showToast({
-    //     title: '请输入密码',
-    //     icon: 'none'
-    //   })
-    //   return
-    // }
-    
+    if(!app.util.validatePhone(val.phone))return
+    if (!app.util.validatePwd(val.pwd)) return
+    let res=await app.request.post('/user/userAuth/login', {
+      userMobile: val.phone,
+      userPassword: val.pwd,
+      openId: wx.getStorageSync('openId')
+    })
+    wx.setStorageSync('user', res)
+    wx.navigateBack()
   }
 })
