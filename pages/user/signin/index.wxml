@@ -15,13 +15,12 @@
 <text class='input-title'>密码</text>
 <view class='input'>
   <input password="true" placeholder='请输入密码' data-name="pwd" bindinput='input'></input>
-
 </view>
 
-<button class='submit' disabled="{{disagree}}">注册</button>
+<button class='submit' disabled="{{disagree}}" bindtap='signin'>注册</button>
 
 <view class='agree'>
   <checkbox color='#fff' checked="true" bindtap="setAgree"/>
   注册代表你已阅读并同意
-  <navigator url='/pages/common/webview/index?url=http://5100.juniuhui.com/useAgreement'>《用户协议》</navigator>
+  <navigator url='/pages/common/webview/index?url=https://5100.juniuhui.com/useAgreement'>《用户协议》</navigator>
 </view>

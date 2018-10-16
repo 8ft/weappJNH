@@ -1,0 +1,8 @@
+<!--components/common/listItem/index.wxml-->
+<view class="list-item {{active?'active':''}}">
+  <text class='name'>{{name}}</text>
+  <view class='addones'>
+    <slot></slot>
+    <image class='active-icon' wx:if="{{active}}" src="/assets/img/icon/selected.png"></image>
+  </view>
+</view>

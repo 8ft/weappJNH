@@ -7,22 +7,28 @@ const regeneratorRuntime = require('../../../libs/regenerator-runtime.js')
 
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-    projectType:'',
-    priceBudget:'',
-    projectCycle:'',
+    dicts: [],
+    typeCode: '',
+    budgetCode: '',
+    cycleCode: '',
+
+    filter:'',
+
     pageIndex: 1,
     projects: [],
     nomore: false
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
+    let type = options.type
+    if(type){
+      this.setData({
+        typeCode:type
+      })
+    }
+
+    this.getDicts()
     this.getProjects()
   },
 
@@ -39,12 +45,26 @@ Page({
     this.getProjects()
   },
 
+  getDicts: async function () {
+    let res = await app.request.post('/dict/dictCommon/getDicts', {
+      dictType: 'project_type|price_budget|project_cycle',
+      resultType: '1'
+    })
+
+    this.setData({
+      dicts: this.data.dicts.concat(res.data)
+    })
+  },
+
   getProjects: async function () {
     let nomore = this.data.nomore
     if (nomore) return
 
     let pIndex = this.data.pageIndex
     let res = await app.request.post('/project/projectInfo/getList', {
+      projectType:this.data.typeCode,
+      priceBudget:this.data.budgetCode,
+      projectCycle:this.data.cycleCode,
       pageIndex: pIndex,
       pageSize: 10
     })
@@ -66,5 +86,38 @@ Page({
     })
 
     wx.stopPullDownRefresh()
+  },
+
+  filter:function(e){
+    let data=e.currentTarget.dataset
+    switch(data.type){
+      case 'type':
+        this.setData({
+          typeCode:data.code,
+          nomore:false,
+          pageIndex:1,
+          projects:[]
+        })
+      break;
+    }
+    this.getProjects()
+    this.close()
+  },
+
+  select: function (e) {
+    if(this.data.filter){
+      this.setData({
+        filter:''
+      })
+    }else{
+      this.setData({
+        filter: e.currentTarget.dataset.name
+      })
+    }
+  },
+  close:function(){
+    this.setData({
+      filter: ''
+    })
   }
 })

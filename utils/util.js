@@ -20,18 +20,31 @@ const validatePhone = (phone) =>{
       title: '请输入手机号码',
       icon: 'none'
     })
-    return
+    return false
   }
   if (!/^0?1[3|4|5|8|7][0-9]\d{8}$/.test(phone)){
     wx.showToast({
       title: '手机号码格式有误',
       icon: 'none'
     })
-    return
+    return false
   }
+  return true
+}
+
+const validatePwd = (pwd) => {
+  if (!pwd) {
+    wx.showToast({
+      title: '请输入密码',
+      icon: 'none'
+    })
+    return false
+  }
+  return true
 }
 
 module.exports = {
   validatePhone:validatePhone,
+  validatePwd:validatePwd,
   formatTime: formatTime
 }

@@ -1,10 +1,9 @@
 // pages/user/login/index.js
 
 //获取应用实例
+const app = getApp()
 //引入async await依赖库
 const regeneratorRuntime = require('../../../libs/regenerator-runtime.js')
-
-const util = require('../../../utils/util.js')
 
 Page({
   data: {
@@ -13,7 +12,7 @@ Page({
 
   submit:async function(e){
     let val=e.detail.value
-    util.validatePhone(val.phone)
+    app.util.validatePhone(val.phone)
     // if(!val.phone){
     //   wx.showToast({
     //     title: '请输入手机号码',

@@ -1,5 +1,32 @@
 <!--pages/index/projects/index.wxml-->
 
+  <view class='filter border-b border-t topFloor'>
+    <view class="filter-item {{filter==='type'?'on':''}}" data-name="type" bindtap="select">类型<view></view></view>
+    <view class="filter-item {{filter==='budget'?'on':''}}" data-name="budget" bindtap="select">预算<view></view></view>
+    <view class="filter-item {{filter==='cycle'?'on':''}}" data-name="cycle" bindtap="select">周期<view></view></view>
+    <view class="filter-item {{filter==='time'?'on':''}}" data-name="time" bindtap="select">时间<view></view></view>
+  </view>
+
+  <popup active="{{filter==='type'}}" top="80" bindhide='close'>
+    <view class='types'>
+       <list-item data-code="" data-type="type" bindtap="filter" name="全部" active="{{typeCode===''}}"></list-item>
+      <list-item wx:for="{{dicts[0].dictList}}" data-code="{{item.dictValue}}" data-type="type" bindtap="filter" name="{{item.dictName}}" active="{{typeCode===item.dictValue}}"></list-item>
+    </view>
+  </popup>
+
+  <popup active="{{filter==='budget'}}" top="80" bindhide='close'>
+    <view class='types'>
+      <view>222222222222</view>
+      <view>222222222222</view>
+    </view>
+  </popup>
+
+  <popup active="{{filter==='cycle'}}" top="80" bindhide='close'>
+    <view class='types'>
+      <view>3333333333333</view>
+      <view>333333333333333333</view>
+    </view>
+  </popup>
 
 
   <view class='projects'>

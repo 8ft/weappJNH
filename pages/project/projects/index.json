@@ -3,6 +3,8 @@
   "enablePullDownRefresh": true,
   "onReachBottomDistance": true,
   "usingComponents": {
-    "project-card": "/components/project/card/index"
+    "project-card": "/components/project/card/index",
+    "popup": "/components/common/popup/index",
+    "list-item": "/components/common/listItem/index"
   }
 }

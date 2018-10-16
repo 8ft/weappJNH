@@ -1,0 +1,22 @@
+/* components/common/listItem/index.wxss */
+.list-item{
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+  color:#666666;
+  padding:0 40rpx;
+}
+.name{
+  font-size:32rpx;
+}
+.addones{
+  flex:1;
+  text-align: right;
+}
+.active{
+  color:#0083FF;
+}
+.active-icon{
+  width:28rpx;
+  height: 22rpx;
+}

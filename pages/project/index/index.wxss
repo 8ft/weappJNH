@@ -20,7 +20,7 @@ swiper image{
   display: flex;
   padding:0 10rpx;
 }
-.types view{
+.types navigator{
   flex:1;
   text-align: center;
 }

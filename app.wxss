@@ -57,3 +57,20 @@ button::after{
   border-right:0;
   border-left-color:#fff;
 }
+
+.border-b{
+  border-bottom: 1px solid rgba(229,229,229,.5);
+}
+.border-t{
+  border-top: 1px solid rgba(229,229,229,.5);
+}
+
+.topFloor{
+  z-index: 10;
+}
+.middleFloor{
+  z-index: 9;
+}
+.bottomFloor{
+  z-index: 8;
+}

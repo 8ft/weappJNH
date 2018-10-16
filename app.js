@@ -1,5 +1,6 @@
 //app.js
 const request = require('./api/request.js')
+const util = require('./utils/util.js')
 
 App({
   onLaunch: function () {
@@ -11,6 +12,7 @@ App({
     // 登录
     wx.login({
       success: res => {
+        console.log(res.code)
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
@@ -40,8 +42,9 @@ App({
     userInfo: null
   },
   request: request,
+  util:util,
   checkLogin: () => {
-    if (!wx.getStorageSync('token')) {
+    if (!wx.getStorageSync('user')) {
       wx.navigateTo({
         url: '/pages/user/login/index',
       })
