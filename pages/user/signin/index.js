@@ -45,7 +45,7 @@ Page({
       userMobile: phone,
       type: '0'
     })
-    this.countDown()
+    if (res.code === 0) this.countDown()
   },
 
   countDown:function(){
@@ -89,13 +89,14 @@ Page({
       validateCode:code,
       type: '0'
     })
-    if (validateCode){
-      await app.request.post('/user/userAuth/register', {
+    if (validateCode.code===0){
+      let register= await app.request.post('/user/userAuth/register', {
         userMobile: phone,
         userPassword:pwd,
         validateCode:code,
         openId:wx.getStorageSync('openId')
       })
+      if (register.code === 0)
       wx.navigateBack()
     }else{
       wx.showToast({

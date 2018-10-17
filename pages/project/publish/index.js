@@ -33,9 +33,11 @@ Page({
       resultType: '1'
     })
 
-    this.setData({
-      dicts: this.data.dicts.concat(res.data)
-    })
+    if(res.code===0){
+      this.setData({
+        dicts: this.data.dicts.concat(res.data.data)
+      })
+    }
   },
 
   select:function(e){

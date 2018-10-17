@@ -1,0 +1,3 @@
+/* pages/user/login/index.wxss */
+@import "/assets/wxss/user.wxss";
+

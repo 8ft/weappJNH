@@ -34,12 +34,17 @@ const request =(url, options) => {
           })
           reject()
         }else{
-          if (res.data.code !== 0) {
+          let code = res.data.code
+          if (code&&code !== 0) {
             wx.showModal({
               title: '提示',
               content: `${res.data.message}`,
               showCancel: false,
               confirmText: '好的'
+            })
+          } else if (code === 506001){//重新登录
+            wx.navigateTo({
+              url: '/pages/user/login/index',
             })
           }
           resolve(res.data)

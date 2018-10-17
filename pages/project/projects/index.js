@@ -51,9 +51,11 @@ Page({
       resultType: '1'
     })
 
-    this.setData({
-      dicts: this.data.dicts.concat(res.data)
-    })
+    if(res.code===0){
+      this.setData({
+        dicts: this.data.dicts.concat(res.data.data)
+      })
+    }
   },
 
   getProjects: async function () {
@@ -68,22 +70,25 @@ Page({
       pageIndex: pIndex,
       pageSize: 10
     })
-    let list = res.list.map((project) => {
-      project.projectSkill = project.projectSkill.split('|')
-      return project
-    })
 
-    if (res.page > pIndex) {
-      pIndex++
-    } else {
-      nomore = true
+    if(res.code===0){
+      let list = res.data.list.map((project) => {
+        project.projectSkill = project.projectSkill.split('|')
+        return project
+      })
+
+      if (res.data.page > pIndex) {
+        pIndex++
+      } else {
+        nomore = true
+      }
+
+      this.setData({
+        projects: this.data.projects.concat(list),
+        pageIndex: pIndex,
+        nomore: nomore
+      })
     }
-
-    this.setData({
-      projects: this.data.projects.concat(list),
-      pageIndex: pIndex,
-      nomore: nomore
-    })
 
     wx.stopPullDownRefresh()
   },
