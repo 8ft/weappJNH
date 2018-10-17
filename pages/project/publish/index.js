@@ -21,11 +21,9 @@ Page({
       '产品':'chanpin'
     }
   },
-  onShow:function(){
-    app.checkLogin()
-  },
-
+  
   onLoad: function (options) {
+    app.checkLogin()
     this.getDicts()
   },
 
@@ -83,9 +81,8 @@ Page({
     }
   },
 
-  PriceChange:function(e){
-    this.setData({
-      priceIndex: e.detail.value
-    })
+  publish:function(){
+    if(!app.checkLogin())return 
+
   }
 })

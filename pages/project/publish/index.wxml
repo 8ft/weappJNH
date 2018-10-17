@@ -70,7 +70,7 @@
 </view>
 
 <view class='action-bar'>
-  <button>发布项目</button>
+  <button bindtap='publish'>发布项目</button>
 </view>
 
 

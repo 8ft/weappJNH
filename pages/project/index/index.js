@@ -39,7 +39,7 @@ Page({
     })
 
     this.setData({
-      banners:res
+      banners:res.data
     })
   },
 
@@ -49,7 +49,7 @@ Page({
       resultType: '1'
     })
 
-    let list=res.data[0].dictList
+    let list=res.data.data[0].dictList
     let types = list.map((item) => {
       return item.dictName
     })

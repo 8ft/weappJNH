@@ -17,7 +17,7 @@ const request =(url, options) => {
         'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
         'client_type':'30',
         'api_version':'1.0.0000',
-        'token': wx.getStorageSync('token')
+        'token': wx.getStorageSync('user').token||''
       },
       success(res) {
         requestArr.pop()
@@ -25,19 +25,23 @@ const request =(url, options) => {
           wx.hideLoading()
         }
 
-        if(res.data.code!==undefined){
-          if (res.data.code === 0) {
-            resolve(res.data.data)
-          } else {
+        if(res.statusCode!==200){
+          wx.showModal({
+            title: '请求异常',
+            content: `${res.statusCode}` ,
+            showCancel: false,
+            confirmText: '好的'
+          })
+          reject()
+        }else{
+          if (res.data.code !== 0) {
             wx.showModal({
-              title: `${res.data.code}`,
-              content: res.data.message,
+              title: '提示',
+              content: `${res.data.message}`,
               showCancel: false,
               confirmText: '好的'
             })
-            reject()
           }
-        }else{
           resolve(res.data)
         }
       },

@@ -20,6 +20,9 @@ App({
       wx.navigateTo({
         url: '/pages/user/login/index',
       })
+      return false
+    }else{
+      return true
     }
   }
 })

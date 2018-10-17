@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="userinfo">
   <text class='hello'>探索未知~</text>
-  <button>登陆/注册</button>
+  <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">登陆/注册</button>
   <image class='avatar' src='/assets/img/default/avatar.png'></image>
 </view>
 

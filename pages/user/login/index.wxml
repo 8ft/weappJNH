@@ -1,20 +1,16 @@
 <!--pages/user/login/index.wxml-->
-<view class='title'>HI，欢迎登录</view>
+<view class='title'>验证手机号</view>
 
-<form bindsubmit="submit">
-  <text class='input-title'>手机</text>
-  <view class='input'>
-    <input name="phone" focus="true" type='number' placeholder='在这里输入手机号'></input>
-  </view>
+<text class='input-title'>手机</text>
+<view class='input'>
+  <input focus="true" type='number' placeholder='在这里输入手机号' data-name="phone" bindinput='input'></input>
+</view>
 
-  <text class='input-title'>密码</text>
-  <view class='input'>
-    <input name="pwd" password="true" placeholder='请输入密码'></input>
-  </view>
+<text class='input-title'>验证码</text>
+<view class='input'>
+  <input type='number' placeholder='请输入验证码' data-name="code" bindinput='input'></input>
+  <button class='btn-code' bindtap='getCode'>{{getCodeTxt}}</button>
+</view>
 
-  <button class='submit' formType="submit">登录</button>
-</form>
-
-<!-- <navigator>忘记密码？</navigator> -->
-<navigator class='signin' url='/pages/user/signin/index'>账号注册</navigator>
+<button class='submit' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">完成</button>
 

@@ -1,0 +1,2 @@
+<!--pages/common/authButton/index.wxml-->
+<button class='css' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">{{txt}}</button>
