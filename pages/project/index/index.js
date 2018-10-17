@@ -37,10 +37,11 @@ Page({
       menuClass: 'home_banner',
       clientVersion: '1.0.0'
     })
-
-    this.setData({
-      banners:res.data
-    })
+    if(res.code===0){
+      this.setData({
+        banners: res.data
+      })
+    }
   },
 
   getProjectTypes:async function(){
@@ -49,14 +50,16 @@ Page({
       resultType: '1'
     })
 
-    let list=res.data.data[0].dictList
-    let types = list.map((item) => {
-      return item.dictName
-    })
-    
-    this.setData({
-      types: this.data.types.concat(types)
-    })
+    if (res.code === 0) {
+      let list=res.data.data[0].dictList
+      let types = list.map((item) => {
+        return item.dictName
+      })
+      
+      this.setData({
+        types: this.data.types.concat(types)
+      })
+    }
   },
 
   getProjects: async function (){
@@ -68,22 +71,24 @@ Page({
       pageIndex:pIndex,
       pageSize:10
     })
-    let list = res.list.map((project) => {
-      project.projectSkill = project.projectSkill.split('|')
-      return project
-    })
 
-    if (res.page > pIndex){
-      pIndex++
-    }else{
-     nomore=true
-    }
+    if (res.code === 0) {
+      let list = res.data.list.map((project) => {
+        project.projectSkill = project.projectSkill.split('|')
+        return project
+      })
+      if (res.data.page > pIndex){
+        pIndex++
+      }else{
+        nomore=true
+      }
     
-    this.setData({
-      projects: this.data.projects.concat(list),
-      pageIndex:pIndex,
-      nomore:nomore
-    })
+      this.setData({
+        projects: this.data.projects.concat(list),
+        pageIndex:pIndex,
+        nomore:nomore
+      })
+    }
 
     wx.stopPullDownRefresh()
   },

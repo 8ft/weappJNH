@@ -31,8 +31,10 @@ Page({
     let res = await app.request.post('/project/projectInfo/detail', {
       projectNo: projectNo
     })
-    this.setData({
-      detail: res
-    })
+    if(res.code===0){
+      this.setData({
+        detail: res.data
+      })
+    }
   }
 })
