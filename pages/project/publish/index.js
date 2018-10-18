@@ -10,7 +10,6 @@ Page({
     dicts:[],
     typeIndex:0,
     subTypeIndex:0,
-    skillIndex:0,
     budgetIndex:0,
     cycleIndex:0,
     cooperaterIndex:0,
@@ -19,12 +18,23 @@ Page({
       '设计':'sheji',
       '市场/运营':'yunying',
       '产品':'chanpin'
-    }
+    },
+    pName:'',
+    cName:'',
+    needsSkillsCn:'',
+    desc:''
   },
   
   onLoad: function (options) {
     app.checkLogin()
     this.getDicts()
+  },
+
+  onShow:function(){
+    this.setData({
+      needsSkillsCn: app.globalData.publishDataCache.needSkillsCn.join('|'),
+      desc: app.globalData.publishDataCache.desc
+    })
   },
 
   getDicts:async function(){
@@ -37,6 +47,7 @@ Page({
       this.setData({
         dicts: this.data.dicts.concat(res.data.data)
       })
+      this.saveSkillData()
     }
   },
 
@@ -48,22 +59,19 @@ Page({
     }else{
       index=data.index
     }
-    
+
     switch(data.type){
       case 'type':
         this.setData({
           typeIndex:index
         })
+        this.saveSkillData()
         break;
       case 'subType':
         this.setData({
           subTypeIndex: index
         })
-        break;
-      case 'skill':
-        this.setData({
-          skillIndex: index
-        })
+        this.saveSkillData()
         break;
       case 'budget':
         this.setData({
@@ -83,8 +91,86 @@ Page({
     }
   },
 
-  publish:function(){
+  saveSkillData:function(){
+    this.setData({
+      needsSkillsCn:''
+    })
+    app.globalData.publishDataCache.needSkills=[]
+    app.globalData.publishDataCache.needSkillsCn = []
+    app.globalData.publishDataCache.skills = this.data.dicts[0].dictList[this.data.typeIndex].dictList[this.data.subTypeIndex].dictList
+  },
+
+  input: function (e) {
+    let inputType = e.currentTarget.dataset.type
+    let val = e.detail.value.replace(/[ ]/g, "").replace(/[\r\n]/g, "")
+    switch (inputType) {
+      case 'project':
+        this.setData({
+          pName: val
+        })
+        break;
+      case 'company':
+        this.setData({
+          cName: val
+        })
+        break;
+    }
+  },
+
+  publish:async function(){
     if(!app.checkLogin())return 
 
+    if (this.data.desc.replace(/[ ]/g, "").replace(/[\r\n]/g, "").length<50){
+      wx.showToast({
+        title: '项目描述最少50字',
+        icon: 'none'
+      })
+      return
+    }
+
+    let data=this.data
+    let dicts = data.dicts 
+
+    let res = await app.request.post('/project/projectInfo/save', {
+      projectCycle: dicts[2].dictList[data.cycleIndex].dictCode,
+      projectBudget: dicts[1].dictList[data.budgetIndex].dictCode,
+      projectDesc: data.desc,
+      projectSkill: app.globalData.publishDataCache.needSkills.join('|'),
+      projectType: dicts[0].dictList[data.typeIndex].dictCode,
+      projectSubtype: dicts[0].dictList[data.typeIndex].dictList[data.subTypeIndex].dictCode,
+      cooperater: dicts[3].dictList[data.cooperaterIndex].dictCode,
+      companyName: data.cName,
+      projectName: data.pName
+    })
+
+    if (res.code === 0) {
+      wx.showToast({
+        title: '发布成功',
+        icon: 'none'
+      })
+      this.resetPage()
+    }
+  },
+
+  resetPage:function(){
+    this.setData({
+      typeIndex: 0,
+      subTypeIndex: 0,
+      budgetIndex: 0,
+      cycleIndex: 0,
+      cooperaterIndex: 0,
+      pName: '',
+      cName: '',
+      needsSkillsCn: '',
+      desc: ''
+    })
+
+    app.globalData.publishDataCache = {
+      skills: this.data.dicts[0].dictList[this.data.typeIndex].dictList[this.data.subTypeIndex].dictList,
+      needSkills: [],
+      needSkillsCn: [],
+      desc: ''
+    }
   }
+
 })

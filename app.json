@@ -7,9 +7,11 @@
     "pages/project/detail/index",
     "pages/project/apply/index",
     "pages/project/publish/index",
-    "pages/user/login/index",
+    "pages/user/bind/index",
     "pages/user/signin/index",
-    "pages/common/webview/index"
+    "pages/common/webview/index",
+    "pages/project/publish/desc/index",
+    "pages/project/publish/skills/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

@@ -1,0 +1,101 @@
+/* pages/project/publish/desc/index.wxss */
+textarea{
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 40rpx 40rpx 100rpx;
+  background: #fff;
+  line-height: 50rpx;
+}
+
+.placeholder{
+  position: fixed;
+  top:50rpx;
+  left:40rpx;
+  right:40rpx;
+  color:#ccc;
+  line-height: 50rpx;
+}
+
+.demo-switch,.num{
+  position: fixed;
+  bottom:34rpx;
+  font-size:28rpx;
+  color:#666666;
+  z-index: 2;
+}
+
+.demo-switch{
+  left:40rpx;
+}
+
+.num{
+  right:40rpx;
+}
+
+.demo{
+  position: fixed;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:3;
+  background: rgba(0,0,0,.5);
+  display: flex;
+  align-items: center;
+}
+.box{
+  margin:0 auto;
+}
+.con{
+  width:645rpx;
+  box-sizing: border-box;
+  padding: 32rpx 42rpx;
+  background: #fff;
+  border-radius: 16rpx;
+}
+.con cover-view{
+  display: block;
+}
+.title{
+  text-align: center;
+  font-size:32rpx;
+  color:#333333;
+}
+.sub-title{
+  position: relative;
+  margin-top:40rpx;
+  margin-bottom:10rpx;
+  color:#333333;
+  padding-left:20rpx;
+  line-height: 30rpx;
+}
+.point{
+  display: block;
+  width:16rpx;
+  height:16rpx;
+  position: absolute;
+  left:0;
+  top:7rpx;
+  background:#0083FF;
+  border-radius: 50%;
+}
+.p{
+  font-size:28rpx;
+  color:#666666;
+  line-height: 48rpx;
+  white-space:pre-line;
+}
+.hide-demo{
+  border:1px solid #fff;
+  background:transparent;
+  border-radius: 50%;
+  width:60rpx;
+  line-height: 54rpx;
+  font-size:32rpx;
+  margin:42rpx auto 0;
+  color:#fff;
+}

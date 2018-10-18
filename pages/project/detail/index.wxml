@@ -20,7 +20,7 @@
 
 <view class='part desc'>
   <view class='title'>项目描述</view>
-  <text>{{detail.projectDesc}}</text>
+  <text decode='true'>{{detail.projectDesc}}</text>
 </view>
 
 <view class='action-bar'>

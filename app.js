@@ -11,15 +11,18 @@ App({
   },
   globalData: {
     version: '1.0.0',
-    userInfo: null
+    publishDataCache:{
+      skills:null,
+      needSkills:[],
+      needSkillsCn:[],
+      desc:''
+    }
   },
   request: request,
   util:util,
   checkLogin: () => {
     if (!wx.getStorageSync('user')) {
-      wx.navigateTo({
-        url: '/pages/user/login/index',
-      })
+      request.login()
       return false
     }else{
       return true

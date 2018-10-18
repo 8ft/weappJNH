@@ -1,0 +1,57 @@
+// pages/project/publish/skills/index.js
+
+//获取应用实例
+const app = getApp()
+
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    skills:null,
+    needSkills:[],
+    needSkillsCn:[]
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.setData({
+      skills: app.globalData.publishDataCache.skills,
+      needSkills: app.globalData.publishDataCache.needSkills,
+      needSkillsCn: app.globalData.publishDataCache.needSkillsCn
+    })
+  },
+
+  onUnload:function(){
+    app.globalData.publishDataCache.needSkills=this.data.needSkills
+    app.globalData.publishDataCache.needSkillsCn = this.data.needSkillsCn
+    app.globalData.publishDataCache.skills =this.data.skills
+  },
+
+  select:function(e){
+    let code = e.currentTarget.dataset.code
+    let name = e.currentTarget.dataset.name
+    let needSkills = this.data.needSkills
+    let needSkillsCn=this.data.needSkillsCn
+    let index = needSkills.indexOf(code)
+
+    if (index>-1){
+      needSkills = needSkills.slice(index,1)
+      needSkillsCn = needSkillsCn.slice(index, 1)
+      this.data.skills[e.currentTarget.dataset.index]['selected'] = false
+    }else{
+      needSkills.push(code)
+      needSkillsCn.push(name)
+      this.data.skills[e.currentTarget.dataset.index]['selected'] = true
+    }
+    
+    this.setData({
+      skills:this.data.skills,
+      needSkills: needSkills,
+      needSkillsCn: needSkillsCn
+    })
+  }
+})
