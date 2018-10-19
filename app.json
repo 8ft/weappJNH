@@ -11,7 +11,8 @@
     "pages/user/signin/index",
     "pages/common/webview/index",
     "pages/project/publish/desc/index",
-    "pages/project/publish/skills/index"
+    "pages/project/publish/skills/index",
+    "pages/user/wxLogin/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

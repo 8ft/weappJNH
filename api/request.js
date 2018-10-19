@@ -27,6 +27,10 @@ const request =(url, options) => {
           wx.hideLoading()
         }
 
+        wx.redirectTo({
+          url: '/pages/user/wxLogin/index'
+        })
+
         if(res.statusCode!==200){
           wx.showModal({
             title: '请求异常',
@@ -72,25 +76,34 @@ const request =(url, options) => {
 }
 
 const login = async () => {
-  let openId = wx.getStorageSync('openId')
-  if (!openId) {
+  let oid= wx.getStorageSync('openid')
+  let uid = wx.getStorageSync('unionid')
+  if (!oid || !uid) {
     wx.login({
       success: async res => {
         let data = await get('/weixin/mini/getOpenId', {
           code: res.code
         })
-        wx.setStorageSync('openId', data.openid)
-        saveUserData(data.openid)
+        wx.setStorageSync('openid', data.openid)
+        if (data.unionid){
+          wx.setStorageSync('unionid', data.unionid)
+          saveUserData(data.openid,data.unionid)
+        }else{
+          wx.redirectTo({
+            url: '/pages/user/wxLogin/index'
+          })
+        }
       }
     })
   } else {
-    saveUserData(openId)
+    saveUserData(oid,uid)
   }
 }
 
-const saveUserData = async id => {
+const saveUserData = async (oid,uid) => {
   let res = await post('/user/userThirdpartInfo/login', {
-    thirdpartIdentifier: id,
+    thirdpartIdentifier: oid,
+    uid:uid,
     type: 0
   })
 
@@ -101,7 +114,7 @@ const saveUserData = async id => {
     pages[pages.length - 1].onLoad()
   } else if (code === 507) {
     wx.redirectTo({
-      url: '/pages/user/bind/index',
+      url: '/pages/user/bind/index'
     })
   }
 }

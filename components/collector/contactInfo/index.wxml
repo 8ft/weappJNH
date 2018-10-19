@@ -1,0 +1,10 @@
+<!--components/collector/contactInfo/index.wxml-->
+<view class='collector'>
+  <view class='main'>
+    <image class='icon bingo' src='/assets/img/collector/bingo.png'></image>
+    <view class='content'>
+      <view></view>
+      <button class='save'>保存</button>    
+    </view>
+  </view>
+</view>

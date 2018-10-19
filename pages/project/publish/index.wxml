@@ -73,4 +73,6 @@
   <button bindtap='publish'>发布项目</button>
 </view>
 
+<collector></collector>
+
 

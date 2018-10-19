@@ -1,0 +1,13 @@
+/* components/collector/contactInfo/index.wxss */
+@import "/assets/wxss/collector.wxss";
+
+.icon.bingo{
+  width:300rpx;
+  height: 200rpx;
+  margin-left:-150rpx;
+  top:-80rpx;
+}
+
+.content{
+  padding-top:80rpx;
+}

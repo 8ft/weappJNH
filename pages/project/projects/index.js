@@ -9,9 +9,17 @@ Page({
 
   data: {
     dicts: [],
-    typeCode: '',
-    budgetCode: '',
-    cycleCode: '',
+    time: [
+      { name: '不限', begin: '' },
+      { name: '最近3天', begin: '' },
+      { name: '最近一周', begin: '' },
+      { name: '最近一月', begin: '' }
+    ],
+
+    typeIndex:-1,
+    budgetIndex:-1,
+    cycleIndex:-1,
+    timeIndex:0,
 
     filter:'',
 
@@ -21,6 +29,10 @@ Page({
   },
 
   onLoad: function (options) {
+    this.data.time.map(item=>{
+      item.begin=this.getDate(item.name)||''
+    })
+
     let type = options.type
     if(type){
       this.setData({
@@ -45,6 +57,39 @@ Page({
     this.getProjects()
   },
 
+  getDate:function(daysAgo){
+    let date = new Date(),
+      curYear = date.getFullYear(),
+      curMonth = date.getMonth() + 1,
+      curDate = date.getDate(),
+
+      preYear = curMonth === 1 ? (curYear-1) :curYear,
+      preMonth = curMonth===1?12:(curMonth-1),
+      preMonthDaysCount = new Date(preYear, preMonth, 0).getDate()
+      
+      let preDate,
+        year,
+        month
+      switch(daysAgo){
+        case '最近3天':
+          month = curDate <= 3 ? preMonth : curMonth
+          year = month > curMonth ? preYear : curYear
+          preDate = curDate <= 3 ? preMonthDaysCount : (curDate - 3)
+          return year + '-' + month + '-' + preDate
+          break;
+        case '最近一周':
+          month = curDate <= 7 ? preMonth:curMonth
+          year=month>curMonth?preYear:curYear
+          preDate=curDate<=7?preMonthDaysCount:(curDate-7)
+          return year+'-'+month+'-'+preDate
+          break;
+        case '最近一月':
+          preDate = curDate > preMonthDaysCount ? preMonthDaysCount : curDate
+          return preYear + '-' + preMonth + '-' + preDate
+          break;
+      }
+  },
+
   getDicts: async function () {
     let res = await app.request.post('/dict/dictCommon/getDicts', {
       dictType: 'project_type|price_budget|project_cycle',
@@ -62,11 +107,15 @@ Page({
     let nomore = this.data.nomore
     if (nomore) return
 
-    let pIndex = this.data.pageIndex
+    let data = this.data,
+      pIndex = data.pageIndex,
+      dicts=data.dicts
+
     let res = await app.request.post('/project/projectInfo/getList', {
-      projectType:this.data.typeCode,
-      priceBudget:this.data.budgetCode,
-      projectCycle:this.data.cycleCode,
+      projectType: data.typeIndex<0?'':dicts[0].dictList[data.typeIndex].dictValue,
+      priceBudget: data.budgetIndex<0?'':dicts[1].dictList[data.budgetIndex].dictValue,
+      projectCycle: data.cycleIndex<0?'':dicts[2].dictList[data.cycleIndex].dictValue,
+      beginTime:data.time[data.timeIndex].begin,
       pageIndex: pIndex,
       pageSize: 10
     })
@@ -98,17 +147,22 @@ Page({
     switch(data.type){
       case 'type':
         this.setData({
-          typeCode:data.code
+          typeIndex:data.index
         })
       break;
       case 'budget':
         this.setData({
-          budgetCode: data.code
+          budgetIndex: data.index
         })
         break;
       case 'cycle':
         this.setData({
-          cycleCode: data.code
+          cycleIndex: data.index
+        })
+        break;
+      case 'time':
+        this.setData({
+          timeIndex: data.index
         })
         break;
     }

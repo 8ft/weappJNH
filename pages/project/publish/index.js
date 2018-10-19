@@ -132,13 +132,13 @@ Page({
     let dicts = data.dicts 
 
     let res = await app.request.post('/project/projectInfo/save', {
-      projectCycle: dicts[2].dictList[data.cycleIndex].dictCode,
-      projectBudget: dicts[1].dictList[data.budgetIndex].dictCode,
+      projectCycle: dicts[2].dictList[data.cycleIndex].dictValue,
+      projectBudget: dicts[1].dictList[data.budgetIndex].dictValue,
       projectDesc: data.desc,
       projectSkill: app.globalData.publishDataCache.needSkills.join('|'),
-      projectType: dicts[0].dictList[data.typeIndex].dictCode,
-      projectSubtype: dicts[0].dictList[data.typeIndex].dictList[data.subTypeIndex].dictCode,
-      cooperater: dicts[3].dictList[data.cooperaterIndex].dictCode,
+      projectType: dicts[0].dictList[data.typeIndex].dictValue,
+      projectSubtype: dicts[0].dictList[data.typeIndex].dictList[data.subTypeIndex].dictValue,
+      cooperater: dicts[3].dictList[data.cooperaterIndex].dictValue,
       companyName: data.cName,
       projectName: data.pName
     })

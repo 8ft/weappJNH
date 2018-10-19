@@ -94,7 +94,7 @@ Page({
         userMobile: phone,
         userPassword:pwd,
         validateCode:code,
-        openId:wx.getStorageSync('openId')
+        openId:wx.getStorageSync('openid')
       })
       if (register.code === 0)
       wx.navigateBack()

@@ -1,0 +1,2 @@
+<!--pages/user/wxLogin/index.wxml-->
+<button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" withCredentials="true">授权登录</button>
