@@ -11,19 +11,24 @@ App({
   },
   globalData: {
     version: '1.0.0',
+    userInfo:null,
     publishDataCache:{
       skills:null,
       needSkills:[],
       needSkillsCn:[],
-      desc:''
+      desc:{
+        content:''
+      }
     }
   },
   request: request,
   util:util,
   checkLogin: () => {
-    if (!wx.getStorageSync('user')) {
-      request.login()
-      return false
+    let user = wx.getStorageSync('user')
+    if (!user || user.expired) {
+      wx.navigateTo({
+        url: '/pages/user/wxLogin/index',
+      })
     }else{
       return true
     }

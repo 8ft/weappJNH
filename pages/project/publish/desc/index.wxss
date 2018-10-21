@@ -29,6 +29,8 @@ textarea{
 }
 
 .demo-switch{
+  padding-top:20rpx;
+  padding-right:20px;
   left:40rpx;
 }
 

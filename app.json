@@ -12,7 +12,9 @@
     "pages/common/webview/index",
     "pages/project/publish/desc/index",
     "pages/project/publish/skills/index",
-    "pages/user/wxLogin/index"
+    "pages/user/wxLogin/index",
+    "pages/mine/personalInfo/index",
+    "pages/mine/personalInfo/base/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

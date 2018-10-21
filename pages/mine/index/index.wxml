@@ -1,12 +1,20 @@
 <!--index.wxml-->
-<view class="userinfo">
+
+<view class="userinfo" wx:if="{{!hasLogin}}">
   <text class='hello'>探索未知~</text>
-  <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">登陆/注册</button>
+  <navigator url='/pages/user/wxLogin/index' hover-class='none'>登陆/注册</navigator>
   <image class='avatar' src='/assets/img/default/avatar.png'></image>
 </view>
 
+<view class="userinfo" wx:else>
+  <text class='nickName'>{{user.nickName}}</text>
+  <view class='finished'>已完成{{user.finishOrderNums}}单</view>
+  <image class='avatar' src="{{user.userAvatar||'/assets/img/default/avatar.png'}}"></image>
+</view>
+
+
 <view class='entrances'>
-  <navigator hover-class='none'>
+  <navigator hover-class='none' url='/pages/mine/personalInfo/index'>
     <image src='/assets/img/icon/mine_grzy.png'></image>
     个人主页
     <text class='arrow-right'></text>

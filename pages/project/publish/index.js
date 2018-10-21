@@ -22,7 +22,8 @@ Page({
     pName:'',
     cName:'',
     needsSkillsCn:'',
-    desc:''
+    desc:'',
+    showCollector:false
   },
   
   onLoad: function (options) {
@@ -33,7 +34,7 @@ Page({
   onShow:function(){
     this.setData({
       needsSkillsCn: app.globalData.publishDataCache.needSkillsCn.join('|'),
-      desc: app.globalData.publishDataCache.desc
+      desc: app.globalData.publishDataCache.desc.content
     })
   },
 
@@ -144,11 +145,10 @@ Page({
     })
 
     if (res.code === 0) {
-      wx.showToast({
-        title: '发布成功',
-        icon: 'none'
-      })
       this.resetPage()
+      this.setData({
+        showCollector: true
+      })
     }
   },
 
@@ -169,8 +169,16 @@ Page({
       skills: this.data.dicts[0].dictList[this.data.typeIndex].dictList[this.data.subTypeIndex].dictList,
       needSkills: [],
       needSkillsCn: [],
-      desc: ''
+      desc: {
+        content:''
+      }
     }
+  },
+
+  hideCollector:function(){
+    this.setData({
+      showCollector:false
+    })
   }
 
 })

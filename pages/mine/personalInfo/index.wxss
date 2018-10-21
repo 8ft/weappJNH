@@ -1,0 +1,64 @@
+/* pages/mine/personalInfo/index.wxss */
+.tip{
+  height: 64rpx;
+  line-height: 64rpx;
+  font-size: 24rpx;
+  color:#0083FF;
+  background: rgba(0,131,255,.1);
+  text-indent: 40rpx;
+}
+
+.userinfo {
+  position: relative;
+  background:#fff;
+  padding: 46rpx 40rpx;
+}
+.nickName{
+  font-size: 64rpx;
+  color:#333333;
+}
+.userinfo navigator{
+  text-align: center;
+  margin-top: 20rpx;
+  color:#666666;
+  border-radius: 8rpx;
+  background: #F2F2F2;
+  width:114rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size:26rpx;
+}
+.avatar {
+  position: absolute;
+  top:46rpx;
+  right:40rpx;
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+}
+
+.place-holder{
+  color:#999999;
+  font-size: 24rpx;
+  margin-top: 30rpx;
+}
+
+.info{
+  padding-left: 40rpx;
+  box-sizing: border-box;
+  background: #fff;
+  margin-top:20rpx;
+  padding-bottom: 40rpx;
+}
+
+.info .title{
+  color:#333333;
+  font-size: 30rpx;
+  line-height: 90rpx;
+}
+
+.info .title navigator{
+  color:#0083FF;
+  float: right;
+  margin-right:40rpx;
+}

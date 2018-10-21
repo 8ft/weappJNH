@@ -19,6 +19,12 @@ Page({
     await this.getProjects()
   },
 
+  onShow:function(){
+    // if(this.data.projects.length===0){
+    //   this.getProjects()
+    // }
+  },
+
   onPullDownRefresh:function(){
     this.setData({
       pageIndex:1,

@@ -1,0 +1,33 @@
+<!--pages/mine/personalInfo/index.wxml-->
+<view class='tip'>完善信息并通过审核即可申请项目</view>
+
+<view class="userinfo">
+  <text class='nickName'>{{user.nickName}}</text>
+  <image class='avatar' src="{{user.userAvatar||'/assets/img/default/avatar.png'}}" bindtap='chooseImage'></image>
+  <navigator url="/pages/mine/personalInfo/base/index">编辑</navigator>
+  <view class='place-holder'>填写基本信息更好的展示自己</view>
+</view>
+
+<view class='info'>
+  <view class='title border-b clearfix'>
+    详细介绍
+    <navigator hover-class='none'>编辑</navigator>
+  </view>
+  <view class='place-holder'>完善全面的介绍可以让客户更完整立体的了解你</view>
+</view>
+
+<view class='info'>
+  <view class='title border-b clearfix'>
+    擅长技能
+    <navigator hover-class='none'>添加</navigator>
+  </view>
+  <view class='place-holder'>添加属于你的技能，可以为你更精准的推荐匹配项目</view>
+</view>
+
+<view class='info'>
+  <view class='title border-b clearfix'>
+    作品案例
+    <navigator hover-class='none'>编辑</navigator>
+  </view>
+  <view class='place-holder'>至少添加1个以上的作品案例</view>
+</view>

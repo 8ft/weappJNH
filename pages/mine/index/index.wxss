@@ -4,18 +4,25 @@
   background:#fff;
   padding: 46rpx 40rpx;
 }
-.hello{
+.nickName{
   font-size: 64rpx;
   color:#333333;
 }
-.userinfo button{
+.userinfo navigator{
+  text-align: center;
   margin-top: 20rpx;
   color:#fff;
   border-radius: 8rpx;
   background: #0083FF;
   width:200rpx;
   height: 60rpx;
+  line-height: 60rpx;
   font-size:28rpx;
+}
+.finished{
+  color:#999999;
+  font-size:32rpx;
+  margin-top:20rpx;
 }
 .avatar {
   position: absolute;

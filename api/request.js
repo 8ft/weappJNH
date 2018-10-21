@@ -1,5 +1,3 @@
-const regeneratorRuntime = require('../libs/regenerator-runtime.js')
-
 const host ='https://api.dev.juniuhui.com' //测试环境
 // const host = 'https://api.juniuhui.com' //正式环境
 const requestArr=[]
@@ -27,34 +25,28 @@ const request =(url, options) => {
           wx.hideLoading()
         }
 
-        wx.redirectTo({
-          url: '/pages/user/wxLogin/index'
-        })
-
-        if(res.statusCode!==200){
-          wx.showModal({
-            title: '请求异常',
-            content: `${res.statusCode}` ,
-            showCancel: false,
-            confirmText: '好的'
-          })
-          reject()
-        }else{
-          let code = res.data.code
-          if (code&&code !== 0) {
-            if (code === 506001) {//重新登录
-              login()
-            }else{
-              wx.showModal({
-                title: '提示',
-                content: `${res.data.message}`,
-                showCancel: false,
-                confirmText: '好的'
-              })
-            }
-          } 
-          resolve(res.data)
-        }
+        let code = res.data.code
+        if (code&&code !== 0) {
+          if (code === 506001) {
+            //设置过期
+            let user=wx.getStorageSync('user')
+            user.expired=true
+            wx.setStorageSync('user',user)
+            //重新登录
+            wx.navigateTo({
+              url: '/pages/user/wxLogin/index'
+            })
+          }else{
+            wx.showModal({
+              title: '提示',
+              content: `${res.data.message}`,
+              showCancel: false,
+              confirmText: '好的'
+            })
+          }
+        } 
+        resolve(res.data)
+        
       },
       fail(error) {
         requestArr.pop()
@@ -75,50 +67,6 @@ const request =(url, options) => {
   })
 }
 
-const login = async () => {
-  let oid= wx.getStorageSync('openid')
-  let uid = wx.getStorageSync('unionid')
-  if (!oid || !uid) {
-    wx.login({
-      success: async res => {
-        let data = await get('/weixin/mini/getOpenId', {
-          code: res.code
-        })
-        wx.setStorageSync('openid', data.openid)
-        if (data.unionid){
-          wx.setStorageSync('unionid', data.unionid)
-          saveUserData(data.openid,data.unionid)
-        }else{
-          wx.redirectTo({
-            url: '/pages/user/wxLogin/index'
-          })
-        }
-      }
-    })
-  } else {
-    saveUserData(oid,uid)
-  }
-}
-
-const saveUserData = async (oid,uid) => {
-  let res = await post('/user/userThirdpartInfo/login', {
-    thirdpartIdentifier: oid,
-    uid:uid,
-    type: 0
-  })
-
-  let code = res.code
-  if (code === 0) {
-    wx.setStorageSync('user', res.data)
-    let pages = getCurrentPages()
-    pages[pages.length - 1].onLoad()
-  } else if (code === 507) {
-    wx.redirectTo({
-      url: '/pages/user/bind/index'
-    })
-  }
-}
-
 const get = (url, options = {}) => {
   return request(url, { method: 'GET', data: options })
 }
@@ -129,6 +77,5 @@ const post = (url, options) => {
 
 module.exports = {
   get,
-  post,
-  login
+  post
 }

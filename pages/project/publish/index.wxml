@@ -73,6 +73,6 @@
   <button bindtap='publish'>发布项目</button>
 </view>
 
-<collector></collector>
+<collector show="{{showCollector}}" bindhide='hideCollector'></collector>
 
 

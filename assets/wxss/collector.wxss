@@ -12,8 +12,11 @@
 
 .main{
   position: relative;
-  width:540rpx;
   margin:0 auto;
+}
+
+.content{
+  width:540rpx;
   border-radius:24rpx;
   padding:56rpx 40rpx;
   box-sizing: border-box;
@@ -41,4 +44,15 @@
 .save:disabled{
   background:#CCCCCC;
   color:#999999;
+}
+
+.close{
+  border:1px solid #fff;
+  background:transparent;
+  border-radius: 50%;
+  width:60rpx;
+  line-height: 54rpx;
+  font-size:32rpx;
+  margin:42rpx auto 0;
+  color:#fff;
 }

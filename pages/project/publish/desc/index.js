@@ -19,13 +19,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let data = app.globalData.publishDataCache.desc
     this.setData({
-      content: app.globalData.publishDataCache.desc
+      content: data.content,
+      inputLen:data.inputLen||-1,
+      conLen:data.conLen||0
     })
   },
 
   onUnload: function () {
-    app.globalData.publishDataCache.desc = this.data.content
+    app.globalData.publishDataCache.desc = this.data
   },
 
   input:function(e){

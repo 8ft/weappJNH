@@ -1,1 +1,29 @@
 /* pages/user/wxLogin/index.wxss */
+
+page{
+  background: #fff;
+}
+
+.title{
+  display: block;
+  font-size:50rpx;
+  color:#333333;
+  padding:40px;
+  text-align: center;
+}
+
+.auth{
+  position: fixed;
+  top:40%;
+  left:50%;
+  width:300rpx;
+  height: 300rpx;
+  margin-top: -150rpx;
+  margin-left: -150rpx;
+  background: linear-gradient(-30deg,rgba(27,130,228,1),rgba(49,165,255,1));
+  color:#fff;
+  line-height: 300rpx;
+  font-size: 48rpx;
+  border-radius: 50%;
+  box-sizing: content-box;
+}
