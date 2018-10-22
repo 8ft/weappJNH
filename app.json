@@ -14,7 +14,9 @@
     "pages/project/publish/skills/index",
     "pages/user/wxLogin/index",
     "pages/mine/personalInfo/index",
-    "pages/mine/personalInfo/base/index"
+    "pages/mine/personalInfo/base/index",
+    "pages/mine/personalInfo/base/jobTypes/index",
+    "pages/mine/personalInfo/base/city/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

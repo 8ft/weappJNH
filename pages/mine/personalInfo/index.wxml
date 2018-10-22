@@ -5,10 +5,21 @@
   <text class='nickName'>{{user.nickName}}</text>
   <image class='avatar' src="{{user.userAvatar||'/assets/img/default/avatar.png'}}" bindtap='chooseImage'></image>
   <navigator url="/pages/mine/personalInfo/base/index">编辑</navigator>
-  <view class='place-holder'>填写基本信息更好的展示自己</view>
+  <block wx:if="{{!user.userBaseInfo.positionTitle}}">
+    <view class='place-holder'>填写基本信息更好的展示自己</view>
+  </block>
+  <block wx:else>
+    <view class='info'><text>入驻类型</text>{{user.userBaseInfo.settleTypeCn}}</view>
+    <view class='info'><text>性别</text>{{user.userBaseInfo.sexCn}}</view>
+    <view class='info'><text>职位头衔</text>{{user.userBaseInfo.positionTitle}}</view>
+    <view class='info'><text>职业类型</text>{{user.userBaseInfo.positionTypeCn}}</view>
+    <view class='info'><text>工作经验</text>{{user.userBaseInfo.workExperienceCn}}</view>
+    <view class='info'><text>日薪（8小时）</text>{{user.userBaseInfo.daySalary}}</view>
+    <view class='info'><text>所在城市</text>{{user.userBaseInfo.cityCn}}</view>
+  </block>
 </view>
 
-<view class='info'>
+<view class='part'>
   <view class='title border-b clearfix'>
     详细介绍
     <navigator hover-class='none'>编辑</navigator>
@@ -16,7 +27,7 @@
   <view class='place-holder'>完善全面的介绍可以让客户更完整立体的了解你</view>
 </view>
 
-<view class='info'>
+<view class='part'>
   <view class='title border-b clearfix'>
     擅长技能
     <navigator hover-class='none'>添加</navigator>
@@ -24,7 +35,7 @@
   <view class='place-holder'>添加属于你的技能，可以为你更精准的推荐匹配项目</view>
 </view>
 
-<view class='info'>
+<view class='part'>
   <view class='title border-b clearfix'>
     作品案例
     <navigator hover-class='none'>编辑</navigator>

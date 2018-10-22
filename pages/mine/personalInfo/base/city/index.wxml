@@ -1,0 +1,10 @@
+<!--pages/mine/personalInfo/base/city/index.wxml-->
+<view class='hot'>
+  <view>热门城市</view>
+  <text wx:for="{{cities.hot}}" data-city="{{item}}" bindtap='select'>{{item.zoneName}}</text>
+</view>
+
+<view class='list' wx:for="{{cities.list}}">
+  <text class='letter'>{{index}}</text>
+  <list-item wx:for="{{item}}" wx:for-item="city" data-city="{{city}}" name="{{city.zoneName}}" bindtap="select"></list-item>
+</view>

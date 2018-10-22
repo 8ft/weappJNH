@@ -2,61 +2,61 @@
 <view class='info need'>
   <text class='name'>入驻类型</text>
   <view class='input arrow-right'>
-    <!-- <picker bindchange="select" value="{{budgetIndex}}" range="{{dicts[1].dictList}}" range-key="dictName" data-type="budget">
-        {{dicts[1].dictList[budgetIndex].dictName}}
-    </picker> -->
+    <picker bindchange="select" value="{{joinIndex}}" range="{{dicts[1].dictList}}" range-key="dictName" data-type="join">
+        {{userBaseInfo.settleTypeCn||dicts[1].dictList[0].dictName}}
+    </picker>
   </view>
 </view>
 
 <view class='info need'>
   <text class='name'>昵称</text>
   <view class='input arrow-right'>
-    <input placeholder='10字以内' maxlength='10' data-type="nickName" value="{{nickName}}" bindinput='input'></input>
+    <input placeholder='10字以内' maxlength='10' data-type="nickName" value="{{userBaseInfo.nickName}}" bindinput='input'></input>
   </view>
 </view>
 
 <view class='info need'>
   <text class='name'>性别</text>
   <view class='input arrow-right'>
-    <!-- <picker bindchange="select" value="{{budgetIndex}}" range="{{dicts[1].dictList}}" range-key="dictName" data-type="budget">
-        {{dicts[1].dictList[budgetIndex].dictName}}
-    </picker> -->
+   <picker bindchange="select" value="{{sexIndex}}" range="{{dicts[0].dictList}}" range-key="dictName" data-type="sex">
+        {{userBaseInfo.sexCn||dicts[0].dictList[sexIndex].dictName}}
+    </picker>
   </view>
 </view>
 
 <view class='info need'>
   <text class='name'>所在城市</text>
-  <navigator class='input arrow-right' url="" hover-class='none'>{{}}</navigator>
+  <navigator class='input arrow-right' url="/pages/mine/personalInfo/base/city/index" hover-class='none'>{{userBaseInfo.cityCn}}</navigator>
 </view>
 
 <view class='info need'>
   <text class='name'>职位头衔</text>
   <view class='input arrow-right'>
-    <input placeholder='例如：高级Java开发' data-type="" value="{{}}" bindinput='input'></input>
+    <input placeholder='例如：高级Java开发' data-type="positionTitle" value="{{userBaseInfo.positionTitle}}" bindinput='input'></input>
   </view>
 </view>
 
 <view class='info need'>
   <text class='name'>职位类型</text>
-  <navigator class='input arrow-right' url="" hover-class='none'>{{}}</navigator>
+  <navigator class='input arrow-right' url="/pages/mine/personalInfo/base/jobTypes/index" hover-class='none'>{{userBaseInfo.positionTypeCn}}</navigator>
 </view>
 
 <view class='info need'>
   <text class='name'>工作经验</text>
   <view class='input arrow-right'>
-    <!-- <picker bindchange="select" value="{{budgetIndex}}" range="{{dicts[1].dictList}}" range-key="dictName" data-type="budget">
-        {{dicts[1].dictList[budgetIndex].dictName}}
-    </picker> -->
+    <picker bindchange="select" value="{{expIndex}}" range="{{dicts[3].dictList}}" range-key="dictName" data-type="exp">
+        {{userBaseInfo.workExperienceCn||dicts[3].dictList[expIndex].dictName}}
+    </picker>
   </view>
 </view>
 
 <view class='info need'>
   <text class='name'>日薪（8小时）</text>
   <view class='input arrow-right'>
-    <input placeholder='输入金额' data-type="" value="{{}}" bindinput='input'></input>
+    <input type='number' placeholder='输入金额' data-type="daySalary" value="{{userBaseInfo.daySalary}}" bindinput='input'></input>
   </view>
 </view>
 
 <view class='action-bar'>
-  <button bindtap='publish'>保存</button>
+  <button bindtap='publish' bindtap='save'>保存</button>
 </view>

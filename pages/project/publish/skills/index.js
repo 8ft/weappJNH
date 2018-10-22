@@ -39,8 +39,8 @@ Page({
     let index = needSkills.indexOf(code)
 
     if (index>-1){
-      needSkills = needSkills.slice(index,1)
-      needSkillsCn = needSkillsCn.slice(index, 1)
+      needSkills.splice(index,1)
+      needSkillsCn.splice(index, 1)
       this.data.skills[e.currentTarget.dataset.index]['selected'] = false
     }else{
       needSkills.push(code)

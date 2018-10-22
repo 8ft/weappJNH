@@ -35,20 +35,36 @@ Page({
   },
 
   login:function(){
-    let oid = wx.getStorageSync('openid')
-    let uid = wx.getStorageSync('unionid')
+    let oid = wx.getStorageSync('openid'),
+       uid = wx.getStorageSync('unionid')
+
     if (!oid || !uid) {
       wx.login({
         success: async res => {
           let data = await app.request.get('/weixin/mini/getOpenId', {
             code: res.code
           })
-          wx.setStorageSync('openid', data.openid)
-          if (data.unionid) {
-            wx.setStorageSync('unionid', data.unionid)
-            this.getUserData(data.openid, data.unionid)
+
+          oid = data.openid
+          wx.setStorageSync('openid', oid)
+
+          uid = data.unionid
+          if (uid) {
+            wx.setStorageSync('unionid', uid)
+            this.getUserData(oid,uid)
           } else {
             //请求解密接口
+            let userInfo = await app.request.get('/weixin/mini/getUnionId', {
+              encryptedData: this.data.encryptedData,
+              iv:this.data.iv,
+              openId: oid
+            })
+
+            uid = userInfo.unionid
+            if (uid){
+              wx.setStorageSync('unionid', uid)
+              this.getUserData(oid, uid)
+            }
           }
         }
       })
