@@ -11,6 +11,10 @@ input{
   list-style: none;
 }
 
+text{
+  word-break: break-all;
+}
+
 button{
   -webkit-appearance: none;
   background: #fff;

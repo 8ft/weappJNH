@@ -22,9 +22,14 @@
 <view class='part'>
   <view class='title border-b clearfix'>
     详细介绍
-    <navigator hover-class='none'>编辑</navigator>
+    <navigator hover-class='none' url='/pages/mine/personalInfo/detail/index'>编辑</navigator>
   </view>
-  <view class='place-holder'>完善全面的介绍可以让客户更完整立体的了解你</view>
+  <block wx:if="{{!user.userIntro}}">
+    <view class='place-holder'>完善全面的介绍可以让客户更完整立体的了解你</view>
+  </block>
+  <block wx:else>
+    <text decode='true' class='detail'>{{user.userIntro}}</text>
+  </block>
 </view>
 
 <view class='part'>
@@ -38,7 +43,22 @@
 <view class='part'>
   <view class='title border-b clearfix'>
     作品案例
-    <navigator hover-class='none'>编辑</navigator>
+    <navigator hover-class='none' url="/pages/mine/personalInfo/works/index">添加</navigator>
   </view>
-  <view class='place-holder'>至少添加1个以上的作品案例</view>
+  <block wx:if="{{!user.userIntro}}">
+    <view class='place-holder'>至少添加1个以上的作品案例</view>
+  </block>
+  <block wx:else>
+    <view class='works' wx:for="{{user.userSampleInfos}}">
+      <image wx:if="{{item.sampleImage}}" src="{{item.sampleImage}}"></image>
+      <view class='name'>{{item.sampleName}}</view>
+      <view class='type'>{{item.tradeTypeCn}}</view>
+      <view class='url' wx:if="{{item.sampleUrl}}">{{item.sampleUrl}}</view>
+      <view class='desc'>{{item.sampleDesc}}</view>
+    </view>
+  </block>
+</view>
+
+<view class='action-bar'>
+  <button bindtap='publish' bindtap='save'>提交审核</button>
 </view>

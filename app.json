@@ -16,7 +16,10 @@
     "pages/mine/personalInfo/index",
     "pages/mine/personalInfo/base/index",
     "pages/mine/personalInfo/base/jobTypes/index",
-    "pages/mine/personalInfo/base/city/index"
+    "pages/mine/personalInfo/base/city/index",
+    "pages/mine/personalInfo/detail/index",
+    "pages/mine/personalInfo/skills/index",
+    "pages/mine/personalInfo/works/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

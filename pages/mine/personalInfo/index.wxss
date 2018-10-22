@@ -1,4 +1,8 @@
 /* pages/mine/personalInfo/index.wxss */
+page{
+  padding-bottom:150rpx;
+}
+
 .tip{
   height: 64rpx;
   line-height: 64rpx;
@@ -74,4 +78,69 @@
   color:#0083FF;
   float: right;
   margin-right:40rpx;
+}
+
+.detail{
+  display: block;
+  color:#666666;
+  font-size: 28rpx;
+  line-height:48rpx;
+  padding-right:40rpx;
+  padding-top: 30rpx;
+  text-overflow:clip;
+}
+
+.works{
+  box-sizing: border-box;
+  width:670rpx;
+  padding:30rpx;
+  border:1px solid rgba(229,229,229,.5);
+}
+.works image{
+  width:100%;
+  height: 320rpx;
+  margin-bottom: 29rpx;
+}
+.works .name{
+  color:#666666;
+  margin-bottom:20rpx;
+  width:340rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.works .type{
+  font-size: 24rpx;
+  color: #999999;
+  margin-bottom: 17rpx;
+}
+.works .url{
+  font-size: 24rpx;
+  color:#CCCCCC;
+  margin-bottom: 35rpx;
+}
+.works .desc{
+  font-size: 28rpx;
+  color:#999999;
+}
+
+.action-bar{
+  position: fixed;
+  bottom:0;
+  left:0;
+  background:#fff;
+  width:100%;
+  height: 150rpx;
+  display: flex;
+  align-items: center;
+}
+.action-bar button{
+  margin:0 auto;
+  width:630rpx;
+  height:96rpx;
+  background:rgba(0,131,255,1);
+  border-radius:4rpx;
+  color:#fff;
+  font-size: 32rpx;
+  line-height: 96rpx;
 }

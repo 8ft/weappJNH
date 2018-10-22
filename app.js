@@ -13,7 +13,10 @@ App({
     version: '1.0.0',
     userInfo:null,
     editUserInfoCache:{
-      jobTypes:null
+      jobTypes:null,
+      detail: {
+        content: ''
+      }
     },
     publishDataCache:{
       skills:null,

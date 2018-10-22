@@ -10,7 +10,7 @@
 
 <view class='info need'>
   <text class='name'>昵称</text>
-  <view class='input arrow-right'>
+  <view class='input'>
     <input placeholder='10字以内' maxlength='10' data-type="nickName" value="{{userBaseInfo.nickName}}" bindinput='input'></input>
   </view>
 </view>
@@ -31,7 +31,7 @@
 
 <view class='info need'>
   <text class='name'>职位头衔</text>
-  <view class='input arrow-right'>
+  <view class='input'>
     <input placeholder='例如：高级Java开发' data-type="positionTitle" value="{{userBaseInfo.positionTitle}}" bindinput='input'></input>
   </view>
 </view>
@@ -52,7 +52,7 @@
 
 <view class='info need'>
   <text class='name'>日薪（8小时）</text>
-  <view class='input arrow-right'>
+  <view class='input'>
     <input type='number' placeholder='输入金额' data-type="daySalary" value="{{userBaseInfo.daySalary}}" bindinput='input'></input>
   </view>
 </view>
