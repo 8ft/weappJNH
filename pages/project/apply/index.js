@@ -6,67 +6,83 @@ const app = getApp()
 const regeneratorRuntime = require('../../../libs/regenerator-runtime.js')
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    no:'',
+    budget:'',
+    price:'',
+    desc: '',
+    conLen: 0,
+    inputLen: -1,
+    disagree:false
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    this.setData({
+      no:options.no,
+      budget: options.budget
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  input: function (e) {
+    let inputType = e.currentTarget.dataset.type
+    let val = e.detail.value.replace(/[ ]/g, "").replace(/[\r\n]/g, "")
+    switch (inputType) {
+      case 'price':
+        this.setData({
+          price: val
+        })
+        break;
+      case 'desc':
+        let conLen = val.length,
+          inputLen
+        if (conLen === 100) {
+          inputLen = 100
+        } else {
+          inputLen = -1
+        }
+        this.setData({
+          desc: e.detail.value,
+          conLen: conLen,
+          inputLen: inputLen
+        })
+        break;
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onLoad: function () {
-    app.checkLogin()
+  setAgree:function(){
+    this.setData({
+      disagree:!this.data.disagree
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
+  send: async function () {
+    let data = this.data
+    if (!data.price) {
+      wx.showToast({
+        title: '请输入您的报价',
+        icon: 'none'
+      })
+      return
+    }
+    if (!data.desc) {
+      wx.showToast({
+        title: '请输入申请说明',
+        icon: 'none'
+      })
+      return
+    }
 
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    let res = await app.request.post('/project/projectApply/save', {
+      projectId: data.no,
+      applyDesc: data.desc,
+      projectOffer: data.price
+    })
+    if (res.code === 0) {
+      wx.showToast({
+        title: '发送成功',
+        icon: 'none'
+      })
+      // wx.navigateBack()
+    }
   }
 })

@@ -1,66 +1,141 @@
 // pages/mine/personalInfo/skills/index.js
+
+//获取应用实例
+const app = getApp()
+//引入async await依赖库
+const regeneratorRuntime = require('../../../../libs/regenerator-runtime.js')
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    skills:[],
+    newSkill:'',
+    addedSkills:[]
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    let userSkills = app.globalData.userInfo.userSkills
+    if (userSkills.length>0){
+      userSkills=userSkills.map(item=>{
+        return {
+          skillCode: item.skillCode,
+          skillName: item.skillName,
+          skillValue: item.skillValue
+        }
+      })
+      this.setData({
+        addedSkills:userSkills
+      })
+    }
+    this.getDicts()
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+  getDicts: async function () {
+    let res = await app.request.post('/dict/dictCommon/getDicts', {
+      dictType: 'user_skill',
+      resultType: '1'
+    })
 
+    if (res.code === 0) {
+      this.setData({
+          skills: res.data.data[0].dictList
+      })
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+  select: function (e) {
+    let data = e.currentTarget.dataset
+    let skill = this.data.skills[data.type].dictList[data.index]
+    let addedSkills = this.data.addedSkills
 
+    if (addedSkills.length === 20) {
+      wx.showToast({
+        title: '擅长技能至多添加20个',
+        icon: 'none'
+      })
+      return
+    }
+
+    if(skill.active===true){
+      skill.active=false
+      addedSkills = addedSkills.filter(item=>{
+        return item.skillValue != data.skill.dictValue
+      })
+    }else{
+      skill.active = true
+      this.data.addedSkills.push({
+        skillCode: data.skill.dictCode,
+        skillValue: data.skill.dictValue,
+        skillName: data.skill.dictName
+      })
+    }
+    
+    this.setData({
+      skills: this.data.skills,
+      addedSkills: addedSkills
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  input: function (e) {
+    let val = e.detail.value.replace(/[ ]/g, "").replace(/[\r\n]/g, "")
+    if (/^[\u4e00-\u9fa5]+$/.test(val)&&val.length>8){
+      wx.showToast({
+        title: '最长8个汉字或16个字符',
+        icon: 'none'
+      })
+      this.setData({
+        newSkill: this.data.newSkill
+      })
+      return
+    }
+    this.setData({
+      newSkill:val 
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  add:function(){
+    let name=this.data.newSkill
+    if (!name){
+      wx.showToast({
+        title: '请输入技能',
+        icon:'none'
+      })
+      return
+    }
+    let addedSkills = this.data.addedSkills
+    if(addedSkills.length===20){
+      wx.showToast({
+        title: '擅长技能至多添加20个',
+        icon: 'none'
+      })
+      return
+    }
+    addedSkills.push({
+      skillCode: -1,
+      skillValue: -1,
+      skillName: name
+    })
+    this.setData({
+      addedSkills: addedSkills,
+      newSkill:''
+    })
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  del:function(e){
+    let index=e.currentTarget.dataset.index
+    let addedSkills = this.data.addedSkills
+    addedSkills.splice(index, 1)
+    this.setData({
+      addedSkills: addedSkills
+    })
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  save:async function(){
+    let res = await app.request.post('/user/userAuth/completeUserSkill', {
+      userSkillInfos: JSON.stringify(this.data.addedSkills)
+    })
+    if (res.code === 0) {
+      wx.navigateBack()
+    }
   }
 })

@@ -57,3 +57,22 @@
 .arrow-right::before{
   border-left-color:#CCCCCC;
 }
+
+
+.action-bar{
+  background:#fff;
+  width:100%;
+  height: 150rpx;
+  display: flex;
+  align-items: center;
+}
+.action-bar button{
+  margin:0 auto;
+  width:630rpx;
+  height:96rpx;
+  background:#CCCCCC;
+  border-radius:4rpx;
+  color:#fff;
+  font-size: 32rpx;
+  line-height: 96rpx;
+}

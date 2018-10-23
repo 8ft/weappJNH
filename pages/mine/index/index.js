@@ -34,5 +34,39 @@ Page({
         user: res.data
       })
     }
+  },
+
+  logout:function(){
+    wx.showModal({
+      title: '提示',
+      content: '确定要退出吗',
+      success: async res => {
+        if (res.confirm) {
+          let res = await app.request.post('/user/userAuth/logout', {})
+          if (res.code === 0) {
+            app.globalData = {
+              version: '1.0.0',
+              userInfo: null,
+              editUserInfoCache: {
+                jobTypes: null,
+                detail: {
+                  content: ''
+                }
+              },
+              publishDataCache: {
+                skills: null,
+                needSkills: [],
+                needSkillsCn: [],
+                desc: {
+                  content: ''
+                }
+              }
+            }
+            wx.clearStorageSync()
+            this.onShow()
+          }
+        }
+      }
+    })
   }
 })

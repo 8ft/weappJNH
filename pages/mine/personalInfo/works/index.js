@@ -21,13 +21,10 @@ Page({
     id:''
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     let index = options.index
     if (index){
-      let data = app.localData.userInfo.userSampleInfos[index]
+      let data = app.globalData.userInfo.userSampleInfos[index]
       this.setData({
         name: data.sampleName,
         type: data.tradeType,
@@ -144,6 +141,13 @@ Page({
     if (!data.desc) {
       wx.showToast({
         title: '请输入作品描述',
+        icon: 'none'
+      })
+      return
+    }
+    if (!/(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?/.test(data.url)){
+      wx.showToast({
+        title: '作品链接有误，请以http://或者https://开头',
         icon: 'none'
       })
       return

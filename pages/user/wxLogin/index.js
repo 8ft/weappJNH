@@ -8,15 +8,11 @@ const regeneratorRuntime = require('../../../libs/regenerator-runtime.js')
 Page({
 
   data: {
-    title:'欢迎登录',
     encryptedData:'',
     iv:''
   },
 
   onLoad: function () {
-    this.setData({
-      title: wx.getStorageSync('user').expired?'您的登录状态已过期\n请重新登录':'欢迎登录'
-    })
   },
 
   bindGetUserInfo:function(e) {

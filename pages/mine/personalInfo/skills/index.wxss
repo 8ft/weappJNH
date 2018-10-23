@@ -1,1 +1,101 @@
 /* pages/mine/personalInfo/skills/index.wxss */
+.part{
+  background: #fff;
+  padding: 50rpx 40rpx;
+  margin-bottom: 20rpx;
+}
+
+.title{
+  font-size: 32rpx;
+  color:#333333;
+}
+
+.add{
+  width:100%;
+  margin:29rpx auto 50rpx;
+  display: flex;
+}
+
+.add input{
+  flex: 1;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #F8F8F8;
+  font-size: 28rpx;
+  padding-left: 20rpx;
+}
+
+.add button{
+  width:180rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 28rpx;
+  background: #0083FF;
+  color: #fff;
+  border-radius: 0;
+}
+
+.my-skill{
+  display: inline-block;
+  position: relative;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  line-height: 64rpx;
+  background: #EAF3FF;
+  color:#0083FF;
+  padding-left:29rpx;
+  padding-right:73rpx;
+}
+.my-skill button{
+  position: absolute;
+  right:0;
+  top:0;
+  width:73rpx;
+  height: 100%;
+  line-height: 64rpx;
+  background: transparent;
+  color:#0083FF;
+  font-size: 16rpx;
+  text-align: center;
+}
+
+.skill{
+  display: inline-block;
+  padding:0 29rpx;
+  line-height: 64rpx;
+  background: #F5F5F5;
+  color:#999999;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+}
+.skill.active{
+  background: #EAF3FF;
+  color:#0083FF;
+}
+
+.sub-title{
+  color:#666666;
+  font-size: 28rpx;
+  margin:48rpx 0 32rpx;
+}
+
+.action-bar{
+  position: fixed;
+  bottom:0;
+  left:0;
+  background:#fff;
+  width:100%;
+  height: 150rpx;
+  display: flex;
+  align-items: center;
+}
+.action-bar button{
+  margin:0 auto;
+  width:630rpx;
+  height:96rpx;
+  background:rgba(0,131,255,1);
+  border-radius:4rpx;
+  color:#fff;
+  font-size: 32rpx;
+  line-height: 96rpx;
+}

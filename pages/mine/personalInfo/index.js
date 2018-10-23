@@ -65,6 +65,64 @@ Page({
       userAvatar: no
     })
     if (res.code === 0) this.getInfo()
+  },
+
+  delWorks:function(e){
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除吗',
+      success: async res=> {
+        if (res.confirm) {
+          let res = await app.request.post('/user/userAuth/deleteUserSample', {
+            userSampleId: e.currentTarget.dataset.id
+          })
+          if (res.code === 0) {
+            wx.showToast({
+              title: '删除成功',
+              icon: 'none'
+            })
+            this.getInfo()
+          }
+        }
+      }
+    })
+  },
+
+  submit:async function(){
+    let user = this.data.user
+    if (!(Object.keys(user.userBaseInfo).length > 0)) {
+      wx.showToast({
+        title: '请完善基本信息',
+        icon: 'none'
+      })
+      return
+    } else if (!user.userIntro) {
+      wx.showToast({
+        title: '请完善详细介绍',
+        icon: 'none'
+      })
+      return
+    } else if (!(user.userSkills.length > 0)) {
+      wx.showToast({
+        title: '至少添加一个技能',
+        icon: 'none'
+      })
+      return
+    } else if (!(user.userSampleInfos.length > 0)) {
+      wx.showToast({
+        title: '至少添加一个作品案例',
+        icon: 'none'
+      })
+      return
+    }
+
+    let res = await app.request.post('/user/userAuth/submitUserAuth', {})
+    if (res.code === 0){
+      wx.showToast({
+        title: '感谢加入巨牛汇，我们会在24小时内反馈审核结果',
+        icon: 'none'
+      })
+    }
   }
 
 })

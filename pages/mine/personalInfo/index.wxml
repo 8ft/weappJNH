@@ -1,8 +1,11 @@
 <!--pages/mine/personalInfo/index.wxml-->
-<view class='tip'>完善信息并通过审核即可申请项目</view>
+<view class='tip'>{{user.userState===0?'完善信息并通过审核即可申请项目':'每次修改都需要审核哦~'}}</view>
 
 <view class="userinfo">
-  <text class='nickName'>{{user.nickName}}</text>
+  <view class='nickName'>
+    {{user.nickName}}
+    <view class='state' wx:if="{{user.userState===1}}">审核中</view>
+  </view>
   <image class='avatar' src="{{user.userAvatar||'/assets/img/default/avatar.png'}}" bindtap='chooseImage'></image>
   <navigator url="/pages/mine/personalInfo/base/index">编辑</navigator>
   <block wx:if="{{!user.userBaseInfo.positionTitle}}">
@@ -35,17 +38,25 @@
 <view class='part'>
   <view class='title border-b clearfix'>
     擅长技能
-    <navigator hover-class='none'>添加</navigator>
+    <navigator hover-class='none' url='/pages/mine/personalInfo/skills/index'>添加</navigator>
   </view>
-  <view class='place-holder'>添加属于你的技能，可以为你更精准的推荐匹配项目</view>
+  <block wx:if="{{user.userSkills.length===0}}">
+    <view class='place-holder'>添加属于你的技能，可以为你更精准的推荐匹配项目</view>
+  </block>
+  <block wx:else>
+    <view class='skills'>
+      <view class="skill active" wx:for="{{user.userSkills}}">{{item.skillName}}</view>
+    </view>
+  </block>
+  
 </view>
 
 <view class='part'>
-  <view class='title border-b clearfix'>
+  <view class="title {{user.userSampleInfos?'':'border-b'}}">
     作品案例
     <navigator hover-class='none' url="/pages/mine/personalInfo/works/index">添加</navigator>
   </view>
-  <block wx:if="{{!user.userIntro}}">
+  <block wx:if="{{!user.userSampleInfos}}">
     <view class='place-holder'>至少添加1个以上的作品案例</view>
   </block>
   <block wx:else>
@@ -55,10 +66,12 @@
       <view class='type'>{{item.tradeTypeCn}}</view>
       <view class='url' wx:if="{{item.sampleUrl}}">{{item.sampleUrl}}</view>
       <view class='desc'>{{item.sampleDesc}}</view>
+      <button class='btn del' bindtap="delWorks" data-id="{{item.id}}">删除</button>
+      <navigator class='btn edit' url="/pages/mine/personalInfo/works/index?index={{index}}">编辑</navigator>
     </view>
   </block>
 </view>
 
-<view class='action-bar'>
-  <button bindtap='publish' bindtap='save'>提交审核</button>
+<view class='action-bar' wx:if="{{user.userState!==3}}">
+  <button bindtap='publish' bindtap='submit'>提交审核</button>
 </view>

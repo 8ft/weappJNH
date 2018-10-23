@@ -18,12 +18,23 @@ page{
   padding: 46rpx 40rpx;
 }
 .nickName{
-  font-size: 64rpx;
+  font-size: 48rpx;
   color:#333333;
+  vertical-align: text-top;
+}
+.state{
+  display: inline-block;
+  line-height: 36rpx;
+  padding:0 20rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color:#fff;
+  background:#fa5a32;
+  border-radius: 99rpx;
 }
 .userinfo navigator{
   text-align: center;
-  margin-top: 20rpx;
+  margin-top: 30rpx;
   margin-bottom:45rpx;
   color:#666666;
   border-radius: 8rpx;
@@ -35,7 +46,7 @@ page{
 }
 .avatar {
   position: absolute;
-  top:46rpx;
+  top:24rpx;
   right:40rpx;
   width: 140rpx;
   height: 140rpx;
@@ -53,6 +64,7 @@ page{
   left:0;
   top:0;
 }
+
 
 .place-holder{
   color:#999999;
@@ -90,7 +102,25 @@ page{
   text-overflow:clip;
 }
 
+.skills{
+  margin-top: 30rpx;
+}
+.skill{
+  display: inline-block;
+  padding:0 29rpx;
+  line-height: 64rpx;
+  background: #F5F5F5;
+  color:#999999;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+}
+.skill.active{
+  background: #EAF3FF;
+  color:#0083FF;
+}
+
 .works{
+  position: relative;
   box-sizing: border-box;
   width:670rpx;
   padding:30rpx;
@@ -122,6 +152,24 @@ page{
 .works .desc{
   font-size: 28rpx;
   color:#999999;
+}
+.works .btn{
+  width:120rpx;
+  height: 54rpx;
+  line-height: 54rpx;
+  font-size: 24rpx;
+  border:1rpx solid #0083FF;
+  color:#0083FF;
+  position: absolute;
+  top:380rpx;
+  right:180rpx;
+  border-radius: 8rpx;
+  text-align: center;
+}
+.works .edit{
+  background: #0083FF;
+  color:#fff;
+  right:30rpx;
 }
 
 .action-bar{

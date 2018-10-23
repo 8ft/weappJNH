@@ -20,3 +20,7 @@
     <text class='arrow-right'></text>
   </navigator>
 </view>
+
+<view class='action-bar' wx:if="{{hasLogin}}">
+  <button bindtap='publish' bindtap='logout'>退出当前账号</button>
+</view>

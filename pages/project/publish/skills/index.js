@@ -42,16 +42,29 @@ Page({
       needSkills.splice(index,1)
       needSkillsCn.splice(index, 1)
       this.data.skills[e.currentTarget.dataset.index]['selected'] = false
+
+      this.setData({
+        skills: this.data.skills,
+        needSkills: needSkills,
+        needSkillsCn: needSkillsCn
+      })
     }else{
+      if(needSkills.length===10){
+        wx.showToast({
+          title: '最多勾选10个',
+          icon:'none'
+        })
+        return 
+      }
       needSkills.push(code)
       needSkillsCn.push(name)
       this.data.skills[e.currentTarget.dataset.index]['selected'] = true
+
+      this.setData({
+        skills: this.data.skills,
+        needSkills: needSkills,
+        needSkillsCn: needSkillsCn
+      })
     }
-    
-    this.setData({
-      skills:this.data.skills,
-      needSkills: needSkills,
-      needSkillsCn: needSkillsCn
-    })
   }
 })
