@@ -1,10 +1,10 @@
 <!--pages/project/publish/desc/index.wxml-->
-<textarea maxlength="{{inputLen}}" disabled="{{demoShow}}" auto-focus="true" fixed="true" bindinput="input" value="{{content}}"></textarea>
+<textarea auto-height="true" maxlength="{{inputLen}}" disabled="{{demoShow}}" auto-focus="true" bindinput="input" bindfocus='focus' bindblur='blur' value="{{content}}" style="max-height:{{maxHeight}}rpx;"></textarea>
 
-<text class='placeholder' wx:if="{{content.length<=0}}">详细描述你的项目需求以及对人员的期望，让专家更全面了解你的需求。\n例如：\n1、项目描述\n2、主要功能点\n3、参考产品\n4、人员要求</text>
+<text class='placeholder' wx:if="{{content.length<=0}}">详细描述你的项目需求以及对人员的期望，让专家更全面了解你的需求。\n例如：\n1、项目描述\n2、主要功能点\n3、参考产品\n4、人员要求\n5、如需补充说明可以添加3张图片</text>
 
-<cover-view class='demo-switch' bindtap='showDemo'>参考范例</cover-view>
-<cover-view class='num'>{{conLen}}/1000</cover-view>
+<cover-view class='demo-switch' style="bottom:{{bottom}}rpx;" bindtap='showDemo'>参考范例</cover-view>
+<cover-view class='num' style="bottom:{{bottom}}rpx;">{{conLen}}/5000</cover-view>
 
 <cover-view class='demo' wx:if="{{demoShow}}">
   <cover-view class='box'>

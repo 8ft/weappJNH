@@ -24,5 +24,5 @@
 </view>
 
 <view class='action-bar'>
-  <button>发送申请</button>
+  <navigator class='btn' url="/pages/project/apply/index?id={{detail.id}}&&budget={{detail.projectBudgetCn}}">发送申请</navigator>
 </view>

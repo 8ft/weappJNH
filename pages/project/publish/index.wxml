@@ -25,7 +25,7 @@
 
 <view class='info'>
   <text class='name'>项目名称</text>
-  <view class='input arrow-right'>
+  <view class='input'>
     <input placeholder='20字以内' maxlength='20' data-type="project" value="{{pName}}" bindinput='input'></input>
   </view>
 </view>

@@ -7,7 +7,7 @@ const regeneratorRuntime = require('../../../libs/regenerator-runtime.js')
 
 Page({
   data: {
-    no:'',
+    id:'',
     budget:'',
     price:'',
     desc: '',
@@ -18,7 +18,7 @@ Page({
 
   onLoad: function (options) {
     this.setData({
-      no:options.no,
+      id:options.id,
       budget: options.budget
     })
   },
@@ -56,6 +56,7 @@ Page({
   },
 
   send: async function () {
+    if (!app.checkLogin()) return 
     let data = this.data
     if (!data.price) {
       wx.showToast({
@@ -73,7 +74,7 @@ Page({
     }
 
     let res = await app.request.post('/project/projectApply/save', {
-      projectId: data.no,
+      projectId: data.id,
       applyDesc: data.desc,
       projectOffer: data.price
     })

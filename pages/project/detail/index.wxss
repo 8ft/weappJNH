@@ -67,7 +67,7 @@ page{
   display: flex;
   align-items: center;
 }
-.action-bar button{
+.action-bar .btn{
   margin:0 auto;
   width:630rpx;
   height:96rpx;
@@ -76,5 +76,6 @@ page{
   color:#fff;
   font-size: 32rpx;
   line-height: 96rpx;
+  text-align: center;
 }
 
