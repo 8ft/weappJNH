@@ -1,11 +1,11 @@
 <!--pages/mine/personalInfo/detail/index.wxml-->
-<textarea maxlength="{{inputLen}}" disabled="{{demoShow}}" auto-focus="true" fixed="true" bindinput="input" value="{{content}}"></textarea>
+<textarea style="height:{{height}}rpx;" maxlength="{{inputLen}}" disabled="{{demoShow}}" auto-focus="true" bindinput="input" value="{{content}}"></textarea>
 
 <text class='placeholder' wx:if="{{content.length<=0}}">描述你在专业领域内的经历、成就，充分展示你的实力，更具个人风格的描述对项目方更有吸引力。
 \n例如：\n【基本介绍】\n综合全面地介绍自己或你的团队/工作室(如果你有)，让别人感受到你的与众不同；你的职业经历带来的经验；你的教育背景；令人骄傲的获奖成绩。\n【擅长的服务】\n你的技能特长；你能提供的服务内容</text>
 
-<cover-view class='demo-switch' bindtap='showDemo'>参考范例</cover-view>
-<cover-view class='num'>{{conLen}}/1000</cover-view>
+<view class='demo-switch' bindtap='showDemo'>参考范例</view>
+<view class='num'>{{conLen}}/10</view>
 
 <view class='action-bar'>
   <button bindtap='publish' bindtap='save'>保存</button>

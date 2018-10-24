@@ -145,7 +145,7 @@ Page({
       })
       return
     }
-    if (!/(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?/.test(data.url)){
+    if (data.url&&!/(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?/.test(data.url)){
       wx.showToast({
         title: '作品链接有误，请以http://或者https://开头',
         icon: 'none'

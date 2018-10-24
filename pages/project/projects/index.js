@@ -28,19 +28,20 @@ Page({
     nomore: false
   },
 
-  onLoad: function (options) {
+  onLoad:async function (options) {
     this.data.time.map(item=>{
       item.begin=this.getDate(item.name)||''
     })
 
+    await this.getDicts()
+
     let type = options.type
-    if(type){
+    if (type !== undefined) {
       this.setData({
-        typeCode:type
+        typeIndex: type
       })
     }
-
-    this.getDicts()
+    
     this.getProjects()
   },
 

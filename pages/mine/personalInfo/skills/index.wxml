@@ -22,5 +22,5 @@
 </view>
 
 <view class='action-bar'>
-  <button bindtap='publish' bindtap='save'>提交审核</button>
+  <button bindtap='publish' bindtap='save'>保存</button>
 </view>

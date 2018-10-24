@@ -61,7 +61,7 @@
   </block>
   <block wx:else>
     <view class='works' wx:for="{{user.userSampleInfos}}">
-      <image wx:if="{{item.sampleImage}}" src="{{item.sampleImage}}"></image>
+      <image src="{{item.sampleImage||'/assets/img/default/banner.png'}}"></image>
       <view class='name'>{{item.sampleName}}</view>
       <view class='type'>{{item.tradeTypeCn}}</view>
       <view class='url' wx:if="{{item.sampleUrl}}">{{item.sampleUrl}}</view>
@@ -72,6 +72,6 @@
   </block>
 </view>
 
-<view class='action-bar' wx:if="{{user.userState!==3}}">
+<view class='action-bar' wx:if="{{user.userState!==2}}">
   <button bindtap='publish' bindtap='submit'>提交审核</button>
 </view>

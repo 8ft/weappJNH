@@ -1,36 +1,35 @@
 /* pages/mine/personalInfo/detail/index.wxss */
-textarea{
-  position: fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height: 100%;
-  box-sizing: border-box;
-  padding: 40rpx 40rpx 100rpx;
+page{
   background: #fff;
-  line-height: 50rpx;
+}
+textarea{
+  width:100%;
+  box-sizing: border-box;
+  padding: 24rpx 40rpx;
+  background: #fff;
+  line-height: 48rpx;
 }
 
 .placeholder{
-  position: fixed;
-  top:50rpx;
+  position: absolute;
+  font-size:28rpx;
+  font-weight: 400;
+  top:34rpx;
   left:40rpx;
   right:40rpx;
   color:#ccc;
-  line-height: 50rpx;
 }
 
 .demo-switch,.num{
-  position: fixed;
-  bottom:184rpx;
+  position: absolute;
+  height: 30rpx;
+  line-height: 30rpx;
+  bottom:195rpx;
   font-size:28rpx;
   color:#666666;
-  z-index: 2;
 }
 
 .demo-switch{
-  padding-top:20rpx;
-  padding-right:20px;
   left:40rpx;
 }
 
@@ -103,7 +102,7 @@ textarea{
 }
 
 .action-bar{
-  position: fixed;
+  position: absolute;
   bottom:0;
   left:0;
   background:#fff;

@@ -13,9 +13,8 @@ Page({
     inputLen:-1,
     conLen:0,
     demoShow:false,
-    bottom:0,
-    maxHeight:400,
-    ratio:0
+    
+    height:''
   },
 
   /**
@@ -26,11 +25,10 @@ Page({
       success:res=> {
         let ww=res.windowWidth,
           wh=res.windowHeight,
-          ratio = 750 / ww
+          height = wh * 750 / ww - 300
 
         this.setData({
-          ratio:ratio,
-          maxHeight:wh*ratio-300
+          height: height
         })
       }
     })
@@ -45,18 +43,6 @@ Page({
 
   onUnload: function () {
     app.globalData.publishDataCache.desc = this.data
-  },
-
-  focus:function(e){
-    this.setData({
-      bottom: e.detail.height*this.data.ratio
-    })
-  },
-
-  blur:function(e){
-    this.setData({
-      bottom:0
-    })
   },
 
   input:function(e){

@@ -2,7 +2,7 @@
 
 <view class="userinfo" wx:if="{{!hasLogin}}">
   <text class='hello'>探索未知~</text>
-  <navigator url='/pages/user/wxLogin/index' hover-class='none'>登陆/注册</navigator>
+  <navigator url='/pages/user/wxLogin/index' hover-class='none'>登录/注册</navigator>
   <image class='avatar' src='/assets/img/default/avatar.png'></image>
 </view>
 
@@ -12,13 +12,10 @@
   <image class='avatar' src="{{user.userAvatar||'/assets/img/default/avatar.png'}}"></image>
 </view>
 
-
-<view class='entrances'>
-  <navigator hover-class='none' url='/pages/mine/personalInfo/index'>
+<view class='entrances' bindtap='go' data-url="/pages/mine/personalInfo/index">
     <image src='/assets/img/icon/mine_grzy.png'></image>
     个人主页
     <text class='arrow-right'></text>
-  </navigator>
 </view>
 
 <view class='action-bar' wx:if="{{hasLogin}}">

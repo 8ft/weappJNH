@@ -8,23 +8,23 @@
   </swiper>
 
   <view class='types clearfix'>
-    <navigator url='/pages/project/projects/index' hover-class="none">
+    <navigator url='/pages/project/projects/index?type=-1' hover-class="none">
       <image src='/assets/img/project/qb.png'></image>
       <text>全部</text>
     </navigator>
-    <navigator url='/pages/project/projects/index?type=04' hover-class="none">
+    <navigator url='/pages/project/projects/index?type=3' hover-class="none">
       <image src='/assets/img/project/cp.png'></image>
       <text>产品</text>
     </navigator>
-    <navigator url='/pages/project/projects/index?type=01' hover-class="none">
+    <navigator url='/pages/project/projects/index?type=0' hover-class="none">
       <image src='/assets/img/project/kf.png'></image>
       <text>开发</text>
     </navigator>
-    <navigator url='/pages/project/projects/index?type=02' hover-class="none">
+    <navigator url='/pages/project/projects/index?type=1' hover-class="none">
       <image src='/assets/img/project/sj.png'></image>
       <text>设计</text>
     </navigator>
-    <navigator url='/pages/project/projects/index?type=03' hover-class="none">
+    <navigator url='/pages/project/projects/index?type=2' hover-class="none">
       <image src='/assets/img/project/yy.png'></image>
       <text>市场/运营</text>
     </navigator>

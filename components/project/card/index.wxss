@@ -15,7 +15,7 @@
   width:140rpx;
   text-align: center;
 }
-.apply navigator{
+.apply button{
   font-size: 26rpx;
   width:140rpx;
   height:60rpx;

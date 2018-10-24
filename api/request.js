@@ -36,7 +36,7 @@ const request =(url, options) => {
             wx.navigateTo({
               url: '/pages/user/wxLogin/index'
             })
-          }else{
+          }else if(code!==507){
             wx.showModal({
               title: '提示',
               content: `${res.data.message}`,

@@ -26,6 +26,13 @@ Page({
     }
   },
 
+  go:function(e){
+    if (!app.checkLogin()) return 
+    wx.navigateTo({
+      url: e.currentTarget.dataset.url
+    })
+  },
+
   getInfo: async function () {
     let res = await app.request.post('/user/userAuth/getUserBaseInfo', {})
     if (res.code === 0) {

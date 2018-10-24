@@ -11,6 +11,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    height:'',
     content: '',
     inputLen: -1,
     conLen: 0,
@@ -18,6 +19,18 @@ Page({
   },
 
   onLoad: function (options) {
+    wx.getSystemInfo({
+      success: res => {
+        let ww = res.windowWidth,
+          wh = res.windowHeight,
+          height = wh * 750 / ww - 250
+
+        this.setData({
+          height: height
+        })
+      }
+    })
+
     let input = app.globalData.userInfo.userIntro
     let conLen = input.replace(/[ ]/g, "").replace(/[\r\n]/g, "").length
     
@@ -54,11 +67,11 @@ Page({
   input: function (e) {
     let input = e.detail.value
     let conLen = input.replace(/[ ]/g, "").replace(/[\r\n]/g, "").length
-    if (conLen === 1000) {
+    if (conLen === 10) {
       this.setData({
         inputLen: input.length,
       })
-    } else if (conLen < 1000) {
+    } else if (conLen < 10) {
       this.setData({
         inputLen: -1
       })

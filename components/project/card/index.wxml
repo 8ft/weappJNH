@@ -10,7 +10,7 @@
     <text class='read'>已浏览：{{project.viewNum}}</text>
   </view>
   <view class='apply'>
-    <navigator url="/pages/project/apply/index?id={{project.id}}&budget={{project.projectBudget}}">马上申请</navigator>
+    <button>马上申请</button>
     <text class='hot'>已有{{project.applyNum}}人申请</text>
   </view>
 </navigator>
