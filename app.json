@@ -19,7 +19,9 @@
     "pages/mine/personalInfo/base/city/index",
     "pages/mine/personalInfo/detail/index",
     "pages/mine/personalInfo/skills/index",
-    "pages/mine/personalInfo/works/index"
+    "pages/mine/personalInfo/works/index",
+    "pages/project/publish/success/index",
+    "pages/mine/personalInfo/success/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

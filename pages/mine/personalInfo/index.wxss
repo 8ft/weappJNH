@@ -20,10 +20,10 @@ page{
 .nickName{
   font-size: 48rpx;
   color:#333333;
-  vertical-align: text-top;
+  display: flex;
+  align-items: center;
 }
 .state{
-  display: inline-block;
   line-height: 36rpx;
   padding:0 20rpx;
   text-align: center;
@@ -31,6 +31,7 @@ page{
   color:#fff;
   background:#fa5a32;
   border-radius: 99rpx;
+  margin-left: 10rpx;
 }
 .userinfo navigator{
   text-align: center;
@@ -125,6 +126,7 @@ page{
   width:670rpx;
   padding:30rpx;
   border:1px solid rgba(229,229,229,.5);
+  margin-bottom: 20rpx;
 }
 .works image{
   width:100%;

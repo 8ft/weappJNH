@@ -1,5 +1,7 @@
 // components/collector/contactInfo/index.js
 
+//获取应用实例
+const app = getApp()
 //引入async await依赖库
 const regeneratorRuntime = require('../../../libs/regenerator-runtime.js')
 
@@ -37,13 +39,21 @@ Component({
           this.setData({
             qq: val
           })
-          disable = !/^[1-9]\d{4,9}$/.test(val)
+          if (val === '') {
+            disable = ! /^[a-zA-Z]{1}[-_a-zA-Z0-9]{5,19}$/.test(this.data.wechat)
+          } else {
+            disable = !/^[1-9]\d{4,9}$/.test(val)
+          }
           break;
         case 'wechat':
           this.setData({
             wechat: val
           })
-          disable = ! /^[a-zA-Z]{1}[-_a-zA-Z0-9]{5,19}$/.test(val)
+          if(val===''){
+            disable = !/^[1-9]\d{4,9}$/.test(this.data.qq)
+          }else{
+            disable = ! /^[a-zA-Z]{1}[-_a-zA-Z0-9]{5,19}$/.test(val)
+          }
           break;
       }
 
@@ -57,7 +67,11 @@ Component({
         qq: this.data.qq,
         wechat: this.data.wechat
       })
-      if (res.code === 0) this.hide()
+      if (res.code !==0) 
+      this.hide()
+      wx.navigateTo({
+        url: '/pages/mine/personalInfo/index',
+      })
     },
 
     hide: function () {

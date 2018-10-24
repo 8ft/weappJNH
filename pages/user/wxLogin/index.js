@@ -80,13 +80,21 @@ Page({
     let code = res.code
     if (code === 0) {
       wx.setStorageSync('user', res.data)
-      let pages = getCurrentPages()
-      pages[pages.length - 2].onLoad()
-      wx.navigateBack()
+      this.getInfo()
     } else if (code === 507) {
       wx.redirectTo({
         url: '/pages/user/bind/index'
       })
     }
+  },
+
+  getInfo: async function () {
+    let res = await app.request.post('/user/userAuth/getUserBaseInfo', {})
+    if (res.code !== 0) return
+    
+    app.globalData.userInfo = res.data
+    let pages = getCurrentPages()
+    pages[pages.length - 2].onLoad()
+    wx.navigateBack()
   }
 })

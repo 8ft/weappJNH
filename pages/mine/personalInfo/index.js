@@ -118,9 +118,9 @@ Page({
 
     let res = await app.request.post('/user/userAuth/submitUserAuth', {})
     if (res.code === 0){
-      wx.showToast({
-        title: '感谢加入巨牛汇，我们会在24小时内反馈审核结果',
-        icon: 'none'
+      wx.navigateTo({
+        url: '/pages/mine/personalInfo/success/index',
+        icon:'none'
       })
     }
   }

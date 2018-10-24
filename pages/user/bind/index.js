@@ -104,7 +104,15 @@ Page({
 
     if (res.code===0){
       wx.setStorageSync('user', res.data)
-      wx.navigateBack()
+      this.getInfo()
     }
+  },
+
+  getInfo: async function () {
+    let res = await app.request.post('/user/userAuth/getUserBaseInfo', {})
+    if (res.code !== 0) return
+
+    app.globalData.userInfo = res.data
+    wx.navigateBack()
   }
 })

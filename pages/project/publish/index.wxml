@@ -23,7 +23,7 @@
   <navigator class='input arrow-right' url="/pages/project/publish/skills/index" hover-class='none'>{{needsSkillsCn}}</navigator>
 </view>
 
-<view class='info'>
+<view class='info need'>
   <text class='name'>项目名称</text>
   <view class='input'>
     <input placeholder='20字以内' maxlength='20' data-type="project" value="{{pName}}" bindinput='input'></input>

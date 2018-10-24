@@ -14,6 +14,9 @@
   <block wx:else>
     <view class='info'><text>入驻类型</text>{{user.userBaseInfo.settleTypeCn}}</view>
     <view class='info'><text>性别</text>{{user.userBaseInfo.sexCn}}</view>
+    <view class='info' wx:if="{{user.userBaseInfo.wechat}}"><text>微信</text>{{user.userBaseInfo.wechat}}</view>
+    <view class='info' wx:if="{{user.userBaseInfo.qq}}"><text>QQ</text>{{user.userBaseInfo.qq}}</view>
+    <view class='info' wx:if="{{user.userBaseInfo.email}}"><text>邮箱</text>{{user.userBaseInfo.email}}</view>
     <view class='info'><text>职位头衔</text>{{user.userBaseInfo.positionTitle}}</view>
     <view class='info'><text>职业类型</text>{{user.userBaseInfo.positionTypeCn}}</view>
     <view class='info'><text>工作经验</text>{{user.userBaseInfo.workExperienceCn}}</view>
@@ -72,6 +75,6 @@
   </block>
 </view>
 
-<view class='action-bar' wx:if="{{user.userState!==2}}">
+<view class='action-bar' wx:if="{{user.userState!==2&&user.userState!==1}}">
   <button bindtap='publish' bindtap='submit'>提交审核</button>
 </view>

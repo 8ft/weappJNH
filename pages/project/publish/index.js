@@ -121,6 +121,14 @@ Page({
   publish:async function(){
     if(!app.checkLogin())return 
 
+    if (!this.data.pName) {
+      wx.showToast({
+        title: '请输入项目名称',
+        icon: 'none'
+      })
+      return
+    }
+
     if (this.data.desc.replace(/[ ]/g, "").replace(/[\r\n]/g, "").length<50){
       wx.showToast({
         title: '项目描述最少50字',
@@ -145,10 +153,25 @@ Page({
     })
 
     if (res.code === 0) {
+      let userBaseInfo
+      if (app.globalData.userInfo){
+        userBaseInfo= app.globalData.userInfo.userBaseInfo
+      }else{
+        let user = await app.request.post('/user/userAuth/getUserBaseInfo', {})
+        userBaseInfo = user.data.userBaseInfo
+      }
+
       this.resetPage()
-      this.setData({
-        showCollector: true
-      })
+      
+      if (!(userBaseInfo.qq||userBaseInfo.wechat)){
+        this.setData({
+          showCollector: true
+        })
+      }else{
+        wx.navigateTo({
+          url: `/pages/project/publish/success/index?no=${res.data.projectNo}`,
+        })
+      }
     }
   },
 

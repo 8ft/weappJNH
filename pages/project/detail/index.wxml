@@ -1,6 +1,9 @@
 <!--pages/project/detail/index.wxml-->
 <view class='part'>
-  <text class='name'>{{detail.projectName}}</text>
+  <view class='name'>
+    {{detail.projectName}}
+    <view class='state' wx:if="{{detail.projectState==1}}">待审核</view>
+  </view>
   <text class='price'>{{detail.projectBudgetCn}}</text>
   <text class='lead-times'>{{detail.projectCycleCn}}</text>
   <view class='hot'>
@@ -23,6 +26,6 @@
   <text decode='true'>{{detail.projectDesc}}</text>
 </view>
 
-<view class='action-bar'>
+<view class='action-bar' wx:if="{{detail.projectState==2}}">
   <navigator class='btn' url="/pages/project/apply/index?id={{detail.id}}&&budget={{detail.projectBudgetCn}}">发送申请</navigator>
 </view>
