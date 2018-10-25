@@ -149,7 +149,8 @@ Page({
       projectSubtype: dicts[0].dictList[data.typeIndex].dictList[data.subTypeIndex].dictValue,
       cooperater: dicts[3].dictList[data.cooperaterIndex].dictValue,
       companyName: data.cName,
-      projectName: data.pName
+      projectName: data.pName,
+      fileBatchNo: app.globalData.publishDataCache.desc.batch||''
     })
 
     if (res.code === 0) {

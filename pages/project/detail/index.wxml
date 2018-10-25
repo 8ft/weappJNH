@@ -26,6 +26,6 @@
   <text decode='true'>{{detail.projectDesc}}</text>
 </view>
 
-<view class='action-bar' wx:if="{{detail.projectState==2}}">
+<view class='action-bar' wx:if="{{detail.projectState==2&&detail.publisher!=uid}}">
   <navigator class='btn' url="/pages/project/apply/index?id={{detail.id}}&&budget={{detail.projectBudgetCn}}">发送申请</navigator>
 </view>

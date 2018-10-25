@@ -11,7 +11,16 @@ Component({
    * 组件的初始数据
    */
   data: {
+    uid:''
+  },
 
+  attached:function(){
+    let user = wx.getStorageSync('user')
+    if (user) {
+      this.setData({
+        uid: user.userId
+      })
+    }
   },
 
   /**

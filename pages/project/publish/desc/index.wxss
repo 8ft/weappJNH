@@ -29,10 +29,30 @@ textarea{
   padding:0 40rpx;
   height: 156rpx;
 }
-.imgs image{
+
+.img{
   width:156rpx;
   height: 100%;
+  margin-right:40rpx;
+  position: relative;
 }
+.img image{
+  width: 100%;
+  height: 100%;
+}
+.img .del{
+  position: absolute;
+  top:-15rpx;
+  right:-15rpx;
+  width:30rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  background: rgb(219, 218, 218);
+  color:#fff;
+  text-align: center;
+  border-radius: 50%;
+}
+
 .imgs .add{
   width:156rpx;
   background: #F2F2F2;

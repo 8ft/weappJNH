@@ -21,7 +21,8 @@
     "pages/mine/personalInfo/skills/index",
     "pages/mine/personalInfo/works/index",
     "pages/project/publish/success/index",
-    "pages/mine/personalInfo/success/index"
+    "pages/mine/personalInfo/success/index",
+    "pages/project/apply/agreement/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

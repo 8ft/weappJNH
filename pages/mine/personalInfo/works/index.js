@@ -25,12 +25,25 @@ Page({
     let index = options.index
     if (index){
       let data = app.globalData.userInfo.userSampleInfos[index]
+
+      let desc = data.sampleDesc,
+        conLen = desc.replace(/[ ]/g, "").replace(/[\r\n]/g, "").length,
+        inputLen
+
+      if (conLen === 100) {
+        inputLen = 100
+      } else {
+        inputLen = -1
+      }
+
       this.setData({
         name: data.sampleName,
         type: data.tradeType,
         url: data.sampleUrl,
-        desc: data.sampleDesc,
+        desc:desc,
         image: data.sampleImage,
+        conLen: conLen,
+        inputLen: inputLen,
         batchNo: data.sampleImageBatchNo,
         id:data.id
       })

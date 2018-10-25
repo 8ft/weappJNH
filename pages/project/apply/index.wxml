@@ -18,7 +18,7 @@
 <view class='agree'>
   <checkbox color='#fff' checked="true" bindtap="setAgree"/>
   项目成交同意默认签署
-  <navigator url='/pages/common/webview/index?url=http://5100.dev.juniuhui.com/thirdpartyAgreement'>《巨牛汇三方服务合同》</navigator>
+  <navigator url='/pages/project/apply/agreement/index'>《巨牛汇三方服务合同》</navigator>
 </view>
 
 <view class='action-bar'>

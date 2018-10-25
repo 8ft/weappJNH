@@ -21,10 +21,13 @@
   height:60rpx;
   line-height: 60rpx;
   background:rgba(0,131,255,1);
-  border:2px solid rgba(0,131,255,1);
   border-radius:6px;
   color:#fff;
   margin-bottom:20rpx;
+}
+.apply button.myself{
+  background:#FF8924;
+
 }
 
 .title{

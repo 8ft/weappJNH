@@ -66,12 +66,14 @@ Page({
 
   input: function (e) {
     let input = e.detail.value
+    let inputLen = input.length
     let conLen = input.replace(/[ ]/g, "").replace(/[\r\n]/g, "").length
-    if (conLen === 10) {
+
+    if (conLen === 1000) {
       this.setData({
-        inputLen: input.length,
+        inputLen: inputLen,
       })
-    } else if (conLen < 10) {
+    } else if (conLen < 1000) {
       this.setData({
         inputLen: -1
       })

@@ -40,9 +40,9 @@ Component({
             qq: val
           })
           if (val === '') {
-            disable = ! /^[a-zA-Z]{1}[-_a-zA-Z0-9]{5,19}$/.test(this.data.wechat)
+            disable = ! /[-_a-zA-Z0-9]{5,19}$/.test(this.data.wechat)
           } else {
-            disable = !/^[1-9]\d{4,9}$/.test(val)
+            disable = !/^[1-9]\d{4,19}$/.test(val)
           }
           break;
         case 'wechat':
@@ -50,9 +50,9 @@ Component({
             wechat: val
           })
           if(val===''){
-            disable = !/^[1-9]\d{4,9}$/.test(this.data.qq)
+            disable = !/^[1-9]\d{4,19}$/.test(this.data.qq)
           }else{
-            disable = ! /^[a-zA-Z]{1}[-_a-zA-Z0-9]{5,19}$/.test(val)
+            disable = ! /[-_a-zA-Z0-9]{5,19}$/.test(val)
           }
           break;
       }

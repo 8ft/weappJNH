@@ -10,19 +10,31 @@ Page({
    types: ['全部'],
    pageIndex: 1,
    projects:[],
-   nomore: false
+   nomore: false,
+   hasLogin:false
   },
 
   onLoad:async function () {
+    this.setData({
+      hasLogin: wx.getStorageSync('unionid')?true:false
+    })
     this.getBanner()
     await this.getProjectTypes()
     await this.getProjects()
   },
 
   onShow:function(){
-    // if(this.data.projects.length===0){
-    //   this.getProjects()
-    // }
+    //登录状态改变，刷新列表
+    let hasLogin=wx.getStorageSync('unionid')?true:false
+    if (hasLogin !== this.data.hasLogin){
+      this.setData({
+        hasLogin: hasLogin,
+        pageIndex: 1,
+        projects: [],
+        nomore: false
+      })
+      this.getProjects()
+    }
   },
 
   onPullDownRefresh:function(){
