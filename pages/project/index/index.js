@@ -111,15 +111,15 @@ Page({
     wx.stopPullDownRefresh()
   },
   
-  bannerJump:function(obj){
+  bannerJump:function(e){
+    let obj=e.currentTarget.dataset.obj
     switch (obj.menuType){
       case 'view':
-
+        wx.navigateTo({
+          url: `/pages/common/webview/index?url=${encodeURIComponent(obj.menuUrl)}`
+        })
       break;
       case 'click':
-        wx.navigateTo({
-          url: obj.menuUrl
-        })
       break;
     }
   }

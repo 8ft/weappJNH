@@ -1,4 +1,5 @@
 <!--pages/project/detail/index.wxml-->
+
 <view class='part'>
   <view class='name'>
     {{detail.projectName}}
@@ -24,7 +25,11 @@
 <view class='part desc'>
   <view class='title'>项目描述</view>
   <text decode='true'>{{detail.projectDesc}}</text>
-  <image wx:if="detail.fileBatchNo" wx:for="{{detail.filesArr}}" src="{{item.url}}"></image>
+  <block wx:if="{{detail.fileBatchNo}}">
+    <image wx:if="{{imgs.length>0}}" wx:for="{{imgs}}" src="{{item.url}}"></image>
+    <view wx:if="{{docs.length>0}}" wx:for="{{docs}}" data-index="{{index}}" data-url="{{item.url}}" bindtap="viewFile">{{item.fileName}}</view>
+  </block>
+  
 </view>
 
 <view class='action-bar' wx:if="{{detail.projectState==2&&detail.publisher!=uid}}">

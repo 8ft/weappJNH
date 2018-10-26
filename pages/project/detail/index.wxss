@@ -73,6 +73,12 @@ page{
   margin-top: 20rpx;
 }
 
+.desc view{
+  color:#333333;
+  font-size: 28rpx;
+  margin-top: 37rpx;
+}
+
 .action-bar{
   position: fixed;
   background:#fff;

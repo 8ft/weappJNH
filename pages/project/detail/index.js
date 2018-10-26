@@ -11,7 +11,10 @@ Page({
    */
   data: {
     uid:'',
-    detail:null
+    detail:null,
+    imgs:[],
+    docs: [],
+    docTemps:[]
   },
 
   /**
@@ -28,11 +31,45 @@ Page({
     this.getDetail(options.no)
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+  viewFile:function(e){
+    let data = e.currentTarget.dataset
+    let index=data.index
 
+    let docTemps = this.data.docTemps
+    let doc = docTemps[index]
+
+    if(!doc){
+      wx.showLoading({
+        title: '下载文档中',
+      })
+      let url =data.url
+      wx.downloadFile({
+        url: url,
+        success: res=>{
+          const filePath = res.tempFilePath
+          docTemps.push(filePath)
+          this.setData({
+            docTemps: docTemps
+          })
+          wx.hideLoading()
+          this.openDoc(filePath)
+        }
+      })
+    }else{
+     this.openDoc(doc)
+    }
+  },
+
+  openDoc:function(doc){
+    wx.openDocument({
+      filePath: doc,
+      fail: function (res) {
+        wx.showToast({
+          title: '打开文档失败',
+          icon: 'none'
+        })
+      }
+    })
   },
 
   getDetail: async function (projectNo){
@@ -40,8 +77,22 @@ Page({
       projectNo: projectNo
     })
     if(res.code===0){
+      let imgs, docs
+
+      if (res.data.fileBatchNo){
+        let files = res.data.filesArr
+        imgs = files.filter(item=>{
+          return /(\.gif|\.jpeg|\.png|\.jpg|\.bmp)/.test(item.fileName)
+        })
+        docs = files.filter(item => {
+          return /(\.doc|\.docx|\.xls|\.xlsx|\.ppt|\.pptx|\.pdf)/.test(item.fileName)
+        })
+      }
+      
       this.setData({
-        detail: res.data
+        detail: res.data,
+        imgs: imgs,
+        docs:docs
       })
     }
   }
