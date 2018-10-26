@@ -56,23 +56,20 @@ Page({
 
   input:function(e){
     let input = e.detail.value
-    let conLen = input.replace(/[ ]/g, "").replace(/[\r\n]/g, "").length
-    if(conLen===5000){
-      wx.showToast({
-        title: '字数不能超过5000',
-        icon:'none'
-      })
-      this.setData({
-        inputLen: input.length,
-      })
+    let conLen = input.replace(/(^[\s\r\n]*)|([\s\r\n]*$)/g, "").length
+
+    let inputLen
+    if(conLen>=5000){
+      input=input.slice(0,5000)
+      conLen=5000
+      inputLen=5000
     }else if(conLen<5000){
-      this.setData({
-        inputLen: -1
-      })
+      inputLen= -1
     }
     this.setData({
       content: input,
-      conLen: conLen
+      conLen: conLen,
+      inputLen:inputLen
     })
   },
 

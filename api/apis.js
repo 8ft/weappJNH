@@ -16,7 +16,7 @@ const uploadFile = (file,category,batch)=>{
       },
       formData: {
         category: category,
-        multiple: '0',
+        multiple: '1',
         batchNo:batch||''
       },
       success: res => {

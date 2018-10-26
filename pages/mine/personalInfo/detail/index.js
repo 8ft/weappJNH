@@ -32,7 +32,7 @@ Page({
     })
 
     let input = app.globalData.userInfo.userIntro
-    let conLen = input.replace(/[ ]/g, "").replace(/[\r\n]/g, "").length
+    let conLen = input.replace(/(^[\s\r\n]*)|([\s\r\n]*$)/g, "").length
     
     let inputLen
     if (conLen === 1000) {
@@ -66,21 +66,20 @@ Page({
 
   input: function (e) {
     let input = e.detail.value
-    let inputLen = input.length
-    let conLen = input.replace(/[ ]/g, "").replace(/[\r\n]/g, "").length
+    let conLen = input.replace(/(^[\s\r\n]*)|([\s\r\n]*$)/g, "").length
 
-    if (conLen === 1000) {
-      this.setData({
-        inputLen: inputLen,
-      })
+    let inputLen
+    if (conLen >= 1000) {
+      input = input.slice(0, 1000)
+      conLen = 1000
+      inputLen = 1000
     } else if (conLen < 1000) {
-      this.setData({
-        inputLen: -1
-      })
+      inputLen = -1
     }
     this.setData({
       content: input,
-      conLen: conLen
+      conLen: conLen,
+      inputLen: inputLen
     })
   },
 

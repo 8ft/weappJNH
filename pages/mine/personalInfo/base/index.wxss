@@ -78,6 +78,7 @@ page{
   height: 150rpx;
   display: flex;
   align-items: center;
+  z-index: 1;
 }
 .action-bar button{
   margin:0 auto;

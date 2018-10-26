@@ -121,7 +121,8 @@ Page({
   publish:async function(){
     if(!app.checkLogin())return 
 
-    if (!this.data.pName) {
+    let data = this.data
+    if (!data.pName) {
       wx.showToast({
         title: '请输入项目名称',
         icon: 'none'
@@ -129,28 +130,27 @@ Page({
       return
     }
 
-    if (this.data.desc.replace(/[ ]/g, "").replace(/[\r\n]/g, "").length<50){
+    let desc = data.desc.replace(/(^[\s\r\n]*)|([\s\r\n]*$)/g, "")
+    if (desc.length<50){
       wx.showToast({
         title: '项目描述最少50字',
         icon: 'none'
       })
       return
     }
-
-    let data=this.data
+    
     let dicts = data.dicts 
-
     let res = await app.request.post('/project/projectInfo/save', {
       projectCycle: dicts[2].dictList[data.cycleIndex].dictValue,
       projectBudget: dicts[1].dictList[data.budgetIndex].dictValue,
-      projectDesc: data.desc,
+      projectDesc: desc,
       projectSkill: app.globalData.publishDataCache.needSkills.join('|'),
       projectType: dicts[0].dictList[data.typeIndex].dictValue,
       projectSubtype: dicts[0].dictList[data.typeIndex].dictList[data.subTypeIndex].dictValue,
       cooperater: dicts[3].dictList[data.cooperaterIndex].dictValue,
       companyName: data.cName,
       projectName: data.pName,
-      fileBatchNo: app.globalData.publishDataCache.desc.batch||''
+      fileBatchNo: app.globalData.publishDataCache.desc.batchNo||''
     })
 
     if (res.code === 0) {

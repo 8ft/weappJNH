@@ -83,7 +83,10 @@ Page({
         title: '发送成功',
         icon: 'none'
       })
-      // wx.navigateBack()
+
+      let pages = getCurrentPages()
+      pages[pages.length - 2].onLoad()
+      wx.navigateBack()
     }
   }
 })

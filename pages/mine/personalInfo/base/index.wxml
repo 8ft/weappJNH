@@ -57,6 +57,6 @@
   </view>
 </view>
 
-<view class='action-bar'>
+<cover-view class='action-bar'>
   <button bindtap='publish' bindtap='save'>保存</button>
-</view>
+</cover-view>

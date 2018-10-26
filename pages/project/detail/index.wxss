@@ -67,6 +67,12 @@ page{
   color:#666666;
 }
 
+.desc image{
+  display: block;
+  width:100%;
+  margin-top: 20rpx;
+}
+
 .action-bar{
   position: fixed;
   background:#fff;

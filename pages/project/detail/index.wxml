@@ -24,6 +24,7 @@
 <view class='part desc'>
   <view class='title'>项目描述</view>
   <text decode='true'>{{detail.projectDesc}}</text>
+  <image wx:if="detail.fileBatchNo" wx:for="{{detail.filesArr}}" src="{{item.url}}"></image>
 </view>
 
 <view class='action-bar' wx:if="{{detail.projectState==2&&detail.publisher!=uid}}">

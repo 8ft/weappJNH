@@ -27,7 +27,7 @@ Page({
       let data = app.globalData.userInfo.userSampleInfos[index]
 
       let desc = data.sampleDesc,
-        conLen = desc.replace(/[ ]/g, "").replace(/[\r\n]/g, "").length,
+        conLen = desc.replace(/(^[\s\r\n]*)|([\s\r\n]*$)/g, "").length,
         inputLen
 
       if (conLen === 100) {
@@ -89,17 +89,22 @@ Page({
         })
         break;
       case 'desc':
-        let conLen=val.length,
-          inputLen
-        if (conLen===100){
+
+        let input = e.detail.value
+        let conLen = input.replace(/(^[\s\r\n]*)|([\s\r\n]*$)/g, "").length
+
+        let inputLen
+        if (conLen >= 100) {
+          input = input.slice(0, 100)
+          conLen = 100
           inputLen = 100
-        }else{
-          inputLen=-1
+        } else if (conLen < 100) {
+          inputLen = -1
         }
         this.setData({
-          desc: e.detail.value,
+          desc: input,
           conLen: conLen,
-          inputLen:inputLen
+          inputLen: inputLen
         })
         break;
     }
