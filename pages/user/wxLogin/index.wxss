@@ -1,5 +1,5 @@
 /* pages/user/wxLogin/index.wxss */
-.page{
+page{
   color:#999999;
   text-align: center;
   background: #fff;
