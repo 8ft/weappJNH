@@ -91,11 +91,12 @@ Page({
       case 'desc':
 
         let input = e.detail.value
-        let conLen = input.replace(/(^[\s\r\n]*)|([\s\r\n]*$)/g, "").length
+        let validInput = input.replace(/(^[\s\r\n]*)|([\s\r\n]*$)/g, "")
+        let conLen = validInput.length
 
         let inputLen
         if (conLen >= 100) {
-          input = input.slice(0, 100)
+          input = validInput.slice(0, 100)
           conLen = 100
           inputLen = 100
         } else if (conLen < 100) {
@@ -173,7 +174,7 @@ Page({
 
     let res = await app.request.post('/user/userAuth/completeUserSample', {
       sampleName: data.name,
-      sampleDesc: data.desc,
+      sampleDesc: data.desc.replace(/(^[\s\r\n]*)|([\s\r\n]*$)/g, ""),
       tradeType: data.dicts[data.industryIndex].dictValue,
       id:data.id,
       sampleImage: data.batchNo,

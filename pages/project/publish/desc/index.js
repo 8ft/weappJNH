@@ -39,7 +39,7 @@ Page({
 
     let cache = app.globalData.publishDataCache.desc
     this.setData({
-      content: cache.content,
+      content: cache.content.replace(/(^[\s\r\n]*)|([\s\r\n]*$)/g, ""),
       inputLen: cache.inputLen||-1,
       conLen: cache.conLen||0,
       batchNo: cache.batchNo||'',
@@ -56,11 +56,12 @@ Page({
 
   input:function(e){
     let input = e.detail.value
-    let conLen = input.replace(/(^[\s\r\n]*)|([\s\r\n]*$)/g, "").length
+    let validInput = input.replace(/(^[\s\r\n]*)|([\s\r\n]*$)/g, "")
+    let conLen = validInput.length
 
     let inputLen
     if(conLen>=5000){
-      input=input.slice(0,5000)
+      input = validInput.slice(0,5000)
       conLen=5000
       inputLen=5000
     }else if(conLen<5000){

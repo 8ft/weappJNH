@@ -102,6 +102,11 @@ Page({
         icon: 'none'
       })
       return
+    } else if (user.userIntro.length<100){
+      wx.showToast({
+        title: '详细介绍至少100字',
+        icon: 'none'
+      })
     } else if (!(user.userSkills.length > 0)) {
       wx.showToast({
         title: '至少添加一个技能',

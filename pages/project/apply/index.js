@@ -86,6 +86,7 @@ Page({
 
       let pages = getCurrentPages()
       pages[pages.length - 2].onLoad()
+      pages[pages.length - 3].onPullDownRefresh()
       wx.navigateBack()
     }
   }

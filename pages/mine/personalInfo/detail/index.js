@@ -57,7 +57,7 @@ Page({
       return
     }
     let res = await app.request.post('/user/userAuth/completeUserIntro', {
-      introduction: this.data.content
+      introduction: this.data.content.replace(/(^[\s\r\n]*)|([\s\r\n]*$)/g, "")
     })
     if (res.code === 0) {
       wx.navigateBack()
@@ -66,11 +66,12 @@ Page({
 
   input: function (e) {
     let input = e.detail.value
-    let conLen = input.replace(/(^[\s\r\n]*)|([\s\r\n]*$)/g, "").length
+    let validInput = input.replace(/(^[\s\r\n]*)|([\s\r\n]*$)/g, "")
+    let conLen = validInput.length
 
     let inputLen
     if (conLen >= 1000) {
-      input = input.slice(0, 1000)
+      input = validInput.slice(0, 1000)
       conLen = 1000
       inputLen = 1000
     } else if (conLen < 1000) {

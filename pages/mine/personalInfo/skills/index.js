@@ -40,7 +40,24 @@ Page({
       this.setData({
           skills: res.data.data[0].dictList
       })
+      this.resetActive()
     }
+  },
+
+  resetActive: function () {
+    let skills = this.data.skills
+    skills = skills.map(skillType => {
+      skillType.dictList = skillType.dictList.map(skill => {
+        skill.active = this.data.addedSkills.some(item => {
+          return item.skillCode === skill.dictCode
+        })
+        return skill
+      })
+      return skillType
+    })
+    this.setData({
+      skills: skills
+    })
   },
 
   select: function (e) {
@@ -66,7 +83,9 @@ Page({
       this.data.addedSkills.push({
         skillCode: data.skill.dictCode,
         skillValue: data.skill.dictValue,
-        skillName: data.skill.dictName
+        skillName: data.skill.dictName,
+        typeIndex:data.type,
+        skillIndex:data.index
       })
     }
     
@@ -124,10 +143,14 @@ Page({
   del:function(e){
     let index=e.currentTarget.dataset.index
     let addedSkills = this.data.addedSkills
+
     addedSkills.splice(index, 1)
     this.setData({
+      skills: this.data.skills,
       addedSkills: addedSkills
     })
+
+    this.resetActive()
   },
 
   save:async function(){

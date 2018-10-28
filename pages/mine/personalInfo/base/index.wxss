@@ -1,9 +1,17 @@
 /* pages/mine/personalInfo/base/index.wxss */
-page{
+
+.part{
   background:#fff;
   padding:0 40rpx;
   box-sizing: border-box;
-  padding-bottom: 150rpx;
+  
+}
+
+.sep{
+  font-size:24rpx;
+  color: #999999;
+  line-height: 80rpx;
+  text-indent: 40rpx;
 }
 
 .info{
@@ -70,15 +78,11 @@ page{
 }
 
 .action-bar{
-  position: fixed;
-  bottom:0;
-  left:0;
   background:#fff;
   width:100%;
   height: 150rpx;
   display: flex;
   align-items: center;
-  z-index: 1;
 }
 .action-bar button{
   margin:0 auto;

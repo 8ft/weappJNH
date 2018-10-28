@@ -7,6 +7,10 @@
 <view class='sep'>按字母排序</view>
 
 <view class='list' wx:for="{{cities.list}}">
-  <text class='letter'>{{index}}</text>
+  <text id="{{index}}" class='letter'>{{index}}</text>
   <list-item wx:for="{{item}}" wx:for-item="city" data-city="{{city}}" name="{{city.zoneName}}" bindtap="select"></list-item>
+</view>
+
+<view class='locate'>
+  <view wx:for="{{letters}}" bindtap='locate' data-letter="{{item}}">{{item}}</view>
 </view>

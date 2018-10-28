@@ -95,5 +95,57 @@ Page({
         docs:docs
       })
     }
+  },
+
+  apply:async function(){
+    let state
+    if (app.globalData.userInfo){
+      state = app.globalData.userInfo.userState
+    }else{
+      let res = await app.request.post('/user/userAuth/getUserBaseInfo', {})
+      if (res.code !== 0) return
+      app.globalData.userInfo = res.data
+      state = res.data.userState
+    }
+    
+    switch (state){
+      case 0://未完善
+        wx.showModal({
+          title: '提示',
+          content: '去完善个人主页并提交通过审核后，再来申请项目吧！',
+          confirmText:'马上去',
+          success:res=>{
+            wx.navigateTo({
+              url:'/pages/mine/personalInfo/index',
+            })
+          }
+        })
+        break;
+      case 1://审核中
+        wx.showModal({
+          title: '提示',
+          content: '您已提交个人主页通过审核后即可申请项目',
+          showCancel: false,
+          confirmText: '知道了'
+        })
+        break;
+      case 3://审核不通过
+        wx.showModal({
+          title: '提示',
+          content: '您的个人主页未审核通过，请重新修改后提交审核',
+          confirmText: '马上去',
+          success: res => {
+            wx.navigateTo({
+              url: '/pages/mine/personalInfo/index',
+            })
+          }
+        })
+        break;
+      case 2:
+        wx.navigateTo({
+          url: `/pages/project/apply/index?id=${this.data.detail.id}&&budget=${this.data.detail.projectBudgetCn}`,
+        })
+        break;
+    }
   }
 })

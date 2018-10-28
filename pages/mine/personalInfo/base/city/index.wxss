@@ -39,3 +39,26 @@
   line-height: 100rpx;
   color: #0083FF;
 }
+
+.locate{
+  position: fixed;
+  right:0;
+  top:0;
+  height: 100%;
+  width:80rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+}
+.locate view{
+  font-size:24rpx;
+  color:#0083FF;
+  width:100%;
+  box-sizing: border-box;
+  padding-right: 15rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+}

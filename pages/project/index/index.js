@@ -39,10 +39,12 @@ Page({
 
   onPullDownRefresh:function(){
     this.setData({
+      banners: null,
       pageIndex:1,
       projects:[],
       nomore:false
     })
+    this.getBanner()
     this.getProjects()
   },
 

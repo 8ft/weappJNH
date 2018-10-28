@@ -8,7 +8,16 @@ const getLetter = require('../../../../../utils/pinyin.js')
 
 Page({
   data: {
-    cities:null
+    cities:null,
+    letters:'ABCDEFGHJKLMNPQRSTWXYZ',
+    top:0,
+    scrollTop:0
+  },
+
+  onPageScroll:function(e){
+    this.setData({
+      scrollTop: e.scrollTop
+    })
   },
 
   onLoad: function (options) {
@@ -20,6 +29,23 @@ Page({
     }else{
       this.getCity()
     }
+  },
+
+  locate:function(e){
+    wx.createSelectorQuery().select(`#${e.currentTarget.dataset.letter}`).fields({
+      rect: true
+    }, (res) => {
+      if(res){
+        let top =this.data.top+this.data.scrollTop + res.top
+        wx.pageScrollTo({
+          scrollTop: top,
+          duration: 0,
+        })
+        this.setData({
+          scrollTop: top
+        })
+      }
+    }).exec()
   },
 
   select:function(e){

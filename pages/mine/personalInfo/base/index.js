@@ -100,6 +100,15 @@ Page({
       case 'daySalary':
         this.data.userBaseInfo.daySalary = val
         break;
+      case 'qq':
+        this.data.userBaseInfo.qq = val
+        break;
+      case 'wechat':
+        this.data.userBaseInfo.wechat = val
+        break;
+      case 'email':
+        this.data.userBaseInfo.email = val
+        break;
     }
     this.setData({
       userBaseInfo: this.data.userBaseInfo
@@ -108,6 +117,7 @@ Page({
   },
 
   save:async function(){
+    if(this.hasNull())return
     let data=this.data.userBaseInfo
     let dicts=this.data.dicts
     let res = await app.request.post('/user/userAuth/completeUserBaseInfo', {
@@ -123,6 +133,79 @@ Page({
     if(res.code===0){
       wx.navigateBack()
     }
+  },
+
+  hasNull:function(){
+    let data = this.data.userBaseInfo
+    if(!data.nickName){
+      wx.showToast({
+        title: '请输入昵称',
+        icon:'none'
+      })
+      return true
+    }
+    if (!data.city) {
+      wx.showToast({
+        title: '请选择城市',
+        icon: 'none'
+      })
+      return true
+    }
+    if (!(data.wechat||data.qq||data.email)) {
+      wx.showToast({
+        title: '微信号、QQ、邮箱至少填写一个',
+        icon: 'none'
+      })
+      return true
+    }
+
+    if (data.wechat && ! /[-_a-zA-Z0-9]{5,19}$/.test(data.wechat)){
+      wx.showToast({
+        title: '请输入正确的微信号',
+        icon: 'none'
+      })
+      return true
+    }
+
+    if (data.qq && !/^[1-9]\d{4,19}$/.test(data.qq)){
+      wx.showToast({
+        title: '请输入正确的QQ号',
+        icon: 'none'
+      })
+      return true
+    }
+
+    if (data.email && !/([a-z0-9]*[-_]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[/.][a-z]{2,3}([/.][a-z]{2})?$/.test(data.emial)) {
+      wx.showToast({
+        title: '请输入正确的邮箱号',
+        icon: 'none'
+      })
+      return true
+    }
+    
+    
+    if (!data.positionTitle) {
+      wx.showToast({
+        title: '请输入职位头衔',
+        icon: 'none'
+      })
+      return true
+    }
+    if (!data.positionType) {
+      wx.showToast({
+        title: '请选择职位类型',
+        icon: 'none'
+      })
+      return true
+    }
+    if (!data.daySalary) {
+      wx.showToast({
+        title: '请输入日薪',
+        icon: 'none'
+      })
+      return true
+    }
+    return false
   }
 
 })
