@@ -15,7 +15,7 @@
 <view class='entrances' bindtap='go' data-url="/pages/mine/personalInfo/index">
     <image src='/assets/img/icon/mine_grzy.png'></image>
     个人主页
-    <text class='arrow-right'></text>
+    <text class='arrow-right'>{{state}}</text>
 </view>
 
 <view class='action-bar' wx:if="{{hasLogin}}">

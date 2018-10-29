@@ -15,7 +15,7 @@ Page({
   },
 
   onLoad:function(){
-
+    
   },
 
   input: function (e) {

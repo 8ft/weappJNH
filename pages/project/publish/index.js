@@ -52,6 +52,19 @@ Page({
     }
   },
 
+  toSkills:function(){
+    if (app.globalData.publishDataCache.skills.length===0){
+      wx.showToast({
+        title: '所选类型没有可选技能',
+        icon: 'none'
+      })
+    }else{
+      wx.navigateTo({
+        url: '/pages/project/publish/skills/index',
+      })
+    }
+  },
+
   select:function(e){
     let index
     let data=e.currentTarget.dataset
@@ -64,7 +77,9 @@ Page({
     switch(data.type){
       case 'type':
         this.setData({
-          typeIndex:index
+          typeIndex:index,
+          subTypeIndex:0,
+          
         })
         this.saveSkillData()
         break;

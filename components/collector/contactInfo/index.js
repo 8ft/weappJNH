@@ -67,7 +67,7 @@ Component({
         qq: this.data.qq,
         wechat: this.data.wechat
       })
-      if (res.code !==0) 
+      if (res.code !==0) return
       this.hide()
       wx.navigateTo({
         url: '/pages/mine/personalInfo/index',

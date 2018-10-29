@@ -20,7 +20,7 @@
 
 <view class='info'>
   <text class='name'>所需技能</text>
-  <navigator class='input arrow-right' url="/pages/project/publish/skills/index" hover-class='none'>{{needsSkillsCn}}</navigator>
+  <view class='input arrow-right' bindtap='toSkills'>{{needsSkillsCn}}</view>
 </view>
 
 <view class='info need'>

@@ -11,8 +11,9 @@ Page({
   },
 
   onShow:function(){
-    if (app.checkLogin())
-    this.getInfo()
+    if (app.checkLogin()){
+      this.getInfo()
+    }
   },
 
   getInfo:async function(){

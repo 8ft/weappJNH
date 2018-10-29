@@ -49,6 +49,7 @@
 .entrances text{
   flex: 1;
   text-align: right;
+  color:#CCCCCC;
 }
 
 .arrow-right::before{

@@ -128,7 +128,10 @@ Page({
       workExperience: data.workExperience || dicts[3].dictList[0].dictValue,
       daySalary:data.daySalary,
       city:data.city,
-      sex: data.sex || dicts[0].dictList[0].dictValue
+      sex: data.sex || dicts[0].dictList[0].dictValue,
+      qq:data.qq,
+      email:data.email,
+      wechat:data.wechat
     })
     if(res.code===0){
       wx.navigateBack()
@@ -175,7 +178,7 @@ Page({
       return true
     }
 
-    if (data.email && !/([a-z0-9]*[-_]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[/.][a-z]{2,3}([/.][a-z]{2})?$/.test(data.emial)) {
+    if (data.email && !/([a-z0-9]*[-_]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[/.][a-z]{2,3}([/.][a-z]{2})?$/.test(data.email)) {
       wx.showToast({
         title: '请输入正确的邮箱号',
         icon: 'none'

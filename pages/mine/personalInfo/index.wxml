@@ -55,7 +55,7 @@
 </view>
 
 <view class='part'>
-  <view class="title {{user.userSampleInfos?'':'border-b'}}">
+  <view class="title {{user.userSampleInfos?'':'border-b'}}">     
     作品案例
     <navigator wx:if="{{user.userState!==1}}" hover-class='none' url="/pages/mine/personalInfo/works/index">添加</navigator>
   </view>
@@ -68,9 +68,9 @@
       <view class='name'>{{item.sampleName}}</view>
       <view class='type'>{{item.tradeTypeCn}}</view>
       <view class='url' wx:if="{{item.sampleUrl}}">{{item.sampleUrl}}</view>
-      <view class='desc'>{{item.sampleDesc}}</view>
-      <button class='btn del' bindtap="delWorks" data-id="{{item.id}}">删除</button>
-      <navigator class='btn edit' url="/pages/mine/personalInfo/works/index?index={{index}}">编辑</navigator>
+      <text decode='true' class='desc'>{{item.sampleDesc}}</text>
+      <button wx:if="{{user.userState!==1}}" class='btn del' bindtap="delWorks" data-id="{{item.id}}">删除</button>
+      <navigator wx:if="{{user.userState!==1}}" class='btn edit' url="/pages/mine/personalInfo/works/index?index={{index}}">编辑</navigator>
     </view>
   </block>
 </view>

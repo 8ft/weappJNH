@@ -59,14 +59,19 @@ Page({
     let validInput = input.replace(/(^[\s\r\n]*)|([\s\r\n]*$)/g, "")
     let conLen = validInput.length
 
-    let inputLen
-    if(conLen>=5000){
-      input = validInput.slice(0,5000)
-      conLen=5000
-      inputLen=5000
-    }else if(conLen<5000){
-      inputLen= -1
+    if(conLen>5000){
+      input = input.slice(0, 5000)
+      validInput = input.replace(/(^[\s\r\n]*)|([\s\r\n]*$)/g, "")
+      conLen = validInput.length
     }
+
+    let inputLen
+    if(conLen===5000){
+      inputLen = 5000
+    }else if(conLen<5000){
+      inputLen = -1
+    }
+    
     this.setData({
       content: input,
       conLen: conLen,

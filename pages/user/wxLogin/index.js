@@ -13,26 +13,28 @@ Page({
   },
 
   onLoad: function () {
-    let oid = wx.getStorageSync('openid'),
-      uid = wx.getStorageSync('unionid')
+    this.logout()
+  },
 
-    if (!oid || !uid) {
-      wx.login({
-        success: async res => {
-          let data = await app.request.get('/weixin/mini/getOpenId', {
-            code: res.code
-          })
-
-          oid = data.openid
-          wx.setStorageSync('openid', oid)
-
-          uid = data.unionid
-          if (uid) {
-            wx.setStorageSync('unionid', uid)
-          } 
+  logout:function(){
+    app.globalData = {
+      userInfo: null,
+      editUserInfoCache: {
+        jobTypes: null,
+        detail: {
+          content: ''
         }
-      })
+      },
+      publishDataCache: {
+        skills: null,
+        needSkills: [],
+        needSkillsCn: [],
+        desc: {
+          content: ''
+        }
+      }
     }
+    wx.clearStorageSync()
   },
 
   bindGetUserInfo:function(e) {
@@ -51,31 +53,42 @@ Page({
   },
 
   preLogin:async function(){
-    let oid = wx.getStorageSync('openid'),
-       uid = wx.getStorageSync('unionid')
+    let oid,uid
 
-    if (!uid) {
-      //请求解密接口
-      let decodeData = await app.request.get('/weixin/mini/getUnionId', {
-        encryptedData: this.data.encryptedData,
-        iv:this.data.iv,
-        openId: oid
-      })
-
-      if (decodeData.status===1){
-        uid = decodeData.userInfo.unionid
-        wx.setStorageSync('unionid', uid)
-        this.login(oid, uid)
-      }else{
-        wx.showToast({
-          title: decodeData.msg,
-          icon:'none'
+    wx.login({
+      success: async res => {
+        let data = await app.request.get('/weixin/mini/getOpenId', {
+          code: res.code
         })
+
+        oid = data.openid
+        wx.setStorageSync('openid', oid)
+
+        uid = data.unionid
+        if (uid) {
+          wx.setStorageSync('unionid', uid)
+          this.login(oid, uid)
+        }else{
+          //请求解密接口
+          let decodeData = await app.request.get('/weixin/mini/getUnionId', {
+            encryptedData: this.data.encryptedData,
+            iv: this.data.iv,
+            openId: oid
+          })
+
+          if (decodeData.status === 1) {
+            uid = decodeData.userInfo.unionid
+            wx.setStorageSync('unionid', uid)
+            this.login(oid, uid)
+          } else {
+            wx.showToast({
+              title: decodeData.msg,
+              icon: 'none'
+            })
+          }
+        }
       }
-    } else {
-      //获取用户信息
-      this.login(oid, uid)
-    }
+    })
   },
 
   login:async function(oid, uid){

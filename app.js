@@ -10,7 +10,6 @@ App({
     // wx.setStorageSync('logs', logs)
   },
   globalData: {
-    version: '1.0.0',
     userInfo:null,
     editUserInfoCache:{
       jobTypes:null,

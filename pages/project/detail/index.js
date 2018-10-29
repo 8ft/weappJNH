@@ -10,6 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    no:'',
     uid:'',
     detail:null,
     imgs:[],
@@ -28,7 +29,17 @@ Page({
       })
     }
     
-    this.getDetail(options.no)
+    if (options&&options.no){
+      this.setData({
+        no: options.no
+      })
+    }
+    
+    this.getDetail()
+  },
+
+  onPullDownRefresh:function(){
+    this.getDetail()
   },
 
   viewFile:function(e){
@@ -72,7 +83,8 @@ Page({
     })
   },
 
-  getDetail: async function (projectNo){
+  getDetail: async function (){
+    let projectNo=this.data.no
     let res = await app.request.post('/project/projectInfo/detail', {
       projectNo: projectNo
     })
@@ -115,6 +127,7 @@ Page({
           content: '去完善个人主页并提交通过审核后，再来申请项目吧！',
           confirmText:'马上去',
           success:res=>{
+            if(res.cancel)return
             wx.navigateTo({
               url:'/pages/mine/personalInfo/index',
             })
@@ -135,6 +148,7 @@ Page({
           content: '您的个人主页未审核通过，请重新修改后提交审核',
           confirmText: '马上去',
           success: res => {
+            if (res.cancel) return
             wx.navigateTo({
               url: '/pages/mine/personalInfo/index',
             })

@@ -19,7 +19,7 @@
   <view><text>{{detail.projectSkillCn}}</text></view>
   <view><text>{{detail.publisherName}}</text></view>
   <view><text>{{detail.cooperaterCn}}</text></view>
-  <view><text>{{detail.createTime}}</text></view>
+  <view><text>{{detail.createTime}}发布</text></view>
 </view>
 
 <view class='part desc'>

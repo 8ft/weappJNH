@@ -84,9 +84,14 @@ Page({
         icon: 'none'
       })
 
+      //刷新相关页面
       let pages = getCurrentPages()
-      pages[pages.length - 2].onLoad()
-      pages[pages.length - 3].onPullDownRefresh()
+      let refreshPages = ['pages/project/index/index', 'pages/project/detail/index', 'pages/project/projects/index']
+      pages.forEach(page => {
+        if (refreshPages.indexOf(page.route) > -1) {
+          page.onPullDownRefresh()
+        }
+      })
       wx.navigateBack()
     }
   }

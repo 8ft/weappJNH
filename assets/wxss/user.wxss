@@ -71,8 +71,8 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked{
   height: 54rpx;
   line-height: 54rpx;
   font-size:24rpx;
-  color:#CCCCCC;
-  border:1px solid rgba(229,229,229,.5);
+  color:#666666;
+  border:1px solid rgba(204,204,204,1);
   border-radius:4rpx;
   background: #fff;
 }

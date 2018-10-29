@@ -5,7 +5,7 @@ const app = getApp()
 //引入async await依赖库
 const regeneratorRuntime = require('../../../../../libs/regenerator-runtime.js')
 const getLetter = require('../../../../../utils/pinyin.js')
-
+  
 Page({
   data: {
     cities:null,

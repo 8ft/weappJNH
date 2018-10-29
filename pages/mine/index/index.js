@@ -7,7 +7,8 @@ const regeneratorRuntime = require('../../../libs/regenerator-runtime.js')
 Page({
   data: {
     hasLogin:false,
-    user:null
+    user:null,
+    state:''
   },
 
   onShow:function(){
@@ -37,8 +38,26 @@ Page({
     let res = await app.request.post('/user/userAuth/getUserBaseInfo', {})
     if (res.code === 0) {
       app.globalData.userInfo = res.data
+
+      let state=''
+      switch(res.data.userState){
+        case 0:
+          state='请完善'
+          break;
+        case 1:
+          state = '审核中'
+          break;
+        case 2:
+          state = '审核通过'
+          break;
+        case 3:
+          state = '审核未通过'
+          break;
+      }
+
       this.setData({
-        user: res.data
+        user: res.data,
+        state:state
       })
     }
   },
@@ -52,7 +71,6 @@ Page({
           let res = await app.request.post('/user/userAuth/logout', {})
           if (res.code === 0) {
             app.globalData = {
-              version: '1.0.0',
               userInfo: null,
               editUserInfoCache: {
                 jobTypes: null,
