@@ -1,5 +1,5 @@
 <!--pages/mine/personalInfo/index.wxml-->
-<view class='tip'>{{user.userState===0?'完善信息并通过审核即可申请项目':'每次修改都需要审核哦~'}}</view>
+<view class='tip' wx:if="{{user.userState!==2}}">{{user.userState===0?'完善信息并通过审核即可申请项目':'每次修改都需要审核哦~'}}</view>
 
 <view class="userinfo">
   <view class='nickName'>
@@ -64,7 +64,7 @@
   </block>
   <block wx:else>
     <view class='works' wx:for="{{user.userSampleInfos}}">
-      <image src="{{item.sampleImage||'/assets/img/default/banner.png'}}"></image>
+      <image src="{{item.sampleImage||'/assets/img/default/banner.png'}}" data-url="{{item.sampleImage||''}}" bindtap='preview'></image>
       <view class='name'>{{item.sampleName}}</view>
       <view class='type'>{{item.tradeTypeCn}}</view>
       <view class='url' wx:if="{{item.sampleUrl}}">{{item.sampleUrl}}</view>

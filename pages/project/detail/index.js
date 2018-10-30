@@ -111,14 +111,11 @@ Page({
 
   apply:async function(){
     let state
-    if (app.globalData.userInfo){
-      state = app.globalData.userInfo.userState
-    }else{
-      let res = await app.request.post('/user/userAuth/getUserBaseInfo', {})
-      if (res.code !== 0) return
-      app.globalData.userInfo = res.data
-      state = res.data.userState
-    }
+
+    let res = await app.request.post('/user/userAuth/getUserBaseInfo', {})
+    if (res.code !== 0) return
+    app.globalData.userInfo = res.data
+    state = res.data.userState
     
     switch (state){
       case 0://未完善

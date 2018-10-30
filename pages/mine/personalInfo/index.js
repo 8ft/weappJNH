@@ -28,6 +28,14 @@ Page({
     }
   },
 
+  preview: function (e) {
+    let curUrl = e.currentTarget.dataset.url
+    if(!curUrl)return
+    wx.previewImage({
+      urls: [curUrl]
+    })
+  },
+
   chooseImage:function(){
     if (this.data.user.userState === 1)return
     wx.chooseImage({

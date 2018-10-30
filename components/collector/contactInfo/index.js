@@ -31,11 +31,11 @@ Component({
   methods: {
     input: function (e) {
       let inputType = e.currentTarget.dataset.type
-      let val = e.detail.value
+      let val = e.detail.value.replace(/[\s\r\n]/g, "")
       let disable=this.data.disable
 
-      let isQQ =/^[1-9]\d{4,19}$/
-      let isWechat = /[-_a-zA-Z0-9]{5,19}$/
+      let isQQ = /^[1-9][0-9]{4,19}$/
+      let isWechat = /([-_a-zA-Z0-9]{6,19})+$/
 
       switch (inputType) {
         case 'qq':
