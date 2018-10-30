@@ -17,7 +17,13 @@ Page({
     this.setData({
       hasLogin: hasLogin
     })
-    this.getInfo()
+    if (hasLogin){
+      this.getInfo()
+    }else{
+      this.setData({
+        state:''
+      })
+    }
   },
 
   go:function(e){

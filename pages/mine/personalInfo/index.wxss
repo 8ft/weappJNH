@@ -23,6 +23,14 @@ page{
   display: flex;
   align-items: center;
 }
+.nickName text{
+  display: block;
+  width: 50%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .state{
   line-height: 36rpx;
   padding:0 20rpx;

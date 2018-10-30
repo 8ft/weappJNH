@@ -34,15 +34,19 @@ Component({
       let val = e.detail.value
       let disable=this.data.disable
 
+      let isQQ =/^[1-9]\d{4,19}$/
+      let isWechat = /[-_a-zA-Z0-9]{5,19}$/
+
       switch (inputType) {
         case 'qq':
           this.setData({
             qq: val
           })
           if (val === '') {
-            disable = ! /[-_a-zA-Z0-9]{5,19}$/.test(this.data.wechat)
+            disable = ! isWechat.test(this.data.wechat)
           } else {
-            disable = !/^[1-9]\d{4,19}$/.test(val) || ! /[-_a-zA-Z0-9]{5,19}$/.test(this.data.wechat)
+            let wechat=this.data.wechat
+            disable = !(isQQ.test(val) && (wechat?isWechat.test(wechat):true))
           }
           break;
         case 'wechat':
@@ -50,9 +54,10 @@ Component({
             wechat: val
           })
           if(val===''){
-            disable = !/^[1-9]\d{4,19}$/.test(this.data.qq)
+            disable = !isQQ.test(this.data.qq)
           }else{
-            disable = ! /[-_a-zA-Z0-9]{5,19}$/.test(val) || !/^[1-9]\d{4,19}$/.test(this.data.qq)
+            let qq=this.data.qq
+            disable = !(isWechat.test(val) && (qq ? isQQ.test(qq) : true))
           }
           break;
       }

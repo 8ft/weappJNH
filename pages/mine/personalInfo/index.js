@@ -29,6 +29,7 @@ Page({
   },
 
   chooseImage:function(){
+    if (this.data.user.userState === 1)return
     wx.chooseImage({
       count:1,
       sizeType: ['compressed'],
@@ -126,6 +127,7 @@ Page({
 
     let res = await app.request.post('/user/userAuth/submitUserAuth', {})
     if (res.code === 0){
+      this.getInfo()
       wx.navigateTo({
         url: '/pages/mine/personalInfo/success/index',
         icon:'none'

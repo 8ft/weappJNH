@@ -3,7 +3,7 @@
 
 <view class="userinfo">
   <view class='nickName'>
-    {{user.nickName}}
+    <text>{{user.nickName}}</text>
     <view class='state' wx:if="{{user.userState===1}}">审核中</view>
   </view>
   <image class='avatar' src="{{user.userAvatar||'/assets/img/default/avatar.png'}}" bindtap='chooseImage'></image>

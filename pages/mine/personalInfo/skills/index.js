@@ -65,7 +65,7 @@ Page({
     let skill = this.data.skills[data.type].dictList[data.index]
     let addedSkills = this.data.addedSkills
 
-    if (addedSkills.length === 20) {
+    if (skill.active !==true&&addedSkills.length === 20) {
       wx.showToast({
         title: '擅长技能至多添加20个',
         icon: 'none'

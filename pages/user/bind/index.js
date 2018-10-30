@@ -94,7 +94,7 @@ Page({
     }
 
     let res = await app.request.post('/user/userThirdpartInfo/bind', {
-      thirdpartIdentifier: wx.getStorageSync('openid'),
+      thirdpartIdentifier: wx.getStorageSync('unionid'),
       type:0,
       telephone: phone,
       validateCode:code,

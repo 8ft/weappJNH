@@ -5,8 +5,13 @@
   padding: 46rpx 40rpx;
 }
 .nickName{
+  display: block;
   font-size: 64rpx;
   color:#333333;
+  width: 70%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .userinfo navigator{
   text-align: center;
