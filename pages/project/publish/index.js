@@ -78,8 +78,7 @@ Page({
       case 'type':
         this.setData({
           typeIndex:index,
-          subTypeIndex:0,
-          
+          subTypeIndex:0
         })
         this.saveSkillData()
         break;
@@ -113,7 +112,10 @@ Page({
     })
     app.globalData.publishDataCache.needSkills=[]
     app.globalData.publishDataCache.needSkillsCn = []
-    app.globalData.publishDataCache.skills = this.data.dicts[0].dictList[this.data.typeIndex].dictList[this.data.subTypeIndex].dictList
+    app.globalData.publishDataCache.skills = this.data.dicts[0].dictList[this.data.typeIndex].dictList[this.data.subTypeIndex].dictList.map(item=>{
+      item.selected = false
+      return item
+    })
   },
 
   input: function (e) {

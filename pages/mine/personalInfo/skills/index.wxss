@@ -1,4 +1,8 @@
 /* pages/mine/personalInfo/skills/index.wxss */
+page{
+  padding-bottom:150rpx;
+}
+
 .part{
   background: #fff;
   padding: 50rpx 40rpx;

@@ -42,7 +42,7 @@ Component({
           if (val === '') {
             disable = ! /[-_a-zA-Z0-9]{5,19}$/.test(this.data.wechat)
           } else {
-            disable = !/^[1-9]\d{4,19}$/.test(val)
+            disable = !/^[1-9]\d{4,19}$/.test(val) || ! /[-_a-zA-Z0-9]{5,19}$/.test(this.data.wechat)
           }
           break;
         case 'wechat':
@@ -52,7 +52,7 @@ Component({
           if(val===''){
             disable = !/^[1-9]\d{4,19}$/.test(this.data.qq)
           }else{
-            disable = ! /[-_a-zA-Z0-9]{5,19}$/.test(val)
+            disable = ! /[-_a-zA-Z0-9]{5,19}$/.test(val) || !/^[1-9]\d{4,19}$/.test(this.data.qq)
           }
           break;
       }
@@ -69,9 +69,6 @@ Component({
       })
       if (res.code !==0) return
       this.hide()
-      wx.navigateTo({
-        url: '/pages/mine/personalInfo/index',
-      })
     },
 
     hide: function () {
@@ -80,7 +77,5 @@ Component({
         show: false
       })
     }
-
-
   }
 })

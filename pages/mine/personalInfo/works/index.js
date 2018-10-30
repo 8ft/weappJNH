@@ -185,6 +185,13 @@ Page({
       sampleUrl: data.url
     })
     if (res.code === 0) {
+      //刷新相关页面
+      let pages = getCurrentPages()
+      pages.forEach(page => {
+        if (page.route === 'pages/mine/personalInfo/index') {
+          page.onLoad()
+        }
+      })
       wx.navigateBack()
     }
   }

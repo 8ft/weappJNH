@@ -17,14 +17,7 @@ Page({
     this.setData({
       hasLogin: hasLogin
     })
-
-    if (hasLogin && !app.globalData.userInfo) {
-      this.getInfo()
-    }else{
-      this.setData({
-        user: app.globalData.userInfo
-      })
-    }
+    this.getInfo()
   },
 
   go:function(e){

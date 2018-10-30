@@ -10,10 +10,12 @@ Page({
     user:null
   },
 
+  onLoad:function(){
+    this.getInfo()
+  },
+
   onShow:function(){
-    if (app.checkLogin()){
-      this.getInfo()
-    }
+    app.checkLogin()
   },
 
   getInfo:async function(){
