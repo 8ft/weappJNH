@@ -105,6 +105,10 @@ Page({
         }
       }
 
+      this.setData({
+        detail: res.data
+      })
+
       let imgs, docs
       if (res.data.fileBatchNo){
         let files = res.data.filesArr
@@ -114,13 +118,12 @@ Page({
         docs = files.filter(item => {
           return /(\.doc|\.docx|\.xls|\.xlsx|\.ppt|\.pptx|\.pdf|\.txt)/.test(item.url)
         })
+
+        this.setData({
+          imgs: imgs,
+          docs: docs
+        })
       }
-      
-      this.setData({
-        detail: res.data,
-        imgs: imgs,
-        docs:docs
-      })
     }
   },
 

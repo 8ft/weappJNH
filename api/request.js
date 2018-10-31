@@ -1,5 +1,4 @@
-const host ='https://api.dev.juniuhui.com' //测试环境
-// const host = 'https://api.juniuhui.com' //正式环境
+const config = require('config.js')
 const requestArr=[]
 
 const request =(url, options) => {
@@ -10,14 +9,14 @@ const request =(url, options) => {
 
   return new Promise((resolve, reject) => {
     wx.request({
-      url: `${host}${url}`,
+      url: `${config.host}${url}`,
       method: options.method,
       data: options.data,
       header: {
-        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
-        'client_type':'40',
-        'api_version':'1.0.0000',
-        'token': wx.getStorageSync('user').token||''
+        'Content-Type': config.contentType,
+        'client_type':config.clientType,
+        'api_version':config.version,
+        'token': config.token
       },
       success(res) {
         requestArr.pop()

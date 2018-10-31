@@ -19,13 +19,13 @@
     <cover-view class='con'>
       <cover-view class='title'>参考范例</cover-view>
 
-      <cover-view class='sub-title'><cover-view class='point'></cover-view>项目描述</cover-view>
+      <cover-view class='sub-title'>项目描述</cover-view>
       <cover-view class='p'>点餐产品的手机App开发，包括iOS和Android两端，为用户寻找美食，快速预约排号到店消费且可通过手机进行点餐，付款，评价，分享等</cover-view>
       
-      <cover-view class='sub-title'><cover-view class='point'></cover-view>主要功能点：</cover-view>
+      <cover-view class='sub-title'>主要功能点：</cover-view>
       <cover-view class='p'>登录注册，附近美食，预约排号，叫号，手机点餐，在下支付，评价，分享</cover-view>
 
-      <cover-view class='sub-title'><cover-view class='point'></cover-view>人员要求：</cover-view>
+      <cover-view class='sub-title'>人员要求：</cover-view>
       <cover-view class='p'>1、有餐饮App产品的开发经验；</cover-view>
       <cover-view class='p'>2、精通Java或PHP，熟悉jQuery、Javascript、Maven、Redis等技术，熟练使用MySQL等关系型数据库等；</cover-view>
       <cover-view class='p'>3、良好的沟通能力和契约精神。</cover-view>

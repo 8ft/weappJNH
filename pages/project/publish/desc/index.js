@@ -4,8 +4,7 @@
 const app = getApp()
 //引入async await依赖库
 const regeneratorRuntime = require('../../../../libs/regenerator-runtime.js')
-//引入apis库
-const apis = require('../../../../api/apis.js')
+const upload = require('../../../../api/upload.js')
 
 Page({
 
@@ -99,7 +98,7 @@ Page({
       sourceType: ['album', 'camera'],
       success:async res => {
         let batchNo = this.data.batchNo
-        let imgs = await apis.uploadFiles(res.tempFiles, '1108', batchNo)
+        let imgs = await upload(res.tempFiles, '1108', batchNo)
         if (!batchNo) {
           this.setData({
             batchNo: imgs[0].batchNo
