@@ -1,7 +1,7 @@
 <!--index.wxml-->
 
 <view class="userinfo" wx:if="{{!hasLogin}}">
-  <text class='hello'>探索未知~</text>
+  <text class='nickName'>探索未知~</text>
   <navigator url='/pages/user/wxLogin/index' hover-class='none'>登录/注册</navigator>
   <image class='avatar' src='/assets/img/default/avatar.png'></image>
 </view>

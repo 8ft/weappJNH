@@ -38,6 +38,7 @@ Page({
     
     this.getDetail()
   },
+  
 
   onPullDownRefresh:function(){
     this.getDetail()
@@ -45,9 +46,19 @@ Page({
 
   viewFile:function(e){
     let data = e.currentTarget.dataset
-    let index=data.index
+
+    if(/\.txt/.test(data.url)){
+      wx.showModal({
+        title: '提示',
+        content: '小程序暂不支持该格式文件预览',
+        showCancel: false,
+        confirmText: '知道了'
+      })
+      return
+    }
 
     let docTemps = this.data.docTemps
+    let index = data.index
     let doc = docTemps[index]
 
     if(!doc){
@@ -55,7 +66,6 @@ Page({
         title: '下载文档中',
       })
       let url = data.url.replace('http:','https:')
-      console.log(url)
       wx.downloadFile({
         url: url,
         success: res=>{
@@ -103,7 +113,7 @@ Page({
           return /(\.gif|\.jpeg|\.png|\.jpg|\.bmp)/.test(item.url)
         })
         docs = files.filter(item => {
-          return /(\.doc|\.docx|\.xls|\.xlsx|\.ppt|\.pptx|\.pdf)/.test(item.url)
+          return /(\.doc|\.docx|\.xls|\.xlsx|\.ppt|\.pptx|\.pdf|\.txt)/.test(item.url)
         })
       }
       

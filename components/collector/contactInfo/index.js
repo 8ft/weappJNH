@@ -73,6 +73,11 @@ Component({
         wechat: this.data.wechat
       })
       if (res.code !==0) return
+      this.setData({
+        qq: '',
+        wechat: '',
+        disable: true
+      })
       this.hide()
     },
 
