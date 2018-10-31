@@ -4,6 +4,5 @@ module.exports = {
 
   contentType: 'application/x-www-form-urlencoded;charset=utf-8',
   clientType:'40',
-  version: '1.0.0000',
-  token: wx.getStorageSync('user').token || ''
+  version: '1.0.0000'
 }

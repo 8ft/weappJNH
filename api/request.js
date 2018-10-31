@@ -16,7 +16,7 @@ const request =(url, options) => {
         'Content-Type': config.contentType,
         'client_type':config.clientType,
         'api_version':config.version,
-        'token': config.token
+        'token': wx.getStorageSync('user').token || ''
       },
       success(res) {
         requestArr.pop()
