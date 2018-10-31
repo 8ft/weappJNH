@@ -29,8 +29,8 @@
 <view class='part base'>
   <view class='title'>基本信息</view>
   <view><image src="/assets/img/project/detail/lx.png"></image><text>{{detail.projectSubtypeCn}}</text></view>
-  <view><image src="/assets/img/project/detail/jn.png"></image><text>{{detail.projectSkillCn}}</text></view>
-  <view><image src="/assets/img/project/detail/gsmc.png"></image><text>{{detail.publisherName}}</text></view>
+  <view wx:if="{{detail.projectSkillCn}}"><image src="/assets/img/project/detail/jn.png"></image><text>{{detail.projectSkillCn}}</text></view>
+  <view wx:if="{{detail.companyName}}"><image src="/assets/img/project/detail/gsmc.png"></image><text>{{detail.companyName}}</text></view>
   <view><image src="/assets/img/project/detail/qx.png"></image><text>{{detail.cooperaterCn}}</text></view>
   <view><image src="/assets/img/project/detail/xj.png"></image><text>{{detail.createTime}}发布</text></view>
 </view>

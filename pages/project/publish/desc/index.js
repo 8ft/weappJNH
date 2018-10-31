@@ -112,11 +112,17 @@ Page({
     })
   },
 
-  delImg:function(e){
-    this.data.imgs.splice(e.currentTarget.dataset.index, 1)
-    this.setData({
-      imgs:this.data.imgs
+  delImg:async function(e){
+    let res = await app.request.post('/public/file/delete', {
+      fileId: this.data.imgs[e.currentTarget.dataset.index].fileId
     })
+
+    if (res.code === 0) {
+      this.data.imgs.splice(e.currentTarget.dataset.index, 1)
+      this.setData({
+        imgs: this.data.imgs
+      })
+    }
   },
 
   preview:function(e){
