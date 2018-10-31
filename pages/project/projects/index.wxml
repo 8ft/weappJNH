@@ -34,7 +34,13 @@
     </view>
   </popup>
 
+  <block wx:if="{{projects.length>0}}">
+    <view class='projects'>
+      <project-card wx:for="{{projects}}" wx:for-item="project" project="{{project}}"></project-card>
+    </view>
+  </block>
+  <block wx:else>
+    <nodata name='projects'></nodata>
+  </block>
 
-  <view class='projects'>
-    <project-card wx:if="{{projects.length>0}}" wx:for="{{projects}}" wx:for-item="project" project="{{project}}"></project-card>
-  </view>
+  

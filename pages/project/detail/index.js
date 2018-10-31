@@ -15,7 +15,8 @@ Page({
     detail:null,
     imgs:[],
     docs: [],
-    docTemps:[]
+    docTemps:[],
+    applyUsers:null
   },
 
   /**
@@ -53,7 +54,8 @@ Page({
       wx.showLoading({
         title: '下载文档中',
       })
-      let url =data.url
+      let url = data.url.replace('http:','https:')
+      console.log(url)
       wx.downloadFile({
         url: url,
         success: res=>{
@@ -89,15 +91,19 @@ Page({
       projectNo: projectNo
     })
     if(res.code===0){
+      if (res.data.publisher==this.data.uid&&res.data.applyNum>0){
+        this.getApplyUsers(res.data.id)
+      }
+
       let imgs, docs
 
       if (res.data.fileBatchNo){
         let files = res.data.filesArr
         imgs = files.filter(item=>{
-          return /(\.gif|\.jpeg|\.png|\.jpg|\.bmp)/.test(item.fileName)
+          return /(\.gif|\.jpeg|\.png|\.jpg|\.bmp)/.test(item.url)
         })
         docs = files.filter(item => {
-          return /(\.doc|\.docx|\.xls|\.xlsx|\.ppt|\.pptx|\.pdf)/.test(item.fileName)
+          return /(\.doc|\.docx|\.xls|\.xlsx|\.ppt|\.pptx|\.pdf)/.test(item.url)
         })
       }
       
@@ -105,6 +111,18 @@ Page({
         detail: res.data,
         imgs: imgs,
         docs:docs
+      })
+    }
+  },
+
+  getApplyUsers: async function (id){
+    let res = await app.request.post('/project/projectRelation/getApplyList', {
+      pageSize: 3,
+      projectId: id
+    })
+    if (res.code === 0) {
+      this.setData({
+        applyUsers:res.data
       })
     }
   },
@@ -158,5 +176,14 @@ Page({
         })
         break;
     }
+  },
+
+  download:function(){
+    wx.showModal({
+      title: '该功能正在开发中',
+      content: '请前往应用市场搜索下载"巨牛汇APP"进行后续操作',
+      showCancel:false,
+      confirmText:'知道了'
+    })
   }
 })

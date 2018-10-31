@@ -1,33 +1,46 @@
 <!--pages/project/detail/index.wxml-->
 
-<view class='part'>
-  <view class='name'>
-    {{detail.projectName}}
-    <view class='state' wx:if="{{detail.projectState==1}}">待审核</view>
+<view class='state-zone'>
+  <view>雇佣并付款</view>
+  <text>有专家申请你的项目了，快去选择心仪的TA。</text>
+  <image src="/assets/img/project/detail/zmzj.png"></image>
+</view>
+
+<view class='part' style="padding-bottom:0;">
+  <view class='name'>{{detail.projectName}}
+    <view class='state' wx:if="{{detail.publisher==uid}}">{{detail.projectStateCn}}</view>
   </view>
   <text class='price'>{{detail.projectBudgetCn}}</text>
   <text class='lead-times'>{{detail.projectCycleCn}}</text>
   <view class='hot'>
-    <text class='applied'>已申请：{{detail.applyNum}}</text>
-    <text class='read'>已阅读：{{detail.viewNum}}</text>
+    <text class='applied' wx:if="{{!applyUsers}}">已申请：{{detail.applyNum}}</text>
+    <text class='read'>已浏览：{{detail.viewNum}}</text>
+  </view>
+
+  <view class='applyUsers arrow-right' wx:if="{{applyUsers}}" bindtap='download'>
+    <text>申请的专家</text>
+    <view>
+      <image wx:for="{{applyUsers.list}}" src="{{item.userAvatar}}"></image>
+    </view>
+    <text wx:if="{{applyUsers.count>3}}">等{{applyUsers.count}}人</text>
   </view>
 </view>
 
 <view class='part base'>
   <view class='title'>基本信息</view>
-  <view><text>{{detail.projectSubtypeCn}}</text></view>
-  <view><text>{{detail.projectSkillCn}}</text></view>
-  <view><text>{{detail.publisherName}}</text></view>
-  <view><text>{{detail.cooperaterCn}}</text></view>
-  <view><text>{{detail.createTime}}发布</text></view>
+  <view><image src="/assets/img/project/detail/lx.png"></image><text>{{detail.projectSubtypeCn}}</text></view>
+  <view><image src="/assets/img/project/detail/jn.png"></image><text>{{detail.projectSkillCn}}</text></view>
+  <view><image src="/assets/img/project/detail/gsmc.png"></image><text>{{detail.publisherName}}</text></view>
+  <view><image src="/assets/img/project/detail/qx.png"></image><text>{{detail.cooperaterCn}}</text></view>
+  <view><image src="/assets/img/project/detail/xj.png"></image><text>{{detail.createTime}}发布</text></view>
 </view>
 
 <view class='part desc'>
   <view class='title'>项目描述</view>
   <text decode='true'>{{detail.projectDesc}}</text>
   <block wx:if="{{detail.fileBatchNo}}">
-    <image wx:if="{{imgs.length>0}}" wx:for="{{imgs}}" src="{{item.url}}"></image>
-    <view wx:if="{{docs.length>0}}" wx:for="{{docs}}" data-index="{{index}}" data-url="{{item.url}}" bindtap="viewFile">{{item.fileName}}</view>
+    <image class='desc-img' wx:if="{{imgs.length>0}}" wx:for="{{imgs}}" src="{{item.url}}"></image>
+    <view wx:if="{{docs.length>0}}" wx:for="{{docs}}" data-index="{{index}}" data-url="{{item.url}}" bindtap="viewFile"><image  class='file-icon' src="/assets/img/project/detail/wd.png"></image>{{item.fileName}}</view>
   </block>
   
 </view>

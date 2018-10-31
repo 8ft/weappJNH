@@ -1,0 +1,7 @@
+<!--components/nodata/nodata.wxml-->
+<view class='nodata'>
+  <image src="{{contents[name].img}}"></image>
+  <view>{{contents[name].text}}</view>
+</view>
+
+
