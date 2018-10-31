@@ -11,7 +11,7 @@ Page({
    */
   data: {
     no:'',
-    uid:'',
+    isMyself:false,
     detail:null,
     imgs:[],
     docs: [],
@@ -23,19 +23,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let user = wx.getStorageSync('user')
-    if(user){
-      this.setData({
-        uid: user.userId
-      })
-    }
-    
     if (options&&options.no){
       this.setData({
         no: options.no
       })
     }
-    
     this.getDetail()
   },
   
@@ -101,12 +93,19 @@ Page({
       projectNo: projectNo
     })
     if(res.code===0){
-      if (res.data.publisher==this.data.uid&&res.data.applyNum>0){
-        this.getApplyUsers(res.data.id)
+      
+      let user = wx.getStorageSync('user')
+      if (user) {
+        let isMyself= user.userId == res.data.publisher
+        this.setData({
+          isMyself: isMyself
+        })
+        if (isMyself && res.data.applyNum > 0) {
+          this.getApplyUsers(res.data.id)
+        }
       }
 
       let imgs, docs
-
       if (res.data.fileBatchNo){
         let files = res.data.filesArr
         imgs = files.filter(item=>{
