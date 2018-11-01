@@ -33,15 +33,14 @@ Page({
       item.begin=this.getDate(item.name)||''
     })
 
-    await this.getDicts()
-
-    let type = options.type
-    if (type !== undefined) {
+    let typeIndex = options.type
+    if (typeIndex !== undefined) {
       this.setData({
-        typeIndex: type
+        typeIndex: parseInt(typeIndex)
       })
     }
-    
+
+    await this.getDicts()
     this.getProjects()
   },
 
