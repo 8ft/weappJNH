@@ -7,3 +7,4 @@ module.exports = {
   clientType:'40',
   version: '1.0.0000'
 }
+

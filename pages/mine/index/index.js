@@ -69,6 +69,7 @@ Page({
         if (res.confirm) {
           let res = await app.request.post('/user/userAuth/logout', {})
           if (res.code === 0) {
+
             app.globalData = {
               userInfo: null,
               editUserInfoCache: {
@@ -86,6 +87,7 @@ Page({
                 }
               }
             }
+            
             wx.clearStorageSync()
             this.onShow()
           }
