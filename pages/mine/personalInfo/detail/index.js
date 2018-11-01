@@ -60,13 +60,7 @@ Page({
       introduction: this.data.content.replace(/(^[\s\r\n]*)|([\s\r\n]*$)/g, "")
     })
     if (res.code === 0) {
-      //刷新相关页面
-      let pages = getCurrentPages()
-      pages.forEach(page => {
-        if (page.route === 'pages/mine/personalInfo/index') {
-          page.onLoad()
-        }
-      })
+      app.refreshPages('updatePersonalInfo')
       wx.navigateBack()
     }
   },

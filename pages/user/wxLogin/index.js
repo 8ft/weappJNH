@@ -114,8 +114,7 @@ Page({
     if (res.code !== 0) return
     
     app.globalData.userInfo = res.data
-    let pages = getCurrentPages()
-    pages[pages.length - 2].onLoad()
+    app.refreshPages('login')
     wx.navigateBack()
   }
 })

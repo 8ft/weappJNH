@@ -23,32 +23,22 @@ Page({
     await this.getProjects()
   },
 
-  onShow:function(){
-    //登录状态改变，刷新列表
-    let hasLogin=wx.getStorageSync('unionid')?true:false
-    if (hasLogin !== this.data.hasLogin){
-      this.setData({
-        hasLogin: hasLogin,
-        pageIndex: 1,
-        projects: [],
-        nomore: false
-      })
-      this.getProjects()
-    }
-  },
-
   onPullDownRefresh:function(){
-    this.setData({
-      banners: null,
-      pageIndex:1,
-      projects:[],
-      nomore:false
-    })
-    this.getBanner()
-    this.getProjects()
+    this.refresh()
   },
 
   onReachBottom:function(){
+    this.getProjects()
+  },
+
+  refresh:function(){
+    this.setData({
+      banners: null,
+      pageIndex: 1,
+      projects: [],
+      nomore: false
+    })
+    this.getBanner()
     this.getProjects()
   },
 

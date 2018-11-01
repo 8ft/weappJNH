@@ -97,11 +97,23 @@ page{
   border-radius: 50%;
 }
 
+.apply-info .offer{
+  margin-top: 15rpx;
+  color:#333333;
+  font-size: 24rp;
+  margin-bottom: 20rpx;
+}
+.apply-info text{
+  color:#999999;
+  font-size: 28rpx;
+  line-height:48rpx;
+}
+
 .title{
   line-height: 78rpx;
   color:#333333;
   border-bottom: 1px solid rgba(229,229,229,.5);
-  margin-bottom:46rpx;
+  margin-bottom:30rpx;
 }
 
 .base view{
@@ -135,7 +147,7 @@ page{
   margin-right: 10rpx;
 }
 
-.desc view{
+.desc view:not(.title){
   color:#333333;
   font-size: 28rpx;
   margin-top: 37rpx;

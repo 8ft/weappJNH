@@ -11,12 +11,13 @@ Page({
    */
   data: {
     no:'',
-    isMyself:false,
+    isMyProject:false,
     detail:null,
     imgs:[],
     docs: [],
     docTemps:[],
-    applyUsers:null
+    applyUsers:null,
+    applyInfo:null
   },
 
   /**
@@ -33,6 +34,10 @@ Page({
   
 
   onPullDownRefresh:function(){
+    this.getDetail()
+  },
+
+  refresh:function(){
     this.getDetail()
   },
 
@@ -93,25 +98,31 @@ Page({
       projectNo: projectNo
     })
     if(res.code===0){
-      
+
+      const data=res.data
       let user = wx.getStorageSync('user')
       if (user) {
-        let isMyself= user.userId == res.data.publisher
+
+        if (data.projectState == 4) {
+          this.getApplyInfo(data.id,user.userId)
+        }
+
+        let isMyProject= user.userId == data.publisher
         this.setData({
-          isMyself: isMyself
+          isMyProject: isMyProject
         })
-        if (isMyself && res.data.applyNum > 0) {
-          this.getApplyUsers(res.data.id)
+        if (isMyProject && data.applyNum > 0) {
+          this.getApplyUsers(data.id)
         }
       }
 
       this.setData({
-        detail: res.data
+        detail: data
       })
 
       let imgs, docs
-      if (res.data.fileBatchNo){
-        let files = res.data.filesArr
+      if (data.fileBatchNo){
+        let files = data.filesArr
         imgs = files.filter(item=>{
           return /(\.gif|\.jpeg|\.png|\.jpg|\.bmp)/.test(item.url)
         })
@@ -127,16 +138,26 @@ Page({
     }
   },
 
+  getApplyInfo: async function (pid,uid) {
+    let res = await app.request.post('/project/projectApply/detail', {
+      projectId: pid,
+      userId: uid
+    })
+    if (res.code !== 0) return
+    this.setData({
+      applyInfo: res.data
+    })
+  },
+
   getApplyUsers: async function (id){
     let res = await app.request.post('/project/projectRelation/getApplyList', {
       pageSize: 3,
       projectId: id
     })
-    if (res.code === 0) {
-      this.setData({
-        applyUsers:res.data
-      })
-    }
+    if (res.code !== 0) return
+    this.setData({
+      applyUsers:res.data
+    })
   },
 
   apply:async function(){

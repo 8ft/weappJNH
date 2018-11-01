@@ -19,6 +19,10 @@ Page({
     app.checkLogin()
   },
 
+  refresh: function () {
+    this.getInfo()
+  },
+
   getInfo:async function(){
     let res = await app.request.post('/user/userAuth/getUserBaseInfo', {})
     if (res.code === 0) {

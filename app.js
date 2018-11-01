@@ -3,12 +3,6 @@ const request = require('./api/request.js')
 const util = require('./utils/util.js')
 
 App({
-  onLaunch: function () {
-    // // 展示本地存储能力
-    // var logs = wx.getStorageSync('logs') || []
-    // logs.unshift(Date.now())
-    // wx.setStorageSync('logs', logs)
-  },
   globalData: {
     userInfo:null,
     editUserInfoCache:{
@@ -37,5 +31,24 @@ App({
     }else{
       return true
     }
+  },
+  refreshPages: scene => {//刷新相关页面
+    let pages=[]
+    switch (scene){
+      case 'login':
+      case 'applied'://申请项目
+        pages = ['pages/project/index/index', 'pages/project/detail/index', 'pages/project/projects/index']
+        break;
+      case 'updatePersonalInfo':
+        pages = ['pages/mine/personalInfo/index']
+        break;
+    }
+
+    const currentPages = getCurrentPages()
+    currentPages.forEach(page => {
+      if (pages.indexOf(page.route) > -1) {
+        page.refresh()
+      }
+    })
   }
 })

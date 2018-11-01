@@ -45,15 +45,19 @@ Page({
   },
 
   onPullDownRefresh: function () {
-    this.setData({
-      pageIndex: 1,
-      projects: [],
-      nomore:false
-    })
-    this.getProjects()
+    this.refresh()
   },
 
   onReachBottom: function () {
+    this.getProjects()
+  },
+
+  refresh: function () {
+    this.setData({
+      pageIndex: 1,
+      projects: [],
+      nomore: false
+    })
     this.getProjects()
   },
 

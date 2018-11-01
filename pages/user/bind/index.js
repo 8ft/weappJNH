@@ -113,6 +113,7 @@ Page({
     if (res.code !== 0) return
 
     app.globalData.userInfo = res.data
+    app.refreshPages('login')
     wx.navigateBack()
   }
 })
