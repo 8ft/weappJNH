@@ -179,7 +179,7 @@ Page({
         userBaseInfo = user.data.userBaseInfo
       }
 
-      this.resetPage()
+      this.refresh()
       
       if (!(userBaseInfo.qq||userBaseInfo.wechat)){
         this.setData({
@@ -193,7 +193,7 @@ Page({
     }
   },
 
-  resetPage:function(){
+  refresh:function(){
     this.setData({
       typeIndex: 0,
       subTypeIndex: 0,

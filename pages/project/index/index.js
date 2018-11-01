@@ -20,7 +20,15 @@ Page({
     })
     this.getBanner()
     await this.getProjectTypes()
-    await this.getProjects()
+    this.getProjects()
+  },
+
+  onShow: function () {
+    //登录状态改变，刷新页面
+    let hasLogin = wx.getStorageSync('unionid') ? true : false
+    if (hasLogin !== this.data.hasLogin) {
+      this.refresh()
+    }
   },
 
   onPullDownRefresh:function(){

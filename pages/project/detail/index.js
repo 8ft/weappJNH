@@ -161,12 +161,13 @@ Page({
   },
 
   apply:async function(){
-    let state
-
+    if(!app.checkLogin())return
+    
     let res = await app.request.post('/user/userAuth/getUserBaseInfo', {})
     if (res.code !== 0) return
+
+    let state = res.data.userState
     app.globalData.userInfo = res.data
-    state = res.data.userState
     
     switch (state){
       case 0://未完善

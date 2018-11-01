@@ -87,9 +87,10 @@ Page({
                 }
               }
             }
-            
             wx.clearStorageSync()
-            this.onShow()
+            wx.reLaunch({
+              url: '/pages/mine/index/index'
+            })
           }
         }
       }

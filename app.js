@@ -36,6 +36,8 @@ App({
     let pages=[]
     switch (scene){
       case 'login':
+        pages = ['pages/project/detail/index', 'pages/project/projects/index']
+        break;
       case 'applied'://申请项目
         pages = ['pages/project/index/index', 'pages/project/detail/index', 'pages/project/projects/index']
         break;
