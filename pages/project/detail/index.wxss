@@ -35,12 +35,11 @@ page{
 .name,.price{display: block;font-size:40rpx;}
 .name{
   color:#333333;
-  padding:54rpx 0 0;
-  line-height: 40rpx;
-  display: flex;
-  align-items: center;
+  padding:34rpx 0 0;
+  line-height: 60rpx;
 }
 .state{
+  display: inline-block;
   line-height: 32rpx;
   padding:0 10rpx;
   text-align: center;
@@ -49,11 +48,12 @@ page{
   background:#02B18E;
   border-radius: 99rpx;
   margin-left: 10rpx;
+  vertical-align: middle;
 }
 .price{
   color:#FC5B32;
   line-height: 38rpx;
-  padding:28rpx 0;
+  padding:18rpx 0 28rpx;
 }
 .lead-times{
   display: block;

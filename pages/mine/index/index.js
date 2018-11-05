@@ -88,9 +88,8 @@ Page({
               }
             }
             wx.clearStorageSync()
-            wx.reLaunch({
-              url: '/pages/mine/index/index'
-            })
+            app.refreshPages('logout')
+            this.onShow()
           }
         }
       }

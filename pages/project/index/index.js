@@ -10,28 +10,22 @@ Page({
    types: ['全部'],
    pageIndex: 1,
    projects:[],
-   nomore: false,
-   hasLogin:false
+   nomore: false
   },
 
   onLoad:async function () {
-    this.setData({
-      hasLogin: wx.getStorageSync('unionid')?true:false
-    })
+    app.addActiveTabbarPage()
     this.getBanner()
     await this.getProjectTypes()
     this.getProjects()
   },
 
-  onShow: function () {
-    //登录状态改变，刷新页面
-    let hasLogin = wx.getStorageSync('unionid') ? true : false
-    if (hasLogin !== this.data.hasLogin) {
-      this.refresh()
-    }
+  onUnload:function(){
+    app.delActiveTabbarPage()
   },
 
   onPullDownRefresh:function(){
+    this.getBanner()
     this.refresh()
   },
 
@@ -41,12 +35,10 @@ Page({
 
   refresh:function(){
     this.setData({
-      banners: null,
       pageIndex: 1,
       projects: [],
       nomore: false
     })
-    this.getBanner()
     this.getProjects()
   },
 

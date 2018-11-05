@@ -27,8 +27,13 @@ Page({
   },
   
   onLoad: function (options) {
+    app.addActiveTabbarPage()
     app.checkLogin()
     this.getDicts()
+  },
+
+  onUnload:function(){
+    app.delActiveTabbarPage()
   },
 
   onShow:function(){
