@@ -13,6 +13,12 @@ Page({
    nomore: false
   },
 
+  onShareAppMessage: function (res) {
+    return {
+      title: '接包发包专业平台'
+    }
+  },
+
   onLoad:async function () {
     app.addActiveTabbarPage()
     this.getBanner()

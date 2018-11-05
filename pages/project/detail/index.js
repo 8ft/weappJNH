@@ -20,9 +20,12 @@ Page({
     applyInfo:null
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  onShareAppMessage: function (res) {
+    return {
+      title: '项目详情'
+    }
+  },
+
   onLoad: function (options) {
     if (options&&options.no){
       this.setData({
@@ -31,7 +34,6 @@ Page({
     }
     this.getDetail()
   },
-  
 
   onPullDownRefresh:function(){
     this.getDetail()
@@ -115,6 +117,8 @@ Page({
           this.getApplyUsers(data.id)
         }
       }
+
+      data.createTime = data.createTime.slice(0, -3)
 
       this.setData({
         detail: data

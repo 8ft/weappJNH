@@ -36,6 +36,7 @@ App({
   },
   
   activeTabbarPages: [],
+  
   addActiveTabbarPage: function() {
     const currentPages = getCurrentPages()
     let currentPage = currentPages[0]

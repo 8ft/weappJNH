@@ -6,7 +6,6 @@ const app = getApp()
 const regeneratorRuntime = require('../../../libs/regenerator-runtime.js')
 
 Page({
-
   data: {
     dicts: [],
     time: [
@@ -26,6 +25,12 @@ Page({
     pageIndex: 1,
     projects: [],
     nomore: false
+  },
+
+  onShareAppMessage: function (res) {
+    return {
+      title: '好项目很多，人才库告急！'
+    }
   },
 
   onLoad:async function (options) {
