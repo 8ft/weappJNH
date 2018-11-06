@@ -58,6 +58,12 @@ button::after{
   border-left-color:#fff;
 }
 
+.big-title{
+  font-size:64rpx;
+  color:#333333;
+  margin-bottom:43rpx;
+}
+
 .border-b{
   border-bottom: 1px solid rgba(229,229,229,.5);
 }

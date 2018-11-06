@@ -8,23 +8,23 @@
   </swiper>
 
   <view class='types clearfix'>
-    <navigator url='/pages/project/projects/index?type=-1' hover-class="none">
+    <navigator url='/pages/project/list/index?type=-1' hover-class="none">
       <image src='/assets/img/project/qb.png'></image>
       <text>全部</text>
     </navigator>
-    <navigator url='/pages/project/projects/index?type=3' hover-class="none">
+    <navigator url='/pages/project/list/index?type=3' hover-class="none">
       <image src='/assets/img/project/cp.png'></image>
       <text>产品</text>
     </navigator>
-    <navigator url='/pages/project/projects/index?type=0' hover-class="none">
+    <navigator url='/pages/project/list/index?type=0' hover-class="none">
       <image src='/assets/img/project/kf.png'></image>
       <text>开发</text>
     </navigator>
-    <navigator url='/pages/project/projects/index?type=1' hover-class="none">
+    <navigator url='/pages/project/list/index?type=1' hover-class="none">
       <image src='/assets/img/project/sj.png'></image>
       <text>设计</text>
     </navigator>
-    <navigator url='/pages/project/projects/index?type=2' hover-class="none">
+    <navigator url='/pages/project/list/index?type=2' hover-class="none">
       <image src='/assets/img/project/yy.png'></image>
       <text>市场/运营</text>
     </navigator>
@@ -34,7 +34,7 @@
     <view class='title'>
       <image src="/assets/img/icon/project.png"></image>
       <text>项目库</text>
-      <navigator class='arrow-right' url='/pages/project/projects/index' hover-class="none">更多</navigator>
+      <navigator class='arrow-right' url='/pages/project/list/index' hover-class="none">更多</navigator>
     </view>
     <project-card wx:if="{{projects.length>0}}" wx:for="{{projects}}" wx:for-item="project" project="{{project}}"></project-card>
   </view>

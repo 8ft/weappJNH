@@ -1,5 +1,5 @@
 <!--pages/project/publish/index.wxml-->
-<view class='title'>发布项目</view>
+<view class='big-title'>发布项目</view>
 
 <view class='info types need clearfix'>
   <text class='name'>项目类型</text>

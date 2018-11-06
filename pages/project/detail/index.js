@@ -218,7 +218,7 @@ Page({
 
   download:function(){
     wx.showModal({
-      title: '该功能正在开发中',
+      title: '温馨提示',
       content: '请前往应用市场搜索下载"巨牛汇APP"进行后续操作',
       showCancel:false,
       confirmText:'知道了'

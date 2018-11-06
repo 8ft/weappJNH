@@ -66,14 +66,14 @@ App({
 
     switch (scene){
       case 'login':
-        pages = ['pages/project/detail/index', 'pages/project/projects/index']
+        pages = ['pages/project/detail/index', 'pages/project/list/index']
         tabbarPages = ['pages/project/index/index']
         break;
       case 'logout':
         tabbarPages = ['pages/project/index/index', 'pages/project/publish/index']
         break;
       case 'applied'://申请项目
-        pages = ['pages/project/detail/index', 'pages/project/projects/index']
+        pages = ['pages/project/detail/index', 'pages/project/list/index']
         tabbarPages = ['pages/project/index/index']
         break;
       case 'updatePersonalInfo':
