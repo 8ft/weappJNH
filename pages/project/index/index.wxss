@@ -52,6 +52,9 @@ swiper image{
   height: 36rpx;
   margin-right:20rpx;
 }
+.title text{
+  font-weight:500;
+}
 .title navigator{
   flex: 1;
   text-align: right;

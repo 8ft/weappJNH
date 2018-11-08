@@ -1,2 +1,43 @@
 <!--pages/project/mine/index.wxml-->
 <view class='big-title'>我的工作</view>
+<tabs tabs="{{['我的项目','申请项目']}}" bindchange="switchList"></tabs>
+
+<scroll-view class='types' scroll-x="true">
+  <!--我的项目-->
+  <block wx:if="{{type===0}}">
+    <view class="type {{myPublish.currentState===index?'active':''}}" wx:for="{{myPublish.states}}">{{item.dictName}}</view>
+  </block>
+
+  <!--申请项目-->
+  <block wx:else>
+    <view class="type {{myApply.currentState===index?'active':''}}" wx:for="{{myApply.states}}">{{item.dictName}}</view>
+  </block>
+</scroll-view>
+
+<view id="projects">
+  <!--我的项目-->
+  <block wx:if="{{type===0}}">
+    <scroll-view class='projects' scroll-y="true" scroll-top="0" style="height:{{scrollViewHeight}}px" upper-threshold="-50" bindscrolltoupper='scroll'> 
+      <view class='project border-b' wx:for="{{myPublish.projects}}">
+        <view class='icon kaifa'>
+          <view class="iconfont icon-{{iconName[item.projectType]}}"></view>
+        </view>
+        <view class='name'>{{item.projectName}}</view>
+        <view class='base-info'>
+          <text class='publish-time'>{{item.createTime}}发布</text>
+          <text>{{item.projectCycle}}完成</text>
+        </view>
+        <text class='price'>【{{item.projectBudget}}】</text>
+        <view class='status'>{{item.projectStateCn}}</view>
+      </view>
+    </scroll-view>
+  </block>
+
+  <!--申请项目-->
+  <block wx:else>
+
+  </block>
+</view>
+
+
+

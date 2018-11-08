@@ -32,7 +32,7 @@ page{
   margin-bottom:22rpx;
 }
 
-.name,.price{display: block;font-size:40rpx;}
+.name,.price{display: block;font-size:40rpx;font-weight:500;}
 .name{
   color:#333333;
   padding:34rpx 0 0;

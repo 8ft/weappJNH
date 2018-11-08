@@ -1,6 +1,7 @@
 /**app.wxss**/
 page{
   font-size:30rpx;
+  font-weight: 400;
   color: #666666;
   background: #F2F2F2;
 }
@@ -62,6 +63,7 @@ button::after{
   font-size:64rpx;
   color:#333333;
   margin-bottom:43rpx;
+  font-weight:bold;
 }
 
 .border-b{

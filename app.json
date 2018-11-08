@@ -23,7 +23,8 @@
     "pages/mine/personalInfo/skills/index",
     "pages/mine/personalInfo/works/index",
     "pages/mine/personalInfo/success/index",
-    "pages/project/mine/index"
+    "pages/project/mine/index",
+    "pages/expert/applicant/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -38,6 +39,12 @@
       {
         "text": "项目",
         "pagePath": "pages/project/index/index",
+        "iconPath": "./assets/img/tabbar/xm1.png",
+        "selectedIconPath": "./assets/img/tabbar/xm2.png"
+      },
+      {
+        "text": "工作",
+        "pagePath": "pages/project/mine/index",
         "iconPath": "./assets/img/tabbar/xm1.png",
         "selectedIconPath": "./assets/img/tabbar/xm2.png"
       },

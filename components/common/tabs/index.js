@@ -33,9 +33,10 @@ Component({
         size: true,
         rect:true
       }, (res) => {
+        let width = res.width / 2
         this.setData({
           currentTarget:id,
-          animationData: this.animation.width(res.width).translateX(res.left).step().export()
+          animationData: this.animation.width(width).translateX(res.left + width/2).step().export()
         })
       }).exec()
     }

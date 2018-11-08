@@ -17,12 +17,20 @@ Page({
     docs: [],
     docTemps:[],
     applyUsers:null,
-    applyInfo:null
+    applyInfo:null,
+    shareTitles:{
+      '01':'开发笑出声的项目，考虑下',//开发
+      '02': '好的设计项目找你，求安排',//设计
+      '03': '求助运营大牛，江湖救急',//运营
+      '04': '产品进，错过年终奖都不亏'//产品
+    }
   },
 
   onShareAppMessage: function (res) {
+    let detail = this.data.detail
+    if(!detail)return
     return {
-      title: '项目详情'
+      title: this.data.shareTitles[detail.projectType]
     }
   },
 
@@ -214,14 +222,5 @@ Page({
         })
         break;
     }
-  },
-
-  download:function(){
-    wx.showModal({
-      title: '温馨提示',
-      content: '请前往应用市场搜索下载"巨牛汇APP"进行后续操作',
-      showCancel:false,
-      confirmText:'知道了'
-    })
   }
 })

@@ -17,13 +17,13 @@
     <text class='read'>已浏览：{{detail.viewNum}}</text>
   </view>
 
-  <view class='applyUsers arrow-right' wx:if="{{isMyProject&&applyUsers}}" bindtap='download'>
+  <navigator class='applyUsers arrow-right' wx:if="{{isMyProject&&applyUsers}}" url='/pages/expert/applicant/index'>
     <text>申请的专家</text>
     <view>
       <image wx:for="{{applyUsers.list}}" src="{{item.userAvatar}}"></image>
     </view>
     <text wx:if="{{applyUsers.count>3}}">等{{applyUsers.count}}人</text>
-  </view>
+  </navigator>
 </view>
 
 <view class='part apply-info' wx:if="{{detail.projectState==4}}">

@@ -24,6 +24,15 @@ App({
     }
   },
 
+  download: function () {
+    wx.showModal({
+      title: '温馨提示',
+      content: '请前往应用市场搜索下载"巨牛汇APP"进行后续操作',
+      showCancel: false,
+      confirmText: '知道了'
+    })
+  },
+
   checkLogin: () => {
     let user = wx.getStorageSync('user')
     if (!user || user.expired) {

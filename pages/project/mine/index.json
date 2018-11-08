@@ -1,1 +1,5 @@
-{}
+{
+  "usingComponents": {
+    "tabs": "/components/common/tabs/index"
+  }
+}
