@@ -2,6 +2,7 @@
 <view class='nodata'>
   <image src="{{contents[name].img}}"></image>
   <view>{{contents[name].text}}</view>
+  <navigator wx:if="{{contents[name].login}}" url='/pages/user/wxLogin/index' hover-class='none'>登录</navigator>
 </view>
 
 

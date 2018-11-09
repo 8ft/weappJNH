@@ -6,11 +6,11 @@ const app = getApp()
 const regeneratorRuntime = require('../../../libs/regenerator-runtime.js')
 
 Page({
-
   data: {
+    hasLogin:false,
     scrollViewHeight:0,
 
-    type:0,
+    typeIndex:0,
     iconName: {
       '01': 'kaifa',
       '02': 'sheji',
@@ -18,6 +18,7 @@ Page({
       '04': 'chanpin'
     },
 
+    pageSize:10,
     myPublish:{
       states: [
         {
@@ -51,57 +52,95 @@ Page({
       pageIndex: 1,
       nomore: false
     }
-
   },
 
-  onLoad:async function (options) {
-    const query = wx.createSelectorQuery()
-    query.select('#projects').fields({
-      rect: true
-    },res=>{
-      wx.getSystemInfo({
-        success:data=> {
-          this.setData({
-            scrollViewHeight:data.windowHeight-res.top
-          })
-        }
-      })
-    }).exec()
-
-    await this.getPublishStates()
-    this.getMyPublish()
-    
+  onLoad:function (options) {
+    app.addActiveTabbarPage()
+    this.getPublishStates()
   },
 
-  onReady: function () {
-    
+  onUnload: function () {
+    app.delActiveTabbarPage()
   },
 
-  onPullDownRefresh: function () {
-    this.getMyPublish()
-  },
-
-  onReachBottom: function () {
-
-  },
-
-  scroll:function(e){
-    wx.showToast({
-      title: '111',
-     
+  onShow:function(){
+    const user = wx.getStorageSync('user')
+    const hasLogin = (!user || user.expired) ? false : true
+    this.setData({
+      hasLogin: hasLogin
     })
+    if(!hasLogin&&this.data.myPublish.projects.length>0){
+      let myPublish=this.data.myPublish
+      this.setData({
+        'myPublish.currentState':0,
+        'myPublish.projects': [],
+        'myPublish.pageIndex': 1,
+        'myPublish.nomore': false,
+      })
+    } else if (hasLogin && this.data.myPublish.projects.length === 0){
+      if (this.data.scrollViewHeight===0){
+        const query = wx.createSelectorQuery()
+        query.select('#projects').fields({
+          rect: true
+        }, res => {
+          wx.getSystemInfo({
+            success: data => {
+              this.setData({
+                scrollViewHeight: data.windowHeight - res.top
+              })
+            }
+          })
+        }).exec()
+      }
+      this.refresh()
+    }
+  },
+
+  refresh:function(e){
+    if (this.data.typeIndex === 0) {
+      let myPublish = this.data.myPublish
+      this.setData({
+        'myPublish.pageIdnex': 1,
+        'myPublish.nomore': false,
+        'myPublish.projects': []
+      })
+      this.getMyPublish()
+    } else {
+      let myApply = this.data.myApply
+      this.setData({
+        'myApply.pageIdnex': 1,
+        'myApply.nomore': false,
+        'myApply.projects': []
+      })
+      this.getMyApply()
+    }
   },
 
   switchList:function(e){
     let index = e.detail.index
     this.setData({
-      type: index
+      typeIndex: index
     })
-    if(index===0){
-      this.data.myPublish.projects.length===0&&this.getMyPublish()
+    this.refresh()
+    // if(index===0){
+    //   this.getMyPublish()
+    // }else{
+    //   this.getMyApply()
+    // }
+  },
+
+  switchState:function(e){
+    const index = e.currentTarget.dataset.index
+    if(this.data.typeIndex===0){
+      this.setData({
+        'myPublish.currentState':index
+      })
     }else{
-      this.data.myApply.projects.length === 0 && this.getMyApply()
+      this.setData({
+        'myApply.currentState': index
+      })
     }
+    this.refresh()
   },
 
   getPublishStates: async function () {
@@ -118,15 +157,26 @@ Page({
   },
 
   getMyPublish:async function(){
-    if (!app.checkLogin()) return 
-    let myPublish=this.data.myPublish
+    let myPublish = this.data.myPublish
+    if (myPublish.nomore || !this.data.hasLogin) return 
     let res = await app.request.post('/project/projectInfo/myProjectList', {
       relationType:'1|3',
-      projectState: myPublish.states[myPublish.currentState].dictValue
+      projectState: myPublish.states[myPublish.currentState].dictValue,
+      pageIndex: myPublish.pageIndex,
+      pageSize:this.data.pageSize
     })
     if (res.code !== 0)return 
 
+    if (res.data.count > myPublish.pageIndex*this.data.pageSize){
+      myPublish.pageIndex++
+    }else{
+      this.setData({
+        'myPublish.nomore':true
+      })
+    }
+
     this.setData({
+      'myPublish.pageIndex': myPublish.pageIndex,
       'myPublish.projects':myPublish.projects.concat(res.data.list.map(item => {
         item.createTime = item.createTime.split(' ')[0]
         return item
@@ -135,14 +185,27 @@ Page({
   },
 
   getMyApply:async function(){
-    if (!app.checkLogin()) return
+    let myApply = this.data.myApply
+    if (myApply.nomore||!this.data.hasLogin) return
     let res = await app.request.post('/project/projectInfo/myProjectList', {
-      relationType: 2
+      relationType: 2,
+      projectState: myApply.states[myApply.currentState].dictValue,
+      pageIndex: myApply.pageIndex,
+      pageSize: this.data.pageSize
     })
     if (res.code !== 0) return
 
+    if (res.data.count > myApply.pageIndex * this.data.pageSize) {
+      myApply.pageIndex++
+    } else {
+      this.setData({
+        'myApply.nomore': true
+      })
+    }
+
     this.setData({
-      'myApply.projects': this.data.myApply.projects.concat(res.data.list.map(item => {
+      'myApply.pageIndex': myApply.pageIndex,
+      'myApply.projects': myApply.projects.concat(res.data.list.map(item => {
         item.createTime = item.createTime.split(' ')[0]
         return item
       }))

@@ -19,3 +19,15 @@
   font-size: 28rpx;
   color:#666666;
 }
+
+.nodata navigator{
+  text-align: center;
+  margin-top: 20rpx;
+  color:#fff;
+  border-radius: 8rpx;
+  background: #0083FF;
+  width:200rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size:28rpx;
+}

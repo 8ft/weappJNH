@@ -5,6 +5,14 @@ page{
   background: #fff;
 }
 
+.filter{
+  position: fixed;
+  top:0;
+  left:0;
+  background: #fff;
+  z-index: 1;
+}
+
 .big-title{
   text-indent: 40rpx;  
 }
@@ -35,6 +43,7 @@ page{
 }
 
 .project{
+  display: block;
   padding: 44rpx 30rpx 44rpx 134rpx;
   position: relative;
 }
@@ -72,6 +81,10 @@ page{
   color:#333333;
   margin-bottom: 20rpx;
   font-weight: 500;
+  width:66%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .base-info{
@@ -105,5 +118,3 @@ page{
   font-size: 20rpx;
   font-weight:400;
 }
-
-

@@ -83,7 +83,7 @@ App({
         break;
       case 'applied'://申请项目
         pages = ['pages/project/detail/index', 'pages/project/list/index']
-        tabbarPages = ['pages/project/index/index']
+        tabbarPages = ['pages/project/index/index', 'pages/project/mine/index']
         break;
       case 'updatePersonalInfo':
         pages = ['pages/mine/personalInfo/index']

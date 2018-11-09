@@ -15,6 +15,11 @@ Component({
       'projects':{
         img:'/assets/img/default/no-project.png',
         text:'空空如也，什么都没有～'
+      },
+      'myProjects': {
+        img: '/assets/img/default/no-project.png',
+        text: '登录了就能开始处理工作了喔~',
+        login:true
       }
     }
   },
