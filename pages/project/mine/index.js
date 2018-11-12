@@ -122,11 +122,6 @@ Page({
       typeIndex: index
     })
     this.refresh()
-    // if(index===0){
-    //   this.getMyPublish()
-    // }else{
-    //   this.getMyApply()
-    // }
   },
 
   switchState:function(e){

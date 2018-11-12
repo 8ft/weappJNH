@@ -1,4 +1,5 @@
 <!--index.wxml-->
+<nav-bar></nav-bar>
 <view>
 
   <swiper id="banner" wx:if="{{banners}}" indicator-dots="true" indicator-color="rgba(255,255,255,.6)" indicator-active-color="#fff" autoplay="true" circular="true">

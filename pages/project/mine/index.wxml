@@ -25,7 +25,7 @@
         class='projects' 
         style="height:{{scrollViewHeight}}px" 
         scroll-y="true" 
-        upper-threshold="-60" 
+        upper-threshold="-80" 
         enable-back-to-top="true"
         bindscrolltoupper='refresh' 
         bindscrolltolower="getMyPublish"> 
@@ -40,7 +40,7 @@
             <text>{{item.projectCycle}}完成</text>
           </view>
           <text class='price'>【{{item.projectBudget}}】</text>
-          <view class='status'>{{item.projectStateCn}}</view>
+          <view class="status{{item.projectState}}">{{item.projectStateCn}}</view>
         </navigator>
 
       </scroll-view>
@@ -53,7 +53,7 @@
         style="height:{{scrollViewHeight}}px" 
         scroll-y="true" 
         scroll-top='0' 
-        upper-threshold="-60" 
+        upper-threshold="-80" 
         enable-back-to-top="true"
         bindscrolltoupper='refresh' 
         bindscrolltolower="getMyApply"> 
@@ -68,7 +68,7 @@
             <text>{{item.projectCycle}}完成</text>
           </view>
           <text class='price'>【{{item.projectBudget}}】</text>
-          <view class='status'>{{item.projectStateCn}}</view>
+          <view class="status{{item.projectState}}">{{item.projectStateCn}}</view>
         </navigator>
 
       </scroll-view>

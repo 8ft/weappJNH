@@ -3,6 +3,7 @@
   "enablePullDownRefresh": true,
   "onReachBottomDistance":true,
   "usingComponents": {
+    "nav-bar":"/components/common/navigationBar/index",
     "project-card":"/components/project/card/index"
   }
 }

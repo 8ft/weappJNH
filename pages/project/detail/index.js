@@ -126,7 +126,7 @@ Page({
         }
       }
 
-      data.createTime = data.createTime.slice(0, -3)
+      data.createTime = this.getCreateTime(data.createTime)
 
       this.setData({
         detail: data
@@ -148,6 +148,11 @@ Page({
         })
       }
     }
+  },
+
+  getCreateTime:function(timestamp){
+    const date=new Date(timestamp)
+    return `${date.getFullYear()}.${date.getMonth()}.${date.getDate()} ${date.getHours()}:${date.getMinutes()}`
   },
 
   getApplyInfo: async function (pid,uid) {

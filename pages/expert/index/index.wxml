@@ -1,0 +1,49 @@
+<!--pages/expert/index/index.wxml-->
+<view class='base-info'>
+  <image class='avatar' src="{{user.userAvatar}}"></image>
+  <view class='name'>{{user.nickName}}</view>
+  <text class='price'>{{user.userBaseInfo.daySalary}}元/天</text>
+  <text class='p-title'>{{user.userBaseInfo.positionTitle}}</text>
+  <view class='info city'>{{user.userBaseInfo.cityCn}}</view>
+  <view class='info'>{{user.userBaseInfo.workExperience}}年经验</view>
+  <view class='info'>{{user.userBaseInfo.settleTypeCn}}</view>
+  <view class='info'>已完成{{user.finishOrderNums}}单</view>
+</view>
+
+<view class='title'>
+  I
+  <view>
+    详细介绍
+    <text>ntroduce</text>
+  </view>
+</view>
+
+<text class='intro'>{{user.userIntro}}</text>
+
+
+<view class='title'>
+  S
+  <view>
+    专业技能
+    <text>kills</text>
+  </view>
+</view>
+
+<view class='sub-title'>职位类型</view>
+<view class='tag' wx:for="{{user.userBaseInfo.positionTypeCn}}">{{item}}</view>
+
+<view class='sub-title'>擅长技能</view>
+<view class='tag' wx:for="{{user.userSkills}}">{{item.skillName}}</view>
+
+
+<view class='title'>
+  W
+  <view>
+    作品案例
+    <text>orks</text>
+  </view>
+</view>
+
+<!-- <view class='works border-b'>
+  <image></image>
+</view> -->

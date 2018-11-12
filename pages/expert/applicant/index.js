@@ -1,66 +1,37 @@
 // pages/expert/applicant/index.js
+
+//获取应用实例
+const app = getApp()
+//引入async await依赖库
+const regeneratorRuntime = require('../../../libs/regenerator-runtime.js')
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    pageIndex:1,
+    applicants:[],
+    icon:{
+      '1':'/assets/img/icon/gr.png',
+      '2': '/assets/img/icon/td.png'
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+      this.getApplicant(options.id)
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+  getApplicant:async function(id){
+    let res = await app.request.post('/project/projectRelation/getApplyList', {
+      pageIndex: this.data.pageIndex,
+      projectId:id
+    })
 
+    if (res.code === 0) {
+      this.setData({
+        applicants: this.data.applicants.concat(res.data.list)
+      })
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  download:function(){
+    app.download()
   }
 })

@@ -1,0 +1,7 @@
+<!--components/common/navigationBar/index.wxml-->
+<view class='navbar-placeholder' style="padding-top:{{top}}px;"></view>
+<cover-view class='navbar back' style="padding-top:{{top}}px;">
+  标题
+</cover-view>
+
+

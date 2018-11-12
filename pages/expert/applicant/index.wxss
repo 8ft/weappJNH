@@ -1,1 +1,85 @@
 /* pages/expert/applicant/index.wxss */
+
+.applicant{
+  position: relative;
+  background: #fff;
+  padding:58rpx 0 0 136rpx;
+}
+
+.avatar{
+  position: absolute;
+  top:58rpx;
+  left:30rpx;
+  width:84rpx;
+  height: 84rpx;
+  border-radius: 50%;
+}
+
+.info{
+  padding-bottom: 58rpx;
+  position: relative;
+  padding-right: 30rpx;
+}
+
+.name{
+  display: flex;
+  align-items: center;
+  font-size: 36rpx;
+  color:#333333;
+}
+
+.name text{
+  display: inline-block;
+  max-width:42%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.name image{
+  margin-left: 15rpx;
+  width:82rpx;
+  height: 33rpx;
+  display: inline-block;
+}
+
+.msg{
+  font-size: 28rpx;
+  color:#999999;
+  line-height: 48rpx;
+  margin:30rpx 0;
+}
+
+.exp{
+  font-size: 24rpx;
+  color:#999999;
+  line-height: 52rpx;
+}
+
+.budget{
+  color:#FC5B32;
+  font-size: 28rpx;
+  position: absolute;
+  right:30rpx;
+  top:0;
+}
+
+.btn{
+  position: absolute;
+  bottom:58rpx;
+  right:30rpx;
+  width:140rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  color:#fff;
+  background: #0083FF;
+  border:1rpx solid #0083FF;
+  font-size: 24rpx;
+}
+.connect{
+  color:#0083FF;
+  background: #fff;
+  right:191rpx;
+}
+
+

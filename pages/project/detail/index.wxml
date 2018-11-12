@@ -17,7 +17,7 @@
     <text class='read'>已浏览：{{detail.viewNum}}</text>
   </view>
 
-  <navigator class='applyUsers arrow-right' wx:if="{{isMyProject&&applyUsers}}" url='/pages/expert/applicant/index'>
+  <navigator class='applyUsers arrow-right' hover-class='none' wx:if="{{isMyProject&&applyUsers}}" url="/pages/expert/applicant/index?id={{detail.id}}">
     <text>申请的专家</text>
     <view>
       <image wx:for="{{applyUsers.list}}" src="{{item.userAvatar}}"></image>

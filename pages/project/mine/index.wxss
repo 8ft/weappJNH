@@ -106,11 +106,10 @@ page{
   font-weight: 500;
 }
 
-.status{
+view[class^="status"]{
   line-height: 32rpx;
   padding: 0 12rpx;
   color:#fff;
-  background: #4DB2FF;
   position: absolute;
   right: 30rpx;
   bottom:44rpx;
@@ -118,3 +117,10 @@ page{
   font-size: 20rpx;
   font-weight:400;
 }
+
+.status1{background: #4DB2FF;}
+.status2{background: #1AC6A4;}
+.status3,.status9,.status13{background: #FC7561;}  
+.status4{background: #FFB54C;}
+.status8{background: #95D364;}
+.status11,.status12{background: #CCCCCC;}

@@ -24,12 +24,14 @@
     "pages/mine/personalInfo/works/index",
     "pages/mine/personalInfo/success/index",
     "pages/project/mine/index",
-    "pages/expert/applicant/index"
+    "pages/expert/applicant/index",
+    "pages/expert/index/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "navigationStyle":"custom"
   },
   "tabBar": {
     "backgroundColor": "#fff",
