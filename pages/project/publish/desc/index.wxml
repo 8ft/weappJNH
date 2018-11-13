@@ -11,7 +11,7 @@
   <view wx:if="{{imgs.length<3}}" class='add' bindtap='chooseImage'><view>添加</view></view>
 </view>
 
-<view class='demo-switch' bindtap='showDemo'>参考范例</view>
+<view class='demo-switch' bindtap='showDemo'><text class='iconfont icon-wendang'></text>参考范例</view>
 <view class='num'>{{conLen}}/5000</view>
 
 <cover-view class='demo' wx:if="{{demoShow}}">

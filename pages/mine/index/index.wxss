@@ -6,12 +6,26 @@
 }
 .nickName{
   display: block;
-  font-size: 64rpx;
+  font-size: 60rpx;
   color:#333333;
-  max-width: 70%;
+}
+.nickName text{
+  display: inline-block;
+  max-width: 50%;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+.nickName .iconfont{
+  display: inline-block;
+  margin-left: 20rpx;
+  font-size: 40rpx;
+}
+.icon-xingbienv{
+  color:#FF8686;
+}
+.icon-xingbienan{
+  color:#0083FF;
 }
 .userinfo navigator{
   text-align: center;
@@ -33,8 +47,8 @@
   position: absolute;
   top:46rpx;
   right:40rpx;
-  width: 140rpx;
-  height: 140rpx;
+  width: 136rpx;
+  height: 136rpx;
   border-radius: 50%;
 }
 

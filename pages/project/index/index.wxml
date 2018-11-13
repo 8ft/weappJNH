@@ -30,7 +30,7 @@
 
 <view class='projects'>
   <view class='title'>
-    <image src="/assets/img/icon/project.png"></image>
+    <view class="iconfont icon-xiangmuku"></view>
     <text>项目库</text>
     <navigator class='arrow-right' url='/pages/project/list/index' hover-class="none">更多</navigator>
   </view>

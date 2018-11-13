@@ -1,4 +1,6 @@
 /* components/common/listItem/index.wxss */
+@import "/assets/iconfont/icons.wxss";
+
 .list-item{
   display: flex;
   align-items: center;
@@ -17,7 +19,8 @@
 .active{
   color:#0083FF;
 }
-.active-icon{
-  width:28rpx;
-  height: 22rpx;
+
+.iconfont{
+  display: inline-block;
+  font-size: 30rpx;
 }

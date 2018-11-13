@@ -3,6 +3,6 @@
   <text class='name'>{{name}}</text>
   <view class='addones'>
     <slot></slot>
-    <image class='active-icon' wx:if="{{active}}" src="/assets/img/icon/selected.png"></image>
+    <view class="iconfont icon-dagou" wx:if="{{active}}"></view>
   </view>
 </view>

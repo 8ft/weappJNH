@@ -7,7 +7,7 @@
 </view>
 
 <view class="userinfo" wx:else>
-  <text class='nickName'>{{user.nickName}}</text>
+  <view class='nickName'><text>{{user.nickName}}</text><view class="iconfont icon-xingbie{{user.userBaseInfo.sex===1?'nan':'nv'}}"></view></view>
   <view class='finished'>已完成{{user.finishOrderNums}}单</view>
   <image class='avatar' src="{{user.userAvatar||'/assets/img/default/avatar.png'}}"></image>
 </view>

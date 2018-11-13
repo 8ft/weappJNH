@@ -1,6 +1,4 @@
 /* pages/project/mine/index.wxss */
-@import "/assets/iconfont/icons.wxss";
-
 page{
   background: #fff;
 }

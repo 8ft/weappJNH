@@ -1,4 +1,6 @@
 /**app.wxss**/
+@import "/assets/iconfont/icons.wxss";
+
 page{
   font-size:30rpx;
   font-weight: 400;

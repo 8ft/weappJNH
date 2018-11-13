@@ -11,6 +11,10 @@ page{
   background: rgba(0,131,255,.1);
   text-indent: 40rpx;
 }
+.tip .iconfont{
+  font-size: 30rpx;
+  margin-right:11rpx;
+}
 
 .userinfo {
   position: relative;

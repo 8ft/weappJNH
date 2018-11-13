@@ -125,9 +125,7 @@ page{
   color:#999999;
   margin-top:26rpx;
 }
-.base image{
-  width:26rpx;
-  height: 26rpx;
+.base .iconfont{
   margin-right: 22rpx;
 }
 
@@ -141,9 +139,7 @@ page{
   margin-top: 20rpx;
 }
 
-.file-icon{
-  width: 26rpx;
-  height: 28rpx;
+.desc .iconfont{
   margin-right: 10rpx;
 }
 
