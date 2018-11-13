@@ -44,6 +44,10 @@
   </view>
 </view>
 
-<!-- <view class='works border-b'>
-  <image></image>
-</view> -->
+<view class='works border-b' wx:for="{{user.userSampleInfos}}">
+  <image src="{{item.sampleImage||'/assets/img/default/banner.png'}}" data-url="{{item.sampleImage}}" bindtap='viewImage'></image>
+  <view class='name'>{{item.sampleName}}</view>
+  <text class='desc'>{{item.sampleDesc}}</text>
+  <view class='type'>{{item.tradeTypeCn}}</view>
+  <button class='link' wx:if="{{item.sampleUrl}}" data-link="{{item.sampleUrl}}" bindtap='copyLink'>作品链接</button>
+</view>

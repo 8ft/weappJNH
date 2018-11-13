@@ -79,14 +79,14 @@ App({
         tabbarPages = ['pages/project/index/index']
         break;
       case 'logout':
-        tabbarPages = ['pages/project/index/index', 'pages/project/publish/index']
+        tabbarPages = ['pages/project/index/index', 'pages/project/publish/index/index']
         break;
       case 'applied'://申请项目
         pages = ['pages/project/detail/index', 'pages/project/list/index']
-        tabbarPages = ['pages/project/index/index', 'pages/project/mine/index']
+        tabbarPages = ['pages/project/index/index', 'pages/project/mine/index/index']
         break;
       case 'updatePersonalInfo':
-        pages = ['pages/mine/personalInfo/index']
+        pages = ['pages/mine/personalInfo/index/index']
         break;
     }
 

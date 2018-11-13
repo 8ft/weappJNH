@@ -195,7 +195,7 @@ Page({
           success:res=>{
             if(res.cancel)return
             wx.navigateTo({
-              url:'/pages/mine/personalInfo/index',
+              url:'/pages/mine/personalInfo/index/index',
             })
           }
         })
@@ -216,14 +216,14 @@ Page({
           success: res => {
             if (res.cancel) return
             wx.navigateTo({
-              url: '/pages/mine/personalInfo/index',
+              url: '/pages/mine/personalInfo/index/index',
             })
           }
         })
         break;
       case 2:
         wx.navigateTo({
-          url: `/pages/project/apply/index?id=${this.data.detail.id}&&budget=${this.data.detail.projectBudgetCn}`,
+          url: `/pages/project/apply/index/index?id=${this.data.detail.id}&&budget=${this.data.detail.projectBudgetCn}`,
         })
         break;
     }

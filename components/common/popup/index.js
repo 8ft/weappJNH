@@ -7,8 +7,8 @@ Component({
       value: false
     },
     top:{
-      type:Number,
-      value:0
+      type:String,
+      value:'0'
     }
   },
 

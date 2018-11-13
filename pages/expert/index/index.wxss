@@ -17,7 +17,7 @@ page{
   border-radius:12rpx;
   margin: 0 auto;
 }
-.avatar{
+.base-info .avatar{
   position: absolute;
   width:128rpx;
   height:128rpx;
@@ -25,31 +25,32 @@ page{
   top:48rpx;
   right:30rpx;
 }
-.name{
+.base-info .name{
   font-size: 40rpx;
   color:#333333;
   font-weight:500;
 }
-.price,.p-title{
+.base-info .price,.base-info .p-title{
   line-height: 74rpx;
 }
-.price{
+.base-info .price{
   color:#FF5E2C;
   font-size: 30rpx;
   margin-right: 20rpx;
 }
-.p-title{
+.base-info .p-title{
   color: #333333;
   font-size: 24rpx;
 }
-.info{
+
+.base-info .info{
   display: inline-block;
   font-size: 22rpx;
   color:#999999;
   margin-bottom: 21rpx;
   margin-right: 24rpx;
 }
-.city{
+.base-info .city{
   display: block;
 }
 
@@ -97,3 +98,52 @@ page{
   margin-right: 20rpx;
   margin-bottom: 20rpx;
 }
+
+.works{
+  position: relative;
+  padding-left:272rpx;
+  padding-bottom: 40rpx;
+  margin-bottom: 40rpx;
+}
+.works image{
+  width:240rpx;
+  height: 170rpx;
+  position: absolute;
+  left:0;
+  top:0;
+}
+.works .name{
+  width:100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color:#333333;
+  font-size: 32rpx;
+  font-weight:600;
+}
+.works .desc{
+  display: block;
+  color:#666666;
+  font-size: 24rpx;
+  line-height:36rpx;
+  margin:13rpx 0 21rpx;
+}
+.works .type{
+  color:#999999;
+  font-size: 22rpx;
+}
+.works .link{
+  display: inline-block;
+  position: absolute;
+  right:0;
+  bottom:40rpx;
+  background:#E5F2FF;
+  border-radius: 20rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  color:#0083FF;
+  font-size: 22rpx;
+  padding:0 20rpx;
+}
+

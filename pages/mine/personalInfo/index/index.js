@@ -3,8 +3,8 @@
 //获取应用实例
 const app = getApp()
 //引入async await依赖库
-const regeneratorRuntime = require('../../../libs/regenerator-runtime.js')
-const upload = require('../../../api/upload.js')
+const regeneratorRuntime = require('../../../../libs/regenerator-runtime.js')
+const upload = require('../../../../api/upload.js')
 
 Page({
   data: {

@@ -12,7 +12,7 @@
   <image class='avatar' src="{{user.userAvatar||'/assets/img/default/avatar.png'}}"></image>
 </view>
 
-<view class='entrances' bindtap='go' data-url="/pages/mine/personalInfo/index">
+<view class='entrances' bindtap='go' data-url="/pages/mine/personalInfo/index/index">
     <image src='/assets/img/icon/mine_grzy.png'></image>
     个人主页
     <text class='arrow-right'>{{state}}</text>

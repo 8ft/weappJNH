@@ -3,9 +3,9 @@
     "pages/project/index/index",
     "pages/project/list/index",
     "pages/project/detail/index",
-    "pages/project/apply/index",
+    "pages/project/apply/index/index",
     "pages/project/apply/agreement/index",
-    "pages/project/publish/index",
+    "pages/project/publish/index/index",
     "pages/project/publish/desc/index",
     "pages/project/publish/skills/index",
     "pages/project/publish/success/index",
@@ -15,8 +15,8 @@
     "pages/user/bind/index",
     "pages/user/signin/index",
     "pages/mine/index/index",
-    "pages/mine/personalInfo/index",
-    "pages/mine/personalInfo/base/index",
+    "pages/mine/personalInfo/index/index",
+    "pages/mine/personalInfo/base/index/index",
     "pages/mine/personalInfo/base/jobTypes/index",
     "pages/mine/personalInfo/base/city/index",
     "pages/mine/personalInfo/detail/index",
@@ -30,8 +30,7 @@
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTextStyle": "black",
-    "navigationStyle":"custom"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "backgroundColor": "#fff",
@@ -52,7 +51,7 @@
       },
       {
         "text": "发布",
-        "pagePath": "pages/project/publish/index",
+        "pagePath": "pages/project/publish/index/index",
         "iconPath": "./assets/img/tabbar/fb.png",
         "selectedIconPath": "./assets/img/tabbar/fb.png"
       },
