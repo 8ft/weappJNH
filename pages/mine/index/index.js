@@ -26,6 +26,14 @@ Page({
     }
   },
 
+  onShareAppMessage: function () {
+    return {
+      title: '接包发包专业平台',
+      path: 'pages/project/index/index',
+      imageUrl:'/assets/img/Icon_180.png'
+    }
+  },
+
   go:function(e){
     if (!app.checkLogin()) return 
     wx.navigateTo({

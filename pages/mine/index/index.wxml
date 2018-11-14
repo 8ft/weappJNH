@@ -13,11 +13,29 @@
 </view>
 
 <view class='entrances' bindtap='go' data-url="/pages/mine/personalInfo/index/index">
-    <image src='/assets/img/icon/mine_grzy.png'></image>
+    <image src='/assets/img/mine/mine_grzy@3x.png'></image>
     个人主页
     <text class='arrow-right'>{{state}}</text>
 </view>
 
-<view class='action-bar' wx:if="{{hasLogin}}">
-  <button bindtap='publish' bindtap='logout'>退出当前账号</button>
+<view class='entrances' bindtap='go' data-url="/pages/mine/wallet/index">
+    <image src='/assets/img/mine/mine_wdqb@3x.png'></image>
+    我的钱包
+    <text class='arrow-right'>{{hasLogin?user.balance:''}}</text>
 </view>
+
+<button class='entrances' open-type="share" bindtap='onShareAppMessage'>
+    <image src='/assets/img/mine/mine_yqhy@3x.png'></image>
+    邀请好友
+    <text class='arrow-right'></text>
+</button>
+
+<view class='entrances' style='margin-top:30rpx;' wx:if="{{hasLogin}}" bindtap='logout'>
+    <image src='/assets/img/mine/mine_sz@3x.png'></image>
+    退出当前账号
+    <text class='arrow-right'></text>
+</view>
+
+<!-- <view class='action-bar' wx:if="{{hasLogin}}">
+  <button bindtap='logout'>退出当前账号</button>
+</view> -->
