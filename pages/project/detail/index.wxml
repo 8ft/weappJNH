@@ -45,7 +45,7 @@
   <view class='title'>项目描述</view>
   <text decode='true'>{{detail.projectDesc}}</text>
   <block wx:if="{{detail.fileBatchNo}}">
-    <image class='desc-img' wx:if="{{imgs.length>0}}" wx:for="{{imgs}}" src="{{item.url}}"></image>
+    <image class='desc-img' wx:if="{{imgs.length>0}}" wx:for="{{imgs}}" src="{{item.url}}" data-url="{{item.url||''}}" bindtap='preview'></image>
     <view wx:if="{{docs.length>0}}" wx:for="{{docs}}" data-index="{{index}}" data-url="{{item.url}}" bindtap="viewFile"><text class="iconfont icon-wendang"></text>{{item.fileName}}</view>
   </block>
 </view>

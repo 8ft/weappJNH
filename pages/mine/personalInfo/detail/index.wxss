@@ -32,6 +32,10 @@ textarea{
 .demo-switch{
   left:40rpx;
 }
+.domo-switch .iconfont{
+  font-size: 28rpx;
+  margin-right: 8rpx;
+}
 
 .num{
   right:40rpx;

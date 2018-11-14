@@ -51,6 +51,14 @@ Page({
     this.getDetail()
   },
 
+  preview: function (e) {
+    let curUrl = e.currentTarget.dataset.url
+    if (!curUrl) return
+    wx.previewImage({
+      urls: [curUrl]
+    })
+  },
+
   viewFile:function(e){
     let data = e.currentTarget.dataset
 

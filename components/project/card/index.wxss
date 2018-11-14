@@ -73,6 +73,7 @@
 }
 
 .hot{
-  font-size:24rpx;
-  line-height: 24rpx;
+  font-size:22rpx;
+  line-height:22rpx;
+  color:#BBBBBB;
 }
