@@ -5,19 +5,22 @@
   padding: 46rpx 40rpx;
 }
 .nickName{
-  display: block;
+  display: flex;
+  align-items: center;
   font-size: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
   color:#333333;
+  font-weight: 500;
 }
 .nickName text{
-  display: inline-block;
+  display: block;
   max-width: 50%;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 .nickName .iconfont{
-  display: inline-block;
   margin-left: 20rpx;
   font-size: 40rpx;
 }
@@ -41,7 +44,7 @@
 .finished{
   color:#999999;
   font-size:32rpx;
-  margin-top:20rpx;
+  margin-top:30rpx;
 }
 .avatar {
   position: absolute;

@@ -40,26 +40,26 @@
       {
         "text": "项目",
         "pagePath": "pages/project/index/index",
-        "iconPath": "./assets/img/tabbar/xm1.png",
-        "selectedIconPath": "./assets/img/tabbar/xm2.png"
+        "iconPath": "./assets/img/tabbar/projects.png",
+        "selectedIconPath": "./assets/img/tabbar/projects_fill.png"
       },
       {
         "text": "工作",
         "pagePath": "pages/project/mine/index",
-        "iconPath": "./assets/img/tabbar/xm1.png",
-        "selectedIconPath": "./assets/img/tabbar/xm2.png"
+        "iconPath": "./assets/img/tabbar/work.png",
+        "selectedIconPath": "./assets/img/tabbar/work_fill.png"
       },
       {
         "text": "发布",
         "pagePath": "pages/project/publish/index/index",
-        "iconPath": "./assets/img/tabbar/fb.png",
-        "selectedIconPath": "./assets/img/tabbar/fb.png"
+        "iconPath": "./assets/img/tabbar/publish.png",
+        "selectedIconPath": "./assets/img/tabbar/publish.png"
       },
       {
         "text": "我的",
         "pagePath": "pages/mine/index/index",
-        "iconPath": "./assets/img/tabbar/wd1.png",
-        "selectedIconPath": "./assets/img/tabbar/wd2.png"
+        "iconPath": "./assets/img/tabbar/mine.png",
+        "selectedIconPath": "./assets/img/tabbar/mine_fill.png"
       }
     ]
   },

@@ -132,6 +132,10 @@ page{
   color:#999999;
   font-size: 22rpx;
 }
+.works .iconfont{
+  font-size: 22rpx;
+  margin-right: 12rpx;
+}
 .works .link{
   display: inline-block;
   position: absolute;

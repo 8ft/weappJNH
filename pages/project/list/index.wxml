@@ -28,7 +28,7 @@
     </view>
   </popup>
 
-  <popup active="{{filter==='time'}}" top="80" bindhide='close'>
+  <popup active="{{filter==='time'}}" top="80rpx" bindhide='close'>
     <view class='types'>
       <list-item wx:for="{{time}}" data-index="{{index}}" data-type="time" bindtap="filter" name="{{item.name}}" active="{{timeIndex===index}}"></list-item>
     </view>

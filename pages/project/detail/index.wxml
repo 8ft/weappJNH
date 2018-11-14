@@ -34,11 +34,11 @@
 
 <view class='part base'>
   <view class='title'>基本信息</view>
-  <view><view class="iconfont icon-xiaochengxukaifa"></view><text>{{detail.projectSubtypeCn}}</text></view>
-  <view wx:if="{{detail.projectSkillCn}}"><view class="iconfont icon-html"></view><text>{{detail.projectSkillCn}}</text></view>
-  <view wx:if="{{detail.companyName}}"><view class="iconfont icon-gongsi"></view><text>{{detail.companyName}}</text></view>
-  <view><view class="iconfont icon-qingxiang"></view><text>{{detail.cooperaterCn}}</text></view>
-  <view><view class="iconfont icon-shijian"></view><text>{{detail.createTime}}发布</text></view>
+  <view><text class="iconfont icon-xiaochengxukaifa"></text><text>{{detail.projectSubtypeCn}}</text></view>
+  <view wx:if="{{detail.projectSkillCn}}"><text class="iconfont icon-Html"></text><text>{{detail.projectSkillCn}}</text></view>
+  <view wx:if="{{detail.companyName}}"><text class="iconfont icon-gongsi"></text><text>{{detail.companyName}}</text></view>
+  <view><text class="iconfont icon-qingxiang"></text><text>{{detail.cooperaterCn}}</text></view>
+  <view><text class="iconfont icon-shijian"></text><text>{{detail.createTime}}发布</text></view>
 </view>
 
 <view class='part desc'>
@@ -46,7 +46,7 @@
   <text decode='true'>{{detail.projectDesc}}</text>
   <block wx:if="{{detail.fileBatchNo}}">
     <image class='desc-img' wx:if="{{imgs.length>0}}" wx:for="{{imgs}}" src="{{item.url}}"></image>
-    <view wx:if="{{docs.length>0}}" wx:for="{{docs}}" data-index="{{index}}" data-url="{{item.url}}" bindtap="viewFile"><view class="iconfont icon-xiaochengxukaifa"></view>{{item.fileName}}</view>
+    <view wx:if="{{docs.length>0}}" wx:for="{{docs}}" data-index="{{index}}" data-url="{{item.url}}" bindtap="viewFile"><text class="iconfont icon-wendang"></text>{{item.fileName}}</view>
   </block>
 </view>
 

@@ -41,6 +41,14 @@ Page({
     })
   },
 
+  copyLink: function (e) {
+    const link = e.currentTarget.dataset.link
+    if (!link) return
+    wx.setClipboardData({
+      data: link
+    })
+  },  
+
   chooseImage:function(){
     if (this.data.user.userState === 1)return
     wx.chooseImage({

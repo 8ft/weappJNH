@@ -100,7 +100,7 @@ Page({
     if (this.data.typeIndex === 0) {
       let myPublish = this.data.myPublish
       this.setData({
-        'myPublish.pageIdnex': 1,
+        'myPublish.pageIndex': 1,
         'myPublish.nomore': false,
         'myPublish.projects': []
       })
@@ -108,7 +108,7 @@ Page({
     } else {
       let myApply = this.data.myApply
       this.setData({
-        'myApply.pageIdnex': 1,
+        'myApply.pageIndex': 1,
         'myApply.nomore': false,
         'myApply.projects': []
       })

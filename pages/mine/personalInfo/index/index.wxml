@@ -66,9 +66,9 @@
     <view class='works' wx:for="{{user.userSampleInfos}}">
       <image src="{{item.sampleImage||'/assets/img/default/banner.png'}}" data-url="{{item.sampleImage||''}}" bindtap='preview'></image>
       <view class='name'>{{item.sampleName}}</view>
-      <view class='type'>{{item.tradeTypeCn}}</view>
-      <view class='url' wx:if="{{item.sampleUrl}}">{{item.sampleUrl}}</view>
       <text decode='true' class='desc'>{{item.sampleDesc}}</text>
+      <view class='url' wx:if="{{item.sampleUrl}}" data-link="{{item.sampleUrl}}" bindtap="copyLink"><text class='iconfont icon-lianjie'></text>{{item.sampleUrl}}</view>
+      <view class='type'><text class='iconfont icon-biaoji'></text>{{item.tradeTypeCn}}</view>
       <button wx:if="{{user.userState!==1}}" class='btn del' bindtap="delWorks" data-id="{{item.id}}">删除</button>
       <navigator wx:if="{{user.userState!==1}}" class='btn edit' url="/pages/mine/personalInfo/works/index?index={{index}}">编辑</navigator>
     </view>

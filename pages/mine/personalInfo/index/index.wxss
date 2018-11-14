@@ -136,51 +136,56 @@ page{
   position: relative;
   box-sizing: border-box;
   width:670rpx;
-  padding:30rpx;
+  padding:30rpx 30rpx 50rpx;
   border:1px solid rgba(229,229,229,.5);
   margin-bottom: 20rpx;
 }
 .works image{
   width:100%;
-  height: 320rpx;
-  margin-bottom: 29rpx;
+  height: 332rpx;
+  margin-bottom:32rpx;
 }
 .works .name{
-  color:#666666;
+  color:#333333;
+  font-size: 34rpx;
+  line-height: 34rpx;
   margin-bottom:20rpx;
-  width:340rpx;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+}
+.works .desc{
+  display: block;
+  font-size: 28rpx;
+  color:#666666;
+  line-height: 40rpx;
+  margin-bottom: 30rpx;
+}
+.works .url{
+  font-size: 24rpx;
+  color:#999999;
+  margin-bottom: 27rpx;
 }
 .works .type{
   font-size: 24rpx;
   color: #999999;
-  margin-bottom: 17rpx;
 }
-.works .url{
-  font-size: 24rpx;
-  color:#CCCCCC;
-  margin-bottom: 35rpx;
+.works .iconfont{
+  margin-right:18rpx;
 }
-.works .desc{
-  font-size: 28rpx;
-  color:#999999;
-}
+
 .works .btn{
   width:120rpx;
   height: 54rpx;
   line-height: 54rpx;
   font-size: 24rpx;
-  border:1rpx solid #0083FF;
-  color:#0083FF;
+  background: #fff;
+  border:1rpx solid #FF6666;
+  color:#FF6666;
   position: absolute;
-  top:380rpx;
+  bottom:32rpx;
   right:180rpx;
-  border-radius: 8rpx;
   text-align: center;
 }
 .works .edit{
+  border-color: #0083FF;
   background: #0083FF;
   color:#fff;
   right:30rpx;
