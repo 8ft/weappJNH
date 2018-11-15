@@ -25,7 +25,9 @@
     "pages/mine/personalInfo/success/index",
     "pages/project/mine/index",
     "pages/expert/applicant/index",
-    "pages/expert/index/index"
+    "pages/expert/index/index",
+    "pages/mine/wallet/index",
+    "pages/mine/tradeDetail/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

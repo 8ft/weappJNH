@@ -115,46 +115,43 @@ Page({
     let res = await app.request.post('/project/projectInfo/detail', {
       projectNo: projectNo
     })
-    if(res.code===0){
+    if(res.code!==0)return
 
-      const data=res.data
-      let user = wx.getStorageSync('user')
-      if (user) {
-
-        if (data.projectState == 4) {
-          this.getApplyInfo(data.id,user.userId)
-        }
-
-        let isMyProject= user.userId == data.publisher
-        this.setData({
-          isMyProject: isMyProject
-        })
-        if (isMyProject && data.applyNum > 0) {
-          this.getApplyUsers(data.id)
-        }
+    let data=res.data
+    
+    const user = wx.getStorageSync('user')
+    if (user) {
+      if (data.projectState == 4) {
+        this.getApplyInfo(data.id,user.userId)
       }
-
-      data.createTime = data.createTime.slice(0, -3)
-
+      let isMyProject= user.userId == data.publisher
       this.setData({
-        detail: data
+        isMyProject: isMyProject
+      })
+      if (isMyProject && data.applyNum > 0) {
+        this.getApplyUsers(data.id)
+      }
+    }
+
+    data.createTime = data.createTime.slice(0, -3)
+    this.setData({
+      detail: data
+    })
+
+    let imgs, docs
+    if (data.fileBatchNo){
+      let files = data.filesArr
+      imgs = files.filter(item=>{
+        return /(\.gif|\.jpeg|\.png|\.jpg|\.bmp)/.test(item.url)
+      })
+      docs = files.filter(item => {
+        return /(\.doc|\.docx|\.xls|\.xlsx|\.ppt|\.pptx|\.pdf|\.txt)/.test(item.url)
       })
 
-      let imgs, docs
-      if (data.fileBatchNo){
-        let files = data.filesArr
-        imgs = files.filter(item=>{
-          return /(\.gif|\.jpeg|\.png|\.jpg|\.bmp)/.test(item.url)
-        })
-        docs = files.filter(item => {
-          return /(\.doc|\.docx|\.xls|\.xlsx|\.ppt|\.pptx|\.pdf|\.txt)/.test(item.url)
-        })
-
-        this.setData({
-          imgs: imgs,
-          docs: docs
-        })
-      }
+      this.setData({
+        imgs: imgs,
+        docs: docs
+      })
     }
   },
 

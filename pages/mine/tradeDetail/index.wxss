@@ -1,0 +1,69 @@
+/* pages/mine/tradeDetail/index.wxss */
+page{
+  background: #3B3E51;
+}
+
+.card{
+  position: relative;
+  width:690rpx;
+  padding-bottom:118rpx;
+  background: #fff;
+  margin: 30rpx auto;
+  box-sizing: border-box;
+  border-radius: 8rpx;
+  font-size: 32rpx;
+  color:#999999;
+}
+
+.ball{
+  position: absolute;
+  top:100rpx;
+  left:-20rpx;
+  width:40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background: #3B3E51; 
+}
+.ball.right{
+  left:auto;
+  right:-20rpx;
+}
+
+.time{
+  height: 129rpx;
+  line-height: 129rpx;
+  color: #333333;
+  text-align: center;
+  background: #F8F8F8;
+  border-radius: 8rpx;
+}
+
+.money{
+  height: 280rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.money .num{
+  margin-top: 50rpx;
+  line-height: 76rpx;
+  font-size: 76rpx;
+  color:#333333;
+  font-weight: 500;
+  font-family:PingFangSC-Medium;
+}
+
+.info{
+  padding:0 39rpx;
+  display: flex;
+  align-items: center;
+  height: 118rpx;
+  line-height: 118rpx;
+  color:#999999;
+}
+.info view{
+  flex: 1;
+  text-align: right;
+  color:#333333;
+}

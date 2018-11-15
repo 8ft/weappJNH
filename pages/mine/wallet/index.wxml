@@ -1,0 +1,28 @@
+<!--pages/mine/wallet/index.wxml-->
+<view class='base-info'>
+  <view class='title'>账户余额</view>
+  <view class='left'>￥{{wallet.balance}}</view>
+  <view class='totle'><text>历史收入</text>{{wallet.totalIncome}}元</view>
+  <button bindtap='download'>提现<text class='iconfont icon-xiayiye'></text></button>
+</view>
+
+<block wx:if="{{records.length>0}}">
+
+<navigator class='record' hover-class="none" wx:for="{{records}}" url="/pages/mine/tradeDetail/index?id={{item.id}}">
+  <image src="/assets/img/wallet/icon_sr@3x.png" wx:if="{{item.orderType===12}}"></image>
+  <image src="/assets/img/wallet/icon_tx@3x.png" wx:if="{{item.orderType===20}}"></image>
+
+  <view class='info border-b'>
+    <view class='name'>{{item.orderTypeName}}</view>
+    <text class='time'>{{item.createTime}}</text>
+    <view class='money income'>{{incomeFlag===1?'+':'-'}}{{item.amount}}
+      <text>{{item.orderStatusName}}</text>
+    </view>
+  </view>
+</navigator>
+
+</block>
+<block wx:else>
+  <nodata name='projects'></nodata>
+</block>
+

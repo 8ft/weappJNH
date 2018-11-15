@@ -58,7 +58,8 @@ Page({
   },
 
   toSkills:function(){
-    if (app.globalData.publishDataCache.skills.length===0){
+    const skills = app.globalData.publishDataCache.skills
+    if (!skills||skills.length===0){
       wx.showToast({
         title: '所选类型没有可选技能',
         icon: 'none'
