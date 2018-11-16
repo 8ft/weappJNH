@@ -11,7 +11,7 @@
     <view class='exp'>已完成{{item.finishOrderNums}}单</view>
 
     <text class='budget'>【报价：{{item.projectOffer}}】</text>
-    <button class='btn connect' catchtap='download'>联系他</button>
+    <button class='btn connect' catchtap='download'>联系TA</button>
     <button class='btn' catchtap='download'>雇佣专家</button>
   </view>
 </navigator>

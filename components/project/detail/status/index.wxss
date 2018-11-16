@@ -1,0 +1,23 @@
+/* components/project/status/index.wxss */
+
+.status{
+  position: relative;
+  padding:66rpx 40rpx 54rpx;
+  background:linear-gradient(254deg,rgba(57,157,251,1),rgba(50,118,253,1));
+}
+.status view{
+  color:#F8F8F8;
+  font-size: 32rpx;
+  margin-bottom: 24rpx;
+}
+.status text{
+  color:#AED6FD;
+  font-size: 24rpx;
+}
+.status image{
+  width:220rpx;
+  height: 114rpx;
+  position: absolute;
+  bottom:27rpx;
+  right:0;
+}

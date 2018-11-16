@@ -1,39 +1,46 @@
 <!--pages/project/detail/index.wxml-->
 
 <!-- 状态栏 -->
-<view class='state-zone' wx:if="{{isMyProject&&applyUsers}}">
-  <view>雇佣并付款</view>
-  <text>有专家申请你的项目了，快去选择心仪的TA。</text> 
-  <image src="/assets/img/project/detail/zmzj.png"></image>
-</view>
-
+<project-status status="{{detail.projectState}}" character="{{character}}"></project-status>
 
 <!-- 主要信息 -->
-<view class='part' style="padding-bottom:0;">
-  <view class='name'>{{detail.projectName}}
-    <view class='state' wx:if="{{detail.projectStateCn}}">{{detail.projectStateCn}}</view>
-  </view>
-  <text class='price'>{{detail.projectBudgetCn}}</text>
-  <text class='lead-times'>{{detail.projectCycleCn}}</text>
-  <view class='hot'>
-    <text class='applied' wx:if="{{!isMyProject}}">已申请：{{detail.applyNum}}</text>
-    <text class='read'>已浏览：{{detail.viewNum}}</text>
-  </view>
-
-
-  <!-- 申请的专家 -->
-  <navigator class='applyUsers arrow-right' hover-class='none' wx:if="{{isMyProject&&applyUsers}}" url="/pages/expert/applicant/index?id={{detail.id}}">
-    <text>申请的专家</text>
-    <view>
-      <image wx:for="{{applyUsers.list}}" src="{{item.userAvatar}}"></image>
+<block wx:if="{{inProgress}}">
+  <view class='part' style="padding-bottom:0;">
+    <view class='name'>{{detail.projectName}}
+      <view class='state' wx:if="{{detail.projectStateCn}}">{{detail.projectStateCn}}</view>
     </view>
-    <text wx:if="{{applyUsers.count>3}}">等{{applyUsers.count}}人</text>
-  </navigator>
-</view>
+    <text class='price'>{{detail.projectBudgetCn}}</text>
+    <text class='lead-times'>项目周期：{{detail.projectCycleCn}}</text>
+    <view class='hot'>
+      <text class='applied' wx:if="{{character!=='publisher'}}">已申请：{{detail.applyNum}}</text>
+      <text class='read'>已浏览：{{detail.viewNum}}</text>
+    </view>
+
+    <!-- 申请的专家 -->
+    <navigator class='applyUsers arrow-right' hover-class='none' wx:if="{{applyUsers}}" url="/pages/expert/applicant/index?id={{detail.id}}">
+      <text>申请的专家</text>
+      <view>
+        <image wx:for="{{applyUsers.list}}" src="{{item.userAvatar}}"></image>
+      </view>
+      <text wx:if="{{applyUsers.count>3}}">等{{applyUsers.count}}人</text>
+    </navigator>
+  </view>
+</block>
+
+<block wx:else>
+  <view class='part' style="padding-bottom:0;">
+    <view class='name'>{{detail.projectName}}</view>
+    <text class='price'>项目金额：{{detail.projectBudgetCn}}</text>
+    <text class='lead-times'>交付日期：{{detail.projectCycleCn}}</text>
+    <view>
+      
+    </view>
+  </view>
+</block>
 
 
 <!-- 申请信 -->
-<view class='part apply-info' wx:if="{{detail.projectState==4}}">
+<view class='part apply-info' wx:if="{{applyInfo}}">
   <view class='title'>我的申请信</view>
   <view class='offer'>我的报价：{{applyInfo.projectOffer}}</view>
   <text decode='true'>{{applyInfo.applyDesc}}</text>
@@ -56,13 +63,14 @@
   <view class='title'>项目描述</view>
   <text decode='true'>{{detail.projectDesc}}</text>
   <block wx:if="{{detail.fileBatchNo}}">
-    <image class='desc-img' wx:if="{{imgs.length>0}}" wx:for="{{imgs}}" src="{{item.url}}" data-url="{{item.url||''}}" bindtap='preview'></image>
+    <image class='desc-img' wx:if="{{imgs.length>0}}" wx:for="{{imgs}}" src="{{item.url}}" bindtap='preview'></image>
     <view wx:if="{{docs.length>0}}" wx:for="{{docs}}" data-index="{{index}}" data-url="{{item.url}}" bindtap="viewFile"><text class="iconfont icon-wendang"></text>{{item.fileName}}</view>
   </block>
 </view>
 
 
 <!-- 申请 -->
-<view class='action-bar' wx:if="{{detail.projectState==2&&!isMyProject}}">
-  <button class='btn' bindtap='apply'>发送申请</button>
-</view>
+<action-bar wx:if="{{detail.projectState==2&&character!=='publisher'}}">
+  <button class='btn-apply' bindtap='apply'>发送申请</button>
+</action-bar>
+

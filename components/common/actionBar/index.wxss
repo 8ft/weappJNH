@@ -1,0 +1,18 @@
+/* components/common/actionBar/index.wxss */
+.placeholder{
+  width:100%;
+  height: 150rpx;
+}
+
+.action-bar{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width:100%;
+  height: 150rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid rgba(229,229,229,.5);
+}

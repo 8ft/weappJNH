@@ -6,13 +6,12 @@ const regeneratorRuntime = require('../../../libs/regenerator-runtime.js')
 
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     no:'',
-    isMyProject:false,
+    character:'',
+    inProgress:false,
     detail:null,
+    cooperation:null,
     imgs:[],
     docs: [],
     docTemps:[],
@@ -51,65 +50,6 @@ Page({
     this.getDetail()
   },
 
-  preview: function (e) {
-    let curUrl = e.currentTarget.dataset.url
-    if (!curUrl) return
-    wx.previewImage({
-      urls: [curUrl]
-    })
-  },
-
-  viewFile:function(e){
-    let data = e.currentTarget.dataset
-
-    if(/\.txt/.test(data.url)){
-      wx.showModal({
-        title: '提示',
-        content: '小程序暂不支持该格式文件预览',
-        showCancel: false,
-        confirmText: '知道了'
-      })
-      return
-    }
-
-    let docTemps = this.data.docTemps
-    let index = data.index
-    let doc = docTemps[index]
-
-    if(!doc){
-      wx.showLoading({
-        title: '下载文档中',
-      })
-      let url = data.url.replace('http:','https:')
-      wx.downloadFile({
-        url: url,
-        success: res=>{
-          const filePath = res.tempFilePath
-          docTemps.push(filePath)
-          this.setData({
-            docTemps: docTemps
-          })
-          wx.hideLoading()
-          this.openDoc(filePath)
-        }
-      })
-    }else{
-     this.openDoc(doc)
-    }
-  },
-
-  openDoc:function(doc){
-    wx.openDocument({
-      filePath: doc,
-      fail: function (res) {
-        wx.showToast({
-          title: '打开文档失败',
-          icon: 'none'
-        })
-      }
-    })
-  },
-
   getDetail: async function (){
     let projectNo=this.data.no
     let res = await app.request.post('/project/projectInfo/detail', {
@@ -117,28 +57,30 @@ Page({
     })
     if(res.code!==0)return
 
-    let data=res.data
-    
+
     const user = wx.getStorageSync('user')
-    if (user) {
-      if (data.projectState == 4) {
-        this.getApplyInfo(data.id,user.userId)
+    let data = res.data,
+      character = '', 
+      applyUsers=null,
+      applyInfo=null,
+      cooperation=null,
+      inProgress = ['1', '2','3','4','12','13'].indexOf(data.projectState) > -1?false:true
+
+    if (inProgress) cooperation= await this.getCooperation(data.id)
+
+    //已登录且参与项目，判断角色,并请求对应数据
+    if (user && data.relationStatus===1) {
+      character = user.userId == data.publisher?'publisher':'applicant'
+      if (character === 'applicant' && ['4', '9'].indexOf(data.projectState) > -1) {
+        applyInfo=await this.getApplyInfo(data.id,user.userId)
       }
-      let isMyProject= user.userId == data.publisher
-      this.setData({
-        isMyProject: isMyProject
-      })
-      if (isMyProject && data.applyNum > 0) {
-        this.getApplyUsers(data.id)
+      if (data.applyNum > 0 && ['2', '7'].indexOf(data.projectState)>-1&& character === 'publisher' ) {
+        applyUsers=await this.getApplyUsers(data.id)
       }
     }
 
-    data.createTime = data.createTime.slice(0, -3)
-    this.setData({
-      detail: data
-    })
-
-    let imgs, docs
+    //提取详情图片，文件
+    let imgs=[], docs=[]
     if (data.fileBatchNo){
       let files = data.filesArr
       imgs = files.filter(item=>{
@@ -147,12 +89,29 @@ Page({
       docs = files.filter(item => {
         return /(\.doc|\.docx|\.xls|\.xlsx|\.ppt|\.pptx|\.pdf|\.txt)/.test(item.url)
       })
-
-      this.setData({
-        imgs: imgs,
-        docs: docs
-      })
     }
+
+    //修改createTime格式
+    data.createTime = data.createTime.slice(0, -3)
+
+    this.setData({
+      character: character,
+      inProgress: inProgress,
+      applyUsers: applyUsers,
+      applyInfo: applyInfo,
+      imgs: imgs,
+      docs: docs,
+      detail:data
+    })
+  },
+
+  getCooperation:async function(id){
+    let res = await app.request.post('/project/projectComfirm/detail', {
+      projectId: id
+    })
+    if (res.code !== 0) return
+    res.data.deliverTime = res.data.deliverTime.split(' ')[1].replace(/-/g, '.')
+    return res.data
   },
 
   getApplyInfo: async function (pid,uid) {
@@ -161,9 +120,7 @@ Page({
       userId: uid
     })
     if (res.code !== 0) return
-    this.setData({
-      applyInfo: res.data
-    })
+    return res.data
   },
 
   getApplyUsers: async function (id){
@@ -172,9 +129,7 @@ Page({
       projectId: id
     })
     if (res.code !== 0) return
-    this.setData({
-      applyUsers:res.data
-    })
+    return res.data
   },
 
   apply:async function(){
@@ -227,5 +182,66 @@ Page({
         })
         break;
     }
+  },
+
+
+  preview: function () {
+    wx.previewImage({
+      urls: this.data.imgs.map(img => {
+        return img.url
+      })
+    })
+  },
+
+  viewFile: function (e) {
+    let data = e.currentTarget.dataset
+
+    if (/\.txt/.test(data.url)) {
+      wx.showModal({
+        title: '提示',
+        content: '小程序暂不支持该格式文件预览',
+        showCancel: false,
+        confirmText: '知道了'
+      })
+      return
+    }
+
+    let docTemps = this.data.docTemps
+    let index = data.index
+    let doc = docTemps[index]
+
+    if (!doc) {
+      wx.showLoading({
+        title: '下载文档中'
+      })
+      let url = data.url.replace('http:', 'https:')
+      wx.downloadFile({
+        url: url,
+        success: res => {
+          const filePath = res.tempFilePath
+          docTemps.push(filePath)
+          this.setData({
+            docTemps: docTemps
+          })
+          wx.hideLoading()
+          this.openDoc(filePath)
+        }
+      })
+    } else {
+      this.openDoc(doc)
+    }
+  },
+
+  openDoc: function (doc) {
+    wx.openDocument({
+      filePath: doc,
+      fail: function (res) {
+        wx.showToast({
+          title: '打开文档失败',
+          icon: 'none'
+        })
+      }
+    })
   }
+
 })

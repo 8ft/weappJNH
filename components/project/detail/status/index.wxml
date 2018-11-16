@@ -1,0 +1,6 @@
+<!--components/project/status/index.wxml-->
+<view class='status' wx:if="{{content[status][character]}}">
+  <view>{{content[status][character].title}}</view>
+  <text>{{content[status][character].desc}}</text> 
+  <image src="/assets/img/project/detail/{{content[status][character].img}}.png"></image>
+</view>

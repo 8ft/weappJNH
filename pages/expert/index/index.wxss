@@ -17,6 +17,11 @@ page{
   border-radius:12rpx;
   margin: 0 auto;
 }
+.base-info .iconfont{
+  color:#CCCCCC;
+  font-size: 22rpx;
+  margin-right: 8rpx;
+}
 .base-info .avatar{
   position: absolute;
   width:128rpx;
@@ -29,6 +34,18 @@ page{
   font-size: 40rpx;
   color:#333333;
   font-weight:500;
+  display: flex;
+  align-items: center;
+}
+.name .iconfont{
+  font-size: 30rpx;
+  margin-left: 16rpx;
+}
+.iconfont.icon-xingbienv{
+  color:#FF8686;
+}
+.iconfont.icon-xingbienan{
+  color:#0083FF;
 }
 .base-info .price,.base-info .p-title{
   line-height: 74rpx;
