@@ -4,7 +4,7 @@
 <project-status status="{{detail.projectState}}" character="{{character}}"></project-status>
 
 <!-- 主要信息 -->
-<block wx:if="{{inProgress}}">
+<block wx:if="{{!inProgress}}">
   <view class='part' style="padding-bottom:0;">
     <view class='name'>{{detail.projectName}}
       <view class='state' wx:if="{{detail.projectStateCn}}">{{detail.projectStateCn}}</view>
@@ -27,13 +27,27 @@
   </view>
 </block>
 
+<!-- 主要信息——进行中 -->
 <block wx:else>
   <view class='part' style="padding-bottom:0;">
     <view class='name'>{{detail.projectName}}</view>
-    <text class='price'>项目金额：{{detail.projectBudgetCn}}</text>
-    <text class='lead-times'>交付日期：{{detail.projectCycleCn}}</text>
-    <view>
-      
+    <view class='final-price'>
+      项目金额：<text>{{cooperation.comfirmPrice}}元</text>
+    </view>
+    <text class='lead-times'>交付日期：{{cooperation.deliverTime}}</text>
+
+    <view wx:if="{{character!=='publisher'}}" class='cooperation-info'>
+        <image class='avatar' src="{{applyUsers[0].userAvatar}}"></image>
+        <view>
+          <view class='name'>{{applyUsers[0].nickName}}</view>
+          <image class='icon' src="/assets/img/icon/zj.png"></image>
+        </view>
+        <view class='right' data-phone="{{applyUsers[0].phoneNumber}}" bindtap='call'>{{applyUsers[0].phoneNumber}}</view>
+    </view>
+    <view wx:else class='cooperation-info'>
+        <image class='avatar' src="{{detail.pusherUserInfo.userAvatar}}"></image>
+        <view>{{detail.pusherUserInfo.nickName}}</view>
+        <view class='right'><image class='icon' src="/assets/img/icon/xmf.png"></image></view>
     </view>
   </view>
 </block>
@@ -71,6 +85,61 @@
 
 <!-- 申请 -->
 <action-bar wx:if="{{detail.projectState==2&&character!=='publisher'}}">
-  <button class='btn-apply' bindtap='apply'>发送申请</button>
+  <button class='btn-one' bindtap='apply'>发送申请</button>
 </action-bar>
 
+<!-- 发起雇佣 -->
+<action-bar wx:if="{{detail.projectState==5&&character==='publisher'}}" bindtap="download">
+  <button class='btn-one-third white'><text class='iconfont icon-lianxi'></text>联系TA</button>
+  <button class='btn-two-third'>取消雇佣</button>
+</action-bar>
+
+<action-bar wx:if="{{detail.projectState==5&&character==='applicant'}}" bindtap="download">
+  <button class='btn-one-third white'>联系TA</button>
+  <button class='btn-two-third'>立即处理</button>
+</action-bar>
+
+<!-- 确认合作,待付款 -->
+<action-bar  wx:if="{{detail.projectState==6&&character==='publisher'}}" bindtap="download">
+  <button class='btn-one-third white'>联系TA</button>
+  <button class='btn-two-third'>取消雇佣<text class='pay'>去付款</text></button>
+</action-bar>
+
+<action-bar wx:if="{{detail.projectState==6&&character==='applicant'}}" bindtap="download">
+  <button class='btn-one'>联系TA</button>
+</action-bar>
+
+<!-- 执行中 -->
+<action-bar wx:if="{{detail.projectState==8&&character==='publisher'}}" bindtap="download">
+  <button class='btn-one'>联系TA</button>
+</action-bar>
+
+<action-bar wx:if="{{detail.projectState==8&&character==='applicant'}}" bindtap="download">
+  <button class='btn-one-third white'>联系TA</button>
+  <button class='btn-two-third'>提交验收</button>
+</action-bar>
+
+<!-- 待验收 -->
+<action-bar wx:if="{{detail.projectState==10&&character==='publisher'}}" bindtap="download">
+  <button class='btn-one-third white'>联系TA</button>
+  <button class='btn-two-third'>处理验收</button>
+</action-bar>
+
+<action-bar wx:if="{{detail.projectState==10&&character==='applicant'}}" bindtap="download">
+  <button class='btn-one'>联系TA</button>
+</action-bar>
+
+<!-- 验收不通过 -->
+<action-bar wx:if="{{detail.projectState==14&&character==='publisher'}}" bindtap="download">
+  <button class='btn-one'>联系TA</button>
+</action-bar>
+
+<action-bar wx:if="{{detail.projectState==14&&character==='applicant'}}" bindtap="download">
+  <button class='btn-one-third white'>联系TA</button>
+  <button class='btn-two-third'>立即处理</button>
+</action-bar>
+
+<!-- 合作完成 -->
+<action-bar wx:if="{{detail.projectState==11}}" bindtap="download">
+  <button class='btn-one'>联系TA</button>
+</action-bar>

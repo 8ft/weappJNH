@@ -44,7 +44,7 @@ Page({
         },
         {
           dictName: '未通过',
-          dictValue: '3'
+          dictValue: '9'
         }
       ],
       currentState: 0,

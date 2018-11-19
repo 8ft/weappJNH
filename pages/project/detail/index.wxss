@@ -83,6 +83,46 @@
   line-height:48rpx;
 }
 
+
+.final-price{
+  font-size: 32rpx;
+  color:#666666;
+  font-weight: 500;
+  margin:25rpx 0 26rpx;
+}
+.final-price text{
+  color:#FC5B32;
+}
+.cooperation-info{
+  height: 110rpx;
+  display: flex;
+  align-items: center;
+}
+.cooperation-info .avatar{
+  width:80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 12rpx;
+}
+.cooperation-info .name{
+  font-size: 28rpx;
+  color:#333333;
+  line-height: 28rpx;
+  margin-bottom: 10rpx;
+  padding: 0;
+}
+.cooperation-info .icon{
+  width:84rpx;
+  height: 33rpx;
+}
+.cooperation-info .right{
+  flex: 1;
+  text-align: right;
+  line-height: 110rpx;
+}
+
+
+
 .title{
   line-height: 78rpx;
   color:#333333;
@@ -123,14 +163,42 @@
   margin-top: 37rpx;
 }
 
-.btn-apply{
-  width:630rpx;
+button[class^="btn-"]{
+  box-sizing: border-box;
   height:96rpx;
-  background:rgba(0,131,255,1);
+  background:#0083FF;
+  border:1px solid #0083FF;
   border-radius:4rpx;
   color:#fff;
   font-size: 32rpx;
   line-height: 96rpx;
   text-align: center;
 }
-
+.btn-one{
+  width:630rpx;
+}
+.btn-two-third{
+  width:436rpx;
+}
+.btn-half{
+  width:333rpx;
+  margin-right:22rpx;
+}
+.btn-one-third{
+  width:217rpx;
+  margin-right:28rpx;
+}
+button[class^="btn-"].white{
+  color:#0083FF;
+  background: #fff;
+}
+button[class^="btn-"] .iconfont{
+  font-size: 34rpx;
+  margin-right: 10rpx;
+}
+button[class^="btn-"] .pay{
+  line-height: 32rpx;
+  border-left:1px solid #F8F8F8;
+  margin-left:48rpx;
+  padding-left:48rpx;
+}

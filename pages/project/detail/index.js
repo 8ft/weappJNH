@@ -64,7 +64,7 @@ Page({
       applyUsers=null,
       applyInfo=null,
       cooperation=null,
-      inProgress = ['1', '2','3','4','12','13'].indexOf(data.projectState) > -1?false:true
+      inProgress = ['5', '6','8','10','11','14'].indexOf(data.projectState) > -1?true:false
 
     if (inProgress) cooperation= await this.getCooperation(data.id)
 
@@ -74,7 +74,7 @@ Page({
       if (character === 'applicant' && ['4', '9'].indexOf(data.projectState) > -1) {
         applyInfo=await this.getApplyInfo(data.id,user.userId)
       }
-      if (data.applyNum > 0 && ['2', '7'].indexOf(data.projectState)>-1&& character === 'publisher' ) {
+      if (data.applyNum > 0 && ['2', '5','6','7','8','10','11','14'].indexOf(data.projectState)>-1&& character === 'publisher' ) {
         applyUsers=await this.getApplyUsers(data.id)
       }
     }
@@ -91,12 +91,12 @@ Page({
       })
     }
 
-    //修改createTime格式
     data.createTime = data.createTime.slice(0, -3)
 
     this.setData({
       character: character,
       inProgress: inProgress,
+      cooperation:cooperation,
       applyUsers: applyUsers,
       applyInfo: applyInfo,
       imgs: imgs,
@@ -242,6 +242,16 @@ Page({
         })
       }
     })
+  },
+
+  call:function(e){
+    wx.makePhoneCall({
+      phoneNumber: e.detail.dataset.phone,
+    })
+  },
+
+  download:function(){
+    app.download()
   }
 
 })

@@ -21,3 +21,15 @@
   bottom:27rpx;
   right:0;
 }
+.status.xiajia{
+  background:linear-gradient(-30deg,rgba(255,141,118,1),rgba(254,96,97,1));
+}
+.status.xiajia text{
+  color:#fff;
+}
+.status.xiajia image{
+  width:140rpx;
+  height: 140rpx;
+  bottom: 30rpx;
+  right:48rpx;
+}
