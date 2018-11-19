@@ -20,7 +20,11 @@ Component({
         img: '/assets/img/default/no-project.png',
         text: '登录了就能开始处理工作了喔~',
         login:true
-      }
+      },
+      'wallet': {
+        img: '/assets/img/default/no-project.png',
+        text: '您暂时还没有收支明细记录哦~'
+      },
     }
   },
 
