@@ -31,15 +31,15 @@
         bindscrolltolower="getMyPublish"> 
 
         <navigator class='project border-b' wx:for="{{myPublish.projects}}" hover-class="none" url="/pages/project/detail/index?no={{item.projectNo}}">
-          <view class='icon kaifa'>
+          <view class='icon {{iconName[item.projectType]}}'>
             <view class="iconfont icon-{{iconName[item.projectType]}}"></view>
           </view>
           <view class='name'>{{item.projectName}}</view>
           <view class='base-info'>
-            <text class='publish-time'>{{item.createTime}}发布</text>
             <text>{{item.projectCycle}}完成</text>
+            <text class='publish-time'>{{item.createTime}}发布</text>
           </view>
-          <text class='price'>【{{item.projectBudget}}】</text>
+          <text class='price'>{{item.comfirmPrice?item.comfirmPrice+'元':item.projectBudget}}</text>
           <view class="status{{item.projectState}}">{{item.projectStateCn}}</view>
         </navigator>
 
@@ -59,15 +59,15 @@
         bindscrolltolower="getMyApply"> 
         
         <navigator class='project border-b' wx:for="{{myApply.projects}}" hover-class="none" url="/pages/project/detail/index?no={{item.projectNo}}">
-          <view class='icon kaifa'>
+          <view class='icon {{iconName[item.projectType]}}'>
             <view class="iconfont icon-{{iconName[item.projectType]}}"></view>
           </view>
           <view class='name'>{{item.projectName}}</view>
           <view class='base-info'>
-            <text class='publish-time'>{{item.createTime}}发布</text>
             <text>{{item.projectCycle}}完成</text>
+            <text class='publish-time'>已申请：{{item.applyNum}}人</text>
           </view>
-          <text class='price'>【{{item.projectBudget}}】</text>
+          <text class='price'>{{item.projectBudget}}元</text>
           <view class="status{{item.projectState}}">{{item.projectStateCn}}</view>
         </navigator>
 

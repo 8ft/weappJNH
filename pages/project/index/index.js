@@ -55,7 +55,9 @@ Page({
     })
     if(res.code===0){
       this.setData({
-        banners: res.data
+        banners: res.data.filter(banner=>{
+          return banner.menuType==='show'
+        })
       })
     }
   },
@@ -113,9 +115,9 @@ Page({
     let obj=e.currentTarget.dataset.obj
     switch (obj.menuType){
       case 'view':
-        wx.navigateTo({
-          url: `/pages/common/webview/index?url=${encodeURIComponent(obj.menuUrl)}`
-        })
+        // wx.navigateTo({
+        //   url: `/pages/common/webview/index?url=${encodeURIComponent(obj.menuUrl)}`
+        // })
       break;
       case 'click':
       break;

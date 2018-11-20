@@ -12,18 +12,25 @@
   padding:34rpx 0 0;
   line-height: 60rpx;
 }
-.state{
+.part view[class^="status"]{
   display: inline-block;
   line-height: 32rpx;
   padding:0 10rpx;
   text-align: center;
   font-size: 22rpx;
   color:#fff;
-  background:#02B18E;
   border-radius: 99rpx;
   margin-left: 10rpx;
   vertical-align: middle;
 }
+
+.status1,.status10,.status14{background: #4DB2FF;}
+.status2,.status5,.status6,.status7{background: #1AC6A4;}
+.status3,.status9,.status13{background: #FC7561;}  
+.status4{background: #FFB54C;}
+.status8{background: #95D364;}
+.status11,.status12{background: #CCCCCC;}
+
 .price{
   color:#FC5B32;
   line-height: 38rpx;
@@ -120,6 +127,12 @@
   text-align: right;
   line-height: 110rpx;
 }
+.cooperation-info .icon-phone{
+  width:20rpx;
+  height: 22rpx;
+  margin-right: 6rpx;
+  display: inline-block;
+}
 
 
 
@@ -202,3 +215,4 @@ button[class^="btn-"] .pay{
   margin-left:48rpx;
   padding-left:48rpx;
 }
+

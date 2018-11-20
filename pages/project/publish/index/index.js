@@ -7,6 +7,7 @@ const regeneratorRuntime = require('../../../../libs/regenerator-runtime.js')
 
 Page({
   data: {
+    hasLogin: false,
     dicts:[],
     typeIndex:0,
     subTypeIndex:0,
@@ -28,19 +29,26 @@ Page({
   
   onLoad: function (options) {
     app.addActiveTabbarPage()
-    app.checkLogin()
     this.getDicts()
   },
 
   onUnload:function(){
     app.delActiveTabbarPage()
   },
-
+   
   onShow:function(){
+    const user = wx.getStorageSync('user')
+    const hasLogin = (!user || user.expired) ? false : true
     this.setData({
-      needsSkillsCn: app.globalData.publishDataCache.needSkillsCn.join('|'),
-      desc: app.globalData.publishDataCache.desc.content
+      hasLogin: hasLogin
     })
+
+    if (hasLogin) {
+      this.setData({
+        needsSkillsCn: app.globalData.publishDataCache.needSkillsCn.join('|'),
+        desc: app.globalData.publishDataCache.desc.content
+      })
+    }
   },
 
   getDicts:async function(){
@@ -142,8 +150,6 @@ Page({
   },
 
   publish:async function(){
-    if(!app.checkLogin())return 
-
     let data = this.data
     if (!data.pName) {
       wx.showToast({

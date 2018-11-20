@@ -110,7 +110,7 @@ Page({
       projectId: id
     })
     if (res.code !== 0) return
-    res.data.deliverTime = res.data.deliverTime.split(' ')[1].replace(/-/g, '.')
+    res.data.deliverTime = res.data.deliverTime.split(' ')[0].replace(/-/g, '.')
     return res.data
   },
 
@@ -246,7 +246,7 @@ Page({
 
   call:function(e){
     wx.makePhoneCall({
-      phoneNumber: e.detail.dataset.phone,
+      phoneNumber: e.currentTarget.dataset.phone,
     })
   },
 

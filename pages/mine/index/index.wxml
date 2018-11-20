@@ -21,7 +21,7 @@
 <view class='entrances' bindtap='go' data-url="/pages/mine/wallet/index">
     <image src='/assets/img/mine/mine_wdqb@3x.png'></image>
     我的钱包
-    <text class='arrow-right'>{{hasLogin?user.balance:''}}</text>
+    <text class='arrow-right'>{{hasLogin?user.balance:''}}元</text>
 </view>
 
 <button class='entrances' open-type="share" bindtap='onShareAppMessage'>

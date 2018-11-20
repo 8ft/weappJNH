@@ -83,7 +83,7 @@ page{
 }
 
 .publish-time{
-  margin-right:41rpx;
+  margin-left:41rpx;
 }
 
 .price{
@@ -108,8 +108,8 @@ view[class^="status"]{
   font-weight:400;
 }
 
-.status1{background: #4DB2FF;}
-.status2{background: #1AC6A4;}
+.status1,.status10,.status14{background: #4DB2FF;}
+.status2,.status5,.status6,.status7{background: #1AC6A4;}
 .status3,.status9,.status13{background: #FC7561;}  
 .status4{background: #FFB54C;}
 .status8{background: #95D364;}

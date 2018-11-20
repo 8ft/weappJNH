@@ -24,6 +24,38 @@ Page({
         {
           dictName: '全部',
           dictValue: ''
+        },
+        {
+          dictName: '待审核',
+          dictValue: '1'
+        },
+        {
+          dictName: '审核未通过',
+          dictValue: '3'
+        },
+        {
+          dictName: '招募中',
+          dictValue: '2'
+        },
+        {
+          dictName: '执行中',
+          dictValue: '8'
+        },
+        {
+          dictName: '待验收',
+          dictValue: '10'
+        },
+        {
+          dictName: '已完成',
+          dictValue: '11'
+        },
+        {
+          dictName: '已关闭',
+          dictValue: '12'
+        },
+        {
+          dictName: '已下架',
+          dictValue: '13'
         }
       ],
       currentState:0,
@@ -56,7 +88,6 @@ Page({
 
   onLoad:function (options) {
     app.addActiveTabbarPage()
-    this.getPublishStates()
   },
 
   onUnload: function () {
@@ -138,19 +169,6 @@ Page({
     this.refresh()
   },
 
-  getPublishStates: async function () {
-    let res = await app.request.post('/dict/dictCommon/getDicts', {
-      dictType: 'project_state',
-      resultType: '1'
-    })
-
-    if (res.code === 0) {
-      this.setData({
-        'myPublish.states': this.data.myPublish.states.concat(res.data.data[0].dictList)
-      })
-    }
-  },
-
   getMyPublish:async function(){
     let myPublish = this.data.myPublish
     if (myPublish.nomore || !this.data.hasLogin) return 
@@ -173,7 +191,7 @@ Page({
     this.setData({
       'myPublish.pageIndex': myPublish.pageIndex,
       'myPublish.projects':myPublish.projects.concat(res.data.list.map(item => {
-        item.createTime = item.createTime.split(' ')[0]
+        item.createTime = item.createTime.split(' ')[0].replace(/-/g, '.')
         return item
       }))
     })
@@ -201,7 +219,7 @@ Page({
     this.setData({
       'myApply.pageIndex': myApply.pageIndex,
       'myApply.projects': myApply.projects.concat(res.data.list.map(item => {
-        item.createTime = item.createTime.split(' ')[0]
+        item.createTime = item.createTime.split(' ')[0].replace(/-/g, '.')
         return item
       }))
     })

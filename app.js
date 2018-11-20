@@ -76,7 +76,7 @@ App({
     switch (scene){
       case 'login':
         pages = ['pages/project/detail/index', 'pages/project/list/index']
-        tabbarPages = ['pages/project/index/index']
+        tabbarPages = ['pages/project/index/index', 'pages/project/mine/index/index']
         break;
       case 'logout':
         tabbarPages = ['pages/project/index/index', 'pages/project/publish/index/index']
