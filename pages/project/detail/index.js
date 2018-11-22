@@ -91,7 +91,7 @@ Page({
       })
     }
 
-    data.createTime = data.createTime.slice(0, -3)
+    data.createTime = data.createTime.slice(0, -3).replace(/-/g,'.')
 
     this.setData({
       character: character,
@@ -250,8 +250,6 @@ Page({
     })
   },
 
-  download:function(){
-    app.download()
-  }
+  download: app.download
 
 })

@@ -55,15 +55,20 @@ page{
 }
 
 .info{
-  padding:0 39rpx;
+  padding:31rpx 39rpx;
   display: flex;
   align-items: center;
-  height: 118rpx;
-  line-height: 118rpx;
+  justify-content: center;
+  min-height: 118rpx;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  line-height: 48rpx;
   color:#999999;
 }
 .info view{
   flex: 1;
+  padding-left: 96rpx;
   text-align: right;
   color:#333333;
+  white-space:pre-wrap;
 }

@@ -31,7 +31,5 @@ Page({
       })
     }
   },
-  download:function(){
-    app.download()
-  }
+  download: app.download
 })

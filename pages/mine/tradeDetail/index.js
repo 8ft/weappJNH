@@ -21,8 +21,12 @@ Page({
     })
     if (res.code !== 0) return
 
+    let timeArr = res.data.createTime.split(' ')
+    let dateArr = timeArr[0].split('-')
+    res.data.createTime = `${dateArr[0]}年${dateArr[1]}月${dateArr[2]}日 ${timeArr[1]}`
+
     this.setData({
-      wallet: res.data
+      detail: res.data
     })
   }
 })

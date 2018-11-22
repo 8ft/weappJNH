@@ -11,6 +11,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    scrollViewHeight:0,
     wallet:null,
     records:[],
     pageIndex:1,
@@ -18,18 +19,34 @@ Page({
   },
 
   onLoad: function (options) {
+    const query = wx.createSelectorQuery()
+    query.select('#baseInfo').fields({
+      size: true
+    }, res => {
+      wx.getSystemInfo({
+        success: data => {
+          this.setData({
+            scrollViewHeight: data.windowHeight - res.height
+          })
+        }
+      })
+    }).exec()
     this.getWallet()
     this.getRecords()
   },
 
-  onReachBottom: function () {
+  refresh:function(){
+    this.setData({
+      pageIndex:1,
+      nomore:false,
+      records:[]
+    })
     this.getRecords()
   },
 
   getWallet:async function(){
     let res = await app.request.post('/user/payFund/myPayFund')
     if (res.code !== 0) return
-
     this.setData({
       wallet: res.data
     })
@@ -37,25 +54,30 @@ Page({
 
   getRecords:async function(){
     if(this.data.nomore)return
+
+    let pageIndex = this.data.pageIndex
     let res = await app.request.post('/order/payOrder/myOrders',{
-      pageIndex:this.data.pageIndex,
-      fundFlag:1
+      pageIndex:pageIndex
     })
     if (res.code !== 0) return
 
-    if(res.page===res.pageIndex){
+    let list = res.data.list.map(item => {
+      item.createTime = item.createTime.replace(/-/g, '.')
+      return item
+    })
+
+    if (res.data.page === pageIndex){
       this.setData({
-        nomore:true
+        nomore:true,
+        records: this.data.records.concat(list)
       })
     }else{
       this.setData({
-        pageIndex:this.data.pageIndex++,
-        records: this.data.records.concat(res.data.list)
+        pageIndex: pageIndex+1,
+        records: this.data.records.concat(list)
       })
     }
   },
 
-  download:function(){
-    app.download()
-  }
+  download: app.download
 })

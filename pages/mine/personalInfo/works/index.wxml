@@ -20,7 +20,7 @@
   <view class='info'>
     <text class='name'>作品链接</text>
     <view class='input'>
-      <input placeholder='输入作品链接' data-type="url" value="{{url}}" bindinput='input'></input>
+      <input placeholder='以http://或https://开头' data-type="url" value="{{url}}" bindinput='input'></input>
     </view>
   </view>
 
