@@ -16,6 +16,13 @@
       <text class='read' wx:if="{{!(detail.projectState=='1'||detail.projectState=='3'||detail.projectState=='12'||detail.projectState=='13')}}">已浏览：{{detail.viewNum}}</text>
     </view>
 
+    <!-- 项目方 -->
+    <view wx:if="{{character!=='publisher'}}" class='cooperation-info border-t'>
+        <image class='avatar' src="{{detail.pusherUserInfo.userAvatar}}"></image>
+        <view>{{detail.pusherUserInfo.nickName}}</view>
+        <view class='right'><image class='icon' src="/assets/img/icon/xmf.png"></image></view>
+    </view>
+
     <!-- 申请的专家 -->
     <navigator class='applyUsers arrow-right' hover-class='none' wx:if="{{applyUsers}}" url="/pages/expert/applicant/index?id={{detail.id}}">
       <text>申请的专家</text>

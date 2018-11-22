@@ -6,7 +6,7 @@
   <view class='ball right'></view>
 
   <view class='money'>
-    <view>{{detail.incomeFlagName}}金额(元)</view>
+    <view>交易金额(元)</view>
     <view class='num'>{{detail.incomeFlag===1?'+':'-'}}{{detail.amount}}</view>
   </view>
 
