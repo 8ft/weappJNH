@@ -66,6 +66,10 @@ Page({
       return item
     })
 
+    list=list.filter(item=>{
+      return item.orderType!==22
+    })
+
     if (res.data.page === pageIndex){
       this.setData({
         nomore:true,

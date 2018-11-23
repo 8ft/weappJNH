@@ -29,7 +29,7 @@
         enable-back-to-top="true"
         bindscrolltoupper='refresh' 
         bindscrolltolower="getMyPublish"> 
-
+        
         <navigator class='project border-b' wx:for="{{myPublish.projects}}" hover-class="none" url="/pages/project/detail/index?no={{item.projectNo}}">
           <view class='icon {{iconName[item.projectType]}}'>
             <view class="iconfont icon-{{iconName[item.projectType]}}"></view>

@@ -103,6 +103,20 @@
 .final-price text{
   color:#FC5B32;
 }
+.final-price::after{
+  content:'资金担保';
+  display: inline-block;
+  margin-left: 9rpx;
+  width:100rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  background:rgba(2,177,142,.1);
+  color:#02B18E;
+  font-size: 20rpx;
+  text-align: center;
+  border-radius: 15rpx;
+  vertical-align: middle;
+}
 .cooperation-info{
   height: 110rpx;
   display: flex;
