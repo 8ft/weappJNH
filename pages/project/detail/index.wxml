@@ -1,17 +1,19 @@
 <!--pages/project/detail/index.wxml-->
 
 <!-- 状态栏 -->
-<project-status status="{{detail.projectState}}" character="{{character}}"></project-status>
+<block wx:if="{{!(detail.projectState==2&&detail.applyNum==0)}}">
+  <project-status status="{{detail.projectState}}" character="{{character}}"></project-status>
+</block>
 
 <!-- 主要信息 -->
 <block wx:if="{{!inProgress}}">
   <view class='part' style="padding-bottom:0;">
     <view class='name'>{{detail.projectName}}
-      <view class='status{{detail.projectState}}' wx:if="{{detail.projectStateCn}}">{{detail.projectStateCn}}</view>
+      <view class='status{{detail.projectState}}' wx:if="{{character&&detail.projectStateCn}}">{{detail.projectStateCn}}</view>
     </view>
     <text class='price'>{{detail.projectBudgetCn}}</text>
     <text class='lead-times'>项目周期：{{detail.projectCycleCn}}</text>
-    <view class='hot'>
+    <view class='hot' wx:if="{{character}}">
       <text class='applied' wx:if="{{character!=='publisher'}}">已申请：{{detail.applyNum}}</text>
       <text class='read' wx:if="{{!(detail.projectState=='1'||detail.projectState=='3'||detail.projectState=='12'||detail.projectState=='13')}}">已浏览：{{detail.viewNum}}</text>
     </view>
