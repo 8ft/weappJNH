@@ -62,7 +62,7 @@ Page({
     if (res.code !== 0) return
 
     let list = res.data.list.map(item => {
-      item.createTime = item.createTime.replace(/-/g, '.')
+      item.createTime = item.createTime.slice(0, -3).replace(/-/g, '.')
       return item
     })
 

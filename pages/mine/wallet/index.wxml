@@ -23,7 +23,7 @@
       <view class='info border-b'>
         <view class='name'>{{item.orderTypeName}}</view>
         <text class='time'>{{item.createTime}}</text>
-        <view class="money {{item.incomeFlag===1?'income':''}}">{{item.amount}}
+        <view class="money {{item.incomeFlag===1?'income':''}}">{{item.amount}}元
           <text wx:if="{{item.orderType===20&&(item.orderStatus===4||item.orderStatus===2)}}">{{item.orderTypeName+item.orderStatusName}}</text>
         </view>
       </view>

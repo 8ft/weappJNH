@@ -23,7 +23,7 @@ Page({
 
     let timeArr = res.data.createTime.split(' ')
     let dateArr = timeArr[0].split('-')
-    res.data.createTime = `${dateArr[0]}年${dateArr[1]}月${dateArr[2]}日 ${timeArr[1]}`
+    res.data.createTime = `${dateArr[0]}年${dateArr[1]}月${dateArr[2]}日 ${timeArr[1].slice(0, -3)}`
 
     this.setData({
       detail: res.data
