@@ -12,10 +12,12 @@
       <view class='status{{detail.projectState}}' wx:if="{{character&&detail.projectStateCn}}">{{detail.projectStateCn}}</view>
     </view>
     <text class='price'>{{detail.projectBudgetCn}}</text>
-    <text class='lead-times'>项目周期：{{detail.projectCycleCn}}</text>
-    <view class='hot' wx:if="{{character}}">
-      <text class='applied' wx:if="{{character!=='publisher'}}">已申请：{{detail.applyNum}}</text>
-      <text class='read' wx:if="{{!(detail.projectState=='1'||detail.projectState=='3'||detail.projectState=='12'||detail.projectState=='13')}}">已浏览：{{detail.viewNum}}</text>
+    <view class='others'>
+      <text class='lead-times'>项目周期：{{detail.projectCycleCn}}</text>
+      <view class='hot' wx:if="{{character}}">
+        <text class='applied' wx:if="{{character!=='publisher'}}">已申请：{{detail.applyNum}}</text>
+        <text class='read' wx:if="{{!(detail.projectState=='1'||detail.projectState=='3'||detail.projectState=='12'||detail.projectState=='13')}}">已浏览：{{detail.viewNum}}</text>
+      </view>
     </view>
 
     <!-- 项目方 -->
@@ -71,7 +73,7 @@
 <!-- 基本信息 -->
 <view class='part base'>
   <view class='title'>基本信息</view>
-  <view><text class="iconfont icon-xiaochengxukaifa"></text><text>{{detail.projectSubtypeCn}}</text></view>
+  <view><text class="iconfont icon-xiaochengxukaifa"></text><text>{{detail.projectTypeCn}}/{{detail.projectSubtypeCn}}</text></view>
   <view wx:if="{{detail.projectSkillCn}}"><text class="iconfont icon-Html"></text><text>{{detail.projectSkillCn}}</text></view>
   <view wx:if="{{detail.companyName}}"><text class="iconfont icon-gongsi"></text><text>{{detail.companyName}}</text></view>
   <view><text class="iconfont icon-qingxiang"></text><text>{{detail.cooperaterCn}}</text></view>
@@ -84,7 +86,7 @@
   <view class='title'>项目描述</view>
   <text decode='true'>{{detail.projectDesc}}</text>
   <block wx:if="{{detail.fileBatchNo}}">
-    <image class='desc-img' wx:if="{{imgs.length>0}}" wx:for="{{imgs}}" src="{{item.url}}" bindtap='preview'></image>
+    <image class='desc-img' mode="widthFix" wx:if="{{imgs.length>0}}" wx:for="{{imgs}}" src="{{item.url}}" bindtap='preview'></image>
     <view wx:if="{{docs.length>0}}" wx:for="{{docs}}" data-index="{{index}}" data-url="{{item.url}}" bindtap="viewFile"><text class="iconfont icon-wendang"></text>{{item.fileName}}</view>
   </block>
 </view>

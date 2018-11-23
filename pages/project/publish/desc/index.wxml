@@ -5,7 +5,7 @@
 
 <view class='imgs'>
   <view class='img' wx:for="{{imgs}}">
-    <image src="{{item.url}}" data-url="{{item.url}}" bindtap='preview'></image>
+    <image mode='aspectFill' src="{{item.url}}" data-url="{{item.url}}" bindtap='preview'></image>
     <view class='del' data-index="{{index}}" bindtap='delImg'>X</view>
   </view>
   <view wx:if="{{imgs.length<3}}" class='add' bindtap='chooseImage'><view>添加</view></view>

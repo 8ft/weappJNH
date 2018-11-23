@@ -8,6 +8,10 @@ page{
   background: #F2F2F2;
 }
 
+image{
+  height: auto;
+}
+
 input{
   outline:none;
   border:none;

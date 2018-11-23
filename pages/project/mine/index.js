@@ -35,7 +35,7 @@ Page({
         },
         {
           dictName: '招募中',
-          dictValue: '2'
+          dictValue: '2|4|5|6|7'
         },
         {
           dictName: '执行中',

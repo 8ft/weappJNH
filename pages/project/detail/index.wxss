@@ -36,21 +36,24 @@
   line-height: 38rpx;
   padding:18rpx 0 28rpx;
 }
+
+.others{
+  display: flex;
+  padding-bottom:37rpx;
+  line-height: 26rpx;
+}
 .lead-times{
   display: block;
   font-size: 28rpx;
-  line-height: 26rpx;
   color: #666666;
-  padding-bottom:37rpx;
 }
 .hot{
-  position:absolute;
-  right:40rpx;
-  top:187rpx;
+  flex: 1;
+  text-align: right;
   font-size: 24rpx;
-  line-height: 26rpx;
   color:#999999;
 }
+
 .applied{
   margin-right:20rpx;
   padding-right:20rpx;

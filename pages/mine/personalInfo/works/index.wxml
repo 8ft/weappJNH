@@ -41,7 +41,7 @@
   </view>
   <view class='img' bindtap='chooseImage'>
     <block wx:if="{{image}}">
-      <image src="{{image}}"></image>
+      <image mode='aspectFill' src="{{image}}"></image>
     </block>
     <block wx:else>
       <view>点击添加图片</view>

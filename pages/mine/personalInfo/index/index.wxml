@@ -64,7 +64,7 @@
   </block>
   <block wx:else>
     <view class='works' wx:for="{{user.userSampleInfos}}">
-      <image src="{{item.sampleImage||'/assets/img/default/banner.png'}}" data-url="{{item.sampleImage||''}}" bindtap='preview'></image>
+      <image mode='aspectFill' src="{{item.sampleImage||'/assets/img/default/banner.png'}}" data-url="{{item.sampleImage||''}}" bindtap='preview'></image>
       <view class='name'>{{item.sampleName}}</view>
       <text decode='true' class='desc'>{{item.sampleDesc}}</text>
       <view class='url' wx:if="{{item.sampleUrl}}" data-link="{{item.sampleUrl}}" bindtap="copyLink"><text class='iconfont icon-lianjie'></text>{{item.sampleUrl}}</view>
