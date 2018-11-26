@@ -39,7 +39,7 @@
       <project-card wx:for="{{projects}}" wx:for-item="project" project="{{project}}"></project-card>
     </view>
   </block>
-  <block wx:else>
+  <block wx:elif="{{!loading}}">
     <nodata name='projects'></nodata>
   </block>
 

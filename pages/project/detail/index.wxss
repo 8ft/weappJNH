@@ -103,7 +103,7 @@
 .final-price text{
   color:#FC5B32;
 }
-.final-price::after{
+.final-price.paid::after{
   content:'资金担保';
   display: inline-block;
   margin-left: 9rpx;

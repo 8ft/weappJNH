@@ -14,9 +14,9 @@
     <text class='price'>{{detail.projectBudgetCn}}</text>
     <view class='others'>
       <text class='lead-times'>项目周期：{{detail.projectCycleCn}}</text>
-      <view class='hot' wx:if="{{character}}">
-        <text class='applied' wx:if="{{!(character==='publisher'&&detail.applyNum>0)}}">已申请：{{detail.applyNum}}</text>
-        <text class='read' wx:if="{{!(detail.projectState=='1'||detail.projectState=='3'||detail.projectState=='12'||detail.projectState=='13')}}">已浏览：{{detail.viewNum}}</text>
+      <view class='hot' wx:if="{{character&&!(detail.projectState=='1'||detail.projectState=='3'||detail.projectState=='12')}}">
+        <text class='applied' wx:if="{{!(character==='publisher'&&detail.applyNum>0)}}">已申请：{{detail.applyNum||0}}</text>
+        <text class='read'>已浏览：{{detail.viewNum||0}}</text>
       </view>
     </view>
 
@@ -42,7 +42,7 @@
 <block wx:else>
   <view class='part' style="padding-bottom:0;">
     <view class='name'>{{detail.projectName}}</view>
-    <view class='final-price'>项目金额：<text>{{cooperation.comfirmPrice}}元</text></view>
+    <view class="final-price {{(detail.projectState!=5&&detail.projectState!=6&&detail.projectState!=11)?'paid':''}}">项目金额：<text>{{cooperation.comfirmPrice}}元</text></view>
     <text class='lead-times'>交付日期：{{cooperation.deliverTime}}</text>
 
     <view wx:if="{{character==='publisher'}}" class='cooperation-info'>

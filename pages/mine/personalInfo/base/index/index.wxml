@@ -48,7 +48,7 @@
   <view class='info'>
     <text class='name'>邮箱</text>
     <view class='input'>
-      <input type="email" placeholder='请输入邮箱地址' maxlength='20' data-type="email" value="{{userBaseInfo.email}}" bindinput='input'></input>
+      <input type="email" placeholder='请输入邮箱地址' maxlength='32' data-type="email" value="{{userBaseInfo.email}}" bindinput='input'></input>
     </view>
   </view>
 </view>

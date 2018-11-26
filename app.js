@@ -76,10 +76,10 @@ App({
     switch (scene){
       case 'login':
         pages = ['pages/project/detail/index', 'pages/project/list/index']
-        tabbarPages = ['pages/project/index/index', 'pages/project/mine/index/index']
+        tabbarPages = ['pages/project/index/index', 'pages/project/mine/index/index', 'pages/project/publish/index/index',]
         break;
       case 'logout':
-        tabbarPages = ['pages/project/index/index', 'pages/project/publish/index/index']
+        tabbarPages = ['pages/project/index/index', 'pages/project/mine/index/index', 'pages/project/publish/index/index']
         break;
       case 'applied'://申请项目
         pages = ['pages/project/detail/index', 'pages/project/list/index']

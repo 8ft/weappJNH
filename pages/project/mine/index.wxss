@@ -32,6 +32,11 @@ page{
   font-weight: 500;
 }
 
+#projects{
+  position: relative;
+  width:100%;
+}
+
 .project{
   display: block;
   padding: 44rpx 30rpx 44rpx 134rpx;

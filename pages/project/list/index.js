@@ -22,6 +22,7 @@ Page({
 
     filter:'',
 
+    loading:true,
     pageIndex: 1,
     projects: [],
     nomore: false
@@ -113,6 +114,9 @@ Page({
   },
 
   getProjects: async function () {
+    this.setData({
+      loading:true
+    })
     let nomore = this.data.nomore
     if (nomore) return
 
@@ -144,7 +148,8 @@ Page({
       this.setData({
         projects: this.data.projects.concat(list),
         pageIndex: pIndex,
-        nomore: nomore
+        nomore: nomore,
+        loading: false
       })
     }
 

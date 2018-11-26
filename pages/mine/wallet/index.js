@@ -57,7 +57,8 @@ Page({
 
     let pageIndex = this.data.pageIndex
     let res = await app.request.post('/order/payOrder/myOrders',{
-      pageIndex:pageIndex
+      pageIndex:pageIndex,
+      fundFlag:1
     })
     if (res.code !== 0) return
 

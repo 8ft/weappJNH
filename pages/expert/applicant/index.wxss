@@ -25,12 +25,13 @@
   display: flex;
   align-items: center;
   font-size: 36rpx;
+  line-height: 36rpx;
   color:#333333;
 }
 
 .name text{
   display: inline-block;
-  max-width:42%;
+  max-width:36%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -44,10 +45,11 @@
 }
 
 .msg{
+  display: block;
   font-size: 28rpx;
   color:#999999;
   line-height: 48rpx;
-  margin:30rpx 0;
+  margin:38rpx 0;
 }
 
 .exp{
@@ -59,6 +61,7 @@
 .budget{
   color:#FC5B32;
   font-size: 28rpx;
+  line-height: 36rpx;
   position: absolute;
   right:30rpx;
   top:0;

@@ -219,7 +219,10 @@ Page({
     })
 
     app.globalData.publishDataCache = {
-      skills: this.data.dicts[0].dictList[this.data.typeIndex].dictList[this.data.subTypeIndex].dictList,
+      skills: this.data.dicts[0].dictList[0].dictList[0].dictList.map(item => {
+        item.selected = false
+        return item
+      }),
       needSkills: [],
       needSkillsCn: [],
       desc: {

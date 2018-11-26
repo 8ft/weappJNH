@@ -71,6 +71,8 @@ page{
   font-size:28rpx;
   line-height: 58rpx;
   color:#666666;
+  white-space:pre-wrap;
+  word-break:break-all;
 }
 .userinfo .info text{
   position: absolute;

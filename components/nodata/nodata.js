@@ -18,6 +18,10 @@ Component({
       },
       'myProjects': {
         img: '/assets/img/default/no-project.png',
+        text: '还没有项目哦，快去发布OR申请~'
+      },
+      'myProjectsIndex': {
+        img: '/assets/img/default/no-project.png',
         text: '登录了就能开始处理工作了喔~',
         login:true
       },

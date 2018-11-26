@@ -19,6 +19,7 @@ Page({
     },
 
     pageSize:10,
+    loading:true,
     myPublish:{
       states: [
         {
@@ -35,7 +36,7 @@ Page({
         },
         {
           dictName: '招募中',
-          dictValue: '2|4|5|6|7'
+          dictValue: '2|5|6|7'
         },
         {
           dictName: '执行中',
@@ -43,7 +44,7 @@ Page({
         },
         {
           dictName: '待验收',
-          dictValue: '10'
+          dictValue: '10|14'
         },
         {
           dictName: '已完成',
@@ -72,11 +73,11 @@ Page({
         },
         {
           dictName: '申请中',
-          dictValue: '4'
+          dictValue: '4|5'
         },
         {
           dictName: '未通过',
-          dictValue: '9'
+          dictValue: '9|12|13'
         }
       ],
       currentState: 0,
@@ -170,6 +171,9 @@ Page({
   },
 
   getMyPublish:async function(){
+    this.setData({
+      loading:true
+    })
     let myPublish = this.data.myPublish
     if (myPublish.nomore || !this.data.hasLogin) return 
     let res = await app.request.post('/project/projectInfo/myProjectList', {
@@ -193,11 +197,16 @@ Page({
       'myPublish.projects':myPublish.projects.concat(res.data.list.map(item => {
         item.createTime = item.createTime.split(' ')[0].replace(/-/g, '.')
         return item
-      }))
+      })),
+      loading:false
     })
+
   },
 
   getMyApply:async function(){
+    this.setData({
+      loading: true
+    })
     let myApply = this.data.myApply
     if (myApply.nomore||!this.data.hasLogin) return
     let res = await app.request.post('/project/projectInfo/myProjectList', {
@@ -221,7 +230,8 @@ Page({
       'myApply.projects': myApply.projects.concat(res.data.list.map(item => {
         item.createTime = item.createTime.split(' ')[0].replace(/-/g, '.')
         return item
-      }))
+      })),
+      loading:false
     })
   }
 

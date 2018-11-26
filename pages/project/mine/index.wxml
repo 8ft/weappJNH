@@ -18,10 +18,9 @@
   </scroll-view>
 
 
-  <view id="projects">
+  <view id="projects" style="height:{{scrollViewHeight}}px">
     <!--我的项目-->
-    <block wx:if="{{typeIndex===0}}">
-      <scroll-view 
+      <scroll-view wx:if="{{typeIndex===0&&myPublish.projects.length>0}}"
         class='projects' 
         style="height:{{scrollViewHeight}}px" 
         scroll-y="true" 
@@ -29,7 +28,6 @@
         enable-back-to-top="true"
         bindscrolltoupper='refresh' 
         bindscrolltolower="getMyPublish"> 
-        
         <navigator class='project border-b' wx:for="{{myPublish.projects}}" hover-class="none" url="/pages/project/detail/index?no={{item.projectNo}}">
           <view class='icon {{iconName[item.projectType]}}'>
             <view class="iconfont icon-{{iconName[item.projectType]}}"></view>
@@ -39,16 +37,13 @@
             <text>{{item.projectCycle}}完成</text>
             <text class='publish-time'>{{item.createTime}}发布</text>
           </view>
-          <text class='price'>{{item.comfirmPrice?item.comfirmPrice+'元':item.projectBudget}}</text>
+          <text class='price'>{{(item.comfirmPrice&&item.projectInfoState!=2)?item.comfirmPrice+'元':item.projectBudget}}</text>
           <view class="status{{item.projectState}}">{{item.projectStateCn}}</view>
         </navigator>
-
       </scroll-view>
-    </block>
 
     <!--申请项目-->
-    <block wx:else>
-      <scroll-view 
+      <scroll-view wx:elif="{{typeIndex===1&&myApply.projects.length>0}}"
         class='projects'
         style="height:{{scrollViewHeight}}px" 
         scroll-y="true" 
@@ -57,7 +52,6 @@
         enable-back-to-top="true"
         bindscrolltoupper='refresh' 
         bindscrolltolower="getMyApply"> 
-        
         <navigator class='project border-b' wx:for="{{myApply.projects}}" hover-class="none" url="/pages/project/detail/index?no={{item.projectNo}}">
           <view class='icon {{iconName[item.projectType]}}'>
             <view class="iconfont icon-{{iconName[item.projectType]}}"></view>
@@ -70,14 +64,17 @@
           <text class='price'>{{item.projectBudget}}元</text>
           <view class="status{{item.projectState}}">{{item.projectStateCn}}</view>
         </navigator>
-
       </scroll-view>
-    </block>
+
+      <block wx:elif="{{!loading}}">
+        <nodata name='myProjects'></nodata>
+      </block>
+
   </view>
 </block>
 
 <block wx:else>
-  <nodata name='myProjects'></nodata>
+  <nodata name='myProjectsIndex'></nodata>
 </block>
 
 
