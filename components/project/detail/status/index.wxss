@@ -32,6 +32,7 @@
 .status.xiajia image{
   width:140rpx;
   height: 140rpx;
-  bottom: 30rpx;
+  bottom:50%;
+  margin-bottom:-70rpx;
   right:48rpx;
 }

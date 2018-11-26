@@ -6,9 +6,13 @@ Component({
       timingFunction: 'ease',
     })
     this.animation = animation
-    this.selectTab('tab0')
+    this.selectTab(0)
   },
   properties: {
+    active:{
+      type:Number,
+      value:0,
+    },
     tabs: Array,
     fixed:{
       type:Boolean,
@@ -16,26 +20,25 @@ Component({
     }
   },
   data: {
-    currentTarget:'tab0',
     animationData:null
   },
   methods: {
     tabClick: function (e) {
-      let tabId = e.currentTarget.id
-      if(tabId!==this.data.currentTarget){
-        this.selectTab(tabId)
-        this.triggerEvent('change', { index: parseInt(tabId.split('tab')[1]) })
+      let index = e.currentTarget.dataset.index
+      if (index!==this.data.active){
+        this.selectTab(index)
+        this.triggerEvent('change', { index: index})
       }
     },
-    selectTab:function(id){
+    selectTab:function(index){
       const query = wx.createSelectorQuery().in(this)
-      query.select(`#${id}`).fields({
+      query.select(`#tab${index}`).fields({
         size: true,
         rect:true
       }, (res) => {
         let width = res.width / 2
         this.setData({
-          currentTarget:id,
+          active: index,
           animationData: this.animation.width(width).translateX(res.left + width/2).step().export()
         })
       }).exec()

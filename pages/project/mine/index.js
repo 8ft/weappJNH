@@ -107,7 +107,7 @@ Page({
         'myPublish.currentState':0,
         'myPublish.projects': [],
         'myPublish.pageIndex': 1,
-        'myPublish.nomore': false,
+        'myPublish.nomore': false
       })
     } else if (hasLogin && this.data.myPublish.projects.length === 0){
       if (this.data.scrollViewHeight===0){
@@ -128,7 +128,7 @@ Page({
     }
   },
 
-  refresh:function(e){
+  refresh:function(){
     if (this.data.typeIndex === 0) {
       let myPublish = this.data.myPublish
       this.setData({

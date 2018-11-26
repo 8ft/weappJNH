@@ -67,14 +67,14 @@
       </scroll-view>
 
       <block wx:elif="{{!loading}}">
-        <nodata name='myProjects'></nodata>
+        <nodata name="{{typeIndex===0?'myPublish':'myApply'}}"></nodata>
       </block>
 
   </view>
 </block>
 
 <block wx:else>
-  <nodata name='myProjectsIndex'></nodata>
+  <nodata name='myProjects'></nodata>
 </block>
 
 

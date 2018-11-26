@@ -16,11 +16,15 @@ Component({
         img:'/assets/img/default/no-project.png',
         text:'空空如也，什么都没有～'
       },
-      'myProjects': {
+      'myPublish': {
         img: '/assets/img/default/no-project.png',
         text: '还没有项目哦，快去发布OR申请~'
       },
-      'myProjectsIndex': {
+      'myApply': {
+        img: '/assets/img/default/no-project.png',
+        text: '还没有申请过项目呢~'
+      },
+      'myProjects': {
         img: '/assets/img/default/no-project.png',
         text: '登录了就能开始处理工作了喔~',
         login:true

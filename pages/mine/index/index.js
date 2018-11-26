@@ -96,8 +96,9 @@ Page({
               }
             }
             wx.clearStorageSync()
-            app.refreshPages('logout')
-            this.onShow()
+            wx.reLaunch({
+              url: '/pages/mine/index/index'
+            })
           }
         }
       }

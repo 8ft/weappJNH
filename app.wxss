@@ -20,6 +20,7 @@ input{
 
 text{
   word-break: break-all;
+  white-space:pre-wrap;
 }
 
 button{
