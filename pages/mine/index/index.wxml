@@ -35,7 +35,3 @@
     退出当前账号
     <text class='arrow-right'></text>
 </view>
-
-<!-- <view class='action-bar' wx:if="{{hasLogin}}">
-  <button bindtap='logout'>退出当前账号</button>
-</view> -->

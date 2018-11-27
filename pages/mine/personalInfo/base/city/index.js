@@ -76,7 +76,11 @@ Page({
       cities.list[letter] = []
     })
     cityList.map(city => {
-      cities.list[getLetter(city.zoneName[0])[0]].push(city)
+      if (city.zoneName==='重庆市'){
+        cities.list['C'].push(city)
+      }else{
+        cities.list[getLetter(city.zoneName[0])[0]].push(city)
+      }
     })
 
     this.setData({

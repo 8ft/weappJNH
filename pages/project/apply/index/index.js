@@ -24,6 +24,7 @@ Page({
   },
 
   input: function (e) {
+    const inputType = e.currentTarget.dataset.type
     let input = e.detail.value
     let validInput = input.replace(/(^[\s\r\n]*)|([\s\r\n]*$)/g, "")
    

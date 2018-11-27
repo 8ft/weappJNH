@@ -14,13 +14,43 @@ Page({
     expIndex:0
   },
 
-  onLoad: function (options) {
-    this.getDicts()
-  },
+  onShow:async function () {
+    const data = app.globalData.userInfo.userBaseInfo
+    let dicts = this.data.dicts
+    if (dicts.length===0){
+      dicts = await this.getDicts()
+      this.setData({
+        dicts: dicts
+      })
+      this.saveJobTypes()
+    }
 
-  onShow: function () {
+    let joinIndex
+    dicts[1].dictList.forEach((item, index) => {
+      if (item.dictName === data.settleTypeCn) {
+        joinIndex=index
+      }
+    })
+
+    let sexIndex
+    dicts[0].dictList.forEach((item, index) => {
+      if (item.dictName === data.sexCn) {
+        sexIndex = index
+      }
+    })
+
+    let expIndex
+    dicts[3].dictList.forEach((item, index) => {
+      if (item.dictName === data.workExperienceCn) {
+        expIndex = index
+      }
+    })
+    
     this.setData({
-      userBaseInfo: app.globalData.userInfo.userBaseInfo
+      userBaseInfo: data,
+      joinIndex:joinIndex,
+      sexIndex: sexIndex,
+      expIndex: expIndex
     })
   },
 
@@ -31,10 +61,8 @@ Page({
     })
 
     if (res.code === 0) {
-      this.setData({
-        dicts: this.data.dicts.concat(res.data.data)
-      })
-      this.saveJobTypes()
+      return res.data.data
+     
     }
   },
 

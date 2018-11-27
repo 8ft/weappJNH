@@ -65,7 +65,7 @@
 <!-- 申请信 -->
 <view class='part apply-info' wx:if="{{applyInfo}}">
   <view class='title'>我的申请信</view>
-  <view class='offer'>我的报价：{{applyInfo.projectOffer}}</view>
+  <view class='offer'>报价：{{applyInfo.projectOffer}}元</view>
   <text decode='true'>{{applyInfo.applyDesc}}</text>
 </view>
 

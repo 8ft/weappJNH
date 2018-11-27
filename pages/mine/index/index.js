@@ -11,19 +11,19 @@ Page({
     state:''
   },
 
-  onShow:function(){
+  onShow:async function(){
     let user = wx.getStorageSync('user')
     let hasLogin = (!user || user.expired) ? false : true
-    this.setData({
-      hasLogin: hasLogin
-    })
     if (hasLogin){
-      this.getInfo()
+     await this.getInfo()
     }else{
       this.setData({
         state:''
       })
     }
+    this.setData({
+      hasLogin: hasLogin
+    })
   },
 
   onShareAppMessage: function () {
@@ -42,31 +42,28 @@ Page({
   },
 
   getInfo: async function () {
-    let res = await app.request.post('/user/userAuth/getUserBaseInfo', {})
-    if (res.code === 0) {
-      app.globalData.userInfo = res.data
-
-      let state=''
-      switch(res.data.userState){
-        case 0:
-          state='请完善'
-          break;
-        case 1:
-          state = '审核中'
-          break;
-        case 2:
-          state = '审核通过'
-          break;
-        case 3:
-          state = '审核未通过'
-          break;
-      }
-
-      this.setData({
-        user: res.data,
-        state:state
-      })
+    let res = await app.request.post('/user/userAuth/getUserBaseInfo')
+    if (res.code !== 0) return
+    let state=''
+    switch(res.data.userState){
+      case 0:
+        state='请完善'
+        break;
+      case 1:
+        state = '审核中'
+        break;
+      case 2:
+        state = '审核通过'
+        break;
+      case 3:
+        state = '审核未通过'
+        break;
     }
+    app.globalData.userInfo = res.data
+    this.setData({
+      user: res.data,
+      state:state
+    })
   },
 
   logout:function(){
