@@ -24,24 +24,30 @@ Page({
   },
 
   input: function (e) {
-    let inputType = e.currentTarget.dataset.type
-    let val = e.detail.value.replace(/[ ]/g, "").replace(/[\r\n]/g, "")
+    let input = e.detail.value
+    let validInput = input.replace(/(^[\s\r\n]*)|([\s\r\n]*$)/g, "")
+   
     switch (inputType) {
       case 'price':
         this.setData({
-          price: val
+          price: validInput
         })
         break;
       case 'desc':
-        let conLen = val.length,
-          inputLen
+        let conLen = validInput.length
+        if (conLen > 100) {
+          input = input.slice(0, 100)
+          validInput = input.replace(/(^[\s\r\n]*)|([\s\r\n]*$)/g, "")
+          conLen = validInput.length
+        }
+        let inputLen
         if (conLen === 100) {
           inputLen = 100
-        } else {
+        } else if (conLen < 100) {
           inputLen = -1
         }
         this.setData({
-          desc: e.detail.value,
+          desc: input,
           conLen: conLen,
           inputLen: inputLen
         })
