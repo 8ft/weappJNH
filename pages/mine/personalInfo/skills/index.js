@@ -158,7 +158,6 @@ Page({
       userSkillInfos: JSON.stringify(this.data.addedSkills)
     })
     if (res.code === 0) {
-      app.refreshPages('updatePersonalInfo')
       wx.navigateBack()
     }
   }

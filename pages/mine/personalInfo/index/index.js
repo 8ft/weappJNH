@@ -11,15 +11,8 @@ Page({
     user:null
   },
 
-  onLoad:function(){
-    this.getInfo()
-  },
-
   onShow:function(){
     app.checkLogin()
-  },
-
-  refresh: function () {
     this.getInfo()
   },
 

@@ -60,7 +60,6 @@ Page({
       introduction: this.data.content.replace(/(^[\s\r\n]*)|([\s\r\n]*$)/g, "")
     })
     if (res.code === 0) {
-      app.refreshPages('updatePersonalInfo')
       wx.navigateBack()
     }
   },

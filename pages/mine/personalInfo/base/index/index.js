@@ -62,7 +62,6 @@ Page({
 
     if (res.code === 0) {
       return res.data.data
-     
     }
   },
 
@@ -112,7 +111,6 @@ Page({
         })
         break;
     }
-    app.globalData.userInfo.userBaseInfo = this.data.userBaseInfo
   },
 
   input: function (e) {
@@ -141,7 +139,6 @@ Page({
     this.setData({
       userBaseInfo: this.data.userBaseInfo
     })
-    app.globalData.userInfo.userBaseInfo=this.data.userBaseInfo
   },
 
   save:async function(){
@@ -162,7 +159,6 @@ Page({
       wechat:data.wechat
     })
     if(res.code===0){
-      app.refreshPages('updatePersonalInfo')
       wx.navigateBack()
     }
   },

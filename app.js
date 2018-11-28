@@ -82,9 +82,6 @@ App({
         pages = ['pages/project/detail/index', 'pages/project/list/index']
         tabbarPages = ['pages/project/index/index', 'pages/project/mine/index']
         break;
-      case 'updatePersonalInfo':
-        pages = ['pages/mine/personalInfo/index/index']
-        break;
     }
 
     const currentPages = getCurrentPages()

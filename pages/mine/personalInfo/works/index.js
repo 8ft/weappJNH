@@ -22,8 +22,11 @@ Page({
     id:''
   },
 
-  onLoad: function (options) {
-    let index = options.index
+  onLoad:async function (options) {
+    let dicts = await this.getDicts()
+    let tradeType = dicts[0].dictName
+
+    const index = options.index
     if (index){
       let data = app.globalData.userInfo.userSampleInfos[index]
 
@@ -37,19 +40,32 @@ Page({
         inputLen = -1
       }
 
+      let industryIndex
+      dicts.forEach((item, index) => {
+        if (item.dictName === data.tradeTypeCn) {
+          industryIndex = index
+        }
+      })
+
+      tradeType = data.tradeTypeCn
+
       this.setData({
         name: data.sampleName,
-        type: data.tradeType,
         url: data.sampleUrl,
         desc:desc,
         image: data.sampleImage,
         conLen: conLen,
         inputLen: inputLen,
         batchNo: data.sampleImageBatchNo,
-        id:data.id
+        id:data.id,
+        industryIndex: industryIndex
       })
     }
-    this.getDicts()
+
+    this.setData({
+      dicts: dicts,
+      type: tradeType
+    })
   },
 
   getDicts: async function () {
@@ -60,10 +76,7 @@ Page({
 
     if (res.code === 0) {
       let dicts = res.data.data[0].dictList
-      this.setData({
-        dicts: dicts,
-        type: dicts[0].dictName
-      })
+      return dicts
     }
   },
 
@@ -147,7 +160,7 @@ Page({
       })
       return
     }
-    if (data.url&&!/(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?/.test(data.url)){
+    if (data.url && !/(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?/.test(data.url.toLowerCase())){
       wx.showToast({
         title: '作品链接有误，请以http://或者https://开头',
         icon: 'none'
@@ -161,10 +174,9 @@ Page({
       tradeType: data.dicts[data.industryIndex].dictValue,
       id:data.id,
       sampleImage: data.batchNo,
-      sampleUrl: data.url
+      sampleUrl: data.url.toLowerCase()
     })
     if (res.code === 0) {
-      app.refreshPages('updatePersonalInfo')
       wx.navigateBack()
     }
   }
