@@ -1,10 +1,13 @@
 //index.js
-//获取应用实例
 const app = getApp()
-//引入async await依赖库
 const regeneratorRuntime = require('../../../libs/regenerator-runtime.js')
+const observer = require('../../../libs/observer').observer;
 
-Page({
+Page(observer({
+  props: {
+    stores: require('../../../stores/index')
+  },
+
   data: {
     hasLogin:false,
     user:null,
@@ -12,6 +15,8 @@ Page({
   },
 
   onShow:async function(){
+    console.log(this.props.stores.account.state)
+
     let user = wx.getStorageSync('user')
     let hasLogin = (!user || user.expired) ? false : true
     if (hasLogin){
@@ -101,4 +106,4 @@ Page({
       }
     })
   }
-})
+}))
