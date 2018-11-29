@@ -1,21 +1,19 @@
 // pages/user/login/index.js
-
-//获取应用实例
 const app = getApp()
-//引入async await依赖库
 const regeneratorRuntime = require('../../../libs/regenerator-runtime.js')
+const observer = require('../../../libs/observer').observer;
 
-Page({
+Page(observer({
+  props: {
+    stores: app.stores
+  },
+
   data: {
     phone: '',
     code: '',
     getCodeTxt: '获取验证码',
     countDown: 60,
     userInfo:null
-  },
-
-  onLoad:function(){
-    
   },
 
   input: function (e) {
@@ -104,6 +102,7 @@ Page({
 
     if (res.code===0){
       wx.setStorageSync('user', res.data)
+      this.props.stores.account.login(app)
       this.getInfo()
     }
   },
@@ -111,9 +110,7 @@ Page({
   getInfo: async function () {
     let res = await app.request.post('/user/userAuth/getUserBaseInfo', {})
     if (res.code !== 0) return
-
     app.globalData.userInfo = res.data
-    app.refreshPages('login')
     wx.navigateBack()
   }
-})
+}))

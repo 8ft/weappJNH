@@ -87,14 +87,6 @@ Page({
     }
   },
 
-  onLoad:function (options) {
-    app.addActiveTabbarPage()
-  },
-
-  onUnload: function () {
-    app.delActiveTabbarPage()
-  },
-
   onShow:function(){
     const user = wx.getStorageSync('user')
     const hasLogin = (!user || user.expired) ? false : true

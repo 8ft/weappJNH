@@ -1,10 +1,13 @@
 //index.js
-//获取应用实例
 const app = getApp()
-//引入async await依赖库
 const regeneratorRuntime = require('../../../libs/regenerator-runtime.js')
+const observer = require('../../../libs/observer').observer;
 
-Page({
+Page(observer({
+  props: {
+    stores: app.stores
+  },
+
   data: {
    banners:null,
    types: ['全部'],
@@ -19,15 +22,14 @@ Page({
     }
   },
 
-  onLoad:async function () {
-    app.addActiveTabbarPage()
-    this.getBanner()
-    await this.getProjectTypes()
-    this.getProjects()
-  },
-
-  onUnload:function(){
-    app.delActiveTabbarPage()
+  onShow:async function(){
+    if(this.data.banners===null){
+      this.getBanner()
+      await this.getProjectTypes()
+      this.getProjects()
+    } else{
+      this.props.stores.toRefresh.refresh('project/index/index',this.refresh)
+    }
   },
 
   onPullDownRefresh:function(){
@@ -123,4 +125,4 @@ Page({
       break;
     }
   }
-})
+}))

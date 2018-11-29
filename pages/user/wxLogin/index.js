@@ -1,11 +1,12 @@
 // pages/user/wxLogin/index.js
-
-//获取应用实例
 const app = getApp()
-//引入async await依赖库
 const regeneratorRuntime = require('../../../libs/regenerator-runtime.js')
+const observer = require('../../../libs/observer').observer;
 
-Page({
+Page(observer({
+  props: {
+    stores: app.stores
+  },
 
   data: {
     encryptedData:'',
@@ -13,28 +14,9 @@ Page({
   },
 
   onLoad: function () {
-    this.logout()
-  },
-
-  logout:function(){
-    app.globalData = {
-      userInfo: null,
-      editUserInfoCache: {
-        jobTypes: null,
-        detail: {
-          content: ''
-        }
-      },
-      publishDataCache: {
-        skills: null,
-        needSkills: [],
-        needSkillsCn: [],
-        desc: {
-          content: ''
-        }
-      }
+    if(this.props.stores.account.logged_in){
+      this.props.stores.account.logout(app,true)
     }
-    wx.clearStorageSync()
   },
 
   bindGetUserInfo:function(e) {
@@ -54,7 +36,6 @@ Page({
 
   preLogin:async function(){
     let oid,uid
-
     wx.login({
       success: async res => {
         let data = await app.request.get('/weixin/mini/getOpenId', {
@@ -101,6 +82,7 @@ Page({
     let code = res.code
     if (code === 0) {
       wx.setStorageSync('user', res.data)
+      this.props.stores.account.login(app)
       this.getUserInfo()
     } else if (code === 507) {
       wx.redirectTo({
@@ -112,9 +94,7 @@ Page({
   getUserInfo: async function () {
     let res = await app.request.post('/user/userAuth/getUserBaseInfo', {})
     if (res.code !== 0) return
-    
     app.globalData.userInfo = res.data
-    app.refreshPages('login')
     wx.navigateBack()
   }
-})
+}))

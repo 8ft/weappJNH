@@ -1,5 +1,7 @@
 const account = require('./account.js')
+const toRefresh = require('./toRefresh.js')
 
 module.exports = {
-  account: account
+  account: account,
+  toRefresh: toRefresh
 }

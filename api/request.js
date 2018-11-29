@@ -27,10 +27,6 @@ const request =(url, options) => {
         let code = res.data.code
         if (code&&code !== 0) {
           if (code === 506001) {
-            //设置过期
-            let user=wx.getStorageSync('user')
-            user.expired=true
-            wx.setStorageSync('user',user)
             //重新登录
             wx.navigateTo({
               url: '/pages/user/wxLogin/index'

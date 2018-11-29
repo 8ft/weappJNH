@@ -28,12 +28,7 @@ Page({
   },
   
   onLoad: function (options) {
-    app.addActiveTabbarPage()
     this.getDicts()
-  },
-
-  onUnload:function(){
-    app.delActiveTabbarPage()
   },
    
   onShow:function(){

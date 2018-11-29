@@ -90,8 +90,6 @@ Page({
         title: '发送成功',
         icon: 'none'
       })
-
-      app.refreshPages('applied')
       wx.navigateBack()
     }
   }

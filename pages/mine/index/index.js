@@ -5,30 +5,22 @@ const observer = require('../../../libs/observer').observer;
 
 Page(observer({
   props: {
-    stores: require('../../../stores/index')
+    stores: app.stores
   },
 
   data: {
-    hasLogin:false,
     user:null,
     state:''
   },
 
   onShow:async function(){
-    console.log(this.props.stores.account.state)
-
-    let user = wx.getStorageSync('user')
-    let hasLogin = (!user || user.expired) ? false : true
-    if (hasLogin){
+    if (this.props.stores.account.logged_in){
      await this.getInfo()
     }else{
       this.setData({
         state:''
       })
     }
-    this.setData({
-      hasLogin: hasLogin
-    })
   },
 
   onShareAppMessage: function () {
@@ -77,31 +69,7 @@ Page(observer({
       content: '确定要退出吗',
       success: async res => {
         if (res.confirm) {
-          let res = await app.request.post('/user/userAuth/logout', {})
-          if (res.code === 0) {
-
-            app.globalData = {
-              userInfo: null,
-              editUserInfoCache: {
-                jobTypes: null,
-                detail: {
-                  content: ''
-                }
-              },
-              publishDataCache: {
-                skills: null,
-                needSkills: [],
-                needSkillsCn: [],
-                desc: {
-                  content: ''
-                }
-              }
-            }
-            wx.clearStorageSync()
-            wx.reLaunch({
-              url: '/pages/mine/index/index'
-            })
-          }
+            this.props.stores.account.logout(app)
         }
       }
     })

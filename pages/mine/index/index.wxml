@@ -1,6 +1,6 @@
 <!--index.wxml-->
 
-<view class="userinfo" wx:if="{{!hasLogin}}">
+<view class="userinfo" wx:if="{{!props.stores.account.logged_in}}">
   <text class='nickName'>探索未知~</text>
   <navigator url='/pages/user/wxLogin/index' hover-class='none'>登录/注册</navigator>
   <image class='avatar' src='/assets/img/default/avatar.png'></image>
@@ -30,7 +30,7 @@
     <text class='arrow-right'></text>
 </button>
 
-<view class='entrances' style='margin-top:30rpx;' wx:if="{{hasLogin}}" bindtap='logout'>
+<view class='entrances' style='margin-top:30rpx;' wx:if="{{props.stores.account.logged_in}}" bindtap='logout'>
     <image src='/assets/img/mine/mine_sz@3x.png'></image>
     退出当前账号
     <text class='arrow-right'></text>
