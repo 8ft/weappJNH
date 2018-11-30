@@ -8,18 +8,18 @@ Page(observer({
     stores: app.stores
   },
 
+  onShareAppMessage: function (res) {
+    return {
+      title: '接包发包专业平台'
+    }
+  },
+
   data: {
    banners:null,
    types: ['全部'],
    pageIndex: 1,
    projects:[],
    nomore: false
-  },
-
-  onShareAppMessage: function (res) {
-    return {
-      title: '接包发包专业平台'
-    }
   },
 
   onShow:async function(){
