@@ -1,32 +1,28 @@
-/* pages/mine/personalInfo/success/index.wxss */
-page{
+page {
   background: #fff;
 }
-
-.icon{
+.icon {
   display: block;
-  width:185rpx;
+  width: 185rpx;
   height: 233rpx;
-  margin:153rpx auto 80rpx;
+  margin: 153rpx auto 80rpx;
 }
-
-.txt{
+.txt {
   font-size: 36rpx;
-  color:#666666;
+  color: #666666;
   line-height: 48rpx;
   text-align: center;
   display: block;
-  margin-bottom:80rpx;
+  margin-bottom: 80rpx;
 }
-
-.btn{
+.btn {
   display: block;
-  width:630rpx;
-  height:96rpx;
+  width: 630rpx;
+  height: 96rpx;
   line-height: 96rpx;
-  background:rgba(0,131,255,1);
-  border-radius:4rpx;
-  color:#fff;
+  background: #0083FF;
+  border-radius: 4rpx;
+  color: #fff;
   text-align: center;
   margin: 0 auto;
   font-size: 32rpx;

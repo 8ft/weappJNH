@@ -1,15 +1,13 @@
-/* pages/mine/personalInfo/base/jobTypes/index.wxss */
-.tip{
-  background:#fff;
+.tip {
+  background: #fff;
   text-align: center;
   line-height: 64rpx;
-  font-size:24rpx;
-  color:#999999;
+  font-size: 24rpx;
+  color: #999999;
 }
-
-.title{
+.title {
   font-size: 28rpx;
-  color:#999999;
+  color: #999999;
   line-height: 50rpx;
   text-indent: 40rpx;
 }

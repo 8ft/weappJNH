@@ -1,96 +1,88 @@
-/* pages/mine/personalInfo/base/index.wxss */
-
-.part{
-  background:#fff;
-  padding:0 40rpx;
+.part {
+  background: #fff;
+  padding: 0 40rpx;
   box-sizing: border-box;
 }
-
-.sep{
-  font-size:24rpx;
-  color: #999999;
+.sep {
+  font-size: 24rpx;
+  color: #999;
   line-height: 80rpx;
   text-indent: 40rpx;
 }
-
-.info{
+.info {
   display: flex;
   align-items: center;
-  padding:46rpx 0 42rpx;
-  border-bottom:1px solid rgba(229,229,229,.5);
+  padding: 46rpx 0 42rpx;
+  border-bottom: 1rpx solid rgba(229, 229, 229, 0.5);
   word-break: break-all;
 }
-.types{
+.types {
   display: block;
   border-bottom: none;
+  margin-top: 30rpx;
 }
-.types .name{
+.types .name {
   display: block;
-  margin-bottom:30rpx;
+  margin-bottom: 30rpx;
 }
-
-.types{
-  margin-top:30rpx;
-}
-.type{
+.types .type {
   float: left;
-  width:126rpx;
-  height:126rpx;
-  background: #F5F5F5;
+  width: 126rpx;
+  height: 126rpx;
+  background: #f5f5f5;
   text-align: center;
-  padding-top:20rpx;
+  padding-top: 20rpx;
   box-sizing: border-box;
 }
-.type:nth-of-type(n+2){margin-left: 55rpx;}
-.type.active{
-  background:#0083FF;
-  color:#fff;
+.types .type:nth-of-type(n+2) {
+  margin-left: 55rpx;
 }
-.type .iconfont{
-  font-size:50rpx;
+.types .type.active {
+  background: #0083FF;
+  color: #fff;
+}
+.types .type .iconfont {
+  font-size: 50rpx;
   height: 50rpx;
 }
-.type text{
-  font-size:24rpx;
+.types .type text {
+  font-size: 24rpx;
 }
-
-.name{
-  font-size:32rpx;
-  color:#666666;
+.name {
+  font-size: 32rpx;
+  color: #666666;
 }
-.info.need .name::after{
-  content:'*';
-  color:red;
-  font-size:40rpx;
+.info.need .name::after {
+  content: '*';
+  color: red;
+  font-size: 40rpx;
 }
-.input{
-  margin-left:20rpx;
+.input {
+  margin-left: 20rpx;
   min-height: 32rpx;
-  flex:1;
+  flex: 1;
   text-align: right;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
-.arrow-right::before{
-  border-left-color:#CCCCCC;
+.arrow-right::before {
+  border-left-color: #CCCCCC;
 }
-
-.action-bar{
-  background:#fff;
-  width:100%;
+.action-bar {
+  background: #fff;
+  width: 100%;
   height: 150rpx;
   display: flex;
   align-items: center;
 }
-.action-bar button{
-  margin:0 auto;
-  width:630rpx;
-  height:96rpx;
-  background:rgba(0,131,255,1);
-  border-radius:4rpx;
-  color:#fff;
+.action-bar button {
+  margin: 0 auto;
+  width: 630rpx;
+  height: 96rpx;
+  background: #0083ff;
+  border-radius: 4rpx;
+  color: #fff;
   font-size: 32rpx;
   line-height: 96rpx;
 }

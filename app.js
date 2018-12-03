@@ -1,7 +1,7 @@
 //app.js
 const request = require('./api/request.js')
 const util = require('./utils/util.js')
-const stores=require('./stores/index')
+const stores= require('./stores/index')
 
 App({
   stores: stores,
@@ -33,7 +33,7 @@ App({
     }
   },
 
-  checkLogin: () => {
+  checkLogin: function(){
     if (!this.stores.account.logged_in) {
       wx.navigateTo({
         url: '/pages/user/wxLogin/index',

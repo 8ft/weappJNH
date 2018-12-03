@@ -3,8 +3,16 @@
 	"packOptions": {
 		"ignore": [
       {
+        "type": "folder",
+        "value": "less"
+      },
+      {
         "type": "regexp",
         "value": "\\.less$"
+      },
+      {
+        "type": "file",
+        "value": "csscomb.json"
       }
     ]
 	},

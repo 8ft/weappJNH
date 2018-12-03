@@ -1,110 +1,102 @@
-/* pages/project/apply/index.wxss */
-page{
+page {
   box-sizing: border-box;
-  padding-bottom:150rpx;
+  padding-bottom: 150rpx;
   background: #fff;
   padding: 0 40rpx;
 }
-
-.info{
+.info {
   display: flex;
   align-items: center;
-  padding:46rpx 0 42rpx;
-  border-bottom:1px solid rgba(229,229,229,.5);
+  padding: 46rpx 0 42rpx;
+  border-bottom: 1rpx solid rgba(229, 229, 229, 0.5);
 }
-
-.name{
-  font-size:32rpx;
-  color:#666666;
+.name {
+  font-size: 32rpx;
+  color: #666;
 }
-.info.need .name::after{
-  content:'*';
-  color:red;
-  font-size:40rpx;
+.info.need .name::after {
+  content: '*';
+  color: red;
+  font-size: 40rpx;
 }
-.input{
-  margin-left:20rpx;
+.input {
+  margin-left: 20rpx;
   min-height: 32rpx;
-  flex:1;
+  flex: 1;
   text-align: right;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
-.arrow-right::before{
-  border-left-color:#CCCCCC;
+.arrow-right::before {
+  border-left-color: #ccc;
 }
-
-.desc{
+.desc {
   position: relative;
   background: #fff;
-  width:100%;
+  width: 100%;
   height: 486rpx;
 }
-.desc textarea,.desc .placeholder{
+.desc textarea,
+.desc .placeholder {
   display: block;
   box-sizing: border-box;
-  padding:27rpx 22rpx;
+  padding: 27rpx 22rpx;
   background: #fafafa;
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
   font-size: 28rpx;
-  line-height:48rpx;
+  line-height: 48rpx;
 }
-.desc .conLen{
+.desc .conLen {
   position: absolute;
-  bottom:20rpx;
-  right:20rpx;
-  font-size:24rpx;
-  color:#CCCCCC;
+  bottom: 20rpx;
+  right: 20rpx;
+  font-size: 24rpx;
+  color: #ccc;
   z-index: 1;
 }
-.desc .placeholder{
+.desc .placeholder {
   position: absolute;
-  color:#CCCCCC;
+  color: #ccc;
   top: 0;
-  left:0;
+  left: 0;
 }
-
-checkbox .wx-checkbox-input{  
-  width:24rpx;
+checkbox .wx-checkbox-input {
+  width: 24rpx;
   height: 24rpx;
 }
-
-checkbox .wx-checkbox-input.wx-checkbox-input-checked{
-  border-color:#0080FF;
-  background:#0080FF;
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  border-color: #0080ff;
+  background: #0080ff;
 }
-
-.agree{
+.agree {
   margin-top: 23rpx;
   text-align: center;
-  font-size:24rpx;
-  color:#999999;
+  font-size: 24rpx;
+  color: #999;
 }
-.agree navigator{
+.agree navigator {
   display: inline;
-  color:#0080FF;
+  color: #0080ff;
 }
-
-.action-bar{
+.action-bar {
   position: fixed;
-  bottom:0;
-  left:0;
-  background:#fff;
-  width:100%;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  width: 100%;
   height: 150rpx;
   display: flex;
   align-items: center;
 }
-.action-bar button{
-  margin:0 auto;
-  width:630rpx;
-  height:96rpx;
-  background:rgba(0,131,255,1);
-  border-radius:4rpx;
-  color:#fff;
+.action-bar button {
+  margin: 0 auto;
+  width: 630rpx;
+  height: 96rpx;
+  background: #0083ff;
+  border-radius: 4rpx;
+  color: #fff;
   font-size: 32rpx;
   line-height: 96rpx;
 }

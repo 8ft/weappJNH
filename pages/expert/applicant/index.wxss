@@ -1,88 +1,75 @@
-/* pages/expert/applicant/index.wxss */
-
-.applicant{
+.applicant {
   position: relative;
   background: #fff;
-  padding:58rpx 0 0 136rpx;
+  padding: 58rpx 0 0 136rpx;
 }
-
-.avatar{
+.applicant .avatar {
   position: absolute;
-  top:58rpx;
-  left:30rpx;
-  width:84rpx;
+  top: 58rpx;
+  left: 30rpx;
+  width: 84rpx;
   height: 84rpx;
   border-radius: 50%;
 }
-
-.info{
+.applicant .info {
   padding-bottom: 58rpx;
   position: relative;
   padding-right: 30rpx;
 }
-
-.name{
+.applicant .name {
   display: flex;
   align-items: center;
   font-size: 36rpx;
   line-height: 36rpx;
-  color:#333333;
+  color: #333333;
 }
-
-.name text{
+.applicant .name text {
   display: inline-block;
-  max-width:36%;
+  max-width: 36%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
-.name image{
+.applicant .name image {
   margin-left: 15rpx;
-  width:82rpx;
+  width: 82rpx;
   height: 33rpx;
   display: inline-block;
 }
-
-.msg{
+.applicant .msg {
   display: block;
   font-size: 28rpx;
-  color:#999999;
+  color: #999999;
   line-height: 48rpx;
-  margin:38rpx 0;
+  margin: 38rpx 0;
 }
-
-.exp{
+.applicant .exp {
   font-size: 24rpx;
-  color:#999999;
+  color: #999999;
   line-height: 52rpx;
 }
-
-.budget{
-  color:#FC5B32;
+.applicant .budget {
+  color: #fc5b32;
   font-size: 28rpx;
   line-height: 36rpx;
   position: absolute;
-  right:30rpx;
-  top:0;
+  right: 30rpx;
+  top: 0;
 }
-
-.btn{
+.applicant .btn {
   position: absolute;
-  bottom:58rpx;
-  right:30rpx;
-  width:140rpx;
+  bottom: 58rpx;
+  right: 30rpx;
+  width: 140rpx;
   height: 50rpx;
   line-height: 50rpx;
-  color:#fff;
+  color: #fff;
   background: #0083FF;
-  border:1rpx solid #0083FF;
+  border: 1rpx solid #0083FF;
   font-size: 24rpx;
 }
-.connect{
-  color:#0083FF;
+.applicant .connect {
+  color: #0083FF;
   background: #fff;
-  right:191rpx;
+  right: 191rpx;
 }
-
-

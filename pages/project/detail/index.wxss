@@ -1,235 +1,240 @@
-/* pages/project/detail/index.wxss */
-.part{
-  padding:0 40rpx 37rpx;
+.part {
+  padding: 0 40rpx 37rpx;
   position: relative;
   background: #fff;
-  margin-bottom:22rpx;
+  margin-bottom: 22rpx;
 }
-
-.name,.price{display: block;font-size:40rpx;font-weight:500;}
-.name{
-  color:#333333;
-  padding:34rpx 0 0;
+.name,
+.price {
+  display: block;
+  font-size: 40rpx;
+  font-weight: 500;
+}
+.name {
+  color: #333;
+  padding: 34rpx 0 0;
   line-height: 60rpx;
 }
-.part view[class^="status"]{
+.part view[class^='status'] {
   display: inline-block;
   line-height: 32rpx;
-  padding:0 10rpx;
+  padding: 0 10rpx;
   text-align: center;
   font-size: 22rpx;
-  color:#fff;
+  color: #fff;
   border-radius: 99rpx;
   margin-left: 10rpx;
   vertical-align: middle;
 }
-
-.status1,.status10,.status14{background: #4DB2FF;}
-.status2,.status5,.status6,.status7{background: #1AC6A4;}
-.status3,.status9,.status13{background: #FC7561;}  
-.status4{background: #FFB54C;}
-.status8{background: #95D364;}
-.status11,.status12{background: #CCCCCC;}
-
-.price{
-  color:#FC5B32;
-  line-height: 38rpx;
-  padding:18rpx 0 28rpx;
+.status1,
+.status10,
+.status14 {
+  background: #4db2ff;
 }
-
-.others{
+.status2,
+.status5,
+.status6,
+.status7 {
+  background: #1ac6a4;
+}
+.status3,
+.status9,
+.status13 {
+  background: #fc7561;
+}
+.status4 {
+  background: #ffb54c;
+}
+.status8 {
+  background: #95d364;
+}
+.status11,
+.status12 {
+  background: #ccc;
+}
+.price {
+  color: #fc5b32;
+  line-height: 38rpx;
+  padding: 18rpx 0 28rpx;
+}
+.others {
   display: flex;
-  padding-bottom:37rpx;
+  padding-bottom: 37rpx;
   line-height: 26rpx;
 }
-.lead-times{
+.lead-times {
   display: block;
   font-size: 28rpx;
-  color: #666666;
+  color: #666;
 }
-.hot{
+.hot {
   flex: 1;
   text-align: right;
   font-size: 24rpx;
-  color:#999999;
+  color: #999;
 }
-
-.applied{
-  margin-right:20rpx;
-  padding-right:20rpx;
+.applied {
+  margin-right: 20rpx;
+  padding-right: 20rpx;
   display: inline-block;
   line-height: 17rpx;
-  border-right:1px solid rgba(204,204,204,1);
+  border-right: 1px solid #cccccc;
 }
-
-.applyUsers{
+.applyUsers {
   margin-top: 20rpx;
   display: flex;
   align-items: center;
   font-size: 32rpx;
-  color:#333;
+  color: #333;
   height: 110rpx;
 }
-.applyUsers view{
+.applyUsers view {
   flex: 1;
   text-align: right;
 }
-.applyUsers image{
-  width:60rpx;
+.applyUsers image {
+  width: 60rpx;
   height: 60rpx;
   margin-right: 20rpx;
   border-radius: 50%;
 }
-
-.apply-info .offer{
+.apply-info .offer {
   margin-top: 15rpx;
-  color:#333333;
+  color: #333;
   font-size: 24rp;
   margin-bottom: 20rpx;
 }
-.apply-info text{
-  color:#999999;
+.apply-info text {
+  color: #999;
   font-size: 28rpx;
-  line-height:48rpx;
+  line-height: 48rpx;
 }
-
-
-.final-price{
+.final-price {
   font-size: 32rpx;
-  color:#666666;
+  color: #666;
   font-weight: 500;
-  margin:25rpx 0 26rpx;
+  margin: 25rpx 0 26rpx;
 }
-.final-price text{
-  color:#FC5B32;
+.final-price text {
+  color: #fc5b32;
 }
-.final-price.paid::after{
-  content:'资金担保';
+.final-price.paid::after {
+  content: '资金担保';
   display: inline-block;
   margin-left: 9rpx;
-  width:100rpx;
+  width: 100rpx;
   height: 30rpx;
   line-height: 30rpx;
-  background:rgba(2,177,142,.1);
-  color:#02B18E;
+  background: rgba(2, 177, 142, 0.1);
+  color: #02b18e;
   font-size: 20rpx;
   text-align: center;
   border-radius: 15rpx;
   vertical-align: middle;
 }
-.cooperation-info{
+.cooperation-info {
   height: 110rpx;
   display: flex;
   align-items: center;
 }
-.cooperation-info .avatar{
-  width:80rpx;
+.cooperation-info .avatar {
+  width: 80rpx;
   height: 80rpx;
   border-radius: 50%;
   margin-right: 12rpx;
 }
-.cooperation-info .name{
+.cooperation-info .name {
   font-size: 28rpx;
-  color:#333333;
+  color: #333;
   line-height: 28rpx;
   margin-bottom: 10rpx;
   padding: 0;
 }
-.cooperation-info .icon{
-  width:84rpx;
+.cooperation-info .icon {
+  width: 84rpx;
   height: 33rpx;
 }
-.cooperation-info .right{
+.cooperation-info .right {
   flex: 1;
   text-align: right;
   line-height: 110rpx;
 }
-.cooperation-info .icon-phone{
-  width:20rpx;
+.cooperation-info .icon-phone {
+  width: 20rpx;
   height: 22rpx;
   margin-right: 6rpx;
   display: inline-block;
 }
-
-
-
-.title{
+.title {
   line-height: 78rpx;
-  color:#333333;
-  border-bottom: 1px solid rgba(229,229,229,.5);
-  margin-bottom:30rpx;
+  color: #333;
+  border-bottom: 1rpx solid rgba(229, 229, 229, 0.5);
+  margin-bottom: 30rpx;
 }
-
-.base view{
+.base view {
   display: flex;
   align-items: center;
 }
-.base view:not(.title){
-  font-size:28rpx;
-  color:#999999;
-  margin-top:26rpx;
+.base view:not(.title) {
+  font-size: 28rpx;
+  color: #999;
+  margin-top: 26rpx;
 }
-.base .iconfont{
+.base .iconfont {
   margin-right: 22rpx;
 }
-
-.desc text{
-  color:#666666;
+.desc text {
+  color: #666;
 }
-
-.desc-img{
-  display: block;
-  width:100%;
-  margin-top: 20rpx;
-}
-
-.desc .iconfont{
+.desc .iconfont {
   margin-right: 10rpx;
 }
-
-.desc view:not(.title){
-  color:#333333;
+.desc view:not(.title) {
+  color: #333;
   font-size: 28rpx;
   margin-top: 37rpx;
 }
-
-button[class^="btn-"]{
+.desc-img {
+  display: block;
+  width: 100%;
+  margin-top: 20rpx;
+}
+button[class^='btn-'] {
   box-sizing: border-box;
-  height:96rpx;
-  background:#0083FF;
-  border:1px solid #0083FF;
-  border-radius:4rpx;
-  color:#fff;
+  height: 96rpx;
+  background: #0083ff;
+  border: 1px solid #0083ff;
+  border-radius: 4rpx;
+  color: #fff;
   font-size: 32rpx;
   line-height: 96rpx;
   text-align: center;
 }
-.btn-one{
-  width:630rpx;
-}
-.btn-two-third{
-  width:436rpx;
-}
-.btn-half{
-  width:333rpx;
-  margin-right:22rpx;
-}
-.btn-one-third{
-  width:217rpx;
-  margin-right:28rpx;
-}
-button[class^="btn-"].white{
-  color:#0083FF;
+button[class^='btn-'].white {
+  color: #0083ff;
   background: #fff;
 }
-button[class^="btn-"] .iconfont{
+button[class^='btn-'] .iconfont {
   font-size: 34rpx;
   margin-right: 10rpx;
 }
-button[class^="btn-"] .pay{
+button[class^='btn-'] .pay {
   line-height: 32rpx;
-  border-left:1px solid #F8F8F8;
-  margin-left:48rpx;
-  padding-left:48rpx;
+  border-left: 1px solid #f8f8f8;
+  margin-left: 48rpx;
+  padding-left: 48rpx;
 }
-
+.btn-one {
+  width: 630rpx;
+}
+.btn-two-third {
+  width: 436rpx;
+}
+.btn-half {
+  width: 333rpx;
+  margin-right: 22rpx;
+}
+.btn-one-third {
+  width: 217rpx;
+  margin-right: 28rpx;
+}

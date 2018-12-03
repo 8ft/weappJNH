@@ -1,91 +1,85 @@
-/* pages/index/list/index.wxss */
-
-page{
-  background:#fff;
-  padding-top:80rpx;
+page {
+  background: #fff;
+  padding-top: 80rpx;
 }
-
-.projects{
+.projects {
   padding: 0 40rpx;
 }
-
-.filter{
+.filter {
   position: fixed;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   height: 80rpx;
-  width:100%;
-  top:0;
-  left:0;
-  background:#fff;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: #fff;
 }
-.filter-item{
-  flex:1;
+.filter-item {
+  flex: 1;
   text-align: center;
-  font-size:28rpx;
-  color:#666666;
+  font-size: 28rpx;
+  color: #666;
 }
-.filter-item.on{
-  color:#0083FF;
-}
-.filter-item view{
+.filter-item view {
   position: relative;
   display: inline-block;
   vertical-align: middle;
-  width:28rpx;
+  width: 28rpx;
 }
-.filter-item view::after{
-  position:absolute;
-  content:'';
-  width:0;
-  height:0;
-  left:18rpx;
-  bottom:50%;
-  margin-bottom:-1.25rpx;
-  border:10rpx solid transparent;
-  border-bottom:0;
-  border-top-color:#fff;
+.filter-item view::after {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  left: 18rpx;
+  bottom: 50%;
+  margin-bottom: -1.25rpx;
+  border: 10rpx solid transparent;
+  border-bottom: 0;
+  border-top-color: #fff;
 }
-.filter-item view::before{
-  position:absolute;
-  content:'';
-  width:0;
-  height:0;
-  left:18rpx;
-  bottom:50%;
-  margin-bottom:-2.25rpx;
-  border:10rpx solid transparent;
-  border-bottom:0;
-  border-top-color:#666666;
+.filter-item view::before {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  left: 18rpx;
+  bottom: 50%;
+  margin-bottom: -2.25rpx;
+  border: 10rpx solid transparent;
+  border-bottom: 0;
+  border-top-color: #666;
 }
-
-.filter-item.on view::after{
-  position:absolute;
-  content:'';
-  width:0;
-  height:0;
-  left:18rpx;
-  top:50%;
-  margin-top:-2.25rpx;
-  border:10rpx solid transparent;
-  border-top:0;
-  border-bottom-color:#fff;
+.filter-item.on {
+  color: #0083ff;
 }
-.filter-item.on view::before{
-  position:absolute;
-  content:'';
-  width:0;
-  height:0;
-  left:18rpx;
-  top:50%;
-  margin-top:-4.25rpx;
-  border:10rpx solid transparent;
-  border-top:0;
-  border-bottom-color:#0083FF;
+.filter-item.on view::after {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  left: 18rpx;
+  top: 50%;
+  margin-top: -2.25rpx;
+  border: 10rpx solid transparent;
+  border-top: 0;
+  border-bottom-color: #fff;
 }
-
-.types{
+.filter-item.on view::before {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  left: 18rpx;
+  top: 50%;
+  margin-top: -4.25rpx;
+  border: 10rpx solid transparent;
+  border-top: 0;
+  border-bottom-color: #0083ff;
+}
+.types {
   background: #fff;
   line-height: 80rpx;
 }

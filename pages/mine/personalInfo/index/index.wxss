@@ -1,215 +1,201 @@
-/* pages/mine/personalInfo/index.wxss */
-page{
-  padding-bottom:150rpx;
+page {
+  padding-bottom: 150rpx;
 }
-
-.tip{
+.tip {
   height: 64rpx;
   line-height: 64rpx;
   font-size: 24rpx;
-  color:#0083FF;
-  background: rgba(0,131,255,.1);
+  color: #0083FF;
+  background: rgba(0, 131, 255, 0.1);
   text-indent: 40rpx;
 }
-.tip .iconfont{
+.tip .iconfont {
   font-size: 30rpx;
-  margin-right:11rpx;
+  margin-right: 11rpx;
 }
-
 .userinfo {
   position: relative;
-  background:#fff;
+  background: #fff;
   padding: 46rpx 40rpx;
 }
-.nickName{
+.userinfo .nickName {
   font-size: 48rpx;
-  color:#333333;
+  color: #333333;
   display: flex;
   align-items: center;
 }
-.nickName text{
+.userinfo .nickName text {
   display: block;
   max-width: 50%;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-
-.state{
+.userinfo .state {
   line-height: 36rpx;
-  padding:0 20rpx;
+  padding: 0 20rpx;
   text-align: center;
   font-size: 22rpx;
-  color:#fff;
-  background:#fa5a32;
+  color: #fff;
+  background: #fa5a32;
   border-radius: 99rpx;
   margin-left: 10rpx;
 }
-.userinfo navigator{
+.userinfo navigator {
   text-align: center;
   margin-top: 30rpx;
-  margin-bottom:45rpx;
-  color:#666666;
+  margin-bottom: 45rpx;
+  color: #666666;
   border-radius: 8rpx;
-  background: #F2F2F2;
-  width:114rpx;
+  background: #f2f2f2;
+  width: 114rpx;
   height: 50rpx;
   line-height: 50rpx;
-  font-size:26rpx;
+  font-size: 26rpx;
 }
-.avatar {
+.userinfo .avatar {
   position: absolute;
-  top:24rpx;
-  right:40rpx;
+  top: 24rpx;
+  right: 40rpx;
   width: 140rpx;
   height: 140rpx;
   border-radius: 50%;
 }
-.userinfo .info{
+.userinfo .info {
   position: relative;
-  padding-left:240rpx;
-  font-size:28rpx;
+  padding-left: 240rpx;
+  font-size: 28rpx;
   line-height: 58rpx;
-  color:#666666;
-  white-space:pre-wrap;
-  word-break:break-all;
+  color: #666666;
+  white-space: pre-wrap;
+  word-break: break-all;
 }
-.userinfo .info text{
+.userinfo .info text {
   position: absolute;
-  left:0;
-  top:0;
+  left: 0;
+  top: 0;
 }
-
-
-.place-holder{
-  color:#999999;
+.place-holder {
+  color: #999999;
   font-size: 24rpx;
   margin-top: 30rpx;
 }
-
-.part{
+.part {
   padding-left: 40rpx;
   box-sizing: border-box;
   background: #fff;
-  margin-top:20rpx;
+  margin-top: 20rpx;
   padding-bottom: 40rpx;
 }
-
-.part .title{
-  color:#333333;
+.part .title {
+  color: #333333;
   font-size: 30rpx;
   line-height: 90rpx;
 }
-
-.part .title navigator{
-  color:#0083FF;
+.part .title navigator {
+  color: #0083FF;
   float: right;
-  margin-right:40rpx;
+  margin-right: 40rpx;
 }
-
-.detail{
+.detail {
   display: block;
-  color:#666666;
+  color: #666666;
   font-size: 28rpx;
-  line-height:48rpx;
-  padding-right:40rpx;
+  line-height: 48rpx;
+  padding-right: 40rpx;
   padding-top: 30rpx;
-  text-overflow:clip;
+  text-overflow: clip;
 }
-
-.skills{
+.skills {
   margin-top: 30rpx;
 }
-.skill{
+.skills .skill {
   display: inline-block;
-  padding:0 29rpx;
+  padding: 0 29rpx;
   line-height: 64rpx;
-  background: #F5F5F5;
-  color:#999999;
+  background: #f5f5f5;
+  color: #999999;
   margin-right: 20rpx;
   margin-bottom: 20rpx;
 }
-.skill.active{
-  background: #EAF3FF;
-  color:#0083FF;
+.skills .skill.active {
+  background: #eaf3ff;
+  color: #0083FF;
 }
-
-.works{
+.works {
   position: relative;
   box-sizing: border-box;
-  width:670rpx;
-  padding:30rpx 30rpx 50rpx;
-  border:1px solid rgba(229,229,229,.5);
+  width: 670rpx;
+  padding: 30rpx 30rpx 50rpx;
+  border: 1rpx solid rgba(229, 229, 229, 0.5);
   margin-bottom: 20rpx;
 }
-.works image{
-  width:100%;
-  height: 332rpx;
-  margin-bottom:32rpx;
+.works image {
+  width: 100%;
+  height: 3 32rpx;
+  margin-bottom: 32rpx;
 }
-.works .name{
-  color:#333333;
+.works .name {
+  color: #333333;
   font-size: 34rpx;
   line-height: 34rpx;
-  margin-bottom:20rpx;
+  margin-bottom: 20rpx;
 }
-.works .desc{
+.works .desc {
   display: block;
   font-size: 28rpx;
-  color:#666666;
+  color: #666666;
   line-height: 40rpx;
   margin-bottom: 30rpx;
 }
-.works .url{
-  font-size: 24rpx;
-  color:#999999;
-  margin-bottom: 27rpx;
-}
-.works .type{
+.works .url {
   font-size: 24rpx;
   color: #999999;
+  margin-bottom: 27rpx;
 }
-.works .iconfont{
-  margin-right:18rpx;
+.works .type {
+  font-size: 24rpx;
+  color: #999;
 }
-
-.works .btn{
-  width:120rpx;
+.works .iconfont {
+  margin-right: 18rpx;
+}
+.works .btn {
+  width: 120rpx;
   height: 54rpx;
   line-height: 54rpx;
   font-size: 24rpx;
   background: #fff;
-  border:1rpx solid #FF6666;
-  color:#FF6666;
+  border: 1rpx solid #f66;
+  color: #f66;
   position: absolute;
-  bottom:32rpx;
-  right:180rpx;
+  bottom: 32rpx;
+  right: 180rpx;
   text-align: center;
 }
-.works .edit{
+.works .edit {
   border-color: #0083FF;
   background: #0083FF;
-  color:#fff;
-  right:30rpx;
+  color: #fff;
+  right: 30rpx;
 }
-
-.action-bar{
+.action-bar {
   position: fixed;
-  bottom:0;
-  left:0;
-  background:#fff;
-  width:100%;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  width: 100%;
   height: 150rpx;
   display: flex;
   align-items: center;
 }
-.action-bar button{
-  margin:0 auto;
-  width:630rpx;
-  height:96rpx;
-  background:rgba(0,131,255,1);
-  border-radius:4rpx;
-  color:#fff;
+.action-bar button {
+  margin: 0 auto;
+  width: 630rpx;
+  height: 96rpx;
+  background: #0083ff;
+  border-radius: 4rpx;
+  color: #fff;
   font-size: 32rpx;
   line-height: 96rpx;
 }

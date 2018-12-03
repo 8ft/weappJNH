@@ -1,127 +1,121 @@
-/* pages/mine/personalInfo/detail/index.wxss */
-page{
+page {
   background: #fff;
 }
-textarea{
-  width:100%;
+textarea {
+  width: 100%;
   box-sizing: border-box;
   padding: 24rpx 40rpx;
   background: #fff;
   line-height: 48rpx;
 }
-
-.placeholder{
+.placeholder {
   position: absolute;
-  font-size:28rpx;
+  font-size: 28rpx;
   font-weight: 400;
-  top:34rpx;
-  left:40rpx;
-  right:40rpx;
-  color:#ccc;
+  top: 34rpx;
+  left: 40rpx;
+  right: 40rpx;
+  color: #ccc;
 }
-
-.demo-switch,.num{
+.demo-switch,
+.num {
   position: absolute;
   height: 30rpx;
   line-height: 30rpx;
-  bottom:195rpx;
-  font-size:28rpx;
-  color:#666666;
+  bottom: 195rpx;
+  font-size: 28rpx;
+  color: #666666;
 }
-
-.demo-switch{
-  left:40rpx;
+.num {
+  right: 40rpx;
 }
-.domo-switch .iconfont{
+.demo-switch {
+  left: 40rpx;
+}
+.demo-switch .iconfont {
   font-size: 28rpx;
   margin-right: 8rpx;
 }
-
-.num{
-  right:40rpx;
-}
-
-.demo{
+.demo {
   position: fixed;
-  width:100%;
-  height:100%;
-  top:0;
-  left:0;
-  z-index:3;
-  background: rgba(0,0,0,.5);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
 }
-.box{
-  margin:0 auto;
+.box {
+  margin: 0 auto;
 }
-.con{
-  width:645rpx;
+.con {
+  width: 645rpx;
   box-sizing: border-box;
   padding: 32rpx 42rpx;
   background: #fff;
   border-radius: 16rpx;
 }
-.con cover-view{
+.con cover-view {
   display: block;
 }
-.title{
+.title {
   text-align: center;
-  font-size:32rpx;
-  color:#333333;
+  font-size: 32rpx;
+  color: #333333;
 }
-.sub-title{
+.sub-title {
   position: relative;
-  margin-top:40rpx;
-  margin-bottom:10rpx;
-  color:#333333;
+  margin-top: 40rpx;
+  margin-bottom: 10rpx;
+  color: #333333;
   line-height: 30rpx;
 }
-.point{
+.point {
   display: block;
-  width:16rpx;
-  height:16rpx;
+  width: 16rpx;
+  height: 16rpx;
   position: absolute;
-  left:0;
-  top:7rpx;
-  background:#0083FF;
+  left: 0;
+  top: 7rpx;
+  background: #0083FF;
   border-radius: 50%;
 }
-.p{
-  font-size:28rpx;
-  color:#666666;
+.p {
+  font-size: 28rpx;
+  color: #666666;
   line-height: 40rpx;
-  white-space:pre-line;
+  white-space: pre-line;
   margin-bottom: 20rpx;
 }
-.hide-demo{
-  border:1px solid #fff;
-  background:transparent;
+.hide-demo {
+  border: 1px solid #fff;
+  background: transparent;
   border-radius: 50%;
-  width:60rpx;
+  width: 60rpx;
   line-height: 54rpx;
-  font-size:32rpx;
-  margin:42rpx auto 0;
-  color:#fff;
+  font-size: 32rpx;
+  margin: 42rpx auto 0;
+  color: #fff;
 }
-
-.action-bar{
+.action-bar {
   position: absolute;
-  bottom:0;
-  left:0;
-  background:#fff;
-  width:100%;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  width: 100%;
   height: 150rpx;
   display: flex;
   align-items: center;
 }
-.action-bar button{
-  margin:0 auto;
-  width:630rpx;
-  height:96rpx;
-  background:rgba(0,131,255,1);
-  border-radius:4rpx;
-  color:#fff;
+.action-bar button {
+  margin: 0 auto;
+  width: 630rpx;
+  height: 96rpx;
+  background: #0083ff;
+  border-radius: 4rpx;
+  color: #fff;
   font-size: 32rpx;
   line-height: 96rpx;
 }

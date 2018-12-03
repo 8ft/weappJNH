@@ -1,79 +1,70 @@
-/* components/project/card/card.wxss */
-.project{
-  display:flex;
+.project {
+  display: flex;
   align-items: center;
-  padding:35rpx 0 36rpx;
-  border-bottom: 1px solid rgba(229,229,229,.5);
+  padding: 35rpx 0 36rpx;
+  border-bottom: 1px solid rgba(229, 229, 229, 0.5);
   color: #999;
 }
-
-.info{
-  width:530rpx;
+.info {
+  width: 530rpx;
 }
-
-.apply{
-  width:140rpx;
+.apply {
+  width: 140rpx;
   text-align: center;
 }
-.apply button{
+.apply button {
   font-size: 26rpx;
-  width:140rpx;
-  height:60rpx;
+  width: 140rpx;
+  height: 60rpx;
   line-height: 60rpx;
-  background:rgba(0,131,255,1);
-  border-radius:6px;
-  color:#fff;
-  margin-bottom:20rpx;
+  background: #0083ff;
+  border-radius: 6px;
+  color: #fff;
+  margin-bottom: 20rpx;
 }
-.apply button.myself{
-  background:#FF8924;
-
+.apply button.myself {
+  background: #ff8924;
 }
-
-.title{
-  display:block;
-  width:90%;
+.title {
+  display: block;
+  width: 90%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-size:34rpx;
+  font-size: 34rpx;
   color: black;
-  font-weight:600;
+  font-weight: 600;
 }
-
-.tags{
-  margin:24rpx 0 16rpx;
+.tags {
+  margin: 24rpx 0 16rpx;
 }
-.tags label{
+.tags label {
   display: inline-block;
-  padding:0 12rpx;
+  padding: 0 12rpx;
   margin: 0 12rpx 12rpx 0;
-  font-size:22rpx;
-  line-height:40rpx;
-  background: #F5F5F5;
+  font-size: 22rpx;
+  line-height: 40rpx;
+  background: #f5f5f5;
 }
-.tags .type{
-    color: #0083FF;
-    background: rgba(0, 131, 255, 0.1);
+.tags .type {
+  color: #0083ff;
+  background: rgba(0, 131, 255, 0.1);
 }
-
-.price{
-  font-size:30rpx;
-  color: #FC5B31;
-  font-weight:600;
+.price {
+  font-size: 30rpx;
+  color: #fc5b31;
+  font-weight: 600;
 }
-
-.read{
-  font-size:24rpx;
-  margin-left:20rpx;
-  padding-left:20rpx;
+.read {
+  font-size: 24rpx;
+  margin-left: 20rpx;
+  padding-left: 20rpx;
   display: inline-block;
   line-height: 17rpx;
-  border-left:1px solid rgba(204,204,204,1);
+  border-left: 1px solid #cccccc;
 }
-
-.hot{
-  font-size:22rpx;
-  line-height:22rpx;
-  color:#BBBBBB;
+.hot {
+  font-size: 22rpx;
+  line-height: 22rpx;
+  color: #bbb;
 }

@@ -1,28 +1,24 @@
-/* pages/project/apply/agreement/index.wxss */
-page{
+page {
   box-sizing: border-box;
   padding: 38rpx 40rpx;
-  background: #ffffff;
+  background: #fff;
   text-align: justify;
   font-size: 28rpx;
-  line-height:48rpx;
+  line-height: 48rpx;
   color: #666;
 }
-
-.title{
-  font-size:28rpx;
-  line-height:48rpx;
+.title {
+  font-size: 28rpx;
+  line-height: 48rpx;
   color: #333;
   font-weight: bold;
 }
-
-.sub-title{
+.sub-title {
   font-size: 30rpx;
-  line-height:42rpx;
+  line-height: 42rpx;
   color: #333;
   margin: 40rpx 0;
 }
-
 .bold {
   color: #333;
   font-weight: bold;

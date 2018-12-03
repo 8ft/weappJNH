@@ -1,51 +1,39 @@
-/* components/tabs/tabs.wxss */
-
-.yt-tabs{
+.yt-tabs {
   position: relative;
-  display:flex;
+  display: flex;
   align-items: center;
-  border-bottom:1px solid rgba(229,229,229,.5);
-  height:100rpx; 
-  padding:10rpx;
+  border-bottom: 1px solid rgba(229, 229, 229, 0.5);
+  height: 100rpx;
+  padding: 10rpx;
   line-height: 80rpx;
-  background:#fff;
-  box-sizing:border-box;
-  font-size:36rpx;
-  color:#666666;
+  background: #fff;
+  box-sizing: border-box;
+  font-size: 36rpx;
+  color: #666;
 }
-
-.yt-tabs.fixed{
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
+.yt-tabs.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 9999;
 }
-
-.yt-tab{
-  /* flex:1; */
+.yt-tab {
   padding: 0 53rpx;
   text-align: center;
 }
-
-.yt-tab text{
+.yt-tab text {
   display: inline-block;
   height: 100%;
   font-weight: 400;
-  /* transition:all .3s;
-  -webkit-transition:all .3s; */
 }
-
-.yt-tab text.active{
-  color:#0083FF;
-  font-weight:bold;
-  /* transform: scale(1.2);
-  -webkit-transform: scale(1.2); */
+.yt-tab text.active {
+  color: #0083ff;
+  font-weight: bold;
 }
-
-.yt-tab-underline{
-  position:absolute;
-  left:0;
-  bottom:0rpx;
-  border-bottom:6rpx solid #0083FF;
+.yt-tab-underline {
+  position: absolute;
+  left: 0;
+  bottom: 0rpx;
+  border-bottom: 6rpx solid #0083ff;
 }
