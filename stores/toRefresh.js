@@ -2,20 +2,20 @@ const extendObservable = require('../libs/mobx').extendObservable;
 
 const pages = {
   'login': [
-    'project/index/index',
-    'project/mine/index',
-    'project/publish/index/index',
-    'project/list/index'
+    'index',
+    'work',
+    'publish',
+    'project_list'
   ],
   'logout': [
-    'project/index/index',
-    'project/publish/index/index'
+    'index',
+    'publish'
   ],
   'applied': [
-    'project/index/index',
-    'project/mine/index',
-    'project/list/index',
-    'project/detail/index'
+    'index',
+    'work',
+    'project_list',
+    'project_detail'
   ]
 }
 
@@ -25,23 +25,24 @@ const toRefresh = function () {
   });
 
   this.updateList = scene=>{
-    pages[scene].forEach(url => {
-      this.add(url)
+    pages[scene].forEach(page => {
+      this.add(page)
     })
   }
 
-  this.add = url => {
-    if(this.list.indexOf(url)===-1){
-      this.list.push(url)
+  this.add = page => {
+    if(this.list.indexOf(page)===-1){
+      this.list.push(page)
     }
   }
 
-  this.refresh = (url,fn) =>{
-    const index = this.list.indexOf(url)
-    if (index > -1){
-      fn()
+  this.refresh = (page,callBack) =>{
+    const index = this.list.indexOf(page)
+    const exist=index > -1
+    if (exist){
       this.list.splice(index, 1)
     }
+    callBack(exist)
   }
 }
 

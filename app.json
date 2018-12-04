@@ -1,34 +1,87 @@
 {
   "pages": [
-    "pages/project/index/index",
-    "pages/project/list/index",
-    "pages/project/detail/index",
-    "pages/project/apply/index/index",
-    "pages/project/apply/agreement/index",
-    "pages/project/publish/index/index",
-    "pages/project/publish/desc/index",
-    "pages/project/publish/skills/index",
-    "pages/project/publish/success/index",
-    "pages/common/logs/index",
-    "pages/common/webview/index",
+    "pages/tabBar/project/index",
+    "pages/tabBar/work/index",
+    "pages/tabBar/publish/index",
+    "pages/tabBar/mine/index",
     "pages/user/wxLogin/index",
     "pages/user/bind/index",
     "pages/user/signin/index",
-    "pages/mine/index/index",
-    "pages/mine/personalInfo/index/index",
-    "pages/mine/personalInfo/base/index/index",
-    "pages/mine/personalInfo/base/jobTypes/index",
-    "pages/mine/personalInfo/base/city/index",
-    "pages/mine/personalInfo/detail/index",
-    "pages/mine/personalInfo/skills/index",
-    "pages/mine/personalInfo/works/index",
-    "pages/mine/personalInfo/success/index",
-    "pages/project/mine/index",
-    "pages/expert/applicant/index",
-    "pages/expert/index/index",
-    "pages/mine/wallet/index",
-    "pages/mine/tradeDetail/index"
+    "pages/tabBar/discover/index"
   ],
+  "subpackages": [
+    {
+      "root": "pages/project",
+      "pages": [
+        "list/index",
+        "detail/index",
+        "apply/index/index",
+        "apply/agreement/index"
+      ]
+    },
+    {
+      "root": "pages/publish",
+      "pages": [
+        "desc/index",
+        "skills/index",
+        "success/index"
+      ]
+    },
+    {
+      "root": "pages/mine",
+      "pages": [
+        "personalInfo/index/index",
+        "personalInfo/base/index/index",
+        "personalInfo/base/jobTypes/index",
+        "personalInfo/base/city/index",
+        "personalInfo/detail/index",
+        "personalInfo/skills/index",
+        "personalInfo/works/index",
+        "personalInfo/success/index",
+        "wallet/index",
+        "tradeDetail/index"
+      ]
+    },
+    {
+      "root": "pages/expert",
+      "pages": [
+        "index/index",
+        "applicant/index"
+      ]
+    },
+    {
+      "root": "pages/common",
+      "pages": [
+        "webview/index"
+      ]
+    }
+  ],
+  "preloadRule": {
+    "pages/tabBar/project/index": {
+      "network": "all",
+      "packages": [
+        "pages/project"
+      ]
+    },
+    "pages/tabBar/publish/index": {
+      "network": "all",
+      "packages": [
+        "pages/publish"
+      ]
+    },
+    "pages/tabBar/mine/index": {
+      "network": "all",
+      "packages": [
+        "pages/mine"
+      ]
+    },
+    "pages/project/detail/index": {
+      "network": "all",
+      "packages": [
+        "pages/expert"
+      ]
+    }
+  },
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
@@ -41,25 +94,31 @@
     "list": [
       {
         "text": "项目",
-        "pagePath": "pages/project/index/index",
+        "pagePath": "pages/tabBar/project/index",
         "iconPath": "./assets/img/tabbar/projects.png",
         "selectedIconPath": "./assets/img/tabbar/projects_fill.png"
       },
       {
         "text": "工作",
-        "pagePath": "pages/project/mine/index",
+        "pagePath": "pages/tabBar/work/index",
         "iconPath": "./assets/img/tabbar/work.png",
         "selectedIconPath": "./assets/img/tabbar/work_fill.png"
       },
       {
         "text": "发布",
-        "pagePath": "pages/project/publish/index/index",
+        "pagePath": "pages/tabBar/publish/index",
         "iconPath": "./assets/img/tabbar/publish.png",
         "selectedIconPath": "./assets/img/tabbar/publish_fill.png"
       },
       {
+        "text": "发现",
+        "pagePath": "pages/tabBar/discover/index",
+        "iconPath": "./assets/img/tabbar/discover.png",
+        "selectedIconPath": "./assets/img/tabbar/discover_fill.png"
+      },
+      {
         "text": "我的",
-        "pagePath": "pages/mine/index/index",
+        "pagePath": "pages/tabBar/mine/index",
         "iconPath": "./assets/img/tabbar/mine.png",
         "selectedIconPath": "./assets/img/tabbar/mine_fill.png"
       }

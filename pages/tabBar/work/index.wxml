@@ -1,9 +1,9 @@
 <!--pages/project/mine/index.wxml-->
 
-<block wx:if="{{hasLogin}}">
+<block wx:if="{{props.stores.account.logged_in}}">
 
   <view class='big-title'>我的工作</view>
-  <tabs tabs="{{['我的项目','申请项目']}}" bindchange="switchList"></tabs>
+  <tabs tabs="{{['我的项目','申请项目']}}" active="{{typeIndex}}" bindchange="switchList"></tabs>
 
   <scroll-view class='types' scroll-x="true">
     <!--我的项目-->
@@ -61,7 +61,7 @@
             <text>{{item.projectCycle}}完成</text>
             <text class='publish-time'>已申请：{{item.applyNum}}人</text>
           </view>
-          <text class='price'>{{item.projectBudget}}元</text>
+          <text class='price'>{{item.projectBudget}}</text>
           <view class="status{{item.projectState}}">{{item.projectStateCn}}</view>
         </navigator>
       </scroll-view>

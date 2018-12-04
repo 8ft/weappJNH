@@ -1,11 +1,12 @@
-// pages/index/list/index.js
-
-//获取应用实例
 const app = getApp()
-//引入async await依赖库
 const regeneratorRuntime = require('../../../libs/regenerator-runtime.js')
+const observer = require('../../../libs/observer').observer;
 
-Page({
+Page(observer({
+  props: {
+    stores: app.stores
+  },
+
   data: {
     dicts: [],
     time: [
@@ -45,9 +46,17 @@ Page({
         typeIndex: parseInt(typeIndex)
       })
     }
+  },
 
-    await this.getDicts()
-    this.getProjects()
+  onShow:function(){
+    this.props.stores.toRefresh.refresh('project_list',async(exist)=>{
+      if(this.data.dicts.length===0){
+        await this.getDicts()
+        this.getProjects()
+      } else if(exist){
+        this.refresh()
+      }
+    })
   },
 
   onPullDownRefresh: function () {
@@ -206,4 +215,4 @@ Page({
       filter: ''
     })
   }
-})
+}))

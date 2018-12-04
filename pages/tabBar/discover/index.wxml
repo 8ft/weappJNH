@@ -1,0 +1,6 @@
+<view class="switch">
+    <view class="active">博客</view>
+    <view>人才库</view>
+</view>
+
+

@@ -99,7 +99,7 @@ textarea {
   height: 100%;
   top: 0;
   left: 0;
-  z-index: 3;
+  z-index: 8;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;

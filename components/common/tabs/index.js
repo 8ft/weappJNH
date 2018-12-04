@@ -1,13 +1,5 @@
 // components/tabs/tabs.js
 Component({
-  ready: function () {
-    const animation = wx.createAnimation({
-      duration: 300,
-      timingFunction: 'ease',
-    })
-    this.animation = animation
-    this.selectTab(0)
-  },
   properties: {
     active:{
       type:Number,
@@ -22,6 +14,23 @@ Component({
   data: {
     animationData:null
   },
+
+  lifetimes: {
+    ready: function () {
+      const animation = wx.createAnimation({
+        duration: 300,
+        timingFunction: 'ease',
+      })
+      this.animation = animation
+    }
+  },
+
+  pageLifetimes: {
+    show: function () {
+      this.selectTab(this.properties.active)
+    }
+  },
+
   methods: {
     tabClick: function (e) {
       let index = e.currentTarget.dataset.index

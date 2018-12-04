@@ -1,0 +1,11 @@
+@import '../../../assets/less/var'; 
+
+page{background: #fff;}
+
+.switch{padding-bottom:17rpx;background:#fff;text-align: center;border-bottom: @border;
+    view{width:200rpx;height: 60rpx;display: inline-block;line-height: 60rpx;border: 1rpx solid @lightGray;color:@black;
+        &:nth-of-type(1){border-radius:6rpx 0 0 6rpx; }
+        &:nth-of-type(2){border-radius:0 6rpx 6rpx 0; }
+        &.active{background: @darkBlue;border-color:@darkBlue;color:#fff;}
+    }
+}

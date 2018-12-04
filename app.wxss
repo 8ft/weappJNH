@@ -296,12 +296,3 @@ button::after {
 .border-t {
   border-top: 1rpx solid rgba(229, 229, 229, 0.5);
 }
-.topFloor {
-  z-index: 10;
-}
-.middleFloor {
-  z-index: 9;
-}
-.bottomFloor {
-  z-index: 8;
-}

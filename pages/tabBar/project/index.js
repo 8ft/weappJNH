@@ -1,4 +1,3 @@
-//index.js
 const app = getApp()
 const regeneratorRuntime = require('../../../libs/regenerator-runtime.js')
 const observer = require('../../../libs/observer').observer;
@@ -22,14 +21,16 @@ Page(observer({
    nomore: false
   },
 
-  onShow:async function(){
-    if(this.data.banners===null){
-      this.getBanner()
-      await this.getProjectTypes()
-      this.getProjects()
-    } else{
-      this.props.stores.toRefresh.refresh('project/index/index',this.refresh)
-    }
+  onShow:function(){
+    this.props.stores.toRefresh.refresh('index',async(exist)=>{
+      if(this.data.banners===null){
+        this.getBanner()
+        await this.getProjectTypes()
+        this.getProjects()
+      }else if(exist){
+        this.refresh()
+      }
+    })
   },
 
   onPullDownRefresh:function(){

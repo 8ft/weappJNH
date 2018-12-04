@@ -1,13 +1,13 @@
-// pages/project/publish/index.js
-
-//获取应用实例
 const app = getApp()
-//引入async await依赖库
-const regeneratorRuntime = require('../../../../libs/regenerator-runtime.js')
+const regeneratorRuntime = require('../../../libs/regenerator-runtime.js')
+const observer = require('../../../libs/observer').observer;
 
-Page({
+Page(observer({
+  props: {
+    stores: app.stores
+  },
+
   data: {
-    hasLogin: false,
     dicts:[],
     typeIndex:0,
     subTypeIndex:0,
@@ -26,24 +26,19 @@ Page({
     desc:'',
     showCollector:false
   },
-  
-  onLoad: function (options) {
-    this.getDicts()
-  },
    
   onShow:function(){
-    const user = wx.getStorageSync('user')
-    const hasLogin = (!user || user.expired) ? false : true
-    this.setData({
-      hasLogin: hasLogin
-    })
-
-    if (hasLogin) {
-      this.setData({
-        needsSkillsCn: app.globalData.publishDataCache.needSkillsCn.join('|'),
-        desc: app.globalData.publishDataCache.desc.content
+      this.props.stores.toRefresh.refresh('publish',(exist)=>{
+        if(this.data.dicts.length===0){
+          this.getDicts()
+        }else if(exist){
+          this.refresh()
+        }
+        this.setData({
+          needsSkillsCn: app.globalData.publishDataCache.needSkillsCn.join('|'),
+          desc: app.globalData.publishDataCache.desc.content
+        })
       })
-    }
   },
 
   getDicts:async function(){
@@ -69,7 +64,7 @@ Page({
       })
     }else{
       wx.navigateTo({
-        url: '/pages/project/publish/skills/index',
+        url: '/pages/publish/skills/index',
       })
     }
   },
@@ -194,7 +189,7 @@ Page({
         })
       }else{
         wx.navigateTo({
-          url: `/pages/project/publish/success/index?no=${res.data.projectNo}`,
+          url: `/pages/publish/success/index?no=${res.data.projectNo}`,
         })
       }
     }
@@ -232,4 +227,4 @@ Page({
     })
   }
 
-})
+}))

@@ -4,16 +4,16 @@ const util = require('./utils/util.js')
 const stores= require('./stores/index')
 
 App({
-  stores: stores,
-  request: request,
-  util: util,
-
   onLaunch:function(){
     let user = wx.getStorageSync('user')
     if(user){
       this.stores.account.logged_in=true
     }
   },
+
+  stores: stores,
+  request: request,
+  util: util,
 
   globalData: {
     userInfo:null,

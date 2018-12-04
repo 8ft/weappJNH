@@ -1,4 +1,3 @@
-//index.js
 const app = getApp()
 const regeneratorRuntime = require('../../../libs/regenerator-runtime.js')
 const observer = require('../../../libs/observer').observer;

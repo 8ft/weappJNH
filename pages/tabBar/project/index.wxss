@@ -5,7 +5,7 @@ swiper {
   width: 670rpx;
   height: 260rpx;
   margin: 24rpx auto;
-  background: #4DB2FF;
+  background: #4db2ff;
   border-radius: 10rpx;
 }
 swiper image {
@@ -28,7 +28,7 @@ swiper image {
 .types text {
   display: block;
   font-size: 24rpx;
-  color: #666666;
+  color: #666;
   font-weight: 400;
 }
 .projects {
@@ -38,7 +38,7 @@ swiper image {
   display: flex;
   align-items: center;
   font-size: 36rpx;
-  color: #333333;
+  color: #333;
   line-height: 36rpx;
   margin: 62rpx 0 17rpx;
 }
@@ -53,5 +53,5 @@ swiper image {
   flex: 1;
   text-align: right;
   font-size: 28rpx;
-  color: #666666;
+  color: #666;
 }

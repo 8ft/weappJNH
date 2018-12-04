@@ -1,11 +1,12 @@
-// pages/project/apply/index.js
-
-//获取应用实例
 const app = getApp()
-//引入async await依赖库
 const regeneratorRuntime = require('../../../../libs/regenerator-runtime.js')
+const observer = require('../../../../libs/observer').observer;
 
-Page({
+Page(observer({
+  props: {
+    stores: app.stores
+  },
+
   data: {
     id:'',
     budget:'',
@@ -90,7 +91,8 @@ Page({
         title: '发送成功',
         icon: 'none'
       })
+      this.props.stores.toRefresh.updateList('applied')
       wx.navigateBack()
     }
   }
-})
+}))

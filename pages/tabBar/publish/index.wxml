@@ -1,5 +1,5 @@
 <!--pages/project/publish/index.wxml-->
-<block wx:if="{{hasLogin}}">
+<block wx:if="{{props.stores.account.logged_in}}">
   <view class='big-title'>发布项目</view>
   <view class='info types need clearfix'>
     <text class='name'>项目类型</text>
@@ -32,7 +32,7 @@
 
   <view class='info need'>
     <text class='name'>项目描述</text>
-    <navigator class='input arrow-right' url="/pages/project/publish/desc/index" hover-class='none'>{{desc}}</navigator>
+    <navigator class='input arrow-right' url="/pages/publish/desc/index" hover-class='none'>{{desc}}</navigator>
   </view>
 
   <view class='info need'>

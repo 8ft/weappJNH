@@ -1,10 +1,11 @@
-// pages/project/detail/index.js
-//获取应用实例
 const app = getApp()
-//引入async await依赖库
 const regeneratorRuntime = require('../../../libs/regenerator-runtime.js')
+const observer = require('../../../libs/observer').observer;
 
-Page({
+Page(observer({
+  props: {
+    stores: app.stores
+  },
 
   data: {
     no:'',
@@ -33,30 +34,31 @@ Page({
     }
   },
 
-  onLoad: function (options) {
-    if (options&&options.no){
-      this.setData({
-        no: options.no
-      })
-    }
-    this.getDetail()
+  onLoad:function(options){
+    this.setData({
+      no:options.no
+    })
+  },
+
+  onShow: function () {
+    this.props.stores.toRefresh.refresh('project_detail',(exist)=>{
+      if(!this.data.detail){
+        this.getDetail()
+      }else if(exist){
+        this.getDetail()
+      }
+    })
   },
 
   onPullDownRefresh:function(){
     this.getDetail()
   },
 
-  refresh:function(){
-    this.getDetail()
-  },
-
   getDetail: async function (){
-    let projectNo=this.data.no
     let res = await app.request.post('/project/projectInfo/detail', {
-      projectNo: projectNo
+      projectNo: this.data.no
     })
     if(res.code!==0)return
-
 
     const user = wx.getStorageSync('user')
     let data = res.data,
@@ -252,4 +254,4 @@ Page({
 
   download: app.download
 
-})
+}))

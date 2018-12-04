@@ -1,15 +1,14 @@
-// pages/project/mine/index.js
-
-//获取应用实例
 const app = getApp()
-//引入async await依赖库
 const regeneratorRuntime = require('../../../libs/regenerator-runtime.js')
+const observer = require('../../../libs/observer').observer;
 
-Page({
+Page(observer({
+  props: {
+    stores: app.stores
+  },
+
   data: {
-    hasLogin:false,
     scrollViewHeight:0,
-
     typeIndex:0,
     iconName: {
       '01': 'kaifa',
@@ -88,20 +87,8 @@ Page({
   },
 
   onShow:function(){
-    const user = wx.getStorageSync('user')
-    const hasLogin = (!user || user.expired) ? false : true
-    this.setData({
-      hasLogin: hasLogin
-    })
-    if(!hasLogin&&this.data.myPublish.projects.length>0){
-      let myPublish=this.data.myPublish
-      this.setData({
-        'myPublish.currentState':0,
-        'myPublish.projects': [],
-        'myPublish.pageIndex': 1,
-        'myPublish.nomore': false
-      })
-    } else if (hasLogin && this.data.myPublish.projects.length === 0){
+    if(!this.props.stores.account.logged_in)return 
+    this.props.stores.toRefresh.refresh('work',(exist)=>{
       if (this.data.scrollViewHeight===0){
         const query = wx.createSelectorQuery()
         query.select('#projects').fields({
@@ -115,9 +102,11 @@ Page({
             }
           })
         }).exec()
+        this.getMyPublish()
+      }else if(exist){
+        this.refresh()
       }
-      this.refresh()
-    }
+    })
   },
 
   refresh:function(){
@@ -167,7 +156,7 @@ Page({
       loading:true
     })
     let myPublish = this.data.myPublish
-    if (myPublish.nomore || !this.data.hasLogin) return 
+    if (myPublish.nomore || !this.props.stores.account.logged_in) return 
     let res = await app.request.post('/project/projectInfo/myProjectList', {
       relationType:'1|3',
       projectState: myPublish.states[myPublish.currentState].dictValue,
@@ -200,7 +189,7 @@ Page({
       loading: true
     })
     let myApply = this.data.myApply
-    if (myApply.nomore||!this.data.hasLogin) return
+    if (myApply.nomore || !this.props.stores.account.logged_in) return
     let res = await app.request.post('/project/projectInfo/myProjectList', {
       relationType: 2,
       projectState: myApply.states[myApply.currentState].dictValue,
@@ -227,4 +216,4 @@ Page({
     })
   }
 
-})
+}))
